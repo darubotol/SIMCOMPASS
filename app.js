@@ -83,6 +83,8 @@ const r=solve(target,qty,initial,[],0);if(!r)return{result:null,missing:[target]
 const issues=[...new Set(r.issues)];if(budget!==null&&r.cash>budget)issues.push("Required market cash exceeds starting cash by "+(r.cash-budget).toFixed(2)+".");
 return{result:{minutes:r.time,cost:r.cash,endingCash:budget===null?null:budget-r.cash},missing:[],issues,steps:r.steps}
 }
+function challengeBuildingsSnapshot(){try{const s=JSON.parse(localStorage.getItem("simcompass.api.challenge.buildings.v1")||"null");return s&&Array.isArray(s.payload)?s:null}catch{return null}}
+function syncChallengeBuildingsSnapshot(){if(activeRealm!=="challenge")return;const snapshot=challengeBuildingsSnapshot();if(!snapshot)return;const records=snapshot.payload;const slug=s=>String(s||"").toLowerCase().replace(/\.[a-z0-9]+$/i,"").replace(/_tier\d+/g,"").replace(/[^a-z0-9]+/g," ").trim();const title=s=>s.replace(/\b\w/g,ch=>ch.toUpperCase());const groups=new Map();for(const record of records){const image=String(record.image||record.imageUrl||record.image_url||"");const file=image.split("/").pop()||"";const stem=file.replace(/\.[a-z0-9]+$/i,"").replace(/_tier\d+/g,"");const rawName=record.name||record.buildingName||record.building_name||title(stem);if(!rawName)continue;const key=slug(rawName);if(!key)continue;if(!groups.has(key))groups.set(key,{name:rawName,items:[]});groups.get(key).items.push(record)}let mapped=0;for(const group of groups.values()){const key=slug(group.name);let building=db.buildings.find(x=>slug(x.name)===key);if(!building){building={id:"challenge-api-"+key.replace(/ /g,"-"),name:group.name,level:0,slots:0,owned:true,notes:"Imported from Challenge Realm game snapshot; configure parallel slots before optimisation."};db.buildings.push(building)}building.owned=true;building.apiBuildingCount=group.items.length;building.apiSnapshotId=snapshot.id;const tiers=group.items.map(r=>{const m=String(r.image||"").match(/tier(\d+)/i);return Number(r.level||r.tier||m?.[1])||0}).filter(Boolean);if(tiers.length)building.level=Math.max(...tiers);mapped+=group.items.length}db.challengeBuildingSnapshot={id:snapshot.id,capturedAt:snapshot.capturedAt,recordCount:records.length,buildingTypes:groups.size,mappedRecords:mapped};persist();renderOwnedBuildings();const notice=$("realmModeNotice");if(notice&&activeRealm==="challenge"){const old=notice.querySelector(".snapshot-status");if(old)old.remove();const status=document.createElement("div");status.className="snapshot-status";status.innerHTML="<strong>Game snapshot imported:</strong> "+records.length+" building records across "+groups.size+" building types. Owned buildings are identified; check parallel slots before running the optimiser.";notice.appendChild(status)}}
 function renderOwnedBuildings(){
  const host=$("ownedBuildingList");if(!host)return;
  const rows=db.buildings.filter(x=>Number(x.slots)>0||x.owned===true);
@@ -140,6 +142,7 @@ async function loadGameCatalog(){
     const catalog=await response.json();
     if(!catalog||!Array.isArray(catalog.products)||!Array.isArray(catalog.recipes)||!Array.isArray(catalog.buildings))throw new Error("Catalogue format is invalid.");
     catalogCache=catalog;
+    syncChallengeBuildingsSnapshot();
     applyCatalog(db);
     persist();
     render();
