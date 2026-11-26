@@ -62,4 +62,23 @@ $("import").onchange=async e=>{try{const data=JSON.parse(await e.target.files[0]
 $("reset").onclick=()=>{if(confirm("This will delete all SIMCOMPASS data saved in this browser. Export a backup first if needed.")){db=blank();save();$("result").textContent="Workspace reset.";toast("Workspace reset")}};
 if(db.challenge){$("target").value=db.challenge.target||"";$("quantity").value=db.challenge.qty||750;$("objective").value=db.challenge.objective||"time";$("budget").value=db.challenge.budget??""}
 render();
+async function loadGameCatalog(){
+  try{
+    const response=await fetch("data/game-database.json?updated="+Date.now(),{cache:"no-store"});
+    if(!response.ok)throw new Error("Preloaded catalogue has not been published yet.");
+    const catalog=await response.json();
+    if(!catalog||!Array.isArray(catalog.products)||!Array.isArray(catalog.recipes)||!Array.isArray(catalog.buildings))throw new Error("Catalogue format is invalid.");
+    const productNames=new Set(db.products.map(x=>x.name.toLowerCase()));
+    catalog.products.forEach(p=>{if(!productNames.has(p.name.toLowerCase()))db.products.push({...p});});
+    const recipeKeys=new Set(db.recipes.map(x=>(x.output+"|"+x.building).toLowerCase()));
+    catalog.recipes.forEach(x=>{if(!recipeKeys.has((x.output+"|"+x.building).toLowerCase()))db.recipes.push({...x});});
+    const buildingNames=new Set(db.buildings.map(x=>x.name.toLowerCase()));
+    catalog.buildings.forEach(x=>{if(!buildingNames.has(x.name.toLowerCase()))db.buildings.push({...x});});
+    db.catalogMeta={realm:catalog.realm,fetchedAt:catalog.fetchedAt,source:catalog.source,counts:catalog.counts};
+    localStorage.setItem(KEY,JSON.stringify(db));
+    render();
+    toast("Game catalogue loaded: "+catalog.products.length+" products");
+  }catch(error){console.warn("SIMCOMPASS catalogue load:",error.message);}
+}
+loadGameCatalog();
 })();
