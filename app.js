@@ -69,9 +69,9 @@ if(need<=1e-8)return{time:0,cash:0,state:base,steps:used?[{kind:"stock",product,
 const choices=[];
 if(inv.price!==null&&Number.isFinite(inv.price)&&inv.price>=0&&inv.marketQty>=need){const st=clone(base);st[key]={...st[key],marketQty:inv.marketQty-need};choices.push({time:inv.lead,cash:need*inv.price,state:st,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),{kind:"market",product,qty:need,time:inv.lead,cash:need*inv.price}],issues:[]})}
 for(const recipe of db.recipes.filter(x=>String(x.output).toLowerCase()===key).slice(0,8)){
-const building=db.buildings.find(x=>String(x.name).toLowerCase()===String(recipe.building).toLowerCase()),slots=Number(building?.slots)||0;
-if(!building||slots<1)continue;
-const out=Math.max(1e-8,Number(recipe.quantity)||1),runs=Math.ceil(need/out),boost=window.SIMCOMPASS_BOOSTS?.productionMultiplier||1,ownTime=Math.ceil(runs/slots)*Number(recipe.minutes||0)/boost;
+const building=db.buildings.find(x=>String(x.name).toLowerCase()===String(recipe.building).toLowerCase()),buildingCount=Number(building?.ownedCount)||Number(building?.slots)||0;
+if(!building||buildingCount<1)continue;
+const out=Math.max(1e-8,Number(recipe.quantity)||1),runs=Math.ceil(need/out),boost=window.SIMCOMPASS_BOOSTS?.productionMultiplier||1,ownTime=Math.ceil(runs/buildingCount)*Number(recipe.minutes||0)/boost;
 let branch=clone(base),depTime=0,depCash=0,steps=[],issues=[],valid=true;
 for(const input of recipe.inputs||[]){const child=solve(input.product,Number(input.quantity)*runs,branch,[...stack,key],depth+1);if(!child){valid=false;break}branch=child.state;depTime=Math.max(depTime,child.time);depCash+=child.cash;steps.push(...child.steps);issues.push(...child.issues)}
 if(valid)choices.push({time:depTime+ownTime,cash:depCash,state:branch,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),...steps,{kind:"make",product,qty:runs*out,time:ownTime,cash:0,building:recipe.building,level:building.level,slots,runs}],issues})
@@ -87,6 +87,7 @@ function challengeBuildingsSnapshot(){try{const s=JSON.parse(localStorage.getIte
 function syncChallengeBuildingsSnapshot(){
  if(activeRealm!=="challenge")return;
  const snapshot=challengeBuildingsSnapshot();if(!snapshot)return;
+ if(db.challengeBuildingSnapshot?.id===snapshot.id&&Array.isArray(db.challengeOwnedBuildings)){renderOwnedBuildings();return}
  const records=snapshot.payload;
  const slug=s=>String(s||"").toLowerCase().replace(/\.[a-z0-9]+$/i,"").replace(/_tier\d+/g,"").replace(/[^a-z0-9]+/g," ").trim();
  const title=s=>s.replace(/\b\w/g,ch=>ch.toUpperCase());
@@ -106,18 +107,17 @@ function syncChallengeBuildingsSnapshot(){
   const candidates=[tierMatch?.[1],record.buildingLevel,record.building_level,record.level,record.tier,prior?.level];
   const level=candidates.map(v=>Number(v)).find(v=>Number.isFinite(v)&&Number.isInteger(v)&&v>0)||1;
   const catalogue=db.buildings.find(x=>slug(x.name)===slug(rawName));
-  owned.push({gameId,name:catalogue?.name||rawName,level,slots:Number(prior?.slots)||0,image,position:record.position??null});
+  owned.push({gameId,name:catalogue?.name||rawName,level,image,position:record.position??null});
  }
  db.challengeOwnedBuildings=owned;
  const groups=new Map();
  for(const item of owned){const key=slug(item.name);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(item)}
  for(const [key,items] of groups){
   let building=db.buildings.find(x=>slug(x.name)===key);
-  if(!building){building={id:"challenge-api-"+key.replace(/ /g,"-"),name:items[0].name,level:1,slots:0,owned:true};db.buildings.push(building)}
+  if(!building){building={id:"challenge-api-"+key.replace(/ /g,"-"),name:items[0].name,level:1,owned:true};db.buildings.push(building)}
   building.owned=true;
   building.ownedCount=items.length;
   building.level=Math.max(...items.map(x=>x.level));
-  building.slots=items.reduce((sum,x)=>sum+(Number(x.slots)||0),0);
   building.apiSnapshotId=snapshot.id;
  }
  db.challengeBuildingSnapshot={id:snapshot.id,capturedAt:snapshot.capturedAt,recordCount:owned.length,buildingTypes:groups.size,mappedRecords:owned.length};
@@ -126,7 +126,7 @@ function syncChallengeBuildingsSnapshot(){
  if(notice&&activeRealm==="challenge"){
   const old=notice.querySelector(".snapshot-status");if(old)old.remove();
   const status=document.createElement("div");status.className="snapshot-status";
-  status.innerHTML="<strong>Game snapshot imported:</strong> "+owned.length+" individual buildings across "+groups.size+" types. Each building's level is listed separately; enter its parallel slots if needed.";
+  status.innerHTML="<strong>Game snapshot imported:</strong> "+owned.length+" buildings across "+groups.size+" types. Buildings are grouped by type and level; counts and levels are editable.";
   notice.appendChild(status);
  }
 }
@@ -142,15 +142,32 @@ function renderOwnedBuildings(){
    groups.get(key).items.push(x);
   });
   const rows=[...groups.values()].sort((a,b)=>a.name.localeCompare(b.name)||a.level-b.level);
-  host.innerHTML=rows.length?'<div class="owned-building-groups">'+rows.map((g,i)=>'<div class="owned-building-row"><b>'+esc(g.name)+'</b><label>Level<strong>'+g.level+'</strong></label><label>Count<strong>'+g.items.length+'</strong></label><label>Slots per building<input type="number" min="0" step="1" value="'+(Number(g.items[0].slots)||0)+'" data-group-key="'+esc(g.name.toLowerCase()+"|"+g.level)+'" data-group-slots></label></div>').join("")+'</div>':'<p class="empty">No Challenge Realm building records imported yet.</p>';
-  host.querySelectorAll("[data-group-slots]").forEach(input=>input.onchange=()=>{
+  host.innerHTML=rows.length?'<div class="owned-building-groups">'+rows.map(g=>'<div class="owned-building-row"><b>'+esc(g.name)+'</b><label>Level<input type="number" min="1" step="1" value="'+g.level+'" data-group-key="'+esc(g.name.toLowerCase()+"|"+g.level)+'" data-group-level></label><label>Count<input type="number" min="0" step="1" value="'+g.items.length+'" data-group-key="'+esc(g.name.toLowerCase()+"|"+g.level)+'" data-group-count></label></div>').join("")+'</div>':'<p class="empty">No Challenge Realm building records imported yet.</p>';
+  const saveGroup=(input,field)=>{
    const group=groups.get(input.dataset.groupKey),n=Number(input.value);
-   if(!group||!Number.isInteger(n)||n<0){toast("Enter a valid whole-number slot count");renderOwnedBuildings();return}
-   group.items.forEach(x=>x.slots=n);
-   const sameName=individual.filter(x=>x.name===group.name),b=db.buildings.find(v=>v.name===group.name);
-   if(b){b.owned=true;b.ownedCount=sameName.length;b.level=Math.max(...sameName.map(x=>Number(x.level)||1));b.slots=sameName.reduce((sum,x)=>sum+(Number(x.slots)||0),0)}
+   if(!group||!Number.isInteger(n)||n<(field==="level"?1:0)){toast(field==="level"?"Level must be a positive whole number":"Count cannot be negative");renderOwnedBuildings();return}
+   if(field==="level"){
+    group.items.forEach(x=>x.level=n);
+   }else{
+    const current=group.items.length;
+    if(n<current){
+     const removeIds=new Set(group.items.slice(n).map(x=>String(x.gameId)));
+     db.challengeOwnedBuildings=db.challengeOwnedBuildings.filter(x=>!removeIds.has(String(x.gameId)));
+    }else if(n>current){
+     const template=group.items[0];
+     for(let i=current;i<n;i++)db.challengeOwnedBuildings.push({gameId:"manual-"+crypto.randomUUID(),name:group.name,level:group.level,image:template?.image||"",position:null,manual:true});
+    }
+   }
+   const all=db.challengeOwnedBuildings;
+   const sameName=all.filter(x=>x.name===group.name);
+   let b=db.buildings.find(v=>v.name===group.name);
+   if(!b){b={id:"challenge-api-"+group.name.toLowerCase().replace(/[^a-z0-9]+/g,"-"),name:group.name,owned:true};db.buildings.push(b)}
+   b.owned=true;b.ownedCount=sameName.length;b.level=Math.max(1,...sameName.map(x=>Number(x.level)||1));
+   db.challengeBuildingSnapshot={...(db.challengeBuildingSnapshot||{}),recordCount:all.length};
    persist();renderOwnedBuildings();$("saved").textContent="● SAVED";toast("Building group updated");
-  });
+  };
+  host.querySelectorAll("[data-group-level]").forEach(input=>input.onchange=()=>saveGroup(input,"level"));
+  host.querySelectorAll("[data-group-count]").forEach(input=>input.onchange=()=>saveGroup(input,"count"));
   return;
  }
  const rows=db.buildings.filter(x=>Number(x.slots)>0||x.owned===true);
