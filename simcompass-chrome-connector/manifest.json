@@ -1,28 +1,43 @@
 {
   "manifest_version": 3,
   "name": "SIMCOMPASS Read-only Game Connector",
-  "version": "1.1.1",
-  "description": "Captures the building response already loaded by Sim Companies and imports it into the Challenge Realm workspace.",
-  "permissions": ["activeTab", "storage"],
+  "version": "1.2.0",
+  "description": "Passively captures Challenge Realm building data and API response structure from requests already made by Sim Companies.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
   "action": {
     "default_title": "Import Sim Companies data into SIMCOMPASS",
     "default_popup": "popup.html"
   },
   "content_scripts": [
     {
-      "matches": ["https://www.simcompanies.com/*"],
-      "js": ["page-capture.js"],
+      "matches": [
+        "https://www.simcompanies.com/*"
+      ],
+      "js": [
+        "page-capture.js"
+      ],
       "run_at": "document_start",
       "world": "MAIN"
     },
     {
-      "matches": ["https://www.simcompanies.com/*"],
-      "js": ["content.js"],
+      "matches": [
+        "https://www.simcompanies.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_start"
     },
     {
-      "matches": ["https://darubotol.github.io/SIMCOMPASS/*"],
-      "js": ["content.js"],
+      "matches": [
+        "https://darubotol.github.io/SIMCOMPASS/*"
+      ],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_idle"
     }
   ],
