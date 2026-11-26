@@ -1,0 +1,823 @@
+[
+  {
+    "id": "P",
+    "name": "Farm",
+    "cost": {
+      "Reinforced concrete": 8,
+      "Planks": 32,
+      "Bricks": 110,
+      "Construction units": 2
+    },
+    "produces": [
+      "Apples",
+      "Oranges",
+      "Grapes",
+      "Grain",
+      "Cotton",
+      "Seeds",
+      "Sugarcane",
+      "Wood",
+      "Coffee beans",
+      "Vegetables",
+      "Cocoa",
+      "Pumpkin"
+    ],
+    "retail": false
+  },
+  {
+    "id": "F",
+    "name": "Ranch",
+    "cost": {
+      "Bricks": 165,
+      "Reinforced concrete": 12,
+      "Construction units": 3,
+      "Planks": 48
+    },
+    "produces": [
+      "Eggs",
+      "Leather",
+      "Cows",
+      "Pigs",
+      "Milk"
+    ],
+    "retail": false
+  },
+  {
+    "id": "e",
+    "name": "Slaughterhouse",
+    "cost": {
+      "Bricks": 330,
+      "Reinforced concrete": 24,
+      "Construction units": 6,
+      "Planks": 96
+    },
+    "produces": [
+      "Steak",
+      "Sausages"
+    ],
+    "retail": false
+  },
+  {
+    "id": "i",
+    "name": "Mill",
+    "cost": {
+      "Bricks": 440,
+      "Reinforced concrete": 32,
+      "Construction units": 8,
+      "Planks": 128
+    },
+    "produces": [
+      "Coffee Powder",
+      "Flour",
+      "Fodder"
+    ],
+    "retail": false
+  },
+  {
+    "id": "6",
+    "name": "Beverage factory",
+    "cost": {
+      "Bricks": 220,
+      "Reinforced concrete": 16,
+      "Construction units": 4,
+      "Planks": 64
+    },
+    "produces": [
+      "Ethanol",
+      "Orange Juice",
+      "Apple Cider",
+      "Ginger Beer"
+    ],
+    "retail": false
+  },
+  {
+    "id": "k",
+    "name": "Food processing plant",
+    "cost": {
+      "Bricks": 1375,
+      "Reinforced concrete": 100,
+      "Construction units": 25,
+      "Planks": 400
+    },
+    "produces": [
+      "Cheese",
+      "Frozen Pizza",
+      "Pasta",
+      "Butter",
+      "Sugar",
+      "Chocolate",
+      "Vegetable Oil",
+      "Easter Bunny",
+      "Ramadan Sweets",
+      "Chocolate Icecream",
+      "Apple Icecream"
+    ],
+    "retail": false
+  },
+  {
+    "id": "j",
+    "name": "Bakery",
+    "cost": {
+      "Bricks": 605,
+      "Reinforced concrete": 44,
+      "Construction units": 11,
+      "Planks": 176
+    },
+    "produces": [
+      "Bread",
+      "Apple Pie",
+      "Dough"
+    ],
+    "retail": false
+  },
+  {
+    "id": "m",
+    "name": "Catering",
+    "cost": {
+      "Bricks": 1650,
+      "Reinforced concrete": 120,
+      "Construction units": 30,
+      "Planks": 480
+    },
+    "produces": [
+      "Hamburger",
+      "Lasagna",
+      "Meat balls",
+      "Cocktails",
+      "Sauce",
+      "Salad",
+      "Samosa",
+      "Pumpkin Soup"
+    ],
+    "retail": false
+  },
+  {
+    "id": "o",
+    "name": "Concrete plant",
+    "cost": {
+      "Bricks": 935,
+      "Reinforced concrete": 68,
+      "Construction units": 17,
+      "Planks": 272
+    },
+    "produces": [
+      "Reinforced concrete",
+      "Bricks",
+      "Cement"
+    ],
+    "retail": false
+  },
+  {
+    "id": "x",
+    "name": "Construction factory",
+    "cost": {
+      "Bricks": 1155,
+      "Reinforced concrete": 84,
+      "Construction units": 21,
+      "Planks": 336
+    },
+    "produces": [
+      "Steel Beams",
+      "Planks",
+      "Windows",
+      "Tools"
+    ],
+    "retail": false
+  },
+  {
+    "id": "Q",
+    "name": "Quarry",
+    "cost": {
+      "Bricks": 385,
+      "Reinforced concrete": 28,
+      "Construction units": 7,
+      "Planks": 112
+    },
+    "produces": [
+      "Sand",
+      "Clay",
+      "Limestone"
+    ],
+    "retail": false
+  },
+  {
+    "id": "T",
+    "name": "Fashion factory",
+    "cost": {
+      "Bricks": 220,
+      "Reinforced concrete": 16,
+      "Construction units": 4,
+      "Planks": 64
+    },
+    "produces": [
+      "Fabric",
+      "Underwear",
+      "Gloves",
+      "Dress",
+      "Stiletto Heel",
+      "Handbags",
+      "Sneakers",
+      "Luxury Watch",
+      "Necklace",
+      "Witch Costume"
+    ],
+    "retail": false
+  },
+  {
+    "id": "E",
+    "name": "Power plant",
+    "cost": {
+      "Bricks": 825,
+      "Reinforced concrete": 60,
+      "Construction units": 15,
+      "Planks": 240
+    },
+    "produces": [
+      "Power"
+    ],
+    "retail": false
+  },
+  {
+    "id": "O",
+    "name": "Oil rig",
+    "cost": {
+      "Bricks": 1100,
+      "Reinforced concrete": 80,
+      "Construction units": 20,
+      "Planks": 320
+    },
+    "produces": [
+      "Crude oil",
+      "Methane"
+    ],
+    "retail": false
+  },
+  {
+    "id": "R",
+    "name": "Refinery",
+    "cost": {
+      "Bricks": 1100,
+      "Reinforced concrete": 80,
+      "Construction units": 20,
+      "Planks": 320
+    },
+    "produces": [
+      "Petrol",
+      "Diesel",
+      "Plastic",
+      "Carbon fibers",
+      "Rocket fuel"
+    ],
+    "retail": false
+  },
+  {
+    "id": "L",
+    "name": "Electronics factory",
+    "cost": {
+      "Bricks": 1320,
+      "Reinforced concrete": 96,
+      "Construction units": 24,
+      "Planks": 384
+    },
+    "produces": [
+      "Processors",
+      "Electronic Components",
+      "Batteries",
+      "Displays",
+      "Smart Phones",
+      "Tablets",
+      "Laptops",
+      "Monitors",
+      "Televisions",
+      "On-board Computer",
+      "High Grade E-Comps",
+      "Robots",
+      "Jack O'Lantern"
+    ],
+    "retail": false
+  },
+  {
+    "id": "1",
+    "name": "Car factory",
+    "cost": {
+      "Bricks": 1485,
+      "Reinforced concrete": 108,
+      "Construction units": 27,
+      "Planks": 432
+    },
+    "produces": [
+      "Luxury Car Interior",
+      "Basic Interior",
+      "Car Body",
+      "Economy E-Car",
+      "Luxury E-Car",
+      "Economy Car",
+      "Luxury Car",
+      "Truck",
+      "Bulldozer"
+    ],
+    "retail": false
+  },
+  {
+    "id": "7",
+    "name": "Aerospace factory",
+    "cost": {
+      "Bricks": 1705,
+      "Reinforced concrete": 124,
+      "Construction units": 31,
+      "Planks": 496
+    },
+    "produces": [
+      "Fuselage",
+      "Wing",
+      "Propellant Tank",
+      "Heat Shield",
+      "Sub-orbital 2nd Stage",
+      "Orbital Booster",
+      "Starship"
+    ],
+    "retail": false
+  },
+  {
+    "id": "D",
+    "name": "Propulsion factory",
+    "cost": {
+      "Bricks": 1650,
+      "Reinforced concrete": 120,
+      "Construction units": 30,
+      "Planks": 480
+    },
+    "produces": [
+      "Electric Motor",
+      "Combustion Engine",
+      "Solid Fuel Booster",
+      "Rocket Engine",
+      "Ion Drive",
+      "Jet Engine"
+    ],
+    "retail": false
+  },
+  {
+    "id": "0",
+    "name": "Hangar",
+    "cost": {
+      "Bricks": 1595,
+      "Reinforced concrete": 116,
+      "Construction units": 29,
+      "Planks": 464
+    },
+    "produces": [
+      "Jumbo Jet",
+      "Luxury Jet",
+      "Single Engine Plane"
+    ],
+    "retail": false
+  },
+  {
+    "id": "8",
+    "name": "Aerospace electronics",
+    "cost": {
+      "Bricks": 2255,
+      "Reinforced concrete": 164,
+      "Construction units": 41,
+      "Planks": 656
+    },
+    "produces": [
+      "Flight computer",
+      "Cockpit",
+      "Attitude control",
+      "Quadcopter",
+      "Satellite"
+    ],
+    "retail": false
+  },
+  {
+    "id": "W",
+    "name": "Water reservoir",
+    "cost": {
+      "Bricks": 330,
+      "Reinforced concrete": 24,
+      "Construction units": 6,
+      "Planks": 96
+    },
+    "produces": [
+      "Water"
+    ],
+    "retail": false
+  },
+  {
+    "id": "S",
+    "name": "Shipping depot",
+    "cost": {
+      "Bricks": 825,
+      "Reinforced concrete": 60,
+      "Construction units": 15,
+      "Planks": 240
+    },
+    "produces": [
+      "Transport"
+    ],
+    "retail": false
+  },
+  {
+    "id": "R",
+    "name": "Refinery",
+    "cost": {
+      "Bricks": 1100,
+      "Reinforced concrete": 80,
+      "Construction units": 20,
+      "Planks": 320
+    },
+    "produces": [
+      "Petrol",
+      "Diesel",
+      "Plastic",
+      "Carbon fibers",
+      "Rocket fuel"
+    ],
+    "retail": false
+  },
+  {
+    "id": "M",
+    "name": "Mine",
+    "cost": {
+      "Bricks": 385,
+      "Reinforced concrete": 28,
+      "Construction units": 7,
+      "Planks": 112
+    },
+    "produces": [
+      "Minerals",
+      "Bauxite",
+      "Iron Ore",
+      "Gold Ore"
+    ],
+    "retail": false
+  },
+  {
+    "id": "Y",
+    "name": "Factory",
+    "cost": {
+      "Bricks": 770,
+      "Reinforced concrete": 56,
+      "Construction units": 14,
+      "Planks": 224
+    },
+    "produces": [
+      "Silicon",
+      "Chemicals",
+      "Aluminium",
+      "Steel",
+      "Glass",
+      "Xmas Crackers",
+      "Golden Bars",
+      "Carbon Composite",
+      "Xmas Ornament"
+    ],
+    "retail": false
+  },
+  {
+    "id": "g",
+    "name": "General contractor",
+    "cost": {
+      "Bricks": 770,
+      "Reinforced concrete": 56,
+      "Construction units": 14,
+      "Planks": 224
+    },
+    "produces": [
+      "Construction units"
+    ],
+    "retail": false
+  },
+  {
+    "id": "9",
+    "name": "Vertical integration facility",
+    "cost": {
+      "Bricks": 1815,
+      "Reinforced concrete": 132,
+      "Construction units": 33,
+      "Planks": 528
+    },
+    "produces": [
+      "Sub-orbital rocket",
+      "BFR"
+    ],
+    "retail": false
+  },
+  {
+    "id": "s",
+    "name": "Software R&D",
+    "cost": {
+      "Bricks": 1045,
+      "Reinforced concrete": 76,
+      "Construction units": 19,
+      "Planks": 304
+    },
+    "produces": [
+      "Software"
+    ],
+    "retail": false
+  },
+  {
+    "id": "f",
+    "name": "Fashion & Design",
+    "cost": {
+      "Bricks": 1155,
+      "Reinforced concrete": 84,
+      "Construction units": 21,
+      "Planks": 336
+    },
+    "produces": [
+      "Fashion research"
+    ],
+    "retail": false
+  },
+  {
+    "id": "q",
+    "name": "Kitchen",
+    "cost": {
+      "Bricks": 1320,
+      "Reinforced concrete": 96,
+      "Construction units": 24,
+      "Planks": 384
+    },
+    "produces": [
+      "Recipes"
+    ],
+    "retail": false
+  },
+  {
+    "id": "b",
+    "name": "Breeding laboratory",
+    "cost": {
+      "Bricks": 1540,
+      "Reinforced concrete": 112,
+      "Construction units": 28,
+      "Planks": 448
+    },
+    "produces": [
+      "Breeding research"
+    ],
+    "retail": false
+  },
+  {
+    "id": "c",
+    "name": "Chemistry laboratory",
+    "cost": {
+      "Bricks": 1540,
+      "Reinforced concrete": 112,
+      "Construction units": 28,
+      "Planks": 448
+    },
+    "produces": [
+      "Chemistry research",
+      "Materials research"
+    ],
+    "retail": false
+  },
+  {
+    "id": "p",
+    "name": "Plant research center",
+    "cost": {
+      "Bricks": 1650,
+      "Reinforced concrete": 120,
+      "Construction units": 30,
+      "Planks": 480
+    },
+    "produces": [
+      "Plant research"
+    ],
+    "retail": false
+  },
+  {
+    "id": "l",
+    "name": "Launch pad",
+    "cost": {
+      "Bricks": 1980,
+      "Reinforced concrete": 144,
+      "Construction units": 36,
+      "Planks": 576
+    },
+    "produces": [
+      "Aerospace research"
+    ],
+    "retail": false
+  },
+  {
+    "id": "a",
+    "name": "Automotive R&D",
+    "cost": {
+      "Bricks": 2200,
+      "Reinforced concrete": 160,
+      "Construction units": 40,
+      "Planks": 640
+    },
+    "produces": [
+      "Automotive research"
+    ],
+    "retail": false
+  },
+  {
+    "id": "h",
+    "name": "Physics laboratory",
+    "cost": {
+      "Bricks": 2640,
+      "Reinforced concrete": 192,
+      "Construction units": 48,
+      "Planks": 768
+    },
+    "produces": [
+      "Energy research",
+      "Mining research",
+      "Electronics research"
+    ],
+    "retail": false
+  },
+  {
+    "id": "G",
+    "name": "Grocery store",
+    "cost": {
+      "Bricks": 165,
+      "Steel": 12,
+      "Construction units": 2,
+      "Planks": 48
+    },
+    "produces": [
+      "Apples",
+      "Oranges",
+      "Grapes",
+      "Steak",
+      "Sausages",
+      "Eggs",
+      "Coffee powder",
+      "Apple pie",
+      "Orange juice",
+      "Apple cider",
+      "Ginger beer",
+      "Cheese",
+      "Frozen pizza",
+      "Chocolate",
+      "Easter bunny",
+      "Ramadan sweets"
+    ],
+    "retail": true
+  },
+  {
+    "id": "d",
+    "name": "Hardware store",
+    "cost": {
+      "Bricks": 220,
+      "Steel": 16,
+      "Construction units": 4,
+      "Planks": 64
+    },
+    "produces": [
+      "Bricks",
+      "Cement",
+      "Planks",
+      "Windows",
+      "Tools"
+    ],
+    "retail": true
+  },
+  {
+    "id": "H",
+    "name": "Fashion store",
+    "cost": {
+      "Bricks": 275,
+      "Steel": 20,
+      "Construction units": 5,
+      "Planks": 80
+    },
+    "produces": [
+      "Underwear",
+      "Gloves",
+      "Dress",
+      "Stiletto heel",
+      "Handbags",
+      "Sneakers",
+      "Luxury watch",
+      "Necklace"
+    ],
+    "retail": true
+  },
+  {
+    "id": "A",
+    "name": "Gas station",
+    "cost": {
+      "Bricks": 385,
+      "Steel": 28,
+      "Construction units": 7,
+      "Planks": 112
+    },
+    "produces": [
+      "Petrol",
+      "Diesel"
+    ],
+    "retail": true
+  },
+  {
+    "id": "C",
+    "name": "Electronics store",
+    "cost": {
+      "Bricks": 275,
+      "Steel": 20,
+      "Construction units": 5,
+      "Planks": 80
+    },
+    "produces": [
+      "Smart phones",
+      "Tablets",
+      "Laptops",
+      "Monitors",
+      "Televisions",
+      "Quadcopter"
+    ],
+    "retail": true
+  },
+  {
+    "id": "2",
+    "name": "Car dealership",
+    "cost": {
+      "Bricks": 330,
+      "Steel": 24,
+      "Construction units": 6,
+      "Planks": 96
+    },
+    "produces": [
+      "Economy e-car",
+      "Luxury e-car",
+      "Economy car",
+      "Luxury car",
+      "Truck"
+    ],
+    "retail": true
+  },
+  {
+    "id": "B",
+    "name": "Sales offices",
+    "cost": {
+      "Bricks": 990,
+      "Steel": 72,
+      "Construction units": 18,
+      "Planks": 288
+    },
+    "produces": [
+      "Sub-orbital rocket",
+      "BFR",
+      "Jumbo jet",
+      "Luxury jet",
+      "Single engine plane",
+      "Satellite"
+    ],
+    "retail": true
+  },
+  {
+    "id": "t",
+    "name": "Halloween market",
+    "cost": {
+      "Bricks": 220,
+      "Steel": 16,
+      "Construction units": 4,
+      "Planks": 64
+    },
+    "produces": [
+      "Pumpkin",
+      "Jack o'lantern",
+      "Witch costume"
+    ],
+    "retail": true
+},
+{
+  "id": "u",
+  "name": "Xmas market",
+  "cost": {
+    "Bricks": 275,
+    "Steel": 20,
+    "Construction units": 5,
+    "Planks": 80
+  },
+  "produces": [
+    "Xmas crackers",
+    "Xmas ornament",
+    "Tree"
+  ],
+  "retail": true
+},
+{
+  "id": "z",
+  "name": "Beach market",
+  "cost": {
+    "Bricks": 165,
+    "Steel": 12,
+    "Construction units": 3,
+    "Planks": 48
+  },
+  "produces": [
+    "Chocolate icecream",
+    "Apple icecream"
+  ],
+  "retail": true
+}
+]
