@@ -1,8 +1,24 @@
 (()=>{"use strict";
-const KEY="simcompass.data.v1",blank=()=>({schemaVersion:1,products:[],recipes:[],buildings:[],boosts:[],inventory:[],challenge:null});
-let db;try{db=Object.assign(blank(),JSON.parse(localStorage.getItem(KEY)||"{}"))}catch{db=blank()}
+const KEY="simcompass.data.v1",REALM_KEY="simcompass.realms.v2",blank=()=>({schemaVersion:2,products:[],recipes:[],buildings:[],boosts:[],inventory:[],challenge:null});
+const REALMS={challenge:{label:"Challenge Realm",short:"CHALLENGE",primary:true},magnates:{label:"Magnates Realm",short:"MAGNATES"},entrepreneurs:{label:"Entrepreneurs Realm",short:"ENTREPRENEURS"}};
+let realmStore,activeRealm="challenge",db,catalogCache=null;
+try{
+  realmStore=JSON.parse(localStorage.getItem(REALM_KEY)||"null");
+  if(!realmStore||!realmStore.workspaces)throw new Error("No realm store");
+}catch{
+  let legacy=blank();try{legacy=Object.assign(blank(),JSON.parse(localStorage.getItem(KEY)||"{}"))}catch{}
+  realmStore={schemaVersion:2,activeRealm:"challenge",workspaces:{challenge:legacy,magnates:blank(),entrepreneurs:blank()}};
+}
+activeRealm=REALMS[realmStore.activeRealm]?realmStore.activeRealm:"challenge";
+Object.keys(REALMS).forEach(k=>{if(!realmStore.workspaces[k])realmStore.workspaces[k]=blank()});
+db=Object.assign(blank(),realmStore.workspaces[activeRealm]);
+function persist(){realmStore.activeRealm=activeRealm;realmStore.workspaces[activeRealm]=db;localStorage.setItem(REALM_KEY,JSON.stringify(realmStore));persist()}
+function applyCatalog(target){if(!catalogCache)return;const productNames=new Set(target.products.map(x=>String(x.name).toLowerCase()));catalogCache.products.forEach(p=>{if(!productNames.has(String(p.name).toLowerCase()))target.products.push({...p})});const recipeKeys=new Set(target.recipes.map(x=>(x.output+"|"+x.building).toLowerCase()));catalogCache.recipes.forEach(x=>{if(!recipeKeys.has((x.output+"|"+x.building).toLowerCase()))target.recipes.push({...x})});catalogCache.buildings.forEach(x=>{const b=target.buildings.find(v=>v.name.toLowerCase()===x.name.toLowerCase());if(b)Object.assign(b,{gameId:x.gameId,constructionTimeMinutes:x.constructionTimeMinutes,constructionTimeSource:x.constructionTimeSource,constructionMaterials:x.constructionMaterials,produces:x.produces,encyclopediaUrl:x.encyclopediaUrl,source:x.source});else target.buildings.push({...x})});target.catalogMeta={realm:catalogCache.realm,fetchedAt:catalogCache.fetchedAt,source:catalogCache.source,counts:catalogCache.counts}}
+function loadChallengeForm(){if(!$("challengeForm"))return;const c=db.challenge||{};$("target").value=c.target||"";$("quantity").value=c.qty||750;$("budget").value=c.budget??"";$("challengeTitle").value=c.title||"";$("objectiveType").value=c.type||"deliver";$("goalDescription").value=c.description||"";$("goalAmount").value=c.amount??"";$("goalUnit").value=c.unit||"";$("challengeRules").value=c.rules||"";$("extraObjectives").value=(c.extraObjectives||[]).join("\n");$("deadline").value=c.deadline||"";$("objective").value=c.priority||c.objective||"time";$("deliverFields").hidden=$("objectiveType").value!=="deliver";$("genericFields").hidden=$("objectiveType").value==="deliver";$("resultTitle").textContent=c.title?"Saved challenge · "+c.title:"Your strategy will appear here";$("result").innerHTML=c.title?'<div class="empty strategy-empty"><b>Saved realm workspace</b><p>Your saved challenge inputs are restored. Recalculate after reviewing this realm’s current starting conditions.</p></div>':'<div class="empty strategy-empty"><div class="empty-icon">✳</div><b>Ready when you are.</b><p>Enter a challenge to build a strategy from this realm’s separate data.</p></div>'}
+function switchRealm(next){if(!REALMS[next]||next===activeRealm)return;persist();activeRealm=next;db=Object.assign(blank(),realmStore.workspaces[next]);applyCatalog(db);persist();document.querySelectorAll("[data-realm]").forEach(b=>b.classList.toggle("active",b.dataset.realm===activeRealm));$("activeRealmLabel").textContent=REALMS[activeRealm].short;$("bridgeRealmName").textContent=REALMS[activeRealm].label;$("realmBridgeTitle").textContent=REALMS[activeRealm].label+" data";document.querySelector(".brand small").textContent=REALMS[activeRealm].short.toUpperCase()+" WORKSPACE";$("crumb").textContent=activeRealm==="challenge"?"OPTIMIZER":REALMS[activeRealm].short+" PLANNER";$("resultTitle").textContent=activeRealm==="challenge"?"Your strategy will appear here":REALMS[activeRealm].label+" workspace";$("saved").textContent="● SAVED";loadChallengeForm();render();renderOwnedBuildings();toast(REALMS[activeRealm].label+" selected")}
+document.querySelectorAll("[data-realm]").forEach(b=>b.addEventListener("click",()=>switchRealm(b.dataset.realm)));
 const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function save(){localStorage.setItem(KEY,JSON.stringify(db));$("saved").textContent="● SAVED";render()}
+function save(){persist();$("saved").textContent="● SAVED";render()}
 function toast(s){const e=$("toast");e.textContent=s;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),2200)}
 function nav(p){document.querySelectorAll(".page").forEach(x=>x.classList.toggle("active",x.id===p));document.querySelectorAll(".nav[data-page]").forEach(x=>x.classList.toggle("active",x.dataset.page===p));$("crumb").textContent=p.toUpperCase();$("sidebar").classList.remove("open");scrollTo(0,0)}
 document.querySelectorAll(".nav[data-page]").forEach(b=>b.onclick=()=>nav(b.dataset.page));document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>nav(b.dataset.go));$("menu").onclick=()=>$("sidebar").classList.toggle("open");
@@ -37,7 +53,7 @@ table("recipesTable",db.recipes,r=>'<td><b>'+esc(r.output)+'</b></td><td>'+esc(r
 table("buildingsTable",db.buildings,r=>'<td><b>'+esc(r.name)+'</b></td><td>'+((r.constructionTimeMinutes!==null&&r.constructionTimeMinutes!==undefined)?(r.constructionTimeMinutes/60).toFixed(2)+' hr':'Not verified')+'</td><td><input class="building-edit" type="number" min="1" step="1" value="'+(Number(r.level)||1)+'" data-building-id="'+r.id+'" data-building-field="level" aria-label="Owned level for '+esc(r.name)+'"></td><td><input class="building-edit" type="number" min="0" step="1" value="'+(Number(r.slots)||0)+'" data-building-id="'+r.id+'" data-building-field="slots" aria-label="Owned slots for '+esc(r.name)+'"></td><td>'+esc((r.produces||[]).join(", ")||r.notes||"—")+'</td><td>'+(r.encyclopediaUrl?'<a href="'+esc(r.encyclopediaUrl)+'" target="_blank" rel="noopener">Encyclopedia</a>':'—')+'</td><td>'+action("buildings",r.id)+"</td>","No buildings configured.");
 table("boostsTable",db.boosts,r=>'<td><b>'+esc(r.name)+'</b></td><td>'+r.bonus+'%</td><td>'+r.duration+' hr</td><td>'+esc(r.stacking)+'</td><td>'+action("boosts",r.id)+"</td>","No boosts configured.");
 table("inventoryTable",db.inventory,r=>'<td><b>'+esc(r.product)+'</b></td><td>'+r.stock+'</td><td>'+(r.price??"—")+'</td><td>'+r.marketQty+'</td><td>'+r.lead+'</td><td>'+action("inventory",r.id)+"</td>","No inventory or market rows entered.");
-$("buildingsTable").querySelectorAll("[data-building-field]").forEach(input=>input.onchange=()=>{const b=db.buildings.find(x=>x.id===input.dataset.buildingId),v=Number(input.value);if(!b||!Number.isInteger(v)||v<(input.dataset.buildingField==="level"?1:0)){toast("Enter a valid whole-number building level or slot count.");render();return}b[input.dataset.buildingField]=v;if(input.dataset.buildingField==="slots"&&v>0&&Number(b.level)<1)b.level=1;localStorage.setItem(KEY,JSON.stringify(db));$("saved").textContent="● SAVED";render();toast("Owned building capacity updated")});$("productCount").textContent=db.products.length+" records";
+$("buildingsTable").querySelectorAll("[data-building-field]").forEach(input=>input.onchange=()=>{const b=db.buildings.find(x=>x.id===input.dataset.buildingId),v=Number(input.value);if(!b||!Number.isInteger(v)||v<(input.dataset.buildingField==="level"?1:0)){toast("Enter a valid whole-number building level or slot count.");render();return}b[input.dataset.buildingField]=v;if(input.dataset.buildingField==="slots"&&v>0&&Number(b.level)<1)b.level=1;persist();$("saved").textContent="● SAVED";render();toast("Owned building capacity updated")});$("productCount").textContent=db.products.length+" records";
 }
 $("searchProducts").oninput=e=>{const q=e.target.value.toLowerCase(),rows=db.products.filter(p=>p.name.toLowerCase().includes(q)||String(p.category).toLowerCase().includes(q));table("productsTable",rows,r=>'<td><b>'+esc(r.name)+'</b></td><td>'+esc(r.category||"—")+'</td><td>'+esc(r.unit||"—")+'</td><td>USER ENTERED</td><td>'+action("products",r.id)+"</td>","No matching products.")};
 function plan(target,qty,objective,budget=null){
@@ -71,10 +87,10 @@ function renderOwnedBuildings(){
  const rows=db.buildings.filter(x=>Number(x.slots)>0||x.owned===true);
  $("buildingNames").innerHTML=db.buildings.map(x=>'<option value="'+esc(x.name)+'"></option>').join("");
  host.innerHTML=rows.length?rows.map(x=>'<div class="owned-building-row"><b>'+esc(x.name)+'</b><label>Level<input type="number" min="1" step="1" value="'+(Number(x.level)||1)+'" data-owned-id="'+esc(x.id)+'" data-owned-field="level"></label><label>Slots<input type="number" min="0" step="1" value="'+(Number(x.slots)||0)+'" data-owned-id="'+esc(x.id)+'" data-owned-field="slots"></label><button class="secondary" type="button" data-owned-remove="'+esc(x.id)+'">REMOVE</button></div>').join(""):'<p class="empty">No starting buildings configured yet.</p>';
- host.querySelectorAll("[data-owned-field]").forEach(input=>input.onchange=()=>{const x=db.buildings.find(v=>String(v.id)===input.dataset.ownedId),n=Number(input.value);if(!x||!Number.isInteger(n)||n<(input.dataset.ownedField==="level"?1:0)){toast("Enter a valid level or slot count");renderOwnedBuildings();return}x[input.dataset.ownedField]=n;x.owned=Number(x.slots)>0;localStorage.setItem(KEY,JSON.stringify(db));renderOwnedBuildings();$("saved").textContent="● SAVED"});
- host.querySelectorAll("[data-owned-remove]").forEach(btn=>btn.onclick=()=>{const x=db.buildings.find(v=>String(v.id)===btn.dataset.ownedRemove);if(x){x.slots=0;x.owned=false;localStorage.setItem(KEY,JSON.stringify(db));renderOwnedBuildings();$("saved").textContent="● SAVED"}});
+ host.querySelectorAll("[data-owned-field]").forEach(input=>input.onchange=()=>{const x=db.buildings.find(v=>String(v.id)===input.dataset.ownedId),n=Number(input.value);if(!x||!Number.isInteger(n)||n<(input.dataset.ownedField==="level"?1:0)){toast("Enter a valid level or slot count");renderOwnedBuildings();return}x[input.dataset.ownedField]=n;x.owned=Number(x.slots)>0;persist();renderOwnedBuildings();$("saved").textContent="● SAVED"});
+ host.querySelectorAll("[data-owned-remove]").forEach(btn=>btn.onclick=()=>{const x=db.buildings.find(v=>String(v.id)===btn.dataset.ownedRemove);if(x){x.slots=0;x.owned=false;persist();renderOwnedBuildings();$("saved").textContent="● SAVED"}});
 }
-$("addOwnedBuilding").onclick=()=>{const name=$("ownedBuildingName").value.trim(),level=Number($("ownedBuildingLevel").value),slots=Number($("ownedBuildingSlots").value),x=db.buildings.find(v=>v.name.toLowerCase()===name.toLowerCase());if(!x){toast("Choose a building from the game catalogue");return}if(!Number.isInteger(level)||level<1||!Number.isInteger(slots)||slots<0){toast("Check building level and slot count");return}x.level=level;x.slots=slots;x.owned=true;localStorage.setItem(KEY,JSON.stringify(db));$("ownedBuildingName").value="";renderOwnedBuildings();$("saved").textContent="● SAVED";toast("Starting building saved")};
+$("addOwnedBuilding").onclick=()=>{const name=$("ownedBuildingName").value.trim(),level=Number($("ownedBuildingLevel").value),slots=Number($("ownedBuildingSlots").value),x=db.buildings.find(v=>v.name.toLowerCase()===name.toLowerCase());if(!x){toast("Choose a building from the game catalogue");return}if(!Number.isInteger(level)||level<1||!Number.isInteger(slots)||slots<0){toast("Check building level and slot count");return}x.level=level;x.slots=slots;x.owned=true;persist();$("ownedBuildingName").value="";renderOwnedBuildings();$("saved").textContent="● SAVED";toast("Starting building saved")};
 $("objectiveType").onchange=()=>{const deliver=$("objectiveType").value==="deliver";$("deliverFields").hidden=!deliver;$("genericFields").hidden=deliver};
 $("challengeForm").onsubmit=e=>{
  e.preventDefault();
@@ -103,32 +119,26 @@ $("challengeForm").onsubmit=e=>{
   html+='<p class="muted">This objective has been saved in a structured format. A valid optimiser needs the exact in-game rules, scoring formula, prerequisites and completion conditions for this objective type. SIMCOMPASS will not substitute a product-production plan or invent those mechanics.</p>';
   html+='<p class="engine-disclaimer">Next engine modules: objective-specific rule models, dependency graph, feasibility checks, action scheduler, cashflow simulation and multi-objective scoring.</p>';
  }
- db.challenge=challenge;localStorage.setItem(KEY,JSON.stringify(db));$("result").innerHTML=html;toast("Challenge details saved");
+ db.challenge=challenge;persist();$("result").innerHTML=html;toast("Challenge details saved");
 };
-$("export").onclick=()=>{const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="simcompass-backup.json";a.click();URL.revokeObjectURL(a.href);toast("Backup exported")};
-$("import").onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());["products","recipes","buildings","boosts","inventory"].forEach(k=>{if(!Array.isArray(data[k]))throw Error("Backup missing "+k)});db=Object.assign(blank(),data);save();toast("Backup imported")}catch(err){alert("Import failed: "+err.message)}e.target.value=""};
+$("export").onclick=()=>{const blob=new Blob([JSON.stringify({schemaVersion:2,activeRealm,realm:REALMS[activeRealm].label,workspace:db},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="simcompass-"+activeRealm+"-backup.json";a.click();URL.revokeObjectURL(a.href);toast(REALMS[activeRealm].label+" backup exported")};
+$("import").onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text()),workspace=data.workspace||data;["products","recipes","buildings","boosts","inventory"].forEach(k=>{if(!Array.isArray(workspace[k]))throw Error("Backup missing "+k)});db=Object.assign(blank(),workspace);applyCatalog(db);save();toast(REALMS[activeRealm].label+" backup imported")}catch(err){alert("Import failed: "+err.message)}e.target.value=""};
+$("realmImport").onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text()),workspace=data.workspace||data;["products","recipes","buildings","boosts","inventory"].forEach(k=>{if(!Array.isArray(workspace[k]))throw Error("The selected file is not a SIMCOMPASS/game-data JSON export with products, recipes, buildings, boosts and inventory arrays." )});db=Object.assign(blank(),workspace);applyCatalog(db);save();loadChallengeForm();renderOwnedBuildings();toast(REALMS[activeRealm].label+" data imported")}catch(err){alert("Realm import failed: "+err.message)}e.target.value=""};
 $("reset").onclick=()=>{if(confirm("This will delete all SIMCOMPASS data saved in this browser. Export a backup first if needed.")){db=blank();save();$("result").textContent="Workspace reset.";toast("Workspace reset")}};
 if(db.challenge){$("target").value=db.challenge.target||"";$("quantity").value=db.challenge.qty||750;$("objective").value=db.challenge.objective||"time";$("budget").value=db.challenge.budget??""}
+document.querySelectorAll("[data-realm]").forEach(b=>b.classList.toggle("active",b.dataset.realm===activeRealm));$("activeRealmLabel").textContent=REALMS[activeRealm].short;$("bridgeRealmName").textContent=REALMS[activeRealm].label;$("realmBridgeTitle").textContent=REALMS[activeRealm].label+" data";document.querySelector(".brand small").textContent=REALMS[activeRealm].short+" WORKSPACE";
 render();
 renderOwnedBuildings();
-if(db.challenge){$("challengeTitle").value=db.challenge.title||"";$("objectiveType").value=db.challenge.type||"deliver";$("goalDescription").value=db.challenge.description||"";$("goalAmount").value=db.challenge.amount??"";$("goalUnit").value=db.challenge.unit||"";$("challengeRules").value=db.challenge.rules||"";$("extraObjectives").value=(db.challenge.extraObjectives||[]).join("\\n");$("deadline").value=db.challenge.deadline||"";$("objective").value=db.challenge.priority||db.challenge.objective||"time";$("deliverFields").hidden=$("objectiveType").value!=="deliver";$("genericFields").hidden=$("objectiveType").value==="deliver";}
+loadChallengeForm();
 async function loadGameCatalog(){
   try{
     const response=await fetch("data/game-database.json?updated="+Date.now(),{cache:"no-store"});
     if(!response.ok)throw new Error("Preloaded catalogue has not been published yet.");
     const catalog=await response.json();
     if(!catalog||!Array.isArray(catalog.products)||!Array.isArray(catalog.recipes)||!Array.isArray(catalog.buildings))throw new Error("Catalogue format is invalid.");
-    const productNames=new Set(db.products.map(x=>x.name.toLowerCase()));
-    catalog.products.forEach(p=>{if(!productNames.has(p.name.toLowerCase()))db.products.push({...p});});
-    const recipeKeys=new Set(db.recipes.map(x=>(x.output+"|"+x.building).toLowerCase()));
-    catalog.recipes.forEach(x=>{if(!recipeKeys.has((x.output+"|"+x.building).toLowerCase()))db.recipes.push({...x});});
-    catalog.buildings.forEach(x=>{
-      const existing=db.buildings.find(b=>b.name.toLowerCase()===x.name.toLowerCase());
-      if(existing)Object.assign(existing,{gameId:x.gameId,constructionTimeMinutes:x.constructionTimeMinutes,constructionTimeSource:x.constructionTimeSource,constructionMaterials:x.constructionMaterials,produces:x.produces,encyclopediaUrl:x.encyclopediaUrl,source:x.source});
-      else db.buildings.push({...x});
-    });
-    db.catalogMeta={realm:catalog.realm,fetchedAt:catalog.fetchedAt,source:catalog.source,counts:catalog.counts};
-    localStorage.setItem(KEY,JSON.stringify(db));
+    catalogCache=catalog;
+    applyCatalog(db);
+    persist();
     render();
     renderOwnedBuildings();
     toast("Game catalogue loaded: "+catalog.products.length+" products");
