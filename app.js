@@ -84,11 +84,70 @@ const issues=[...new Set(r.issues)];if(budget!==null&&r.cash>budget)issues.push(
 return{result:{minutes:r.time,cost:r.cash,endingCash:budget===null?null:budget-r.cash},missing:[],issues,steps:r.steps}
 }
 function challengeBuildingsSnapshot(){try{const s=JSON.parse(localStorage.getItem("simcompass.api.challenge.buildings.v1")||"null");return s&&Array.isArray(s.payload)?s:null}catch{return null}}
-function syncChallengeBuildingsSnapshot(){if(activeRealm!=="challenge")return;const snapshot=challengeBuildingsSnapshot();if(!snapshot)return;const records=snapshot.payload;const slug=s=>String(s||"").toLowerCase().replace(/\.[a-z0-9]+$/i,"").replace(/_tier\d+/g,"").replace(/[^a-z0-9]+/g," ").trim();const title=s=>s.replace(/\b\w/g,ch=>ch.toUpperCase());const groups=new Map();for(const record of records){const image=String(record.image||record.imageUrl||record.image_url||"");const file=image.split("/").pop()||"";const stem=file.replace(/\.[a-z0-9]+$/i,"").replace(/_tier\d+/g,"");const rawName=record.name||record.buildingName||record.building_name||title(stem);if(!rawName)continue;const key=slug(rawName);if(!key)continue;if(!groups.has(key))groups.set(key,{name:rawName,items:[]});groups.get(key).items.push(record)}let mapped=0;for(const group of groups.values()){const key=slug(group.name);let building=db.buildings.find(x=>slug(x.name)===key);if(!building){building={id:"challenge-api-"+key.replace(/ /g,"-"),name:group.name,level:0,slots:0,owned:true,notes:"Imported from Challenge Realm game snapshot; configure parallel slots before optimisation."};db.buildings.push(building)}building.owned=true;building.apiBuildingCount=group.items.length;building.apiSnapshotId=snapshot.id;const tiers=group.items.map(r=>{const m=String(r.image||"").match(/tier(\d+)/i);return Number(r.level||r.tier||m?.[1])||0}).filter(Boolean);if(tiers.length)building.level=Math.max(...tiers);mapped+=group.items.length}db.challengeBuildingSnapshot={id:snapshot.id,capturedAt:snapshot.capturedAt,recordCount:records.length,buildingTypes:groups.size,mappedRecords:mapped};persist();renderOwnedBuildings();const notice=$("realmModeNotice");if(notice&&activeRealm==="challenge"){const old=notice.querySelector(".snapshot-status");if(old)old.remove();const status=document.createElement("div");status.className="snapshot-status";status.innerHTML="<strong>Game snapshot imported:</strong> "+records.length+" building records across "+groups.size+" building types. Owned buildings are identified; check parallel slots before running the optimiser.";notice.appendChild(status)}}
+function syncChallengeBuildingsSnapshot(){
+ if(activeRealm!=="challenge")return;
+ const snapshot=challengeBuildingsSnapshot();if(!snapshot)return;
+ const records=snapshot.payload;
+ const slug=s=>String(s||"").toLowerCase().replace(/\\.[a-z0-9]+$/i,"").replace(/_tier\\d+/g,"").replace(/[^a-z0-9]+/g," ").trim();
+ const title=s=>s.replace(/\\b\\w/g,ch=>ch.toUpperCase());
+ const previous=Array.isArray(db.challengeOwnedBuildings)?db.challengeOwnedBuildings:[];
+ const oldById=new Map(previous.map(x=>[String(x.gameId),x]));
+ const owned=[];
+ for(let i=0;i<records.length;i++){
+  const record=records[i]||{};
+  const image=String(record.image||record.imageUrl||record.image_url||"");
+  const file=image.split("/").pop()||"";
+  const stem=file.replace(/\\.[a-z0-9]+$/i,"").replace(/_tier\\d+/g,"");
+  const rawName=record.name||record.buildingName||record.building_name||title(stem);
+  if(!rawName)continue;
+  const gameId=String(record.id??record.buildingId??record.building_id??(record.position!==undefined?"position-"+record.position:"record-"+i));
+  const prior=oldById.get(gameId);
+  const tierMatch=image.match(/tier(\\d+)/i);
+  const level=Number(record.level??record.tier??tierMatch?.[1]??prior?.level)||1;
+  const catalogue=db.buildings.find(x=>slug(x.name)===slug(rawName));
+  owned.push({gameId,name:catalogue?.name||rawName,level,slots:Number(prior?.slots)||0,image,position:record.position??null});
+ }
+ db.challengeOwnedBuildings=owned;
+ const groups=new Map();
+ for(const item of owned){const key=slug(item.name);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(item)}
+ for(const [key,items] of groups){
+  let building=db.buildings.find(x=>slug(x.name)===key);
+  if(!building){building={id:"challenge-api-"+key.replace(/ /g,"-"),name:items[0].name,level:1,slots:0,owned:true};db.buildings.push(building)}
+  building.owned=true;
+  building.ownedCount=items.length;
+  building.level=Math.max(...items.map(x=>x.level));
+  building.slots=items.reduce((sum,x)=>sum+(Number(x.slots)||0),0);
+  building.apiSnapshotId=snapshot.id;
+ }
+ db.challengeBuildingSnapshot={id:snapshot.id,capturedAt:snapshot.capturedAt,recordCount:owned.length,buildingTypes:groups.size,mappedRecords:owned.length};
+ persist();renderOwnedBuildings();
+ const notice=$("realmModeNotice");
+ if(notice&&activeRealm==="challenge"){
+  const old=notice.querySelector(".snapshot-status");if(old)old.remove();
+  const status=document.createElement("div");status.className="snapshot-status";
+  status.innerHTML="<strong>Game snapshot imported:</strong> "+owned.length+" individual buildings across "+groups.size+" types. Each building's level is listed separately; enter its parallel slots if needed.";
+  notice.appendChild(status);
+ }
+}
 function renderOwnedBuildings(){
  const host=$("ownedBuildingList");if(!host)return;
- const rows=db.buildings.filter(x=>Number(x.slots)>0||x.owned===true);
+ const individual=activeRealm==="challenge"&&Array.isArray(db.challengeOwnedBuildings)?db.challengeOwnedBuildings:null;
  $("buildingNames").innerHTML=db.buildings.map(x=>'<option value="'+esc(x.name)+'"></option>').join("");
+ if(individual){
+  const counts=new Map();individual.forEach(x=>counts.set(x.name,(counts.get(x.name)||0)+1));
+  const summary=[...counts].map(([name,count])=>'<span class="building-count">'+esc(name)+': <b>'+count+'</b></span>').join("");
+  host.innerHTML=(summary?'<div class="building-count-summary">'+summary+'</div>':"")+(individual.length?individual.map((x,i)=>'<div class="owned-building-row"><b>'+esc(x.name)+' <small>#'+(i+1)+'</small></b><label>Level<input type="number" min="1" step="1" value="'+(Number(x.level)||1)+'" data-individual-id="'+esc(x.gameId)+'" data-individual-field="level"></label><label>Parallel slots<input type="number" min="0" step="1" value="'+(Number(x.slots)||0)+'" data-individual-id="'+esc(x.gameId)+'" data-individual-field="slots"></label></div>').join(""):'<p class="empty">No Challenge Realm building records imported yet.</p>');
+  host.querySelectorAll("[data-individual-field]").forEach(input=>input.onchange=()=>{
+   const x=individual.find(v=>String(v.gameId)===input.dataset.individualId),n=Number(input.value);
+   if(!x||!Number.isInteger(n)||n<(input.dataset.individualField==="level"?1:0)){toast("Enter a valid level or slot count");renderOwnedBuildings();return}
+   x[input.dataset.individualField]=n;
+   const group=individual.filter(v=>v.name===x.name),b=db.buildings.find(v=>v.name===x.name);
+   if(b){b.owned=true;b.ownedCount=group.length;b.level=Math.max(...group.map(v=>Number(v.level)||1));b.slots=group.reduce((sum,v)=>sum+(Number(v.slots)||0),0)}
+   persist();renderOwnedBuildings();$("saved").textContent="● SAVED";
+  });
+  return;
+ }
+ const rows=db.buildings.filter(x=>Number(x.slots)>0||x.owned===true);
  host.innerHTML=rows.length?rows.map(x=>'<div class="owned-building-row"><b>'+esc(x.name)+'</b><label>Level<input type="number" min="1" step="1" value="'+(Number(x.level)||1)+'" data-owned-id="'+esc(x.id)+'" data-owned-field="level"></label><label>Slots<input type="number" min="0" step="1" value="'+(Number(x.slots)||0)+'" data-owned-id="'+esc(x.id)+'" data-owned-field="slots"></label><button class="secondary" type="button" data-owned-remove="'+esc(x.id)+'">REMOVE</button></div>').join(""):'<p class="empty">No starting buildings configured yet.</p>';
  host.querySelectorAll("[data-owned-field]").forEach(input=>input.onchange=()=>{const x=db.buildings.find(v=>String(v.id)===input.dataset.ownedId),n=Number(input.value);if(!x||!Number.isInteger(n)||n<(input.dataset.ownedField==="level"?1:0)){toast("Enter a valid level or slot count");renderOwnedBuildings();return}x[input.dataset.ownedField]=n;x.owned=Number(x.slots)>0;persist();renderOwnedBuildings();$("saved").textContent="● SAVED"});
  host.querySelectorAll("[data-owned-remove]").forEach(btn=>btn.onclick=()=>{const x=db.buildings.find(v=>String(v.id)===btn.dataset.ownedRemove);if(x){x.slots=0;x.owned=false;persist();renderOwnedBuildings();$("saved").textContent="● SAVED"}});
