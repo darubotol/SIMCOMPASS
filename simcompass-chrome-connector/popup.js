@@ -2,8 +2,15 @@ const button = document.getElementById("connect");
 const status = document.getElementById("status");
 button.addEventListener("click", async () => {
   button.disabled = true;
-  status.textContent = "Checking the game session and making one read-only request…";
+  status.textContent = "Checking the active tab…";
   try {
+    const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
+    const tab = tabs[0];
+    if (!tab?.id || !tab.url?.startsWith("https://darubotol.github.io/SIMCOMPASS/")) {
+      status.textContent = "First open the SIMCOMPASS website and make that tab active. No game request was made.";
+      return;
+    }
+    status.textContent = "Checking the game session and making one read-only request…";
     const result = await chrome.runtime.sendMessage({ type: "SIMCOMPASS_FETCH_BUILDINGS" });
     if (!result?.ok) {
       if (result?.reason === "cooldown") {
@@ -13,12 +20,6 @@ button.addEventListener("click", async () => {
       } else {
         status.textContent = "Could not fetch the building data (" + (result?.reason || "unknown error") + ").";
       }
-      return;
-    }
-    const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
-    const tab = tabs[0];
-    if (!tab?.id || !tab.url?.startsWith("https://darubotol.github.io/SIMCOMPASS/")) {
-      status.textContent = "Fetch succeeded, but the active tab is not SIMCOMPASS. Open SIMCOMPASS, then wait five minutes before another request.";
       return;
     }
     const saved = await chrome.tabs.sendMessage(tab.id, {
