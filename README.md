@@ -49,19 +49,19 @@ SIMCOMPASS is an independent community project and is not affiliated with or end
 
 ## Optional Chrome connector (read-only)
 
-A Manifest V3 extension is provided in `simcompass-chrome-connector/` for a user-triggered test of the Sim Companies buildings endpoint. It makes one GET request, uses the browser's existing signed-in session for that request, and transfers the returned JSON to the open SIMCOMPASS tab as an **unassigned** local snapshot. The extension does not read, display, export, or store cookie values, passwords, or authorization tokens. It does not send game-changing requests.
+A Manifest V3 extension is provided in `simcompass-chrome-connector/`. Version 1.2.0 passively observes successful same-origin GET responses that the signed-in game page itself has already requested. It imports the Challenge Realm buildings payload and records API endpoint paths, top-level JSON keys and a limited structural outline. **Discovery metadata only** is collected for other endpoints; it does not copy their private response values. It does not issue API requests, read cookie values, access passwords/tokens, or send game-changing requests.
 
-The extension asks for access to `www.simcompanies.com` so its service worker can make the permitted cross-origin GET request, and runs its receiver only on the SIMCOMPASS GitHub Pages site. Chrome attaches the existing site session to the request; the extension code never reads the session cookie itself. The user must initiate every fetch. A five-minute cooldown is enforced locally, in line with the game's published API guidance. API behavior may change and is not officially supported.
+The endpoint map is used to identify the real game responses for cash, warehouse inventory and market data before adding explicit, tested field mappings. This avoids guessing endpoint names or accidentally treating unrelated company data as Challenge Realm data. The game API is undocumented and unsupported, and its published guide warns that it can change without notice. All observed responses are captured locally in the browser.
 
-### Install the unpacked extension on Windows / Chrome
+### Update the Chrome extension on Windows
 
-1. Download the SIMCOMPASS repository as a ZIP from GitHub and extract it.
-2. In Chrome, open `chrome://extensions`.
-3. Turn on **Developer mode**.
-4. Choose **Load unpacked**.
-5. Select the extracted `simcompass-chrome-connector` folder (the folder containing `manifest.json`).
-6. Keep both Sim Companies (signed in) and SIMCOMPASS open in Chrome.
-7. Select the SIMCOMPASS tab, click the extension icon, and choose **FETCH BUILDINGS & SEND TO SIMCOMPASS**.
-8. Check the extension popup for the result. The snapshot remains unassigned until its realm is verified.
+1. Download the latest SIMCOMPASS repository ZIP from GitHub and extract it to a new folder.
+2. Open `chrome://extensions` in Chrome and turn on **Developer mode**.
+3. Remove the older SIMCOMPASS connector extension.
+4. Choose **Load unpacked** and select the new `simcompass-chrome-connector` folder containing `manifest.json`.
+5. Confirm that the extension shows version **1.2.0**.
+6. Keep the signed-in Sim Companies tab open. Reload that game tab and wait for its dashboard to finish loading.
+7. Open the SIMCOMPASS tab, click the connector icon, and choose **IMPORT CAPTURED GAME DATA**.
+8. In SIMCOMPASS, open **Data & settings** and review the **Automatic API Map** panel.
 
-This is an experimental, manually triggered bridge for the buildings endpoint only. It does not yet fetch inventory, challenge objectives, boosts, cash, recipes, or other company data, and it does not map the snapshot into the optimiser. Do not install extensions from unknown sources; inspect the source in this repository first. If Chrome warns about permissions, review them before approving.
+This discovery step is read-only and only records endpoint names and JSON structure for unverified endpoints. It is not yet the cash/inventory/market importer. Those fields will be mapped only after their actual Challenge Realm response shapes have been observed and checked.
