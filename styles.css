@@ -161,3 +161,6 @@ th{background:#eff5f0;color:#65796e}td{color:#294139;border-bottom-color:#e9efeb
 #genericFields[hidden],#deliverFields[hidden]{display:none!important}
 @media(max-width:1000px){.challenge-grid{grid-template-columns:1fr}.challenge-output-panel{position:static}.owned-building-entry{grid-template-columns:1fr 90px 90px}.owned-building-entry button{grid-column:1/-1}}
 @media(max-width:700px){.challenge-hero{padding:25px 21px}.challenge-orbit{display:none}.challenge-hero h1{font-size:34px}.owned-building-entry{grid-template-columns:1fr 1fr}.owned-building-entry label:first-child{grid-column:1/-1}.owned-building-row{grid-template-columns:1fr 70px 70px}.owned-building-row button{grid-column:1/-1}.setup-footer{align-items:stretch}.setup-footer button{width:100%}}
+
+/* The Challenge Optimizer is the product home; legacy catalogue dashboards remain internal only. */
+#dashboard{display:none!important}
