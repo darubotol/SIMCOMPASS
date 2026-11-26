@@ -74,8 +74,8 @@ const levelCapacity=Number(building?.ownedCapacity)||((Number(building?.ownedCou
 if(!building||levelCapacity<1)continue;
 const out=Math.max(1e-8,Number(recipe.quantity)||1),runs=Math.ceil(need/(out*levelCapacity)),boost=window.SIMCOMPASS_BOOSTS?.productionMultiplier||1,ownTime=runs*Number(recipe.minutes||0)/boost;
 let branch=clone(base),depTime=0,depCash=0,steps=[],issues=[],valid=true;
-for(const input of recipe.inputs||[]){const child=solve(input.product,Number(input.quantity)*runs,branch,[...stack,key],depth+1);if(!child){valid=false;break}branch=child.state;depTime=Math.max(depTime,child.time);depCash+=child.cash;steps.push(...child.steps);issues.push(...child.issues)}
-if(valid)choices.push({time:depTime+ownTime,cash:depCash,state:branch,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),...steps,{kind:"make",product,qty:runs*out,time:ownTime,cash:0,building:recipe.building,level:building.level,buildingCapacity:levelCapacity,runs}],issues})
+for(const input of recipe.inputs||[]){const child=solve(input.product,Number(input.quantity)*runs*levelCapacity,branch,[...stack,key],depth+1);if(!child){valid=false;break}branch=child.state;depTime=Math.max(depTime,child.time);depCash+=child.cash;steps.push(...child.steps);issues.push(...child.issues)}
+if(valid)choices.push({time:depTime+ownTime,cash:depCash,state:branch,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),...steps,{kind:"make",product,qty:runs*out*levelCapacity,time:ownTime,cash:0,building:recipe.building,level:building.level,buildingCapacity:levelCapacity,runs}],issues})
 }
 if(!choices.length)return null;
 choices.sort((x,y)=>objective==="cost"?(x.cash-y.cash||x.time-y.time):(x.time-y.time||x.cash-y.cash));return choices[0]
