@@ -29,6 +29,10 @@ def main():
     realm = int(os.environ.get("REALM", "0"))
     raw = json.loads(RAW.read_text(encoding="utf-8"))
     resources = load_resources(raw)
+    metadata = raw.get("metadata", {}) if isinstance(raw, dict) else {}
+    expected = metadata.get("totalRecords") if isinstance(metadata, dict) else None
+    if expected is not None and len(resources) < int(expected):
+        raise ValueError(f"Incomplete resource response: got {len(resources)} of {expected}")
     if len(resources) < 20:
         raise ValueError(f"Only {len(resources)} resources returned; refusing to publish an incomplete catalogue")
 
