@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "SIMCOMPASS Read-only Game Connector",
+  "version": "1.0.0",
+  "description": "User-triggered, read-only import of Sim Companies building data into SIMCOMPASS.",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["https://www.simcompanies.com/*"],
+  "action": {
+    "default_title": "Connect Sim Companies to SIMCOMPASS",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://darubotol.github.io/SIMCOMPASS/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  }
+}
