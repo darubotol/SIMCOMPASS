@@ -15,8 +15,13 @@ button.addEventListener("click",async()=>{
    const saved=await chrome.tabs.sendMessage(tab.id,{type:"SIMCOMPASS_SAVE_API_DISCOVERY",schemas:result.schemas});
    if(saved?.ok)schemaCount=saved.count;
   }
+  let dataCount=0;
+  if(Array.isArray(result.gameData)&&result.gameData.length){
+   const saved=await chrome.tabs.sendMessage(tab.id,{type:"SIMCOMPASS_SAVE_GAME_DATA",records:result.gameData});
+   if(saved?.ok)dataCount=saved.count;
+  }
   await chrome.runtime.sendMessage({type:"SIMCOMPASS_CLEAR_PENDING_CAPTURE"});
-  status.textContent=(buildingCount?"Imported "+buildingCount+" Challenge Realm building records. ":"")+(schemaCount?"Saved "+schemaCount+" API endpoint structures (field names only; no private values). ":"")||"No supported data was found.";
+  status.textContent=(buildingCount?"Imported "+buildingCount+" Challenge Realm building records. ":"")+(dataCount?"Imported "+dataCount+" Challenge Realm data feeds (challenge, resources, market and company summary). ":"")+(schemaCount?"Saved "+schemaCount+" API endpoint structures. ":"")||"No supported data was found.";
   if(!buildingCount&&!schemaCount)status.textContent="The game page loaded, but no matching API data was detected. Reload Sim Companies and wait for the dashboard.";
  }catch(_){status.textContent="Could not communicate with SIMCOMPASS. Reload its tab and try again."}
  finally{button.disabled=false}
