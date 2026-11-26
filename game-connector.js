@@ -1,6 +1,6 @@
 (()=>{"use strict";
 const endpoint="https://www.simcompanies.com/api/v2/companies/me/buildings/";
-const realmKey="simcompass.realms.v2";
+const snapshotKey="simcompass.api.unmapped.v1";
 const attemptKey="simcompass.liveApi.lastAttempt";
 const button=document.getElementById("testLiveConnection");
 const status=document.getElementById("liveConnectionStatus");
@@ -18,26 +18,18 @@ button.addEventListener("click",async()=>{
     if(!response.ok)throw new Error("The game returned HTTP "+response.status+".");
     const payload=await response.json();
     if(!Array.isArray(payload))throw new Error("The endpoint response was not the expected buildings list.");
-    const realmButton=document.querySelector(".realm-choice.active");
-    const realm=realmButton?.dataset.realm||"challenge";
-    const store=JSON.parse(localStorage.getItem(realmKey)||"null");
-    if(!store||!store.workspaces||!store.workspaces[realm])throw new Error("SIMCOMPASS realm storage was not found. Reload SIMCOMPASS and try again.");
-    const workspace=store.workspaces[realm];
-    workspace.apiSnapshots=Array.isArray(workspace.apiSnapshots)?workspace.apiSnapshots:[];
-    workspace.apiSnapshots.push({
+    const snapshots=JSON.parse(localStorage.getItem(snapshotKey)||"[]");
+    snapshots.push({
       id:"live-buildings-"+Date.now(),
-      realm,
-      realmLabel:realmButton?.textContent.trim()||realm,
+      realmAssignment:"unverified",
       endpoint:"/api/v2/companies/me/buildings/",
       capturedAt:new Date().toISOString(),
       source:"browser-session GET",
       topLevelKeys:payload.length?Object.keys(payload[0]):[],
-      fieldIndex:[],
       payload
     });
-    localStorage.setItem(realmKey,JSON.stringify(store));
-    show("Connection successful. Received "+payload.length+" building records and saved a read-only snapshot to the "+realm+" workspace. Reloading SIMCOMPASS to sync the saved snapshot…");
-    setTimeout(()=>location.reload(),1100);
+    localStorage.setItem(snapshotKey,JSON.stringify(snapshots));
+    show("Connection successful. Received "+payload.length+" building records. Saved an unassigned read-only snapshot in this browser. It has not been assigned to Challenge/Magnates/Entrepreneurs or mapped into the optimiser; we must verify which game workspace this endpoint represents first.");
   }catch(error){
     const message=String(error?.message||error);
     if(error instanceof TypeError||/fetch|network|cors/i.test(message)){
