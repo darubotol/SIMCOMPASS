@@ -102,8 +102,9 @@ function syncChallengeBuildingsSnapshot(){
   if(!rawName)continue;
   const gameId=String(record.id??record.buildingId??record.building_id??(record.position!==undefined?"position-"+record.position:"record-"+i));
   const prior=oldById.get(gameId);
-  const tierMatch=image.match(/tier(\\d+)/i);
-  const level=Number(record.level??record.tier??tierMatch?.[1]??prior?.level)||1;
+  const tierMatch=image.match(/tier[_-]?(\\d+)/i);
+  const candidates=[record.level,record.tier,record.buildingLevel,record.building_level,tierMatch?.[1],prior?.level];
+  const level=candidates.map(v=>Number(v)).find(v=>Number.isFinite(v)&&Number.isInteger(v)&&v>0)||1;
   const catalogue=db.buildings.find(x=>slug(x.name)===slug(rawName));
   owned.push({gameId,name:catalogue?.name||rawName,level,slots:Number(prior?.slots)||0,image,position:record.position??null});
  }
