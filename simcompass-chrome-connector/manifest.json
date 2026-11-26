@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "SIMCOMPASS Read-only Game Connector",
-  "version": "1.2.0",
-  "description": "Passively captures Challenge Realm building data and API response structure from requests already made by Sim Companies.",
+  "version": "1.3.0",
+  "description": "Passively captures selected Challenge Realm data responses already requested by Sim Companies, excluding authentication and security fields.",
   "permissions": [
     "activeTab",
     "storage"
