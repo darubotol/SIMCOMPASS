@@ -205,3 +205,15 @@ main{height:auto!important;min-height:100vh;overflow:visible!important}
   .nav{padding-top:9px;padding-bottom:9px}
   .sidebottom{margin-top:16px}
 }
+
+/* Sidebar layout v2: independently scrollable menu with permanently visible settings */
+.sidebar{display:flex!important;flex-direction:column!important;height:100vh!important;height:100dvh!important;min-height:0!important;overflow:hidden!important;padding:14px 13px!important;}
+.sidebar-scroll{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#78988c transparent;padding:0 4px 12px 0;}
+.sidebar-scroll .brand{margin-bottom:16px;}
+.sidebar-scroll .realm{margin-bottom:12px;}
+.sidebar-scroll .realm-switcher{margin-bottom:12px;}
+.sidebar-scroll nav{margin-bottom:14px;}
+.sidebar .sidebottom{position:relative;flex:0 0 auto;margin-top:8px!important;padding-top:8px;background:#142b2a;border-top:1px solid #36524b;}
+.sidebar .sidebottom .local{margin-bottom:4px;padding:9px 8px;}
+.sidebar .sidebottom .version{padding-top:8px;}
+@media(max-height:650px){.sidebar{padding-top:9px!important;padding-bottom:9px!important}.sidebar-scroll .brand{margin-bottom:10px}.sidebar-scroll .realm{padding:7px;margin-bottom:8px}.sidebar-scroll nav{margin-bottom:8px}.sidebar-scroll .nav{padding-top:8px;padding-bottom:8px}.sidebar .sidebottom{padding-top:5px}.sidebar .sidebottom .local{padding:6px 8px}}
