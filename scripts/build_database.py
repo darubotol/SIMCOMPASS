@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw-resources.json"
 BUILDINGS = ROOT / "data" / "buildings.json"
 OUT = ROOT / "data" / "game-database.json"
+CONSTRUCTION_TIMES = ROOT / "data" / "building-construction-times.json"
 
 def load_resources(payload):
     if isinstance(payload, list):
@@ -32,6 +33,7 @@ def main():
         raise ValueError(f"Only {len(resources)} resources returned; refusing to publish an incomplete catalogue")
 
     buildings = json.loads(BUILDINGS.read_text(encoding="utf-8"))
+    construction_times = json.loads(CONSTRUCTION_TIMES.read_text(encoding="utf-8"))
     building_by_product = {}
     for building in buildings:
         for product in building.get("produces", []):
@@ -93,7 +95,8 @@ def main():
             "level": 0,
             "slots": 0,
             "notes": "Game catalogue record; configure owned level and slots separately.",
-            "constructionTimeMinutes": None,
+            "constructionTimeMinutes": construction_times.get(str(building.get("id")), {}).get("minutes"),
+            "constructionTimeSource": construction_times.get(str(building.get("id")), {}).get("source"),
             "constructionMaterials": building.get("cost", {}),
             "produces": building.get("produces", []),
             "source": "Community building catalogue",
