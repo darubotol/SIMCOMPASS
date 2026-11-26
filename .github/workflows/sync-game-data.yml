@@ -1,11 +1,5 @@
 name: Sync SIMCOMPASS game database
 on:
-  push:
-    branches: ["main"]
-    paths:
-      - "scripts/build_database.py"
-      - ".github/workflows/sync-game-data.yml"
-      - "data/buildings.json"
   workflow_dispatch:
     inputs:
       realm:
@@ -33,20 +27,25 @@ jobs:
           curl --fail --silent --show-error --location --retry 2 \
             -H "accept: application/json" \
             "https://api.simcotools.com/v1/realms/${REALM}/resources?disable_pagination=True" \
-            -o data/raw-resources.json
-          python -c "import json; d=json.load(open('data/raw-resources.json')); print('API response type:', type(d).__name__)"
+            -o "$RUNNER_TEMP/raw-resources.json"
       - name: Normalize game database
         env:
           REALM: ${{ inputs.realm || '0' }}
-        run: python scripts/build_database.py
-      - name: Commit refreshed database
         run: |
+          cp "$RUNNER_TEMP/raw-resources.json" data/raw-resources.json
+          python scripts/build_database.py
+          cp data/raw-resources.json "$RUNNER_TEMP/raw-resources.json"
+          cp data/game-database.json "$RUNNER_TEMP/game-database.json"
+      - name: Commit refreshed data on top of latest main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+          cp "$RUNNER_TEMP/raw-resources.json" data/raw-resources.json
+          cp "$RUNNER_TEMP/game-database.json" data/game-database.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/raw-resources.json data/game-database.json
           git diff --cached --quiet || git commit -m "Sync Sim Companies game database"
-          git fetch origin main
-          git rebase origin/main
           git push
   deploy:
     needs: sync
