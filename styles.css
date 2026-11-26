@@ -172,3 +172,13 @@ th{background:#eff5f0;color:#65796e}td{color:#294139;border-bottom-color:#e9efeb
 .realm-notice{margin:0 0 16px;padding:13px 15px;border:1px solid #416b59;border-radius:7px;background:#13251f;color:#c5d9cd;font-size:10px;line-height:1.7}.realm-notice strong{display:block;color:#a9e2c2;font:9px var(--mono);letter-spacing:.06em;margin-bottom:4px}.realm-notice.realm-secondary{border-color:#5b5140;background:#211e17;color:#d7cbb6}.realm-notice.realm-secondary strong{color:#e5c58b}
 
 .api-capture{margin-top:18px;padding:16px;border:1px solid #385d4c;border-radius:8px;background:#101d19}.api-capture h4{margin:4px 0 8px}.api-capture textarea{width:100%;min-height:130px;margin:8px 0 12px;padding:12px;border:1px solid #394a44;border-radius:6px;background:#0b1310;color:#e5eee8;font:11px/1.5 var(--mono);resize:vertical}.api-capture label{display:block;font-size:10px;color:#b6c8be}.api-capture details{margin-top:12px;color:#b8c8bf;font-size:10px}.api-capture summary{cursor:pointer;color:#a9e2c2}.api-capture ol{padding-left:19px;line-height:1.7}.api-json-result{margin-top:12px;padding:10px;border-radius:5px;background:#0b1511;color:#c1d7c9;font-size:10px;line-height:1.7;overflow-wrap:anywhere}.api-json-result small{color:#8ea79a}
+
+
+/* Scroll recovery: keep the document as the scrolling surface on desktop and mobile. */
+html,body{height:auto!important;min-height:100%;overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior-y:auto}
+body{position:static!important}
+.layout{min-height:100vh;height:auto!important;overflow:visible!important}
+main{height:auto!important;min-height:100vh;overflow:visible!important}
+.content{height:auto!important;min-height:calc(100vh - 68px);overflow:visible!important}
+.challenge-grid{align-items:start}
+.challenge-output-panel{position:static!important;top:auto!important;align-self:start}
