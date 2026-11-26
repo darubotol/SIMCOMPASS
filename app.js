@@ -88,8 +88,8 @@ function syncChallengeBuildingsSnapshot(){
  if(activeRealm!=="challenge")return;
  const snapshot=challengeBuildingsSnapshot();if(!snapshot)return;
  const records=snapshot.payload;
- const slug=s=>String(s||"").toLowerCase().replace(/\\.[a-z0-9]+$/i,"").replace(/_tier\\d+/g,"").replace(/[^a-z0-9]+/g," ").trim();
- const title=s=>s.replace(/\\b\\w/g,ch=>ch.toUpperCase());
+ const slug=s=>String(s||"").toLowerCase().replace(/\.[a-z0-9]+$/i,"").replace(/_tier\d+/g,"").replace(/[^a-z0-9]+/g," ").trim();
+ const title=s=>s.replace(/\b\w/g,ch=>ch.toUpperCase());
  const previous=Array.isArray(db.challengeOwnedBuildings)?db.challengeOwnedBuildings:[];
  const oldById=new Map(previous.map(x=>[String(x.gameId),x]));
  const owned=[];
@@ -97,12 +97,12 @@ function syncChallengeBuildingsSnapshot(){
   const record=records[i]||{};
   const image=String(record.image||record.imageUrl||record.image_url||"");
   const file=image.split("/").pop()||"";
-  const stem=file.replace(/\\.[a-z0-9]+$/i,"").replace(/_tier\\d+/g,"");
+  const stem=file.replace(/\.[a-z0-9]+$/i,"").replace(/_tier\d+/g,"");
   const rawName=record.name||record.buildingName||record.building_name||title(stem);
   if(!rawName)continue;
   const gameId=String(record.id??record.buildingId??record.building_id??(record.position!==undefined?"position-"+record.position:"record-"+i));
   const prior=oldById.get(gameId);
-  const tierMatch=image.match(/tier[_-]?(\\d+)/i);
+  const tierMatch=image.match(/tier[_-]?(\d+)/i);
   const candidates=[tierMatch?.[1],record.buildingLevel,record.building_level,record.level,record.tier,prior?.level];
   const level=candidates.map(v=>Number(v)).find(v=>Number.isFinite(v)&&Number.isInteger(v)&&v>0)||1;
   const catalogue=db.buildings.find(x=>slug(x.name)===slug(rawName));
