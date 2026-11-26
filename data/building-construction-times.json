@@ -1,0 +1,82 @@
+{
+  "0": {
+    "minutes": 180,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/0/"
+  },
+  "1": {
+    "minutes": 360,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/1/"
+  },
+  "P": {
+    "minutes": 60,
+    "source": "https://www.simcompanies.com/encyclopedia/1/building/P/"
+  },
+  "F": {
+    "minutes": 120,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/F/"
+  },
+  "T": {
+    "minutes": 120,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/T/"
+  },
+  "O": {
+    "minutes": 240,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/O/"
+  },
+  "E": {
+    "minutes": 180,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/E/"
+  },
+  "H": {
+    "minutes": 180,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/H/"
+  },
+  "o": {
+    "minutes": 300,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/o/"
+  },
+  "g": {
+    "minutes": 120,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/g/"
+  },
+  "D": {
+    "minutes": 420,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/D/"
+  },
+  "W": {
+    "minutes": 120,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/W/"
+  },
+  "S": {
+    "minutes": 180,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/S/"
+  },
+  "L": {
+    "minutes": 300,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/L/"
+  },
+  "C": {
+    "minutes": 60,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/C/"
+  },
+  "x": {
+    "minutes": 360,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/x/"
+  },
+  "Q": {
+    "minutes": 180,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/Q/"
+  },
+  "s": {
+    "minutes": 180,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/s/"
+  },
+  "q": {
+    "minutes": 240,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/q/"
+  },
+  "k": {
+    "minutes": 360,
+    "source": "https://www.simcompanies.com/encyclopedia/1/building/k/"
+  }
+}
