@@ -135,16 +135,21 @@ function renderOwnedBuildings(){
  const individual=activeRealm==="challenge"&&Array.isArray(db.challengeOwnedBuildings)?db.challengeOwnedBuildings:null;
  $("buildingNames").innerHTML=db.buildings.map(x=>'<option value="'+esc(x.name)+'"></option>').join("");
  if(individual){
-  const counts=new Map();individual.forEach(x=>counts.set(x.name,(counts.get(x.name)||0)+1));
-  const summary=[...counts].map(([name,count])=>'<span class="building-count">'+esc(name)+': <b>'+count+'</b></span>').join("");
-  host.innerHTML=(summary?'<div class="building-count-summary">'+summary+'</div>':"")+(individual.length?individual.map((x,i)=>'<div class="owned-building-row"><b>'+esc(x.name)+' <small>#'+(i+1)+'</small></b><label>Level<input type="number" min="1" step="1" value="'+(Number(x.level)||1)+'" data-individual-id="'+esc(x.gameId)+'" data-individual-field="level"></label><label>Parallel slots<input type="number" min="0" step="1" value="'+(Number(x.slots)||0)+'" data-individual-id="'+esc(x.gameId)+'" data-individual-field="slots"></label></div>').join(""):'<p class="empty">No Challenge Realm building records imported yet.</p>');
-  host.querySelectorAll("[data-individual-field]").forEach(input=>input.onchange=()=>{
-   const x=individual.find(v=>String(v.gameId)===input.dataset.individualId),n=Number(input.value);
-   if(!x||!Number.isInteger(n)||n<(input.dataset.individualField==="level"?1:0)){toast("Enter a valid level or slot count");renderOwnedBuildings();return}
-   x[input.dataset.individualField]=n;
-   const group=individual.filter(v=>v.name===x.name),b=db.buildings.find(v=>v.name===x.name);
-   if(b){b.owned=true;b.ownedCount=group.length;b.level=Math.max(...group.map(v=>Number(v.level)||1));b.slots=group.reduce((sum,v)=>sum+(Number(v.slots)||0),0)}
-   persist();renderOwnedBuildings();$("saved").textContent="● SAVED";
+  const groups=new Map();
+  individual.forEach(x=>{
+   const key=String(x.name).toLowerCase()+"|"+(Number(x.level)||1);
+   if(!groups.has(key))groups.set(key,{name:x.name,level:Number(x.level)||1,items:[]});
+   groups.get(key).items.push(x);
+  });
+  const rows=[...groups.values()].sort((a,b)=>a.name.localeCompare(b.name)||a.level-b.level);
+  host.innerHTML=rows.length?'<div class="owned-building-groups">'+rows.map((g,i)=>'<div class="owned-building-row"><b>'+esc(g.name)+'</b><label>Level<strong>'+g.level+'</strong></label><label>Count<strong>'+g.items.length+'</strong></label><label>Slots per building<input type="number" min="0" step="1" value="'+(Number(g.items[0].slots)||0)+'" data-group-key="'+esc(g.name.toLowerCase()+"|"+g.level)+'" data-group-slots></label></div>').join("")+'</div>':'<p class="empty">No Challenge Realm building records imported yet.</p>';
+  host.querySelectorAll("[data-group-slots]").forEach(input=>input.onchange=()=>{
+   const group=groups.get(input.dataset.groupKey),n=Number(input.value);
+   if(!group||!Number.isInteger(n)||n<0){toast("Enter a valid whole-number slot count");renderOwnedBuildings();return}
+   group.items.forEach(x=>x.slots=n);
+   const sameName=individual.filter(x=>x.name===group.name),b=db.buildings.find(v=>v.name===group.name);
+   if(b){b.owned=true;b.ownedCount=sameName.length;b.level=Math.max(...sameName.map(x=>Number(x.level)||1));b.slots=sameName.reduce((sum,x)=>sum+(Number(x.slots)||0),0)}
+   persist();renderOwnedBuildings();$("saved").textContent="● SAVED";toast("Building group updated");
   });
   return;
  }
