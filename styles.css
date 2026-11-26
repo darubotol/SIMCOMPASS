@@ -165,3 +165,6 @@ th{background:#eff5f0;color:#65796e}td{color:#294139;border-bottom-color:#e9efeb
 
 /* The Challenge Optimizer is the product home; legacy catalogue dashboards remain internal only. */
 #dashboard{display:none!important}
+
+/* Realm selector and isolated workspace indicators */
+.realm{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.realm b{margin-left:auto;color:var(--mint);font:8px var(--mono);letter-spacing:.08em}.realm-switcher{display:grid;gap:5px;margin-bottom:18px}.realm-choice{display:flex;align-items:center;gap:9px;text-align:left;min-height:38px}.realm-choice span{font:8px var(--mono);color:#7f929d}.realm-choice small{margin-left:auto;font:7px var(--mono);color:var(--mint);letter-spacing:.08em}.realm-choice.active{border-color:#579879;background:#193027;color:#d8f5e5}.realm-choice:not(.active){opacity:.78}.realm-choice:not(.active):hover{opacity:1}
