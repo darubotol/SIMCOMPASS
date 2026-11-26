@@ -28,7 +28,7 @@ You can also preview locally by downloading the repository and opening `index.ht
 
 Data is stored in the browser's local storage on the device/browser where you use the site. It is not yet synchronized to another device or account. Use **Data & settings → Export workspace** regularly. Imported data must use the same JSON schema and should be checked before use.
 
-No live game database is bundled. Add current, verified values from the game. This avoids presenting guessed recipes, production times or prices as facts.
+A preloaded catalogue is now included: 151 resources/products, 149 production recipes and 47 building definitions for realm 0. Recipe inputs and level-one production rates come from the Simcotools public resource API; building production mappings and construction materials come from a community-maintained catalogue. Level-one construction times are currently verified for 24 of the 47 listed buildings against the official Encyclopedia; the remaining entries are explicitly marked unverified rather than guessed. Market prices and your own inventory are not prefilled because they change by realm and time. Official resource/building artwork is not exposed by the bulk resource feed, so image assets are still pending a reliable source mapping.
 
 ## Important calculation limits in this first working release
 
@@ -49,7 +49,7 @@ It does **not yet** calculate building-level production multipliers, simultaneou
 
 ## Roadmap
 
-1. Validate the full product/building/recipe dataset and its provenance.
+1. Complete construction-time verification for all building definitions and map official game artwork.
 2. Add robust alternative-route and cycle-aware production graph calculations.
 3. Implement building-level throughput, parallel scheduling and construction timing.
 4. Implement boost windows, stacking rules and multiple simultaneous boosts.
