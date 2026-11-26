@@ -84,6 +84,37 @@ const r=solve(target,qty,initial,[],0);if(!r)return{result:null,missing:[target]
 const issues=[...new Set(r.issues)];if(budget!==null&&r.cash>budget)issues.push("Required market cash exceeds starting cash by "+(r.cash-budget).toFixed(2)+".");
 return{result:{minutes:r.time,cost:r.cash,endingCash:budget===null?null:budget-r.cash},missing:[],issues,steps:r.steps}
 }
+function syncCapturedChallengeFeeds(){
+ if(activeRealm!=="challenge")return;
+ let feeds=[];try{feeds=JSON.parse(localStorage.getItem("simcompass.api.challenge.data.v1")||"[]")}catch{return}
+ if(!Array.isArray(feeds)||!feeds.length)return;
+ const byPath=new Map(feeds.map(x=>[x.endpoint,x.data]));
+ const challengeFeed=byPath.get("/api/v1/challenges/current/");
+ const resourceFeed=byPath.get("/api/v3/resources/6016653/")||feeds.find(x=>/^\/api\/v3\/resources\/\d+\/$/.test(x.endpoint))?.data;
+ const tickerFeed=feeds.filter(x=>/^\/api\/v3\/market-ticker\/\d+\/$/.test(x.endpoint)).sort((a,b)=>String(b.capturedAt).localeCompare(String(a.capturedAt)))[0]?.data;
+ const resources=Array.isArray(resourceFeed)?resourceFeed:[];
+ const ticker=Array.isArray(tickerFeed)?tickerFeed:[];
+ const productsById=new Map((catalogCache?.products||db.products).map(p=>[Number(p.gameId??String(p.id||"").replace("game-","")),p]));
+ const upsert=(name,patch)=>{if(!name)return;let row=db.inventory.find(x=>String(x.product).toLowerCase()===String(name).toLowerCase());if(!row){row={id:"live-"+String(name).toLowerCase().replace(/[^a-z0-9]+/g,"-"),product:name,stock:0,price:null,marketQty:0,lead:0};db.inventory.push(row)}Object.assign(row,patch,{source:"Challenge Realm live capture"})};
+ for(const item of resources){const p=productsById.get(Number(item.kind));if(!p)continue;upsert(p.name,{stock:Math.max(0,Number(item.amount)||0),gameId:Number(item.kind),inventoryCapturedAt:feeds.find(x=>x.data===resourceFeed)?.capturedAt||null})}
+ for(const item of ticker){const p=productsById.get(Number(item.kind));if(!p||!Number.isFinite(Number(item.price)))continue;upsert(p.name,{price:Number(item.price),gameId:Number(item.kind),marketCapturedAt:feeds.filter(x=>Array.isArray(x.data)&&x.data===tickerFeed)[0]?.capturedAt||null})}
+ if(challengeFeed?.challenge){
+  const c=challengeFeed.challenge,g=c.goal||{},p=productsById.get(Number(g.resourceKind));
+  db.liveChallengeData={challengeId:c.id,title:c.narrativeTitle||c.id,goalKind:g.kind,goalProduct:p?.name||null,resourceKind:g.resourceKind,target:Number(g.target)||null,progress:Number(challengeFeed.attempt?.goalProgress)||0,start:c.start||null,end:c.end||null,rules:c.rules||[],details:c.details||[],productionModifier:Number(c.productionModifier)||1,salesModifier:Number(c.salesModifier)||1,timeAcceleration:Number(c.timeAcceleration)||1,simBoostsStarting:Number(challengeFeed.simBoostsPool?.starting)||0,simBoostsPurchased:Number(challengeFeed.simBoostsPool?.purchased)||0,capturedAt:feeds.find(x=>x.endpoint==="/api/v1/challenges/current/")?.capturedAt||null};
+  const live=db.liveChallengeData;
+  db.challenge={...(db.challenge||{}),title:live.title,target:live.goalProduct||db.challenge?.target||"",qty:live.target||db.challenge?.qty||750,type:"deliver",objective:"time",deadline:live.end||db.challenge?.deadline||"",liveProgress:live.progress,liveTarget:live.target,liveChallengeId:live.challengeId};
+ }
+ db.liveFeedStatus={feedCount:feeds.length,inventoryCount:resources.length,marketCount:ticker.length,updatedAt:new Date().toISOString(),cashAvailable:false};
+ persist();
+ const notice=$("realmModeNotice");
+ if(notice&&db.liveChallengeData){
+  let status=notice.querySelector(".live-feed-status");if(!status){status=document.createElement("div");status.className="snapshot-status live-feed-status";notice.appendChild(status)}
+  const live=db.liveChallengeData;
+  status.innerHTML="<strong>Live Challenge Realm data mapped:</strong> "+esc(live.title)+" · progress "+live.progress+" / "+live.target+" "+esc(live.goalProduct||"units")+". Inventory: "+resources.length+" resource records; market: "+ticker.length+" price records. Cash balance is not present in the safely captured feeds.";
+ }
+ loadChallengeForm();
+ render();
+}
 function challengeBuildingsSnapshot(){try{const s=JSON.parse(localStorage.getItem("simcompass.api.challenge.buildings.v1")||"null");return s&&Array.isArray(s.payload)?s:null}catch{return null}}
 function syncChallengeBuildingsSnapshot(){
  if(activeRealm!=="challenge")return;
@@ -226,6 +257,7 @@ async function loadGameCatalog(){
     const catalog=await response.json();
     if(!catalog||!Array.isArray(catalog.products)||!Array.isArray(catalog.recipes)||!Array.isArray(catalog.buildings))throw new Error("Catalogue format is invalid.");
     catalogCache=catalog;
+    syncCapturedChallengeFeeds();
     syncChallengeBuildingsSnapshot();
     applyCatalog(db);
     persist();
