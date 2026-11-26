@@ -182,3 +182,26 @@ main{height:auto!important;min-height:100vh;overflow:visible!important}
 .content{height:auto!important;min-height:calc(100vh - 68px);overflow:visible!important}
 .challenge-grid{align-items:start}
 .challenge-output-panel{position:static!important;top:auto!important;align-self:start}
+
+/* Sidebar navigation: keep every section reachable on short screens */
+.sidebar{
+  height:100vh;
+  height:100dvh;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+  scrollbar-color:#58756c #142b2a;
+}
+.sidebar > *{flex-shrink:0}
+.sidebar .sidebottom{margin-top:24px;flex-shrink:0}
+.sidebar nav{flex-shrink:0}
+@media(max-height:760px){
+  .sidebar{padding-top:16px;padding-bottom:16px}
+  .brand{margin-bottom:16px}
+  .realm{margin-bottom:14px}
+  .realm-switcher{margin-bottom:12px}
+  .sidebar nav{margin-bottom:14px}
+  .nav{padding-top:9px;padding-bottom:9px}
+  .sidebottom{margin-top:16px}
+}
