@@ -66,15 +66,52 @@ const r=solve(target,qty,initial,[],0);if(!r)return{result:null,missing:[target]
 const issues=[...new Set(r.issues)];if(budget!==null&&r.cash>budget)issues.push("Required market cash exceeds starting cash by "+(r.cash-budget).toFixed(2)+".");
 return{result:{minutes:r.time,cost:r.cash,endingCash:budget===null?null:budget-r.cash},missing:[],issues,steps:r.steps}
 }
-$("challengeForm").onsubmit=e=>{e.preventDefault();const target=$("target").value.trim(),qty=+$("quantity").value,budget=$("budget").value===""?null:+$("budget").value,obj=$("objective").value;if(!target||qty<=0)return;const p=plan(target,qty,obj,budget);$("resultTitle").textContent=p.result?"Plan generated":"Data incomplete";let html="";
-if(p.result){html='<div class="stats"><article><label>ESTIMATED ELAPSED TIME</label><strong>'+(p.result.minutes/60).toFixed(2)+'h</strong></article><article><label>ESTIMATED COST</label><strong>'+p.result.cost.toFixed(2)+'</strong></article></div>';if(budget!==null&&p.result.cost>budget)html+='<p class="amber">Estimated cost exceeds the budget entered.</p>';html+='<p class="muted">Multi-route estimate: compares market sourcing with up to eight recipe routes per product and uses configured building slots. Timed boost windows, construction of missing buildings, level-specific production rates and retail receipts are not yet included.</p>'}
-if(p.steps.length)html+='<h4>Plan breakdown</h4><div class="tablewrap"><table><thead><tr><th>ACTION</th><th>PRODUCT</th><th>QUANTITY</th><th>TIME (MIN)</th><th>EST. CASH</th><th>BUILDING / CAPACITY</th></tr></thead><tbody>'+p.steps.map(s=>'<tr><td>'+s.kind.toUpperCase()+'</td><td>'+esc(s.product)+'</td><td>'+s.qty+'</td><td>'+s.time.toFixed(2)+'</td><td>'+s.cash.toFixed(2)+'</td><td>'+esc(s.building||'—')+(s.kind==='make'?' · L'+(s.level||'?')+' · '+s.slots+' slots':'—')+'</td></tr>').join("")+'</tbody></table></div>';
-if(p.missing.length)html+='<p class="amber">Missing / unresolved: '+p.missing.map(esc).join(", ")+'</p>';if(p.issues.length)html+='<ul class="muted">'+p.issues.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul>";if(!p.result)html+='<p class="muted">Add complete recipes and market rows for missing products. Ensure the required building is configured.</p>';$("result").innerHTML=html||"No plan could be generated.";db.challenge={target:target,qty:qty,objective:obj,budget:budget};localStorage.setItem(KEY,JSON.stringify(db))};
+function renderOwnedBuildings(){
+ const host=$("ownedBuildingList");if(!host)return;
+ const rows=db.buildings.filter(x=>Number(x.slots)>0||x.owned===true);
+ $("buildingNames").innerHTML=db.buildings.map(x=>'<option value="'+esc(x.name)+'"></option>').join("");
+ host.innerHTML=rows.length?rows.map(x=>'<div class="owned-building-row"><b>'+esc(x.name)+'</b><label>Level<input type="number" min="1" step="1" value="'+(Number(x.level)||1)+'" data-owned-id="'+esc(x.id)+'" data-owned-field="level"></label><label>Slots<input type="number" min="0" step="1" value="'+(Number(x.slots)||0)+'" data-owned-id="'+esc(x.id)+'" data-owned-field="slots"></label><button class="secondary" type="button" data-owned-remove="'+esc(x.id)+'">REMOVE</button></div>').join(""):'<p class="empty">No starting buildings configured yet.</p>';
+ host.querySelectorAll("[data-owned-field]").forEach(input=>input.onchange=()=>{const x=db.buildings.find(v=>String(v.id)===input.dataset.ownedId),n=Number(input.value);if(!x||!Number.isInteger(n)||n<(input.dataset.ownedField==="level"?1:0)){toast("Enter a valid level or slot count");renderOwnedBuildings();return}x[input.dataset.ownedField]=n;x.owned=Number(x.slots)>0;localStorage.setItem(KEY,JSON.stringify(db));renderOwnedBuildings();$("saved").textContent="● SAVED"});
+ host.querySelectorAll("[data-owned-remove]").forEach(btn=>btn.onclick=()=>{const x=db.buildings.find(v=>String(v.id)===btn.dataset.ownedRemove);if(x){x.slots=0;x.owned=false;localStorage.setItem(KEY,JSON.stringify(db));renderOwnedBuildings();$("saved").textContent="● SAVED"}});
+}
+$("addOwnedBuilding").onclick=()=>{const name=$("ownedBuildingName").value.trim(),level=Number($("ownedBuildingLevel").value),slots=Number($("ownedBuildingSlots").value),x=db.buildings.find(v=>v.name.toLowerCase()===name.toLowerCase());if(!x){toast("Choose a building from the game catalogue");return}if(!Number.isInteger(level)||level<1||!Number.isInteger(slots)||slots<0){toast("Check building level and slot count");return}x.level=level;x.slots=slots;x.owned=true;localStorage.setItem(KEY,JSON.stringify(db));$("ownedBuildingName").value="";renderOwnedBuildings();$("saved").textContent="● SAVED";toast("Starting building saved")};
+$("objectiveType").onchange=()=>{const deliver=$("objectiveType").value==="deliver";$("deliverFields").hidden=!deliver;$("genericFields").hidden=deliver};
+$("challengeForm").onsubmit=e=>{
+ e.preventDefault();
+ const type=$("objectiveType").value,title=$("challengeTitle").value.trim(),budget=$("budget").value===""?null:Number($("budget").value),priority=$("objective").value;
+ const challenge={title,type,description:$("goalDescription").value.trim(),amount:$("goalAmount").value===""?null:Number($("goalAmount").value),unit:$("goalUnit").value.trim(),rules:$("challengeRules").value.trim(),extraObjectives:$("extraObjectives").value.split("\\n").map(x=>x.trim()).filter(Boolean),deadline:$("deadline").value.trim(),priority,budget,updatedAt:new Date().toISOString()};
+ let p=null,html="";
+ if(type==="deliver"){
+  const target=$("target").value.trim(),qty=Number($("quantity").value);
+  if(!target||!(qty>0)){toast("Enter a valid product and target quantity");return}
+  challenge.target=target;challenge.qty=qty;challenge.objective=priority;
+  p=plan(target,qty,priority==="profit"?"cost":priority,budget);
+  $("resultTitle").textContent=p.result?"Production route found":"More starting data required";
+  if(p.result){
+   html='<div class="stats"><article><label>ESTIMATED PRODUCTION TIME</label><strong>'+(p.result.minutes/60).toFixed(2)+'h</strong></article><article><label>ESTIMATED PROCUREMENT COST</label><strong>'+p.result.cost.toFixed(2)+'</strong></article></div>';
+   html+='<p class="muted">This is the production/procurement component of the challenge, not a complete profit or retail-sale forecast.</p>';
+   html+='<h4>Required actions</h4><div class="tablewrap"><table><thead><tr><th>STEP</th><th>RESOURCE</th><th>QUANTITY</th><th>TIME (MIN)</th><th>CASH</th><th>PRODUCTION SITE</th></tr></thead><tbody>'+p.steps.map((x,i)=>'<tr><td>'+(i+1)+' · '+x.kind.toUpperCase()+'</td><td>'+esc(x.product)+'</td><td>'+Number(x.qty.toFixed(3))+'</td><td>'+x.time.toFixed(2)+'</td><td>'+x.cash.toFixed(2)+'</td><td>'+esc(x.building||"—")+'</td></tr>').join("")+'</tbody></table></div>';
+  }else html='<p class="muted">SIMCOMPASS could not find a complete route using the current inventory, market and owned-building setup.</p>';
+  if(p?.issues?.length)html+='<ul class="muted">'+p.issues.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>';
+  if(p?.missing?.length)html+='<p class="amber">Unresolved: '+p.missing.map(esc).join(", ")+'</p>';
+  html+='<p class="engine-disclaimer">The current delivery solver is a first-stage estimate. It does not yet solve global shared-building schedules, construction decisions, all boost windows, cashflow from retail sales or realm-specific rule variations.</p>';
+ }else{
+  $("resultTitle").textContent="Challenge captured · specialised solver required";
+  html='<div class="objective-summary"><span class="eyebrow">OBJECTIVE TYPE</span><h2>'+esc(type.replace("_"," ").toUpperCase())+'</h2><p>'+esc(challenge.description||"No detailed success condition entered.")+'</p></div>';
+  html+='<div class="kv"><span>Challenge time limit</span><b>'+esc(challenge.deadline||"Not specified")+'</b></div><div class="kv"><span>Starting cash</span><b>'+(budget===null?"Not entered":budget.toLocaleString())+'</b></div>';
+  if(challenge.extraObjectives.length)html+='<h4>Additional objectives</h4><ol>'+challenge.extraObjectives.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ol>';
+  html+='<p class="muted">This objective has been saved in a structured format. A valid optimiser needs the exact in-game rules, scoring formula, prerequisites and completion conditions for this objective type. SIMCOMPASS will not substitute a product-production plan or invent those mechanics.</p>';
+  html+='<p class="engine-disclaimer">Next engine modules: objective-specific rule models, dependency graph, feasibility checks, action scheduler, cashflow simulation and multi-objective scoring.</p>';
+ }
+ db.challenge=challenge;localStorage.setItem(KEY,JSON.stringify(db));$("result").innerHTML=html;toast("Challenge details saved");
+};
 $("export").onclick=()=>{const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="simcompass-backup.json";a.click();URL.revokeObjectURL(a.href);toast("Backup exported")};
 $("import").onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());["products","recipes","buildings","boosts","inventory"].forEach(k=>{if(!Array.isArray(data[k]))throw Error("Backup missing "+k)});db=Object.assign(blank(),data);save();toast("Backup imported")}catch(err){alert("Import failed: "+err.message)}e.target.value=""};
 $("reset").onclick=()=>{if(confirm("This will delete all SIMCOMPASS data saved in this browser. Export a backup first if needed.")){db=blank();save();$("result").textContent="Workspace reset.";toast("Workspace reset")}};
 if(db.challenge){$("target").value=db.challenge.target||"";$("quantity").value=db.challenge.qty||750;$("objective").value=db.challenge.objective||"time";$("budget").value=db.challenge.budget??""}
 render();
+renderOwnedBuildings();
+if(db.challenge){$("challengeTitle").value=db.challenge.title||"";$("objectiveType").value=db.challenge.type||"deliver";$("goalDescription").value=db.challenge.description||"";$("goalAmount").value=db.challenge.amount??"";$("goalUnit").value=db.challenge.unit||"";$("challengeRules").value=db.challenge.rules||"";$("extraObjectives").value=(db.challenge.extraObjectives||[]).join("\\n");$("deadline").value=db.challenge.deadline||"";$("objective").value=db.challenge.priority||db.challenge.objective||"time";$("deliverFields").hidden=$("objectiveType").value!=="deliver";$("genericFields").hidden=$("objectiveType").value==="deliver";}
 async function loadGameCatalog(){
   try{
     const response=await fetch("data/game-database.json?updated="+Date.now(),{cache:"no-store"});
