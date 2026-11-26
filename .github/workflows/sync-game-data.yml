@@ -1,0 +1,40 @@
+name: Sync SIMCOMPASS game database
+on:
+  workflow_dispatch:
+    inputs:
+      realm:
+        description: "Sim Companies realm number (0 = default realm)"
+        required: true
+        default: "0"
+permissions:
+  contents: write
+concurrency:
+  group: simcompass-game-data-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout SIMCOMPASS
+        uses: actions/checkout@v4
+      - name: Fetch public resource catalogue once
+        env:
+          REALM: ${{ inputs.realm }}
+        run: |
+          mkdir -p data
+          curl --fail --silent --show-error --location --retry 2 \
+            -H "accept: application/json" \
+            "https://api.simcotools.com/v1/realms/${REALM}/resources?disable_pagination=True" \
+            -o data/raw-resources.json
+          python -c "import json; d=json.load(open('data/raw-resources.json')); print('API response type:', type(d).__name__)"
+      - name: Normalize game database
+        env:
+          REALM: ${{ inputs.realm }}
+        run: python scripts/build_database.py
+      - name: Commit refreshed database
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw-resources.json data/game-database.json
+          git diff --cached --quiet || git commit -m "Sync Sim Companies game database"
+          git push
