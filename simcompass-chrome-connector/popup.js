@@ -2,36 +2,32 @@ const button = document.getElementById("connect");
 const status = document.getElementById("status");
 button.addEventListener("click", async () => {
   button.disabled = true;
-  status.textContent = "Checking the active tab…";
+  status.textContent = "Checking for a captured game response…";
   try {
     const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
     const tab = tabs[0];
     if (!tab?.id || !tab.url?.startsWith("https://darubotol.github.io/SIMCOMPASS/")) {
-      status.textContent = "First open the SIMCOMPASS website and make that tab active. No game request was made.";
+      status.textContent = "Open SIMCOMPASS and make that tab active before importing.";
       return;
     }
-    status.textContent = "Checking the game session and making one read-only request…";
-    const result = await chrome.runtime.sendMessage({ type: "SIMCOMPASS_FETCH_BUILDINGS" });
+    const result = await chrome.runtime.sendMessage({ type: "SIMCOMPASS_GET_PENDING_CAPTURE" });
     if (!result?.ok) {
-      if (result?.reason === "cooldown") {
-        status.textContent = "Please wait about " + Math.ceil(result.waitMs / 60000) + " minute(s) before the next API request.";
-      } else if (result?.reason === "http") {
-        status.textContent = "The game returned HTTP " + result.status + ". Make sure Sim Companies is open and signed in, then try after the five-minute cooldown.";
-      } else {
-        status.textContent = "Could not fetch the building data (" + (result?.reason || "unknown error") + ").";
-      }
+      status.textContent = "No building response captured yet. Keep this extension enabled, switch to Sim Companies, and reload the game page. Wait for the dashboard to finish loading, then return here.";
       return;
     }
     const saved = await chrome.tabs.sendMessage(tab.id, {
       type: "SIMCOMPASS_SAVE_BUILDINGS",
-      data: result.data,
-      fetchedAt: result.fetchedAt
+      data: result.snapshot.data,
+      capturedAt: result.snapshot.capturedAt
     });
-    status.textContent = saved?.ok
-      ? "Success: " + saved.count + " building records saved as an unassigned snapshot in SIMCOMPASS. The realm still needs verification."
-      : "The data was fetched, but SIMCOMPASS could not save it. Reload SIMCOMPASS and try again after the cooldown.";
-  } catch (error) {
-    status.textContent = "Could not communicate with the active SIMCOMPASS tab. Open or reload SIMCOMPASS and try again after the cooldown.";
+    if (saved?.ok) {
+      await chrome.runtime.sendMessage({ type: "SIMCOMPASS_CLEAR_PENDING_CAPTURE" });
+      status.textContent = "Imported " + saved.count + " building records into the Challenge Realm snapshot. The data was captured from the game's own successful response; no second API request was made.";
+    } else {
+      status.textContent = "The response was captured, but SIMCOMPASS could not save it. Reload the SIMCOMPASS tab and import again.";
+    }
+  } catch (_) {
+    status.textContent = "Could not communicate with SIMCOMPASS. Reload its tab and try the import again.";
   } finally {
     button.disabled = false;
   }
