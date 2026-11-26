@@ -1,0 +1,3939 @@
+{
+	"metadata": {
+		"totalRecords": 151
+	},
+	"phase": "normal",
+	"resources": [
+		{
+			"id": 100,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Aerospace research",
+			"producedAnHour": 0.34600436893717856,
+			"wages": 517.5,
+			"inputs": {
+				"91": {
+					"name": "Sub-orbital rocket",
+					"quantity": 1
+				},
+				"94": {
+					"name": "BFR",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 18,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Aluminium",
+			"producedAnHour": 119.79075369847736,
+			"wages": 414,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 15
+				},
+				"15": {
+					"name": "Bauxite",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 125,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Apple cider",
+			"producedAnHour": 36.564192686282865,
+			"wages": 241.49999999999997,
+			"inputs": {
+				"3": {
+					"name": "Apples",
+					"quantity": 8
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.09308911316302905,
+					"modeledProductionCostPerUnit": 17.69129787320276,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 15,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 51.01942697405339,
+					"saturation": 1.5175939333347606,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 154,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Apple icecream",
+			"producedAnHour": 32.14335468879014,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"117": {
+					"name": "Milk",
+					"quantity": 2
+				},
+				"135": {
+					"name": "Sugar",
+					"quantity": 0.5
+				},
+				"3": {
+					"name": "Apples",
+					"quantity": 4
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.1346621314850427,
+					"modeledProductionCostPerUnit": 31.786743075133828,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 18,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 110.03592805086059,
+					"saturation": 0.7842748734418988,
+					"salesWages": 241.49999999999997
+				}
+			]
+		},
+		{
+			"id": 123,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Apple pie",
+			"producedAnHour": 5.979001062993257,
+			"wages": 448.5,
+			"inputs": {
+				"135": {
+					"name": "Sugar",
+					"quantity": 2
+				},
+				"137": {
+					"name": "Dough",
+					"quantity": 1
+				},
+				"3": {
+					"name": "Apples",
+					"quantity": 2
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.48007095614232465,
+					"modeledProductionCostPerUnit": 171.9774151587316,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 10,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 346.0578815859619,
+					"saturation": 1.225965149788047,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 3,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Apples",
+			"producedAnHour": 202.18844174373334,
+			"wages": 103.5,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 3
+				},
+				"66": {
+					"name": "Seeds",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.008217493995122272,
+					"modeledProductionCostPerUnit": 1.3858094303634345,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 110,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 5.439170035377238,
+					"saturation": 1.4794179988585192,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 82,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Attitude control",
+			"producedAnHour": 2.715785477787575,
+			"wages": 724.5,
+			"inputs": {
+				"22": {
+					"name": "Batteries",
+					"quantity": 5
+				},
+				"43": {
+					"name": "Steel",
+					"quantity": 3
+				},
+				"48": {
+					"name": "Electric motor",
+					"quantity": 3
+				}
+			}
+		},
+		{
+			"id": 58,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Automotive research",
+			"producedAnHour": 3.3526408118270963,
+			"speedModifier": -20,
+			"wages": 552,
+			"inputs": {}
+		},
+		{
+			"id": 94,
+			"isResearch": false,
+			"transportation": 2000,
+			"name": "BFR",
+			"producedAnHour": 0.21085617360191167,
+			"wages": 759.0000000000001,
+			"inputs": {
+				"92": {
+					"name": "Orbital booster",
+					"quantity": 1
+				},
+				"93": {
+					"name": "Starship",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 1043.3463637988102,
+					"modeledProductionCostPerUnit": 468066.8359275615,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 1,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 1.2552723706114195,
+					"salesWages": 586.5
+				}
+			]
+		},
+		{
+			"id": 50,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Basic interior",
+			"producedAnHour": 31.88800566929737,
+			"wages": 448.5,
+			"inputs": {
+				"19": {
+					"name": "Plastic",
+					"quantity": 2
+				},
+				"23": {
+					"name": "Displays",
+					"quantity": 2
+				},
+				"41": {
+					"name": "Fabric",
+					"quantity": 5
+				}
+			}
+		},
+		{
+			"id": 22,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Batteries",
+			"producedAnHour": 25.255492969763683,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"17": {
+					"name": "Chemicals",
+					"quantity": 4
+				}
+			}
+		},
+		{
+			"id": 15,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Bauxite",
+			"producedAnHour": 96.5218784793032,
+			"wages": 276,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 14
+				},
+				"2": {
+					"name": "Water",
+					"quantity": 0.5
+				}
+			}
+		},
+		{
+			"id": 107,
+			"isResearch": false,
+			"transportation": 5,
+			"name": "Beams",
+			"producedAnHour": 129.98029593885207,
+			"wages": 482.99999999999994,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 4
+				},
+				"43": {
+					"name": "Steel",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 121,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Bread",
+			"producedAnHour": 11.958002125986514,
+			"wages": 448.5,
+			"inputs": {
+				"137": {
+					"name": "Dough",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.3215916763639164,
+					"modeledProductionCostPerUnit": 111.10484999328038,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 0,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 0.1
+				}
+			]
+		},
+		{
+			"id": 33,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Breeding research",
+			"producedAnHour": 3.8504170831653437,
+			"wages": 414,
+			"inputs": {}
+		},
+		{
+			"id": 102,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Bricks",
+			"producedAnHour": 367.3526250147445,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"104": {
+					"name": "Clay",
+					"quantity": 0.5
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.003415339593778958,
+					"modeledProductionCostPerUnit": 1.2512595715460795,
+					"modeledStoreWages": 189.75,
+					"modeledUnitsSoldAnHour": 80,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 7.820430782968005,
+					"saturation": 0.9366342863707952,
+					"salesWages": 172.5
+				}
+			]
+		},
+		{
+			"id": 112,
+			"isResearch": false,
+			"transportation": 5,
+			"name": "Bulldozer",
+			"producedAnHour": 5.58040099212704,
+			"wages": 448.5,
+			"inputs": {
+				"43": {
+					"name": "Steel",
+					"quantity": 4
+				},
+				"51": {
+					"name": "Car body",
+					"quantity": 1
+				},
+				"52": {
+					"name": "Combustion engine",
+					"quantity": 2
+				}
+			}
+		},
+		{
+			"id": 134,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Butter",
+			"producedAnHour": 13.775723438052918,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"117": {
+					"name": "Milk",
+					"quantity": 0.5
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.08661070778474494,
+					"modeledProductionCostPerUnit": 29.87055025723062,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 0,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 0.1
+				}
+			]
+		},
+		{
+			"id": 51,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Car body",
+			"producedAnHour": 23.91600425197303,
+			"wages": 448.5,
+			"inputs": {
+				"18": {
+					"name": "Aluminium",
+					"quantity": 30
+				},
+				"43": {
+					"name": "Steel",
+					"quantity": 5
+				},
+				"45": {
+					"name": "Glass",
+					"quantity": 5
+				}
+			}
+		},
+		{
+			"id": 76,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Carbon composite",
+			"producedAnHour": 68.45185925627278,
+			"wages": 414,
+			"inputs": {
+				"75": {
+					"name": "Carbon fibers",
+					"quantity": 8
+				}
+			}
+		},
+		{
+			"id": 75,
+			"isResearch": false,
+			"transportation": 0.1,
+			"name": "Carbon fibers",
+			"producedAnHour": 245.10570091326392,
+			"wages": 482.99999999999994,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 0.5
+				},
+				"10": {
+					"name": "Crude oil",
+					"quantity": 0.1
+				}
+			}
+		},
+		{
+			"id": 103,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Cement",
+			"producedAnHour": 298.4740078244799,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"105": {
+					"name": "Limestone",
+					"quantity": 3
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.009745984419983037,
+					"modeledProductionCostPerUnit": 3.3592180214001557,
+					"modeledStoreWages": 189.75,
+					"modeledUnitsSoldAnHour": 60,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 14.275861049468807,
+					"saturation": 0.8727470894855156,
+					"salesWages": 172.5
+				}
+			]
+		},
+		{
+			"id": 122,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Cheese",
+			"producedAnHour": 5.510289375221167,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"117": {
+					"name": "Milk",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.20951715003660626,
+					"modeledProductionCostPerUnit": 73.5153317447319,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 30,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 149.81130589689525,
+					"saturation": 1.1610603273298619,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 17,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Chemicals",
+			"producedAnHour": 213.91206017585242,
+			"wages": 414,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 0.2
+				},
+				"14": {
+					"name": "Minerals",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 34,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Chemistry research",
+			"producedAnHour": 4.706065323868754,
+			"wages": 414,
+			"inputs": {}
+		},
+		{
+			"id": 140,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Chocolate",
+			"producedAnHour": 3.214335468879014,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"117": {
+					"name": "Milk",
+					"quantity": 0.5
+				},
+				"135": {
+					"name": "Sugar",
+					"quantity": 1
+				},
+				"136": {
+					"name": "Cocoa",
+					"quantity": 10
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.4320751867188788,
+					"modeledProductionCostPerUnit": 140.6298577066403,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 15,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 288.5485258456691,
+					"saturation": 1.219710168497089,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 153,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Chocolate icecream",
+			"producedAnHour": 32.14335468879014,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"117": {
+					"name": "Milk",
+					"quantity": 2
+				},
+				"135": {
+					"name": "Sugar",
+					"quantity": 0.5
+				},
+				"140": {
+					"name": "Chocolate",
+					"quantity": 0.0625
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.1287968546744835,
+					"modeledProductionCostPerUnit": 35.03287146034512,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 22,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 95.00789163722025,
+					"saturation": 0.7582907933564252,
+					"salesWages": 241.49999999999997
+				}
+			]
+		},
+		{
+			"id": 104,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Clay",
+			"producedAnHour": 1078.7739359451534,
+			"wages": 276,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 81,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Cockpit",
+			"producedAnHour": 2.2631545648229796,
+			"wages": 724.5,
+			"inputs": {
+				"23": {
+					"name": "Displays",
+					"quantity": 8
+				},
+				"50": {
+					"name": "Basic interior",
+					"quantity": 1
+				},
+				"79": {
+					"name": "High grade e-comps",
+					"quantity": 4
+				}
+			}
+		},
+		{
+			"id": 132,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Cocktails",
+			"producedAnHour": 0.5214347857459736,
+			"wages": 655.5,
+			"inputs": {
+				"119": {
+					"name": "Coffee powder",
+					"quantity": 8
+				},
+				"124": {
+					"name": "Orange juice",
+					"quantity": 1
+				},
+				"125": {
+					"name": "Apple cider",
+					"quantity": 1
+				},
+				"126": {
+					"name": "Ginger beer",
+					"quantity": 2
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 2.9707149489812257,
+					"modeledProductionCostPerUnit": 1525.8676015591511,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 0,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 0.1
+				}
+			]
+		},
+		{
+			"id": 136,
+			"isResearch": false,
+			"transportation": 0.1,
+			"name": "Cocoa",
+			"producedAnHour": 169.83829106473598,
+			"wages": 103.5,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 1
+				},
+				"66": {
+					"name": "Seeds",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 118,
+			"isResearch": false,
+			"transportation": 0.1,
+			"name": "Coffee beans",
+			"producedAnHour": 412.46442115721595,
+			"wages": 103.5,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 0.5
+				},
+				"66": {
+					"name": "Seeds",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 119,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Coffee powder",
+			"producedAnHour": 22.95953906342153,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"118": {
+					"name": "Coffee beans",
+					"quantity": 10
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.0831965820630771,
+					"modeledProductionCostPerUnit": 21.668055696201822,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 100,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 38.63768497406757,
+					"saturation": 1.5100887032535177,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 52,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Combustion engine",
+			"producedAnHour": 5.596646735354555,
+			"wages": 621,
+			"inputs": {
+				"17": {
+					"name": "Chemicals",
+					"quantity": 5
+				},
+				"21": {
+					"name": "Electronic components",
+					"quantity": 5
+				},
+				"43": {
+					"name": "Steel",
+					"quantity": 6
+				}
+			}
+		},
+		{
+			"id": 111,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Construction units",
+			"producedAnHour": 0.9857142857142858,
+			"wages": 345,
+			"inputs": {
+				"107": {
+					"name": "Beams",
+					"quantity": 8
+				},
+				"109": {
+					"name": "Windows",
+					"quantity": 4
+				},
+				"110": {
+					"name": "Tools",
+					"quantity": 4
+				},
+				"112": {
+					"name": "Bulldozer",
+					"quantity": 0.125
+				},
+				"12": {
+					"name": "Diesel",
+					"quantity": 5
+				}
+			}
+		},
+		{
+			"id": 40,
+			"isResearch": false,
+			"transportation": 0.5,
+			"name": "Cotton",
+			"producedAnHour": 209.62897639990274,
+			"speedModifier": -19,
+			"wages": 103.5,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 1
+				},
+				"66": {
+					"name": "Seeds",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 115,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Cows",
+			"producedAnHour": 47.094310122772484,
+			"speedModifier": 25,
+			"wages": 138,
+			"inputs": {
+				"139": {
+					"name": "Fodder",
+					"quantity": 12
+				},
+				"2": {
+					"name": "Water",
+					"quantity": 16
+				}
+			}
+		},
+		{
+			"id": 155,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Cream egg",
+			"producedAnHour": 11.479769531710765,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"134": {
+					"name": "Butter",
+					"quantity": 0.5
+				},
+				"135": {
+					"name": "Sugar",
+					"quantity": 0.75
+				},
+				"140": {
+					"name": "Chocolate",
+					"quantity": 0.1
+				}
+			}
+		},
+		{
+			"id": 10,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Crude oil",
+			"producedAnHour": 41.52052427246143,
+			"wages": 517.5,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 25
+				}
+			}
+		},
+		{
+			"id": 12,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Diesel",
+			"producedAnHour": 115.12540497441184,
+			"wages": 482.99999999999994,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 15
+				},
+				"10": {
+					"name": "Crude oil",
+					"quantity": 0.75
+				},
+				"73": {
+					"name": "Ethanol",
+					"quantity": 0.25
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.05894138193606232,
+					"modeledProductionCostPerUnit": 23.86026902336927,
+					"modeledStoreWages": 379.5,
+					"modeledUnitsSoldAnHour": 105,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 50.553756499167214,
+					"saturation": 0.8843840414438321,
+					"salesWages": 345
+				}
+			]
+		},
+		{
+			"id": 23,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Displays",
+			"producedAnHour": 32.14335468879014,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"16": {
+					"name": "Silicon",
+					"quantity": 5
+				},
+				"17": {
+					"name": "Chemicals",
+					"quantity": 4
+				}
+			}
+		},
+		{
+			"id": 137,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Dough",
+			"producedAnHour": 14.708342614963412,
+			"speedModifier": 23,
+			"wages": 448.5,
+			"inputs": {
+				"133": {
+					"name": "Flour",
+					"quantity": 2
+				},
+				"134": {
+					"name": "Butter",
+					"quantity": 0.5
+				},
+				"9": {
+					"name": "Eggs",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 62,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Dress",
+			"producedAnHour": 150.70179239287197,
+			"wages": 138,
+			"inputs": {
+				"19": {
+					"name": "Plastic",
+					"quantity": 0.5
+				},
+				"41": {
+					"name": "Fabric",
+					"quantity": 3
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.0616774897944069,
+					"modeledProductionCostPerUnit": 11.127709656118052,
+					"modeledStoreWages": 341.55,
+					"modeledUnitsSoldAnHour": 45,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 40.14709491700072,
+					"saturation": 1.208247735471163,
+					"salesWages": 310.5
+				}
+			]
+		},
+		{
+			"id": 151,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Easter Bunny",
+			"producedAnHour": 3.673526250147445,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"117": {
+					"name": "Milk",
+					"quantity": 0.25
+				},
+				"135": {
+					"name": "Sugar",
+					"quantity": 0.25
+				},
+				"136": {
+					"name": "Cocoa",
+					"quantity": 8
+				},
+				"18": {
+					"name": "Aluminium",
+					"quantity": 0.0625
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.3506680661576384,
+					"modeledProductionCostPerUnit": 115.70671384590469,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 30,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 230.0444416848798,
+					"saturation": 1.355365034376249,
+					"salesWages": 241.49999999999997
+				}
+			]
+		},
+		{
+			"id": 55,
+			"isResearch": false,
+			"transportation": 5,
+			"name": "Economy car",
+			"producedAnHour": 13.9510024803176,
+			"wages": 448.5,
+			"inputs": {
+				"47": {
+					"name": "On-board computer",
+					"quantity": 1
+				},
+				"50": {
+					"name": "Basic interior",
+					"quantity": 1
+				},
+				"51": {
+					"name": "Car body",
+					"quantity": 1
+				},
+				"52": {
+					"name": "Combustion engine",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 3.172768281418329,
+					"modeledProductionCostPerUnit": 1219.8990021740833,
+					"modeledStoreWages": 417.45000000000005,
+					"modeledUnitsSoldAnHour": 2,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 2794.098393363436,
+					"saturation": 0.6775728027368486,
+					"salesWages": 379.50000000000006
+				}
+			]
+		},
+		{
+			"id": 53,
+			"isResearch": false,
+			"transportation": 5,
+			"name": "Economy e-car",
+			"producedAnHour": 19.930003543310857,
+			"wages": 448.5,
+			"inputs": {
+				"22": {
+					"name": "Batteries",
+					"quantity": 15
+				},
+				"47": {
+					"name": "On-board computer",
+					"quantity": 1
+				},
+				"48": {
+					"name": "Electric motor",
+					"quantity": 2
+				},
+				"50": {
+					"name": "Basic interior",
+					"quantity": 1
+				},
+				"51": {
+					"name": "Car body",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 4.897457779940566,
+					"modeledProductionCostPerUnit": 1817.5537839187427,
+					"modeledStoreWages": 417.45000000000005,
+					"modeledUnitsSoldAnHour": 2,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 4047.2380598571353,
+					"saturation": 0.7176057417472171,
+					"salesWages": 379.50000000000006
+				}
+			]
+		},
+		{
+			"id": 9,
+			"isResearch": false,
+			"transportation": 0.1,
+			"name": "Eggs",
+			"producedAnHour": 316.47376402503113,
+			"wages": 138,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 0.4
+				},
+				"6": {
+					"name": "Grain",
+					"quantity": 0.5
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.004825017092868805,
+					"modeledProductionCostPerUnit": 0.7292769680471267,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 340,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 2.3448706816883864,
+					"saturation": 1.507439090687607,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 48,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Electric motor",
+			"producedAnHour": 30.78155704445005,
+			"wages": 621,
+			"inputs": {
+				"21": {
+					"name": "Electronic components",
+					"quantity": 3
+				},
+				"43": {
+					"name": "Steel",
+					"quantity": 2
+				}
+			}
+		},
+		{
+			"id": 21,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Electronic components",
+			"producedAnHour": 41.32717031415876,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"16": {
+					"name": "Silicon",
+					"quantity": 3
+				},
+				"17": {
+					"name": "Chemicals",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 32,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Electronics research",
+			"producedAnHour": 2.4027898050985885,
+			"wages": 586.5,
+			"inputs": {}
+		},
+		{
+			"id": 30,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Energy research",
+			"producedAnHour": 3.3038359820105594,
+			"wages": 586.5,
+			"inputs": {}
+		},
+		{
+			"id": 73,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Ethanol",
+			"producedAnHour": 60.94032114380477,
+			"wages": 241.49999999999997,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 20
+				},
+				"72": {
+					"name": "Sugarcane",
+					"quantity": 10
+				}
+			}
+		},
+		{
+			"id": 41,
+			"isResearch": false,
+			"transportation": 0.5,
+			"name": "Fabric",
+			"producedAnHour": 241.12286782859513,
+			"wages": 138,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 1
+				},
+				"40": {
+					"name": "Cotton",
+					"quantity": 2
+				}
+			}
+		},
+		{
+			"id": 59,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Fashion research",
+			"producedAnHour": 6.776201204725691,
+			"wages": 448.5,
+			"inputs": {}
+		},
+		{
+			"id": 80,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Flight computer",
+			"producedAnHour": 2.2631545648229796,
+			"wages": 724.5,
+			"inputs": {
+				"47": {
+					"name": "On-board computer",
+					"quantity": 2
+				},
+				"79": {
+					"name": "High grade e-comps",
+					"quantity": 4
+				}
+			}
+		},
+		{
+			"id": 133,
+			"isResearch": false,
+			"transportation": 0.1,
+			"name": "Flour",
+			"producedAnHour": 87.24624844100181,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"6": {
+					"name": "Grain",
+					"quantity": 15
+				}
+			}
+		},
+		{
+			"id": 139,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Fodder",
+			"producedAnHour": 284.69828438642696,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"120": {
+					"name": "Vegetables",
+					"quantity": 0.5
+				},
+				"6": {
+					"name": "Grain",
+					"quantity": 10
+				}
+			}
+		},
+		{
+			"id": 127,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Frozen pizza",
+			"producedAnHour": 9.183815625368613,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"120": {
+					"name": "Vegetables",
+					"quantity": 2
+				},
+				"122": {
+					"name": "Cheese",
+					"quantity": 1
+				},
+				"137": {
+					"name": "Dough",
+					"quantity": 2
+				},
+				"8": {
+					"name": "Sausages",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.8391977205507947,
+					"modeledProductionCostPerUnit": 272.1983540854805,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 10,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 508.93382987007374,
+					"saturation": 1.344726682257409,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 77,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Fuselage",
+			"producedAnHour": 3.3038359820105594,
+			"wages": 586.5,
+			"inputs": {
+				"76": {
+					"name": "Carbon composite",
+					"quantity": 40
+				}
+			}
+		},
+		{
+			"id": 126,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Ginger beer",
+			"producedAnHour": 73.12838537256573,
+			"wages": 241.49999999999997,
+			"inputs": {
+				"120": {
+					"name": "Vegetables",
+					"quantity": 3
+				},
+				"135": {
+					"name": "Sugar",
+					"quantity": 2
+				},
+				"2": {
+					"name": "Water",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.10544057868625505,
+					"modeledProductionCostPerUnit": 28.81633560579997,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 10,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 86.84949065146172,
+					"saturation": 1.3689982940189103,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 45,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Glass",
+			"producedAnHour": 156.58362804872397,
+			"speedModifier": 22,
+			"wages": 414,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 2
+				},
+				"16": {
+					"name": "Silicon",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 61,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Gloves",
+			"producedAnHour": 143.16670277322837,
+			"wages": 138,
+			"inputs": {
+				"41": {
+					"name": "Fabric",
+					"quantity": 0.5
+				},
+				"46": {
+					"name": "Leather",
+					"quantity": 0.5
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.06148171668974752,
+					"modeledProductionCostPerUnit": 9.394549459952708,
+					"modeledStoreWages": 341.55,
+					"modeledUnitsSoldAnHour": 20,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 53.94111314337175,
+					"saturation": 1.2088639459316017,
+					"salesWages": 310.5
+				}
+			]
+		},
+		{
+			"id": 68,
+			"isResearch": false,
+			"transportation": 10,
+			"name": "Gold ore",
+			"producedAnHour": 56.7775755760607,
+			"wages": 276,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 80
+				},
+				"2": {
+					"name": "Water",
+					"quantity": 2
+				}
+			}
+		},
+		{
+			"id": 69,
+			"isResearch": false,
+			"transportation": 1000,
+			"name": "Golden bars",
+			"producedAnHour": 29.94768842461934,
+			"wages": 414,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 40
+				},
+				"68": {
+					"name": "Gold ore",
+					"quantity": 200
+				}
+			}
+		},
+		{
+			"id": 6,
+			"isResearch": false,
+			"transportation": 0.1,
+			"name": "Grain",
+			"producedAnHour": 808.7537669749333,
+			"wages": 103.5,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 0.5
+				},
+				"66": {
+					"name": "Seeds",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 5,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Grapes",
+			"producedAnHour": 161.75075339498665,
+			"wages": 103.5,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 4
+				},
+				"66": {
+					"name": "Seeds",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.010146722009585872,
+					"modeledProductionCostPerUnit": 1.7581615627211524,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 80,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 7.196508402003344,
+					"saturation": 1.4672777273573416,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 129,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Hamburger",
+			"producedAnHour": 0.5214347857459736,
+			"wages": 655.5,
+			"inputs": {
+				"120": {
+					"name": "Vegetables",
+					"quantity": 3
+				},
+				"121": {
+					"name": "Bread",
+					"quantity": 0.5
+				},
+				"134": {
+					"name": "Butter",
+					"quantity": 1
+				},
+				"141": {
+					"name": "Vegetable oil",
+					"quantity": 0.5
+				},
+				"7": {
+					"name": "Steak",
+					"quantity": 4
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 2.661019290483073,
+					"modeledProductionCostPerUnit": 1464.6718224271067,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 0,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 0.1
+				}
+			]
+		},
+		{
+			"id": 64,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Handbags",
+			"producedAnHour": 67.81580657679238,
+			"wages": 138,
+			"inputs": {
+				"46": {
+					"name": "Leather",
+					"quantity": 1.5
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.15418093353842224,
+					"modeledProductionCostPerUnit": 23.87120299919537,
+					"modeledStoreWages": 341.55,
+					"modeledUnitsSoldAnHour": 20,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 87.53298835491421,
+					"saturation": 1.298234521312437,
+					"salesWages": 310.5
+				}
+			]
+		},
+		{
+			"id": 87,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Heat shield",
+			"producedAnHour": 12.013949025492943,
+			"wages": 586.5,
+			"inputs": {
+				"16": {
+					"name": "Silicon",
+					"quantity": 30
+				},
+				"43": {
+					"name": "Steel",
+					"quantity": 20
+				}
+			}
+		},
+		{
+			"id": 79,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "High grade e-comps",
+			"producedAnHour": 1.8367631250737224,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"16": {
+					"name": "Silicon",
+					"quantity": 4
+				},
+				"17": {
+					"name": "Chemicals",
+					"quantity": 3
+				},
+				"69": {
+					"name": "Golden bars",
+					"quantity": 0.0625
+				}
+			}
+		},
+		{
+			"id": 88,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Ion drive",
+			"producedAnHour": 0.5596646735354555,
+			"wages": 621,
+			"inputs": {
+				"17": {
+					"name": "Chemicals",
+					"quantity": 15
+				},
+				"22": {
+					"name": "Batteries",
+					"quantity": 30
+				},
+				"79": {
+					"name": "High grade e-comps",
+					"quantity": 8
+				}
+			}
+		},
+		{
+			"id": 42,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Iron ore",
+			"producedAnHour": 181.68824184339425,
+			"wages": 276,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 7
+				},
+				"2": {
+					"name": "Water",
+					"quantity": 0.5
+				}
+			}
+		},
+		{
+			"id": 147,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Jack o'lantern",
+			"producedAnHour": 284.69828438642696,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"146": {
+					"name": "Pumpkin",
+					"quantity": 1
+				},
+				"21": {
+					"name": "Electronic components",
+					"quantity": 0.5
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.05804296445981941,
+					"modeledProductionCostPerUnit": 19.229819239298102,
+					"modeledStoreWages": 227.7,
+					"modeledUnitsSoldAnHour": 40,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 48.03598357048555,
+					"saturation": 0.7331656567816063,
+					"salesWages": 207
+				}
+			]
+		},
+		{
+			"id": 89,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Jet engine",
+			"producedAnHour": 0.8394970103031831,
+			"wages": 621,
+			"inputs": {
+				"18": {
+					"name": "Aluminium",
+					"quantity": 5
+				},
+				"79": {
+					"name": "High grade e-comps",
+					"quantity": 4
+				}
+			}
+		},
+		{
+			"id": 95,
+			"isResearch": false,
+			"transportation": 2000,
+			"name": "Jumbo jet",
+			"producedAnHour": 0.0632568520805735,
+			"wages": 759.0000000000001,
+			"inputs": {
+				"50": {
+					"name": "Basic interior",
+					"quantity": 140
+				},
+				"77": {
+					"name": "Fuselage",
+					"quantity": 40
+				},
+				"78": {
+					"name": "Wing",
+					"quantity": 10
+				},
+				"81": {
+					"name": "Cockpit",
+					"quantity": 2
+				},
+				"89": {
+					"name": "Jet engine",
+					"quantity": 4
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 286.1840844922776,
+					"modeledProductionCostPerUnit": 129421.73354727181,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 1,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 1.2604790842844704,
+					"salesWages": 586.5
+				}
+			]
+		},
+		{
+			"id": 26,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Laptops",
+			"producedAnHour": 9.183815625368613,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"19": {
+					"name": "Plastic",
+					"quantity": 3
+				},
+				"20": {
+					"name": "Processors",
+					"quantity": 4
+				},
+				"21": {
+					"name": "Electronic components",
+					"quantity": 3
+				},
+				"22": {
+					"name": "Batteries",
+					"quantity": 2
+				},
+				"23": {
+					"name": "Displays",
+					"quantity": 2
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 1.6876114585927768,
+					"modeledProductionCostPerUnit": 638.1754481232036,
+					"modeledStoreWages": 189.75,
+					"modeledUnitsSoldAnHour": 1.2,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 1640.33365583583,
+					"saturation": 0.7752272220631453,
+					"salesWages": 172.5
+				}
+			]
+		},
+		{
+			"id": 130,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Lasagna",
+			"producedAnHour": 1.5643043572379207,
+			"wages": 655.5,
+			"inputs": {
+				"122": {
+					"name": "Cheese",
+					"quantity": 0.5
+				},
+				"128": {
+					"name": "Pasta",
+					"quantity": 1
+				},
+				"138": {
+					"name": "Sauce",
+					"quantity": 1
+				},
+				"7": {
+					"name": "Steak",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 2.3570040173857527,
+					"modeledProductionCostPerUnit": 1380.694744516906,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 0,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 0.1
+				}
+			]
+		},
+		{
+			"id": 46,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Leather",
+			"producedAnHour": 30.14035847857439,
+			"wages": 138,
+			"inputs": {
+				"115": {
+					"name": "Cows",
+					"quantity": 0.125
+				}
+			}
+		},
+		{
+			"id": 105,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Limestone",
+			"producedAnHour": 794.8860580648499,
+			"wages": 276,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 2
+				}
+			}
+		},
+		{
+			"id": 56,
+			"isResearch": false,
+			"transportation": 5,
+			"name": "Luxury car",
+			"producedAnHour": 1.9930003543310857,
+			"wages": 448.5,
+			"inputs": {
+				"47": {
+					"name": "On-board computer",
+					"quantity": 2
+				},
+				"49": {
+					"name": "Luxury car interior",
+					"quantity": 1
+				},
+				"51": {
+					"name": "Car body",
+					"quantity": 1
+				},
+				"52": {
+					"name": "Combustion engine",
+					"quantity": 2
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 6.186137630842201,
+					"modeledProductionCostPerUnit": 2339.553506039372,
+					"modeledStoreWages": 417.45000000000005,
+					"modeledUnitsSoldAnHour": 0.5,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 6177.268239873495,
+					"saturation": 0.5854890630076689,
+					"salesWages": 379.50000000000006
+				}
+			]
+		},
+		{
+			"id": 49,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Luxury car interior",
+			"producedAnHour": 19.930003543310857,
+			"wages": 448.5,
+			"inputs": {
+				"18": {
+					"name": "Aluminium",
+					"quantity": 2
+				},
+				"23": {
+					"name": "Displays",
+					"quantity": 6
+				},
+				"46": {
+					"name": "Leather",
+					"quantity": 5
+				}
+			}
+		},
+		{
+			"id": 54,
+			"isResearch": false,
+			"transportation": 5,
+			"name": "Luxury e-car",
+			"producedAnHour": 3.9860007086621714,
+			"wages": 448.5,
+			"inputs": {
+				"22": {
+					"name": "Batteries",
+					"quantity": 30
+				},
+				"47": {
+					"name": "On-board computer",
+					"quantity": 2
+				},
+				"48": {
+					"name": "Electric motor",
+					"quantity": 4
+				},
+				"49": {
+					"name": "Luxury car interior",
+					"quantity": 1
+				},
+				"51": {
+					"name": "Car body",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 9.427646261288189,
+					"modeledProductionCostPerUnit": 3441.633210109271,
+					"modeledStoreWages": 417.45000000000005,
+					"modeledUnitsSoldAnHour": 0.5,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 8494.738181018123,
+					"saturation": 0.6812027496568395,
+					"salesWages": 379.50000000000006
+				}
+			]
+		},
+		{
+			"id": 96,
+			"isResearch": false,
+			"transportation": 1000,
+			"name": "Luxury jet",
+			"producedAnHour": 0.1248268547723317,
+			"speedModifier": -26,
+			"wages": 759.0000000000001,
+			"inputs": {
+				"69": {
+					"name": "Golden bars",
+					"quantity": 2
+				},
+				"77": {
+					"name": "Fuselage",
+					"quantity": 14
+				},
+				"78": {
+					"name": "Wing",
+					"quantity": 2
+				},
+				"81": {
+					"name": "Cockpit",
+					"quantity": 1
+				},
+				"89": {
+					"name": "Jet engine",
+					"quantity": 2
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 99.70501453558225,
+					"modeledProductionCostPerUnit": 45536.191330114205,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 1,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 1.2240922219485426,
+					"salesWages": 586.5
+				}
+			]
+		},
+		{
+			"id": 70,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Luxury watch",
+			"producedAnHour": 18.837724049108996,
+			"wages": 138,
+			"inputs": {
+				"21": {
+					"name": "Electronic components",
+					"quantity": 2
+				},
+				"45": {
+					"name": "Glass",
+					"quantity": 0.5
+				},
+				"69": {
+					"name": "Golden bars",
+					"quantity": 0.1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 1.254733304893077,
+					"modeledProductionCostPerUnit": 445.2390620197452,
+					"modeledStoreWages": 341.55,
+					"modeledUnitsSoldAnHour": 3,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 1058.8825040560644,
+					"saturation": 0.9594328218144448,
+					"salesWages": 310.5
+				}
+			]
+		},
+		{
+			"id": 113,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Materials research",
+			"producedAnHour": 3.422592962813639,
+			"wages": 414,
+			"inputs": {}
+		},
+		{
+			"id": 131,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Meat balls",
+			"producedAnHour": 1.0428695714919471,
+			"wages": 655.5,
+			"inputs": {
+				"121": {
+					"name": "Bread",
+					"quantity": 1
+				},
+				"138": {
+					"name": "Sauce",
+					"quantity": 1
+				},
+				"141": {
+					"name": "Vegetable oil",
+					"quantity": 0.5
+				},
+				"8": {
+					"name": "Sausages",
+					"quantity": 2
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 2.7388443758727177,
+					"modeledProductionCostPerUnit": 1623.0358321055742,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 0,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 0.1
+				}
+			]
+		},
+		{
+			"id": 74,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Methane",
+			"producedAnHour": 55.36069902994857,
+			"wages": 517.5,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 20
+				}
+			}
+		},
+		{
+			"id": 117,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Milk",
+			"producedAnHour": 120.56143391429757,
+			"wages": 138,
+			"inputs": {
+				"139": {
+					"name": "Fodder",
+					"quantity": 0.5
+				},
+				"2": {
+					"name": "Water",
+					"quantity": 2
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.028038477701024404,
+					"modeledProductionCostPerUnit": 4.644175593378594,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 0,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 0.1
+				}
+			]
+		},
+		{
+			"id": 14,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Minerals",
+			"producedAnHour": 119.23290870972747,
+			"wages": 276,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 20
+				},
+				"2": {
+					"name": "Water",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 31,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Mining research",
+			"producedAnHour": 3.0034872563732358,
+			"wages": 586.5,
+			"inputs": {}
+		},
+		{
+			"id": 27,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Monitors",
+			"producedAnHour": 18.367631250737226,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"19": {
+					"name": "Plastic",
+					"quantity": 3
+				},
+				"21": {
+					"name": "Electronic components",
+					"quantity": 2
+				},
+				"23": {
+					"name": "Displays",
+					"quantity": 3
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.774758363447735,
+					"modeledProductionCostPerUnit": 294.1621171806931,
+					"modeledStoreWages": 189.75,
+					"modeledUnitsSoldAnHour": 2,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 829.9431548638977,
+					"saturation": 0.6886793081888936,
+					"salesWages": 172.5
+				}
+			]
+		},
+		{
+			"id": 71,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Necklace",
+			"producedAnHour": 41.44299290803979,
+			"wages": 138,
+			"inputs": {
+				"69": {
+					"name": "Golden bars",
+					"quantity": 0.25
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 2.6108349112010596,
+					"modeledProductionCostPerUnit": 939.3094443646374,
+					"modeledStoreWages": 341.55,
+					"modeledUnitsSoldAnHour": 2,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 2059.676111257667,
+					"saturation": 1.1045334952608499,
+					"salesWages": 310.5
+				}
+			]
+		},
+		{
+			"id": 47,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "On-board computer",
+			"producedAnHour": 13.775723438052918,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"20": {
+					"name": "Processors",
+					"quantity": 2
+				},
+				"21": {
+					"name": "Electronic components",
+					"quantity": 3
+				}
+			}
+		},
+		{
+			"id": 124,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Orange juice",
+			"producedAnHour": 91.41048171570716,
+			"wages": 241.49999999999997,
+			"inputs": {
+				"135": {
+					"name": "Sugar",
+					"quantity": 1
+				},
+				"4": {
+					"name": "Oranges",
+					"quantity": 5
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.08338665867769919,
+					"modeledProductionCostPerUnit": 20.09088128559387,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 15,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 60.83807497158946,
+					"saturation": 1.3546317700387258,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 4,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Oranges",
+			"producedAnHour": 186.01336640423466,
+			"wages": 103.5,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 3
+				},
+				"66": {
+					"name": "Seeds",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.008647570615670862,
+					"modeledProductionCostPerUnit": 1.4303223605902136,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 90,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 6.283807880952934,
+					"saturation": 1.4604546488744532,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 92,
+			"isResearch": false,
+			"transportation": 100,
+			"name": "Orbital booster",
+			"producedAnHour": 1.5017436281866179,
+			"wages": 586.5,
+			"inputs": {
+				"77": {
+					"name": "Fuselage",
+					"quantity": 40
+				},
+				"84": {
+					"name": "Propellant tank",
+					"quantity": 16
+				},
+				"86": {
+					"name": "Rocket engine",
+					"quantity": 34
+				}
+			}
+		},
+		{
+			"id": 128,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Pasta",
+			"producedAnHour": 23.326891688436273,
+			"speedModifier": 27,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"133": {
+					"name": "Flour",
+					"quantity": 2
+				},
+				"9": {
+					"name": "Eggs",
+					"quantity": 2
+				}
+			}
+		},
+		{
+			"id": 11,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Petrol",
+			"producedAnHour": 111.41168223330178,
+			"wages": 482.99999999999994,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 15
+				},
+				"10": {
+					"name": "Crude oil",
+					"quantity": 0.75
+				},
+				"73": {
+					"name": "Ethanol",
+					"quantity": 0.25
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.05923092127223874,
+					"modeledProductionCostPerUnit": 24.00011652274248,
+					"modeledStoreWages": 379.5,
+					"modeledUnitsSoldAnHour": 103,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 49.91592355402662,
+					"saturation": 0.904743234337218,
+					"salesWages": 345
+				}
+			]
+		},
+		{
+			"id": 116,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Pigs",
+			"producedAnHour": 82.88598581607958,
+			"wages": 138,
+			"inputs": {
+				"139": {
+					"name": "Fodder",
+					"quantity": 4
+				},
+				"2": {
+					"name": "Water",
+					"quantity": 4
+				}
+			}
+		},
+		{
+			"id": 108,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Planks",
+			"producedAnHour": 115.12540497441184,
+			"wages": 482.99999999999994,
+			"inputs": {
+				"106": {
+					"name": "Wood",
+					"quantity": 0.5
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.017176103717141112,
+					"modeledProductionCostPerUnit": 5.428119994457215,
+					"modeledStoreWages": 189.75,
+					"modeledUnitsSoldAnHour": 120,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 14.193291952298996,
+					"saturation": 0.9950570741684012,
+					"salesWages": 172.5
+				}
+			]
+		},
+		{
+			"id": 29,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Plant research",
+			"producedAnHour": 4.783200850394605,
+			"wages": 448.5,
+			"inputs": {}
+		},
+		{
+			"id": 19,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Plastic",
+			"producedAnHour": 204.25475076105326,
+			"wages": 482.99999999999994,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 5
+				},
+				"10": {
+					"name": "Crude oil",
+					"quantity": 0.2
+				}
+			}
+		},
+		{
+			"id": 1,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Power",
+			"producedAnHour": 2566.944722110229,
+			"wages": 414,
+			"inputs": {}
+		},
+		{
+			"id": 20,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Processors",
+			"producedAnHour": 9.183815625368613,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"16": {
+					"name": "Silicon",
+					"quantity": 4
+				},
+				"17": {
+					"name": "Chemicals",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 84,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Propellant tank",
+			"producedAnHour": 3.288818545728693,
+			"speedModifier": -27,
+			"wages": 586.5,
+			"inputs": {
+				"18": {
+					"name": "Aluminium",
+					"quantity": 50
+				},
+				"83": {
+					"name": "Rocket fuel",
+					"quantity": 250
+				}
+			}
+		},
+		{
+			"id": 146,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Pumpkin",
+			"producedAnHour": 137.48814038573866,
+			"wages": 103.5,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 8
+				},
+				"66": {
+					"name": "Seeds",
+					"quantity": 2
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.015202095790618575,
+					"modeledProductionCostPerUnit": 2.989368583787052,
+					"modeledStoreWages": 227.7,
+					"modeledUnitsSoldAnHour": 50,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 16.670454490288375,
+					"saturation": 0.8123738721098566,
+					"salesWages": 207
+				}
+			]
+		},
+		{
+			"id": 149,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Pumpkin soup",
+			"producedAnHour": 2.0857391429838943,
+			"wages": 655.5,
+			"inputs": {
+				"121": {
+					"name": "Bread",
+					"quantity": 0.5
+				},
+				"134": {
+					"name": "Butter",
+					"quantity": 2
+				},
+				"146": {
+					"name": "Pumpkin",
+					"quantity": 10
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.9654845524734763,
+					"modeledProductionCostPerUnit": 459.46428775375654,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 0,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 900,
+					"saturation": 0.1
+				}
+			]
+		},
+		{
+			"id": 98,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Quadcopter",
+			"producedAnHour": 12.447350106526388,
+			"wages": 724.5,
+			"inputs": {
+				"19": {
+					"name": "Plastic",
+					"quantity": 2
+				},
+				"21": {
+					"name": "Electronic components",
+					"quantity": 3
+				},
+				"22": {
+					"name": "Batteries",
+					"quantity": 1
+				},
+				"47": {
+					"name": "On-board computer",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 1.1293732190169494,
+					"modeledProductionCostPerUnit": 456.9590044458487,
+					"modeledStoreWages": 189.75,
+					"modeledUnitsSoldAnHour": 1,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 1347.578064788526,
+					"saturation": 0.7217401553676818,
+					"salesWages": 172.5
+				}
+			]
+		},
+		{
+			"id": 152,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Ramadan sweets",
+			"producedAnHour": 5.051098593952736,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"117": {
+					"name": "Milk",
+					"quantity": 0.5
+				},
+				"133": {
+					"name": "Flour",
+					"quantity": 2
+				},
+				"134": {
+					"name": "Butter",
+					"quantity": 1
+				},
+				"135": {
+					"name": "Sugar",
+					"quantity": 0.25
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.41211825164833177,
+					"modeledProductionCostPerUnit": 130.32691085774997,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 40,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 230.98883308220326,
+					"saturation": 1.5103707639067916,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 145,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Recipes",
+			"producedAnHour": 3.8060480583089644,
+			"wages": 517.5,
+			"inputs": {}
+		},
+		{
+			"id": 101,
+			"isResearch": false,
+			"transportation": 10,
+			"name": "Reinforced concrete",
+			"producedAnHour": 188.26822032005654,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"103": {
+					"name": "Cement",
+					"quantity": 15
+				},
+				"2": {
+					"name": "Water",
+					"quantity": 20
+				},
+				"43": {
+					"name": "Steel",
+					"quantity": 5
+				},
+				"44": {
+					"name": "Sand",
+					"quantity": 20
+				}
+			}
+		},
+		{
+			"id": 114,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Robots",
+			"producedAnHour": 2.2959539063421532,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"19": {
+					"name": "Plastic",
+					"quantity": 10
+				},
+				"20": {
+					"name": "Processors",
+					"quantity": 2
+				},
+				"48": {
+					"name": "Electric motor",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 86,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Rocket engine",
+			"producedAnHour": 0.27983233676772773,
+			"wages": 621,
+			"inputs": {
+				"18": {
+					"name": "Aluminium",
+					"quantity": 10
+				},
+				"43": {
+					"name": "Steel",
+					"quantity": 20
+				},
+				"79": {
+					"name": "High grade e-comps",
+					"quantity": 8
+				}
+			}
+		},
+		{
+			"id": 83,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Rocket fuel",
+			"producedAnHour": 77.98817756331124,
+			"wages": 482.99999999999994,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 5
+				},
+				"74": {
+					"name": "Methane",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 142,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Salad",
+			"producedAnHour": 2.0857391429838943,
+			"wages": 655.5,
+			"inputs": {
+				"120": {
+					"name": "Vegetables",
+					"quantity": 5
+				},
+				"122": {
+					"name": "Cheese",
+					"quantity": 2
+				},
+				"141": {
+					"name": "Vegetable oil",
+					"quantity": 0.5
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 1.0211361858000747,
+					"modeledProductionCostPerUnit": 482.13660359234376,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 0,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 0.1
+				}
+			]
+		},
+		{
+			"id": 143,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Samosa",
+			"producedAnHour": 1.8250217501109076,
+			"wages": 655.5,
+			"inputs": {
+				"120": {
+					"name": "Vegetables",
+					"quantity": 5
+				},
+				"133": {
+					"name": "Flour",
+					"quantity": 4
+				},
+				"141": {
+					"name": "Vegetable oil",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.951243407396712,
+					"modeledProductionCostPerUnit": 433.89562047411584,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 0,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 0.1
+				}
+			]
+		},
+		{
+			"id": 44,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Sand",
+			"producedAnHour": 1419.4393894015175,
+			"wages": 276,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 2
+				}
+			}
+		},
+		{
+			"id": 99,
+			"isResearch": false,
+			"transportation": 10,
+			"name": "Satellite",
+			"producedAnHour": 0.11315772824114897,
+			"wages": 724.5,
+			"inputs": {
+				"79": {
+					"name": "High grade e-comps",
+					"quantity": 8
+				},
+				"80": {
+					"name": "Flight computer",
+					"quantity": 4
+				},
+				"82": {
+					"name": "Attitude control",
+					"quantity": 2
+				},
+				"88": {
+					"name": "Ion drive",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 67.4274892656665,
+					"modeledProductionCostPerUnit": 29489.08364542424,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 1,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 1.1763956043770376,
+					"salesWages": 586.5
+				}
+			]
+		},
+		{
+			"id": 138,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Sauce",
+			"producedAnHour": 0.7821521786189604,
+			"wages": 655.5,
+			"inputs": {
+				"120": {
+					"name": "Vegetables",
+					"quantity": 2
+				},
+				"134": {
+					"name": "Butter",
+					"quantity": 0.5
+				},
+				"2": {
+					"name": "Water",
+					"quantity": 0.5
+				}
+			}
+		},
+		{
+			"id": 8,
+			"isResearch": false,
+			"transportation": 0.1,
+			"name": "Sausages",
+			"producedAnHour": 77.00834166330688,
+			"wages": 414,
+			"inputs": {
+				"116": {
+					"name": "Pigs",
+					"quantity": 0.0625
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.02309206140870684,
+					"modeledProductionCostPerUnit": 7.046581956294532,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 110,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 16.443105124902903,
+					"saturation": 1.2452607252976962,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 66,
+			"isResearch": false,
+			"transportation": 0.1,
+			"name": "Seeds",
+			"producedAnHour": 889.6291436724266,
+			"wages": 103.5,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 0.1
+				}
+			}
+		},
+		{
+			"id": 16,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Silicon",
+			"producedAnHour": 154.01668332661376,
+			"wages": 414,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 3
+				},
+				"44": {
+					"name": "Sand",
+					"quantity": 2
+				}
+			}
+		},
+		{
+			"id": 97,
+			"isResearch": false,
+			"transportation": 100,
+			"name": "Single engine plane",
+			"producedAnHour": 1.4759932152133817,
+			"wages": 759.0000000000001,
+			"inputs": {
+				"52": {
+					"name": "Combustion engine",
+					"quantity": 1
+				},
+				"77": {
+					"name": "Fuselage",
+					"quantity": 8
+				},
+				"78": {
+					"name": "Wing",
+					"quantity": 2
+				},
+				"81": {
+					"name": "Cockpit",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 41.186777401805664,
+					"modeledProductionCostPerUnit": 19211.02508482617,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 1,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 1.2803658843452579,
+					"salesWages": 586.5
+				}
+			]
+		},
+		{
+			"id": 24,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Smart phones",
+			"producedAnHour": 11.479769531710765,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"18": {
+					"name": "Aluminium",
+					"quantity": 2
+				},
+				"20": {
+					"name": "Processors",
+					"quantity": 2
+				},
+				"21": {
+					"name": "Electronic components",
+					"quantity": 1
+				},
+				"22": {
+					"name": "Batteries",
+					"quantity": 1
+				},
+				"23": {
+					"name": "Displays",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.8786144000373325,
+					"modeledProductionCostPerUnit": 329.33500966377494,
+					"modeledStoreWages": 189.75,
+					"modeledUnitsSoldAnHour": 2,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 871.6981784299846,
+					"saturation": 0.8146309589409412,
+					"salesWages": 172.5
+				}
+			]
+		},
+		{
+			"id": 65,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Sneakers",
+			"producedAnHour": 173.30706125180276,
+			"wages": 138,
+			"inputs": {
+				"19": {
+					"name": "Plastic",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.019632049806918853,
+					"modeledProductionCostPerUnit": 7.3977210046962965,
+					"modeledStoreWages": 341.55,
+					"modeledUnitsSoldAnHour": 30,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 34.02480221453876,
+					"saturation": 0.7779253286374157,
+					"salesWages": 310.5
+				}
+			]
+		},
+		{
+			"id": 35,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Software",
+			"producedAnHour": 5.7066257871091475,
+			"wages": 586.5,
+			"inputs": {}
+		},
+		{
+			"id": 85,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Solid fuel booster",
+			"producedAnHour": 0.27983233676772773,
+			"wages": 621,
+			"inputs": {
+				"17": {
+					"name": "Chemicals",
+					"quantity": 50
+				},
+				"18": {
+					"name": "Aluminium",
+					"quantity": 30
+				},
+				"83": {
+					"name": "Rocket fuel",
+					"quantity": 100
+				}
+			}
+		},
+		{
+			"id": 93,
+			"isResearch": false,
+			"transportation": 100,
+			"name": "Starship",
+			"producedAnHour": 0.30034872563732357,
+			"wages": 586.5,
+			"inputs": {
+				"81": {
+					"name": "Cockpit",
+					"quantity": 2
+				},
+				"82": {
+					"name": "Attitude control",
+					"quantity": 4
+				},
+				"84": {
+					"name": "Propellant tank",
+					"quantity": 6
+				},
+				"86": {
+					"name": "Rocket engine",
+					"quantity": 7
+				},
+				"87": {
+					"name": "Heat shield",
+					"quantity": 10
+				}
+			}
+		},
+		{
+			"id": 7,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Steak",
+			"producedAnHour": 25.669447221102292,
+			"wages": 414,
+			"inputs": {
+				"115": {
+					"name": "Cows",
+					"quantity": 0.125
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.09873545210512771,
+					"modeledProductionCostPerUnit": 26.107063782608222,
+					"modeledStoreWages": 151.8,
+					"modeledUnitsSoldAnHour": 35,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 53.53179190713009,
+					"saturation": 1.4509761793345988,
+					"salesWages": 138
+				}
+			]
+		},
+		{
+			"id": 43,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Steel",
+			"producedAnHour": 192.52085415826718,
+			"wages": 414,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 5
+				},
+				"17": {
+					"name": "Chemicals",
+					"quantity": 0.1
+				},
+				"42": {
+					"name": "Iron ore",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 63,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Stiletto Heel",
+			"producedAnHour": 97.95616505536677,
+			"wages": 138,
+			"inputs": {
+				"19": {
+					"name": "Plastic",
+					"quantity": 0.2
+				},
+				"46": {
+					"name": "Leather",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.10593777598939177,
+					"modeledProductionCostPerUnit": 17.286602160066415,
+					"modeledStoreWages": 341.55,
+					"modeledUnitsSoldAnHour": 30,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 62.36136694333931,
+					"saturation": 1.281510644555257,
+					"salesWages": 310.5
+				}
+			]
+		},
+		{
+			"id": 90,
+			"isResearch": false,
+			"transportation": 20,
+			"name": "Sub-orbital 2nd stage",
+			"producedAnHour": 3.0034872563732358,
+			"wages": 586.5,
+			"inputs": {
+				"77": {
+					"name": "Fuselage",
+					"quantity": 8
+				},
+				"80": {
+					"name": "Flight computer",
+					"quantity": 2
+				},
+				"82": {
+					"name": "Attitude control",
+					"quantity": 2
+				},
+				"84": {
+					"name": "Propellant tank",
+					"quantity": 2
+				},
+				"88": {
+					"name": "Ion drive",
+					"quantity": 4
+				}
+			}
+		},
+		{
+			"id": 91,
+			"isResearch": false,
+			"transportation": 20,
+			"name": "Sub-orbital rocket",
+			"producedAnHour": 0.632568520805735,
+			"wages": 759.0000000000001,
+			"inputs": {
+				"85": {
+					"name": "Solid fuel booster",
+					"quantity": 1
+				},
+				"90": {
+					"name": "Sub-orbital 2nd stage",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 146.4827870434139,
+					"modeledProductionCostPerUnit": 63971.32521944506,
+					"modeledStoreWages": 645.15,
+					"modeledUnitsSoldAnHour": 1,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"saturation": 1.2493665298170316,
+					"salesWages": 586.5
+				}
+			]
+		},
+		{
+			"id": 135,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Sugar",
+			"producedAnHour": 50.00587608013209,
+			"speedModifier": 21,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 0.5
+				},
+				"72": {
+					"name": "Sugarcane",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 72,
+			"isResearch": false,
+			"transportation": 0.1,
+			"name": "Sugarcane",
+			"producedAnHour": 647.0030135799466,
+			"wages": 103.5,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 3
+				},
+				"66": {
+					"name": "Seeds",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 25,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Tablets",
+			"producedAnHour": 11.479769531710765,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"18": {
+					"name": "Aluminium",
+					"quantity": 3
+				},
+				"20": {
+					"name": "Processors",
+					"quantity": 2
+				},
+				"21": {
+					"name": "Electronic components",
+					"quantity": 1
+				},
+				"22": {
+					"name": "Batteries",
+					"quantity": 1
+				},
+				"23": {
+					"name": "Displays",
+					"quantity": 2
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 1.0835514408330698,
+					"modeledProductionCostPerUnit": 405.3539264590962,
+					"modeledStoreWages": 189.75,
+					"modeledUnitsSoldAnHour": 0.8,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 1350.9848849690381,
+					"saturation": 0.9302420075845006,
+					"salesWages": 172.5
+				}
+			]
+		},
+		{
+			"id": 28,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Televisions",
+			"producedAnHour": 16.07167734439507,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"19": {
+					"name": "Plastic",
+					"quantity": 5
+				},
+				"20": {
+					"name": "Processors",
+					"quantity": 1
+				},
+				"21": {
+					"name": "Electronic components",
+					"quantity": 4
+				},
+				"23": {
+					"name": "Displays",
+					"quantity": 4
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 1.3154602064174634,
+					"modeledProductionCostPerUnit": 500.8252761109699,
+					"modeledStoreWages": 189.75,
+					"modeledUnitsSoldAnHour": 1.8,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 1226.8982871888275,
+					"saturation": 0.7968894412783729,
+					"salesWages": 172.5
+				}
+			]
+		},
+		{
+			"id": 110,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Tools",
+			"producedAnHour": 25.996059187770413,
+			"wages": 482.99999999999994,
+			"inputs": {
+				"108": {
+					"name": "Planks",
+					"quantity": 0.5
+				},
+				"21": {
+					"name": "Electronic components",
+					"quantity": 1
+				},
+				"22": {
+					"name": "Batteries",
+					"quantity": 1
+				},
+				"43": {
+					"name": "Steel",
+					"quantity": 0.5
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.26350740210429063,
+					"modeledProductionCostPerUnit": 101.15883912297762,
+					"modeledStoreWages": 189.75,
+					"modeledUnitsSoldAnHour": 40,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 216.84650086320548,
+					"saturation": 0.7076988625690389,
+					"salesWages": 172.5
+				}
+			]
+		},
+		{
+			"id": 13,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Transport",
+			"producedAnHour": 3173.9508697581,
+			"wages": 310.5,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 0.01
+				},
+				"12": {
+					"name": "Diesel",
+					"quantity": 0.005
+				}
+			}
+		},
+		{
+			"id": 150,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Tree",
+			"producedAnHour": 9.999999998843611,
+			"wages": 79.35000000000001,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 12
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 1.0100441229107604,
+					"modeledProductionCostPerUnit": 83.08402442211386,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 5,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 557.0975779080529,
+					"saturation": 0.22175918705223038,
+					"salesWages": 241.49999999999997
+				},
+				{
+					"quality": 1,
+					"buildingLevelsNeededPerUnitPerHour": 2.999831045044959,
+					"modeledProductionCostPerUnit": 246.7595525336782,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 2.5,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 1565.5399109792284,
+					"saturation": 0.2603754606330741,
+					"salesWages": 241.49999999999997
+				},
+				{
+					"quality": 2,
+					"buildingLevelsNeededPerUnitPerHour": 6.928902683167816,
+					"modeledProductionCostPerUnit": 569.956407535701,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 1.25,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 3432.5305112699284,
+					"saturation": 0.41486645658487037,
+					"salesWages": 241.49999999999997
+				},
+				{
+					"quality": 3,
+					"buildingLevelsNeededPerUnitPerHour": 14.696141988351565,
+					"modeledProductionCostPerUnit": 1208.8725553417567,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 0.625,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 6643.806925841229,
+					"saturation": 0.5990295357584975,
+					"salesWages": 241.49999999999997
+				},
+				{
+					"quality": 4,
+					"buildingLevelsNeededPerUnitPerHour": 30.058913097824234,
+					"modeledProductionCostPerUnit": 2472.5805668021085,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 0.3125,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 12261.973959492543,
+					"saturation": 0.8597481485005396,
+					"salesWages": 241.49999999999997
+				},
+				{
+					"quality": 5,
+					"buildingLevelsNeededPerUnitPerHour": 60.45114075620902,
+					"modeledProductionCostPerUnit": 4972.578861663514,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 0.15625,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 21026.226092270088,
+					"saturation": 1.0378368135553002,
+					"salesWages": 241.49999999999997
+				},
+				{
+					"quality": 6,
+					"buildingLevelsNeededPerUnitPerHour": 120.5790673930866,
+					"modeledProductionCostPerUnit": 9918.570835511953,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 0.078125,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 43419.10337078651,
+					"saturation": 1.188933911593176,
+					"salesWages": 241.49999999999997
+				},
+				{
+					"quality": 7,
+					"buildingLevelsNeededPerUnitPerHour": 239.53196374828687,
+					"modeledProductionCostPerUnit": 19703.376391704303,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 0.0390625,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 85803.12767676768,
+					"saturation": 1.543115196207596,
+					"salesWages": 241.49999999999997
+				},
+				{
+					"quality": 8,
+					"buildingLevelsNeededPerUnitPerHour": 474.84194306280665,
+					"modeledProductionCostPerUnit": 39059.46156132416,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 0.01953125,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 139289.1484716157,
+					"saturation": 1.2155650197949928,
+					"salesWages": 241.49999999999997
+				},
+				{
+					"quality": 9,
+					"buildingLevelsNeededPerUnitPerHour": 940.2803753413142,
+					"modeledProductionCostPerUnit": 77345.41085527845,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 0.009765625,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 351892.83916083915,
+					"saturation": 1.1083194533861502,
+					"salesWages": 241.49999999999997
+				},
+				{
+					"quality": 10,
+					"buildingLevelsNeededPerUnitPerHour": 1860.804287638494,
+					"modeledProductionCostPerUnit": 153065.69819286038,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 0.0048828125,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 681751.4358974359,
+					"saturation": 1.0918425462037977,
+					"salesWages": 241.49999999999997
+				},
+				{
+					"quality": 11,
+					"buildingLevelsNeededPerUnitPerHour": 3681.156308154412,
+					"modeledProductionCostPerUnit": 302803.8812076151,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 0.00244140625,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 1285289.5,
+					"saturation": 1.1487741176852475,
+					"salesWages": 241.49999999999997
+				},
+				{
+					"quality": 12,
+					"buildingLevelsNeededPerUnitPerHour": 7280.478841470594,
+					"modeledProductionCostPerUnit": 598876.2947565505,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 0.001220703125,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 2328798.21875,
+					"saturation": 1.243008372968437,
+					"salesWages": 241.49999999999997
+				}
+			]
+		},
+		{
+			"id": 57,
+			"isResearch": false,
+			"transportation": 5,
+			"name": "Truck",
+			"producedAnHour": 4.783200850394605,
+			"wages": 448.5,
+			"inputs": {
+				"43": {
+					"name": "Steel",
+					"quantity": 10
+				},
+				"47": {
+					"name": "On-board computer",
+					"quantity": 1
+				},
+				"50": {
+					"name": "Basic interior",
+					"quantity": 1
+				},
+				"51": {
+					"name": "Car body",
+					"quantity": 1
+				},
+				"52": {
+					"name": "Combustion engine",
+					"quantity": 6
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 7.460707968859187,
+					"modeledProductionCostPerUnit": 3045.215378262768,
+					"modeledStoreWages": 417.45000000000005,
+					"modeledUnitsSoldAnHour": 1,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 6759.767543226626,
+					"saturation": 0.5110377649556193,
+					"salesWages": 379.50000000000006
+				}
+			]
+		},
+		{
+			"id": 60,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Underwear",
+			"producedAnHour": 165.77197163215916,
+			"wages": 138,
+			"inputs": {
+				"41": {
+					"name": "Fabric",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.022069348330737128,
+					"modeledProductionCostPerUnit": 3.136225735914774,
+					"modeledStoreWages": 341.55,
+					"modeledUnitsSoldAnHour": 25,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 31.3343143418239,
+					"saturation": 1.162759885880437,
+					"salesWages": 310.5
+				}
+			]
+		},
+		{
+			"id": 141,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Vegetable oil",
+			"producedAnHour": 36.73526250147445,
+			"wages": 379.50000000000006,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 1
+				},
+				"120": {
+					"name": "Vegetables",
+					"quantity": 10
+				}
+			}
+		},
+		{
+			"id": 120,
+			"isResearch": false,
+			"transportation": 0.2,
+			"name": "Vegetables",
+			"producedAnHour": 283.06381844122666,
+			"wages": 103.5,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 2
+				},
+				"66": {
+					"name": "Seeds",
+					"quantity": 5
+				}
+			}
+		},
+		{
+			"id": 2,
+			"isResearch": false,
+			"transportation": 0,
+			"name": "Water",
+			"producedAnHour": 1626.4285714285716,
+			"wages": 345,
+			"inputs": {
+				"1": {
+					"name": "Power",
+					"quantity": 0.2
+				}
+			}
+		},
+		{
+			"id": 109,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Windows",
+			"producedAnHour": 16.711752334995268,
+			"wages": 482.99999999999994,
+			"inputs": {
+				"18": {
+					"name": "Aluminium",
+					"quantity": 2
+				},
+				"45": {
+					"name": "Glass",
+					"quantity": 1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.1414072759065603,
+					"modeledProductionCostPerUnit": 59.345257310556754,
+					"modeledStoreWages": 189.75,
+					"modeledUnitsSoldAnHour": 30,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 127.80537931269619,
+					"saturation": 0.7674999391083066,
+					"salesWages": 172.5
+				}
+			]
+		},
+		{
+			"id": 78,
+			"isResearch": false,
+			"transportation": 2,
+			"name": "Wing",
+			"producedAnHour": 8.109415592207736,
+			"wages": 586.5,
+			"inputs": {
+				"18": {
+					"name": "Aluminium",
+					"quantity": 5
+				},
+				"76": {
+					"name": "Carbon composite",
+					"quantity": 30
+				}
+			}
+		},
+		{
+			"id": 148,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Witch costume",
+			"producedAnHour": 120.56143391429757,
+			"wages": 138,
+			"inputs": {
+				"19": {
+					"name": "Plastic",
+					"quantity": 1
+				},
+				"41": {
+					"name": "Fabric",
+					"quantity": 4
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.08630433278541373,
+					"modeledProductionCostPerUnit": 16.96111872082079,
+					"modeledStoreWages": 227.7,
+					"modeledUnitsSoldAnHour": 12,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 72.09252968727823,
+					"saturation": 1.119647076556194,
+					"salesWages": 207
+				}
+			]
+		},
+		{
+			"id": 106,
+			"isResearch": false,
+			"transportation": 1,
+			"name": "Wood",
+			"producedAnHour": 76.83160786261867,
+			"wages": 103.5,
+			"inputs": {
+				"2": {
+					"name": "Water",
+					"quantity": 4
+				},
+				"66": {
+					"name": "Seeds",
+					"quantity": 1
+				}
+			}
+		},
+		{
+			"id": 67,
+			"isResearch": false,
+			"transportation": 0.5,
+			"name": "Xmas crackers",
+			"producedAnHour": 222.46854258288653,
+			"wages": 414,
+			"inputs": {
+				"17": {
+					"name": "Chemicals",
+					"quantity": 0.5
+				},
+				"19": {
+					"name": "Plastic",
+					"quantity": 0.1
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.01700874955079077,
+					"modeledProductionCostPerUnit": 6.484413034180247,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 400,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 15.13945170015736,
+					"saturation": 0.19403717970890014,
+					"salesWages": 241.49999999999997
+				}
+			]
+		},
+		{
+			"id": 144,
+			"isResearch": false,
+			"transportation": 0.5,
+			"name": "Xmas ornament",
+			"producedAnHour": 179.68613054771603,
+			"wages": 414,
+			"inputs": {
+				"14": {
+					"name": "Minerals",
+					"quantity": 0.25
+				},
+				"18": {
+					"name": "Aluminium",
+					"quantity": 0.125
+				},
+				"45": {
+					"name": "Glass",
+					"quantity": 0.5
+				}
+			},
+			"retailInfo": [
+				{
+					"quality": 0,
+					"buildingLevelsNeededPerUnitPerHour": 0.023485004300521344,
+					"modeledProductionCostPerUnit": 9.10169862822773,
+					"modeledStoreWages": 265.65,
+					"modeledUnitsSoldAnHour": 70,
+					"retailModelingQualityWeight": 0.3,
+					"retailAdjustment": 1,
+					"averagePrice": 25.636969926625106,
+					"saturation": 0.22659816651449885,
+					"salesWages": 241.49999999999997
+				}
+			]
+		}
+	],
+	"type": "all"
+}

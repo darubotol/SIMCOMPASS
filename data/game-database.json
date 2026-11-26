@@ -1,0 +1,6107 @@
+{
+  "schemaVersion": 1,
+  "realm": 0,
+  "fetchedAt": "2026-11-26T17:19:17.562722+00:00",
+  "source": "https://api.simcotools.com/",
+  "sourceNote": "Community-operated API; compare changes against the official Sim Companies Encyclopedia.",
+  "counts": {
+    "products": 151,
+    "recipes": 149,
+    "buildings": 47
+  },
+  "products": [
+    {
+      "id": "game-100",
+      "gameId": 100,
+      "name": "Aerospace research",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/100/"
+    },
+    {
+      "id": "game-18",
+      "gameId": 18,
+      "name": "Aluminium",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/18/"
+    },
+    {
+      "id": "game-125",
+      "gameId": 125,
+      "name": "Apple cider",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/125/"
+    },
+    {
+      "id": "game-154",
+      "gameId": 154,
+      "name": "Apple icecream",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/154/"
+    },
+    {
+      "id": "game-123",
+      "gameId": 123,
+      "name": "Apple pie",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/123/"
+    },
+    {
+      "id": "game-3",
+      "gameId": 3,
+      "name": "Apples",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/3/"
+    },
+    {
+      "id": "game-82",
+      "gameId": 82,
+      "name": "Attitude control",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/82/"
+    },
+    {
+      "id": "game-58",
+      "gameId": 58,
+      "name": "Automotive research",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/58/"
+    },
+    {
+      "id": "game-94",
+      "gameId": 94,
+      "name": "BFR",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/94/"
+    },
+    {
+      "id": "game-50",
+      "gameId": 50,
+      "name": "Basic interior",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/50/"
+    },
+    {
+      "id": "game-22",
+      "gameId": 22,
+      "name": "Batteries",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/22/"
+    },
+    {
+      "id": "game-15",
+      "gameId": 15,
+      "name": "Bauxite",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/15/"
+    },
+    {
+      "id": "game-107",
+      "gameId": 107,
+      "name": "Beams",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/107/"
+    },
+    {
+      "id": "game-121",
+      "gameId": 121,
+      "name": "Bread",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/121/"
+    },
+    {
+      "id": "game-33",
+      "gameId": 33,
+      "name": "Breeding research",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/33/"
+    },
+    {
+      "id": "game-102",
+      "gameId": 102,
+      "name": "Bricks",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/102/"
+    },
+    {
+      "id": "game-112",
+      "gameId": 112,
+      "name": "Bulldozer",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/112/"
+    },
+    {
+      "id": "game-134",
+      "gameId": 134,
+      "name": "Butter",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/134/"
+    },
+    {
+      "id": "game-51",
+      "gameId": 51,
+      "name": "Car body",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/51/"
+    },
+    {
+      "id": "game-76",
+      "gameId": 76,
+      "name": "Carbon composite",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/76/"
+    },
+    {
+      "id": "game-75",
+      "gameId": 75,
+      "name": "Carbon fibers",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/75/"
+    },
+    {
+      "id": "game-103",
+      "gameId": 103,
+      "name": "Cement",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/103/"
+    },
+    {
+      "id": "game-122",
+      "gameId": 122,
+      "name": "Cheese",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/122/"
+    },
+    {
+      "id": "game-17",
+      "gameId": 17,
+      "name": "Chemicals",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/17/"
+    },
+    {
+      "id": "game-34",
+      "gameId": 34,
+      "name": "Chemistry research",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/34/"
+    },
+    {
+      "id": "game-140",
+      "gameId": 140,
+      "name": "Chocolate",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/140/"
+    },
+    {
+      "id": "game-153",
+      "gameId": 153,
+      "name": "Chocolate icecream",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/153/"
+    },
+    {
+      "id": "game-104",
+      "gameId": 104,
+      "name": "Clay",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/104/"
+    },
+    {
+      "id": "game-81",
+      "gameId": 81,
+      "name": "Cockpit",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/81/"
+    },
+    {
+      "id": "game-132",
+      "gameId": 132,
+      "name": "Cocktails",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/132/"
+    },
+    {
+      "id": "game-136",
+      "gameId": 136,
+      "name": "Cocoa",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/136/"
+    },
+    {
+      "id": "game-118",
+      "gameId": 118,
+      "name": "Coffee beans",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/118/"
+    },
+    {
+      "id": "game-119",
+      "gameId": 119,
+      "name": "Coffee powder",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/119/"
+    },
+    {
+      "id": "game-52",
+      "gameId": 52,
+      "name": "Combustion engine",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/52/"
+    },
+    {
+      "id": "game-111",
+      "gameId": 111,
+      "name": "Construction units",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/111/"
+    },
+    {
+      "id": "game-40",
+      "gameId": 40,
+      "name": "Cotton",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/40/"
+    },
+    {
+      "id": "game-115",
+      "gameId": 115,
+      "name": "Cows",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/115/"
+    },
+    {
+      "id": "game-155",
+      "gameId": 155,
+      "name": "Cream egg",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/155/"
+    },
+    {
+      "id": "game-10",
+      "gameId": 10,
+      "name": "Crude oil",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/10/"
+    },
+    {
+      "id": "game-12",
+      "gameId": 12,
+      "name": "Diesel",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/12/"
+    },
+    {
+      "id": "game-23",
+      "gameId": 23,
+      "name": "Displays",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/23/"
+    },
+    {
+      "id": "game-137",
+      "gameId": 137,
+      "name": "Dough",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/137/"
+    },
+    {
+      "id": "game-62",
+      "gameId": 62,
+      "name": "Dress",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/62/"
+    },
+    {
+      "id": "game-151",
+      "gameId": 151,
+      "name": "Easter Bunny",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/151/"
+    },
+    {
+      "id": "game-55",
+      "gameId": 55,
+      "name": "Economy car",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/55/"
+    },
+    {
+      "id": "game-53",
+      "gameId": 53,
+      "name": "Economy e-car",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/53/"
+    },
+    {
+      "id": "game-9",
+      "gameId": 9,
+      "name": "Eggs",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/9/"
+    },
+    {
+      "id": "game-48",
+      "gameId": 48,
+      "name": "Electric motor",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/48/"
+    },
+    {
+      "id": "game-21",
+      "gameId": 21,
+      "name": "Electronic components",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/21/"
+    },
+    {
+      "id": "game-32",
+      "gameId": 32,
+      "name": "Electronics research",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/32/"
+    },
+    {
+      "id": "game-30",
+      "gameId": 30,
+      "name": "Energy research",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/30/"
+    },
+    {
+      "id": "game-73",
+      "gameId": 73,
+      "name": "Ethanol",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/73/"
+    },
+    {
+      "id": "game-41",
+      "gameId": 41,
+      "name": "Fabric",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/41/"
+    },
+    {
+      "id": "game-59",
+      "gameId": 59,
+      "name": "Fashion research",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/59/"
+    },
+    {
+      "id": "game-80",
+      "gameId": 80,
+      "name": "Flight computer",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/80/"
+    },
+    {
+      "id": "game-133",
+      "gameId": 133,
+      "name": "Flour",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/133/"
+    },
+    {
+      "id": "game-139",
+      "gameId": 139,
+      "name": "Fodder",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/139/"
+    },
+    {
+      "id": "game-127",
+      "gameId": 127,
+      "name": "Frozen pizza",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/127/"
+    },
+    {
+      "id": "game-77",
+      "gameId": 77,
+      "name": "Fuselage",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/77/"
+    },
+    {
+      "id": "game-126",
+      "gameId": 126,
+      "name": "Ginger beer",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/126/"
+    },
+    {
+      "id": "game-45",
+      "gameId": 45,
+      "name": "Glass",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/45/"
+    },
+    {
+      "id": "game-61",
+      "gameId": 61,
+      "name": "Gloves",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/61/"
+    },
+    {
+      "id": "game-68",
+      "gameId": 68,
+      "name": "Gold ore",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/68/"
+    },
+    {
+      "id": "game-69",
+      "gameId": 69,
+      "name": "Golden bars",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/69/"
+    },
+    {
+      "id": "game-6",
+      "gameId": 6,
+      "name": "Grain",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/6/"
+    },
+    {
+      "id": "game-5",
+      "gameId": 5,
+      "name": "Grapes",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/5/"
+    },
+    {
+      "id": "game-129",
+      "gameId": 129,
+      "name": "Hamburger",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/129/"
+    },
+    {
+      "id": "game-64",
+      "gameId": 64,
+      "name": "Handbags",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/64/"
+    },
+    {
+      "id": "game-87",
+      "gameId": 87,
+      "name": "Heat shield",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/87/"
+    },
+    {
+      "id": "game-79",
+      "gameId": 79,
+      "name": "High grade e-comps",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/79/"
+    },
+    {
+      "id": "game-88",
+      "gameId": 88,
+      "name": "Ion drive",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/88/"
+    },
+    {
+      "id": "game-42",
+      "gameId": 42,
+      "name": "Iron ore",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/42/"
+    },
+    {
+      "id": "game-147",
+      "gameId": 147,
+      "name": "Jack o'lantern",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/147/"
+    },
+    {
+      "id": "game-89",
+      "gameId": 89,
+      "name": "Jet engine",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/89/"
+    },
+    {
+      "id": "game-95",
+      "gameId": 95,
+      "name": "Jumbo jet",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/95/"
+    },
+    {
+      "id": "game-26",
+      "gameId": 26,
+      "name": "Laptops",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/26/"
+    },
+    {
+      "id": "game-130",
+      "gameId": 130,
+      "name": "Lasagna",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/130/"
+    },
+    {
+      "id": "game-46",
+      "gameId": 46,
+      "name": "Leather",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/46/"
+    },
+    {
+      "id": "game-105",
+      "gameId": 105,
+      "name": "Limestone",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/105/"
+    },
+    {
+      "id": "game-56",
+      "gameId": 56,
+      "name": "Luxury car",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/56/"
+    },
+    {
+      "id": "game-49",
+      "gameId": 49,
+      "name": "Luxury car interior",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/49/"
+    },
+    {
+      "id": "game-54",
+      "gameId": 54,
+      "name": "Luxury e-car",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/54/"
+    },
+    {
+      "id": "game-96",
+      "gameId": 96,
+      "name": "Luxury jet",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/96/"
+    },
+    {
+      "id": "game-70",
+      "gameId": 70,
+      "name": "Luxury watch",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/70/"
+    },
+    {
+      "id": "game-113",
+      "gameId": 113,
+      "name": "Materials research",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/113/"
+    },
+    {
+      "id": "game-131",
+      "gameId": 131,
+      "name": "Meat balls",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/131/"
+    },
+    {
+      "id": "game-74",
+      "gameId": 74,
+      "name": "Methane",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/74/"
+    },
+    {
+      "id": "game-117",
+      "gameId": 117,
+      "name": "Milk",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/117/"
+    },
+    {
+      "id": "game-14",
+      "gameId": 14,
+      "name": "Minerals",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/14/"
+    },
+    {
+      "id": "game-31",
+      "gameId": 31,
+      "name": "Mining research",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/31/"
+    },
+    {
+      "id": "game-27",
+      "gameId": 27,
+      "name": "Monitors",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/27/"
+    },
+    {
+      "id": "game-71",
+      "gameId": 71,
+      "name": "Necklace",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/71/"
+    },
+    {
+      "id": "game-47",
+      "gameId": 47,
+      "name": "On-board computer",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/47/"
+    },
+    {
+      "id": "game-124",
+      "gameId": 124,
+      "name": "Orange juice",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/124/"
+    },
+    {
+      "id": "game-4",
+      "gameId": 4,
+      "name": "Oranges",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/4/"
+    },
+    {
+      "id": "game-92",
+      "gameId": 92,
+      "name": "Orbital booster",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/92/"
+    },
+    {
+      "id": "game-128",
+      "gameId": 128,
+      "name": "Pasta",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/128/"
+    },
+    {
+      "id": "game-11",
+      "gameId": 11,
+      "name": "Petrol",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/11/"
+    },
+    {
+      "id": "game-116",
+      "gameId": 116,
+      "name": "Pigs",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/116/"
+    },
+    {
+      "id": "game-108",
+      "gameId": 108,
+      "name": "Planks",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/108/"
+    },
+    {
+      "id": "game-29",
+      "gameId": 29,
+      "name": "Plant research",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/29/"
+    },
+    {
+      "id": "game-19",
+      "gameId": 19,
+      "name": "Plastic",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/19/"
+    },
+    {
+      "id": "game-1",
+      "gameId": 1,
+      "name": "Power",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/1/"
+    },
+    {
+      "id": "game-20",
+      "gameId": 20,
+      "name": "Processors",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/20/"
+    },
+    {
+      "id": "game-84",
+      "gameId": 84,
+      "name": "Propellant tank",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/84/"
+    },
+    {
+      "id": "game-146",
+      "gameId": 146,
+      "name": "Pumpkin",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/146/"
+    },
+    {
+      "id": "game-149",
+      "gameId": 149,
+      "name": "Pumpkin soup",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/149/"
+    },
+    {
+      "id": "game-98",
+      "gameId": 98,
+      "name": "Quadcopter",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/98/"
+    },
+    {
+      "id": "game-152",
+      "gameId": 152,
+      "name": "Ramadan sweets",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/152/"
+    },
+    {
+      "id": "game-145",
+      "gameId": 145,
+      "name": "Recipes",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/145/"
+    },
+    {
+      "id": "game-101",
+      "gameId": 101,
+      "name": "Reinforced concrete",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/101/"
+    },
+    {
+      "id": "game-114",
+      "gameId": 114,
+      "name": "Robots",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/114/"
+    },
+    {
+      "id": "game-86",
+      "gameId": 86,
+      "name": "Rocket engine",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/86/"
+    },
+    {
+      "id": "game-83",
+      "gameId": 83,
+      "name": "Rocket fuel",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/83/"
+    },
+    {
+      "id": "game-142",
+      "gameId": 142,
+      "name": "Salad",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/142/"
+    },
+    {
+      "id": "game-143",
+      "gameId": 143,
+      "name": "Samosa",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/143/"
+    },
+    {
+      "id": "game-44",
+      "gameId": 44,
+      "name": "Sand",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/44/"
+    },
+    {
+      "id": "game-99",
+      "gameId": 99,
+      "name": "Satellite",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/99/"
+    },
+    {
+      "id": "game-138",
+      "gameId": 138,
+      "name": "Sauce",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/138/"
+    },
+    {
+      "id": "game-8",
+      "gameId": 8,
+      "name": "Sausages",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/8/"
+    },
+    {
+      "id": "game-66",
+      "gameId": 66,
+      "name": "Seeds",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/66/"
+    },
+    {
+      "id": "game-16",
+      "gameId": 16,
+      "name": "Silicon",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/16/"
+    },
+    {
+      "id": "game-97",
+      "gameId": 97,
+      "name": "Single engine plane",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/97/"
+    },
+    {
+      "id": "game-24",
+      "gameId": 24,
+      "name": "Smart phones",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/24/"
+    },
+    {
+      "id": "game-65",
+      "gameId": 65,
+      "name": "Sneakers",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/65/"
+    },
+    {
+      "id": "game-35",
+      "gameId": 35,
+      "name": "Software",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/35/"
+    },
+    {
+      "id": "game-85",
+      "gameId": 85,
+      "name": "Solid fuel booster",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/85/"
+    },
+    {
+      "id": "game-93",
+      "gameId": 93,
+      "name": "Starship",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/93/"
+    },
+    {
+      "id": "game-7",
+      "gameId": 7,
+      "name": "Steak",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/7/"
+    },
+    {
+      "id": "game-43",
+      "gameId": 43,
+      "name": "Steel",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/43/"
+    },
+    {
+      "id": "game-63",
+      "gameId": 63,
+      "name": "Stiletto Heel",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/63/"
+    },
+    {
+      "id": "game-90",
+      "gameId": 90,
+      "name": "Sub-orbital 2nd stage",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/90/"
+    },
+    {
+      "id": "game-91",
+      "gameId": 91,
+      "name": "Sub-orbital rocket",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/91/"
+    },
+    {
+      "id": "game-135",
+      "gameId": 135,
+      "name": "Sugar",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/135/"
+    },
+    {
+      "id": "game-72",
+      "gameId": 72,
+      "name": "Sugarcane",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/72/"
+    },
+    {
+      "id": "game-25",
+      "gameId": 25,
+      "name": "Tablets",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/25/"
+    },
+    {
+      "id": "game-28",
+      "gameId": 28,
+      "name": "Televisions",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/28/"
+    },
+    {
+      "id": "game-110",
+      "gameId": 110,
+      "name": "Tools",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/110/"
+    },
+    {
+      "id": "game-13",
+      "gameId": 13,
+      "name": "Transport",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/13/"
+    },
+    {
+      "id": "game-150",
+      "gameId": 150,
+      "name": "Tree",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/150/"
+    },
+    {
+      "id": "game-57",
+      "gameId": 57,
+      "name": "Truck",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/57/"
+    },
+    {
+      "id": "game-60",
+      "gameId": 60,
+      "name": "Underwear",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/60/"
+    },
+    {
+      "id": "game-141",
+      "gameId": 141,
+      "name": "Vegetable oil",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/141/"
+    },
+    {
+      "id": "game-120",
+      "gameId": 120,
+      "name": "Vegetables",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/120/"
+    },
+    {
+      "id": "game-2",
+      "gameId": 2,
+      "name": "Water",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/2/"
+    },
+    {
+      "id": "game-109",
+      "gameId": 109,
+      "name": "Windows",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/109/"
+    },
+    {
+      "id": "game-78",
+      "gameId": 78,
+      "name": "Wing",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/78/"
+    },
+    {
+      "id": "game-148",
+      "gameId": 148,
+      "name": "Witch costume",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/148/"
+    },
+    {
+      "id": "game-106",
+      "gameId": 106,
+      "name": "Wood",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/106/"
+    },
+    {
+      "id": "game-67",
+      "gameId": 67,
+      "name": "Xmas crackers",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/67/"
+    },
+    {
+      "id": "game-144",
+      "gameId": 144,
+      "name": "Xmas ornament",
+      "category": "",
+      "unit": "units",
+      "image": null,
+      "source": "Simcotools public resource API",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/resource/144/"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "recipe-100",
+      "output": "Aerospace research",
+      "building": "Launch pad",
+      "quantity": 1,
+      "minutes": 173.40821500116306,
+      "inputs": [
+        {
+          "product": "Sub-orbital rocket",
+          "quantity": 1.0,
+          "resourceId": "91"
+        },
+        {
+          "product": "BFR",
+          "quantity": 1.0,
+          "resourceId": "94"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.34600436893717856,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-18",
+      "output": "Aluminium",
+      "building": "Factory",
+      "quantity": 1,
+      "minutes": 0.5008733825235349,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 15.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Bauxite",
+          "quantity": 1.0,
+          "resourceId": "15"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 119.79075369847736,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-125",
+      "output": "Apple cider",
+      "building": "Beverage factory",
+      "quantity": 1,
+      "minutes": 1.640949672123053,
+      "inputs": [
+        {
+          "product": "Apples",
+          "quantity": 8.0,
+          "resourceId": "3"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 36.564192686282865,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-154",
+      "output": "Apple icecream",
+      "building": "Food processing plant",
+      "quantity": 1,
+      "minutes": 1.8666377725945558,
+      "inputs": [
+        {
+          "product": "Milk",
+          "quantity": 2.0,
+          "resourceId": "117"
+        },
+        {
+          "product": "Sugar",
+          "quantity": 0.5,
+          "resourceId": "135"
+        },
+        {
+          "product": "Apples",
+          "quantity": 4.0,
+          "resourceId": "3"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 32.14335468879014,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-123",
+      "output": "Apple pie",
+      "building": "Bakery",
+      "quantity": 1,
+      "minutes": 10.035121146133783,
+      "inputs": [
+        {
+          "product": "Sugar",
+          "quantity": 2.0,
+          "resourceId": "135"
+        },
+        {
+          "product": "Dough",
+          "quantity": 1.0,
+          "resourceId": "137"
+        },
+        {
+          "product": "Apples",
+          "quantity": 2.0,
+          "resourceId": "3"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 5.979001062993257,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-3",
+      "output": "Apples",
+      "building": "Farm",
+      "quantity": 1,
+      "minutes": 0.2967528681785276,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 3.0,
+          "resourceId": "2"
+        },
+        {
+          "product": "Seeds",
+          "quantity": 1.0,
+          "resourceId": "66"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 202.18844174373334,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-82",
+      "output": "Attitude control",
+      "building": "Aerospace electronics",
+      "quantity": 1,
+      "minutes": 22.09305576259257,
+      "inputs": [
+        {
+          "product": "Batteries",
+          "quantity": 5.0,
+          "resourceId": "22"
+        },
+        {
+          "product": "Steel",
+          "quantity": 3.0,
+          "resourceId": "43"
+        },
+        {
+          "product": "Electric motor",
+          "quantity": 3.0,
+          "resourceId": "48"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 2.715785477787575,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-58",
+      "output": "Automotive research",
+      "building": "Automotive R&D",
+      "quantity": 1,
+      "minutes": 17.89634003986895,
+      "inputs": [],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3.3526408118270963,
+      "speedModifier": -20
+    },
+    {
+      "id": "recipe-94",
+      "output": "BFR",
+      "building": "Vertical integration facility",
+      "quantity": 1,
+      "minutes": 284.55415354960246,
+      "inputs": [
+        {
+          "product": "Orbital booster",
+          "quantity": 1.0,
+          "resourceId": "92"
+        },
+        {
+          "product": "Starship",
+          "quantity": 1.0,
+          "resourceId": "93"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.21085617360191167,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-50",
+      "output": "Basic interior",
+      "building": "Car factory",
+      "quantity": 1,
+      "minutes": 1.8815852149000842,
+      "inputs": [
+        {
+          "product": "Plastic",
+          "quantity": 2.0,
+          "resourceId": "19"
+        },
+        {
+          "product": "Displays",
+          "quantity": 2.0,
+          "resourceId": "23"
+        },
+        {
+          "product": "Fabric",
+          "quantity": 5.0,
+          "resourceId": "41"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 31.88800566929737,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-22",
+      "output": "Batteries",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 2.37572080148398,
+      "inputs": [
+        {
+          "product": "Chemicals",
+          "quantity": 4.0,
+          "resourceId": "17"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 25.255492969763683,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-15",
+      "output": "Bauxite",
+      "building": "Mine",
+      "quantity": 1,
+      "minutes": 0.6216207241849895,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 14.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Water",
+          "quantity": 0.5,
+          "resourceId": "2"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 96.5218784793032,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-121",
+      "output": "Bread",
+      "building": "Bakery",
+      "quantity": 1,
+      "minutes": 5.017560573066891,
+      "inputs": [
+        {
+          "product": "Dough",
+          "quantity": 1.0,
+          "resourceId": "137"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 11.958002125986514,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-33",
+      "output": "Breeding research",
+      "building": "Breeding laboratory",
+      "quantity": 1,
+      "minutes": 15.582727456287751,
+      "inputs": [],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3.8504170831653437,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-102",
+      "output": "Bricks",
+      "building": "Concrete plant",
+      "quantity": 1,
+      "minutes": 0.16333080510202364,
+      "inputs": [
+        {
+          "product": "Clay",
+          "quantity": 0.5,
+          "resourceId": "104"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 367.3526250147445,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-112",
+      "output": "Bulldozer",
+      "building": "Car factory",
+      "quantity": 1,
+      "minutes": 10.751915513714767,
+      "inputs": [
+        {
+          "product": "Steel",
+          "quantity": 4.0,
+          "resourceId": "43"
+        },
+        {
+          "product": "Car body",
+          "quantity": 1.0,
+          "resourceId": "51"
+        },
+        {
+          "product": "Combustion engine",
+          "quantity": 2.0,
+          "resourceId": "52"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 5.58040099212704,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-134",
+      "output": "Butter",
+      "building": "Food processing plant",
+      "quantity": 1,
+      "minutes": 4.355488136053964,
+      "inputs": [
+        {
+          "product": "Milk",
+          "quantity": 0.5,
+          "resourceId": "117"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 13.775723438052918,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-51",
+      "output": "Car body",
+      "building": "Car factory",
+      "quantity": 1,
+      "minutes": 2.5087802865334456,
+      "inputs": [
+        {
+          "product": "Aluminium",
+          "quantity": 30.0,
+          "resourceId": "18"
+        },
+        {
+          "product": "Steel",
+          "quantity": 5.0,
+          "resourceId": "43"
+        },
+        {
+          "product": "Glass",
+          "quantity": 5.0,
+          "resourceId": "45"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 23.91600425197303,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-76",
+      "output": "Carbon composite",
+      "building": "Factory",
+      "quantity": 1,
+      "minutes": 0.876528419416186,
+      "inputs": [
+        {
+          "product": "Carbon fibers",
+          "quantity": 8.0,
+          "resourceId": "75"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 68.45185925627278,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-75",
+      "output": "Carbon fibers",
+      "building": "Refinery",
+      "quantity": 1,
+      "minutes": 0.24479234785825046,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 0.5,
+          "resourceId": "1"
+        },
+        {
+          "product": "Crude oil",
+          "quantity": 0.1,
+          "resourceId": "10"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 245.10570091326392,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-103",
+      "output": "Cement",
+      "building": "Concrete plant",
+      "quantity": 1,
+      "minutes": 0.20102252935633677,
+      "inputs": [
+        {
+          "product": "Limestone",
+          "quantity": 3.0,
+          "resourceId": "105"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 298.4740078244799,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-122",
+      "output": "Cheese",
+      "building": "Food processing plant",
+      "quantity": 1,
+      "minutes": 10.888720340134908,
+      "inputs": [
+        {
+          "product": "Milk",
+          "quantity": 1.0,
+          "resourceId": "117"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 5.510289375221167,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-17",
+      "output": "Chemicals",
+      "building": "Factory",
+      "quantity": 1,
+      "minutes": 0.2804890942131795,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 0.2,
+          "resourceId": "1"
+        },
+        {
+          "product": "Minerals",
+          "quantity": 1.0,
+          "resourceId": "14"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 213.91206017585242,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-34",
+      "output": "Chemistry research",
+      "building": "Chemistry laboratory",
+      "quantity": 1,
+      "minutes": 12.74950428241725,
+      "inputs": [],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 4.706065323868754,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-140",
+      "output": "Chocolate",
+      "building": "Food processing plant",
+      "quantity": 1,
+      "minutes": 18.66637772594556,
+      "inputs": [
+        {
+          "product": "Milk",
+          "quantity": 0.5,
+          "resourceId": "117"
+        },
+        {
+          "product": "Sugar",
+          "quantity": 1.0,
+          "resourceId": "135"
+        },
+        {
+          "product": "Cocoa",
+          "quantity": 10.0,
+          "resourceId": "136"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3.214335468879014,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-153",
+      "output": "Chocolate icecream",
+      "building": "Food processing plant",
+      "quantity": 1,
+      "minutes": 1.8666377725945558,
+      "inputs": [
+        {
+          "product": "Milk",
+          "quantity": 2.0,
+          "resourceId": "117"
+        },
+        {
+          "product": "Sugar",
+          "quantity": 0.5,
+          "resourceId": "135"
+        },
+        {
+          "product": "Chocolate",
+          "quantity": 0.0625,
+          "resourceId": "140"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 32.14335468879014,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-104",
+      "output": "Clay",
+      "building": "Quarry",
+      "quantity": 1,
+      "minutes": 0.05561869637444642,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 1.0,
+          "resourceId": "1"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 1078.7739359451534,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-81",
+      "output": "Cockpit",
+      "building": "Aerospace electronics",
+      "quantity": 1,
+      "minutes": 26.51166691511108,
+      "inputs": [
+        {
+          "product": "Displays",
+          "quantity": 8.0,
+          "resourceId": "23"
+        },
+        {
+          "product": "Basic interior",
+          "quantity": 1.0,
+          "resourceId": "50"
+        },
+        {
+          "product": "High grade e-comps",
+          "quantity": 4.0,
+          "resourceId": "79"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 2.2631545648229796,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-132",
+      "output": "Cocktails",
+      "building": "Catering",
+      "quantity": 1,
+      "minutes": 115.06712179580227,
+      "inputs": [
+        {
+          "product": "Coffee powder",
+          "quantity": 8.0,
+          "resourceId": "119"
+        },
+        {
+          "product": "Orange juice",
+          "quantity": 1.0,
+          "resourceId": "124"
+        },
+        {
+          "product": "Apple cider",
+          "quantity": 1.0,
+          "resourceId": "125"
+        },
+        {
+          "product": "Ginger beer",
+          "quantity": 2.0,
+          "resourceId": "126"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.5214347857459736,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-136",
+      "output": "Cocoa",
+      "building": "Farm",
+      "quantity": 1,
+      "minutes": 0.3532772240220567,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 1.0,
+          "resourceId": "2"
+        },
+        {
+          "product": "Seeds",
+          "quantity": 1.0,
+          "resourceId": "66"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 169.83829106473598,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-118",
+      "output": "Coffee beans",
+      "building": "Farm",
+      "quantity": 1,
+      "minutes": 0.1454670922443763,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 0.5,
+          "resourceId": "2"
+        },
+        {
+          "product": "Seeds",
+          "quantity": 1.0,
+          "resourceId": "66"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 412.46442115721595,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-119",
+      "output": "Coffee powder",
+      "building": "Mill",
+      "quantity": 1,
+      "minutes": 2.613292881632378,
+      "inputs": [
+        {
+          "product": "Coffee beans",
+          "quantity": 10.0,
+          "resourceId": "118"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 22.95953906342153,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-52",
+      "output": "Combustion engine",
+      "building": "Propulsion factory",
+      "quantity": 1,
+      "minutes": 10.720705243190398,
+      "inputs": [
+        {
+          "product": "Chemicals",
+          "quantity": 5.0,
+          "resourceId": "17"
+        },
+        {
+          "product": "Electronic components",
+          "quantity": 5.0,
+          "resourceId": "21"
+        },
+        {
+          "product": "Steel",
+          "quantity": 6.0,
+          "resourceId": "43"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 5.596646735354555,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-111",
+      "output": "Construction units",
+      "building": "General contractor",
+      "quantity": 1,
+      "minutes": 60.869565217391305,
+      "inputs": [
+        {
+          "product": "Beams",
+          "quantity": 8.0,
+          "resourceId": "107"
+        },
+        {
+          "product": "Windows",
+          "quantity": 4.0,
+          "resourceId": "109"
+        },
+        {
+          "product": "Tools",
+          "quantity": 4.0,
+          "resourceId": "110"
+        },
+        {
+          "product": "Bulldozer",
+          "quantity": 0.125,
+          "resourceId": "112"
+        },
+        {
+          "product": "Diesel",
+          "quantity": 5.0,
+          "resourceId": "12"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.9857142857142858,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-40",
+      "output": "Cotton",
+      "building": "Farm",
+      "quantity": 1,
+      "minutes": 0.2862199731660181,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 1.0,
+          "resourceId": "2"
+        },
+        {
+          "product": "Seeds",
+          "quantity": 1.0,
+          "resourceId": "66"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 209.62897639990274,
+      "speedModifier": -19
+    },
+    {
+      "id": "recipe-115",
+      "output": "Cows",
+      "building": "Ranch",
+      "quantity": 1,
+      "minutes": 1.2740392595959689,
+      "inputs": [
+        {
+          "product": "Fodder",
+          "quantity": 12.0,
+          "resourceId": "139"
+        },
+        {
+          "product": "Water",
+          "quantity": 16.0,
+          "resourceId": "2"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 47.094310122772484,
+      "speedModifier": 25
+    },
+    {
+      "id": "recipe-10",
+      "output": "Crude oil",
+      "building": "Oil rig",
+      "quantity": 1,
+      "minutes": 1.4450684583430253,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 25.0,
+          "resourceId": "1"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 41.52052427246143,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-12",
+      "output": "Diesel",
+      "building": "Refinery",
+      "quantity": 1,
+      "minutes": 0.5211708051175655,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 15.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Crude oil",
+          "quantity": 0.75,
+          "resourceId": "10"
+        },
+        {
+          "product": "Ethanol",
+          "quantity": 0.25,
+          "resourceId": "73"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 115.12540497441184,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-23",
+      "output": "Displays",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 1.8666377725945558,
+      "inputs": [
+        {
+          "product": "Silicon",
+          "quantity": 5.0,
+          "resourceId": "16"
+        },
+        {
+          "product": "Chemicals",
+          "quantity": 4.0,
+          "resourceId": "17"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 32.14335468879014,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-137",
+      "output": "Dough",
+      "building": "Bakery",
+      "quantity": 1,
+      "minutes": 4.079317539078773,
+      "inputs": [
+        {
+          "product": "Flour",
+          "quantity": 2.0,
+          "resourceId": "133"
+        },
+        {
+          "product": "Butter",
+          "quantity": 0.5,
+          "resourceId": "134"
+        },
+        {
+          "product": "Eggs",
+          "quantity": 1.0,
+          "resourceId": "9"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 14.708342614963412,
+      "speedModifier": 23
+    },
+    {
+      "id": "recipe-62",
+      "output": "Dress",
+      "building": "Fashion factory",
+      "quantity": 1,
+      "minutes": 0.39813726862374027,
+      "inputs": [
+        {
+          "product": "Plastic",
+          "quantity": 0.5,
+          "resourceId": "19"
+        },
+        {
+          "product": "Fabric",
+          "quantity": 3.0,
+          "resourceId": "41"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 150.70179239287197,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-151",
+      "output": "Easter Bunny",
+      "building": "Food processing plant",
+      "quantity": 1,
+      "minutes": 16.33308051020236,
+      "inputs": [
+        {
+          "product": "Milk",
+          "quantity": 0.25,
+          "resourceId": "117"
+        },
+        {
+          "product": "Sugar",
+          "quantity": 0.25,
+          "resourceId": "135"
+        },
+        {
+          "product": "Cocoa",
+          "quantity": 8.0,
+          "resourceId": "136"
+        },
+        {
+          "product": "Aluminium",
+          "quantity": 0.0625,
+          "resourceId": "18"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3.673526250147445,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-55",
+      "output": "Economy car",
+      "building": "Car factory",
+      "quantity": 1,
+      "minutes": 4.300766205485907,
+      "inputs": [
+        {
+          "product": "On-board computer",
+          "quantity": 1.0,
+          "resourceId": "47"
+        },
+        {
+          "product": "Basic interior",
+          "quantity": 1.0,
+          "resourceId": "50"
+        },
+        {
+          "product": "Car body",
+          "quantity": 1.0,
+          "resourceId": "51"
+        },
+        {
+          "product": "Combustion engine",
+          "quantity": 1.0,
+          "resourceId": "52"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 13.9510024803176,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-53",
+      "output": "Economy e-car",
+      "building": "Car factory",
+      "quantity": 1,
+      "minutes": 3.0105363438401347,
+      "inputs": [
+        {
+          "product": "Batteries",
+          "quantity": 15.0,
+          "resourceId": "22"
+        },
+        {
+          "product": "On-board computer",
+          "quantity": 1.0,
+          "resourceId": "47"
+        },
+        {
+          "product": "Electric motor",
+          "quantity": 2.0,
+          "resourceId": "48"
+        },
+        {
+          "product": "Basic interior",
+          "quantity": 1.0,
+          "resourceId": "50"
+        },
+        {
+          "product": "Car body",
+          "quantity": 1.0,
+          "resourceId": "51"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 19.930003543310857,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-9",
+      "output": "Eggs",
+      "building": "Ranch",
+      "quantity": 1,
+      "minutes": 0.1895891755351144,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 0.4,
+          "resourceId": "2"
+        },
+        {
+          "product": "Grain",
+          "quantity": 0.5,
+          "resourceId": "6"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 316.47376402503113,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-48",
+      "output": "Electric motor",
+      "building": "Propulsion factory",
+      "quantity": 1,
+      "minutes": 1.949219135125527,
+      "inputs": [
+        {
+          "product": "Electronic components",
+          "quantity": 3.0,
+          "resourceId": "21"
+        },
+        {
+          "product": "Steel",
+          "quantity": 2.0,
+          "resourceId": "43"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 30.78155704445005,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-21",
+      "output": "Electronic components",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 1.4518293786846543,
+      "inputs": [
+        {
+          "product": "Silicon",
+          "quantity": 3.0,
+          "resourceId": "16"
+        },
+        {
+          "product": "Chemicals",
+          "quantity": 1.0,
+          "resourceId": "17"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 41.32717031415876,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-32",
+      "output": "Electronics research",
+      "building": "Physics laboratory",
+      "quantity": 1,
+      "minutes": 24.97097327143776,
+      "inputs": [],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 2.4027898050985885,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-30",
+      "output": "Energy research",
+      "building": "Physics laboratory",
+      "quantity": 1,
+      "minutes": 18.160707833772914,
+      "inputs": [],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3.3038359820105594,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-73",
+      "output": "Ethanol",
+      "building": "Beverage factory",
+      "quantity": 1,
+      "minutes": 0.9845698032738318,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 20.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Sugarcane",
+          "quantity": 10.0,
+          "resourceId": "72"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 60.94032114380477,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-41",
+      "output": "Fabric",
+      "building": "Fashion factory",
+      "quantity": 1,
+      "minutes": 0.24883579288983768,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 1.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Cotton",
+          "quantity": 2.0,
+          "resourceId": "40"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 241.12286782859513,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-59",
+      "output": "Fashion research",
+      "building": "Fashion & Design",
+      "quantity": 1,
+      "minutes": 8.854518658353339,
+      "inputs": [],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 6.776201204725691,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-80",
+      "output": "Flight computer",
+      "building": "Aerospace electronics",
+      "quantity": 1,
+      "minutes": 26.51166691511108,
+      "inputs": [
+        {
+          "product": "On-board computer",
+          "quantity": 2.0,
+          "resourceId": "47"
+        },
+        {
+          "product": "High grade e-comps",
+          "quantity": 4.0,
+          "resourceId": "79"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 2.2631545648229796,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-133",
+      "output": "Flour",
+      "building": "Mill",
+      "quantity": 1,
+      "minutes": 0.6877086530611521,
+      "inputs": [
+        {
+          "product": "Grain",
+          "quantity": 15.0,
+          "resourceId": "6"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 87.24624844100181,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-139",
+      "output": "Fodder",
+      "building": "Mill",
+      "quantity": 1,
+      "minutes": 0.210749425938095,
+      "inputs": [
+        {
+          "product": "Vegetables",
+          "quantity": 0.5,
+          "resourceId": "120"
+        },
+        {
+          "product": "Grain",
+          "quantity": 10.0,
+          "resourceId": "6"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 284.69828438642696,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-127",
+      "output": "Frozen pizza",
+      "building": "Food processing plant",
+      "quantity": 1,
+      "minutes": 6.533232204080944,
+      "inputs": [
+        {
+          "product": "Vegetables",
+          "quantity": 2.0,
+          "resourceId": "120"
+        },
+        {
+          "product": "Cheese",
+          "quantity": 1.0,
+          "resourceId": "122"
+        },
+        {
+          "product": "Dough",
+          "quantity": 2.0,
+          "resourceId": "137"
+        },
+        {
+          "product": "Sausages",
+          "quantity": 1.0,
+          "resourceId": "8"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 9.183815625368613,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-77",
+      "output": "Fuselage",
+      "building": "Aerospace factory",
+      "quantity": 1,
+      "minutes": 18.160707833772914,
+      "inputs": [
+        {
+          "product": "Carbon composite",
+          "quantity": 40.0,
+          "resourceId": "76"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3.3038359820105594,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-126",
+      "output": "Ginger beer",
+      "building": "Beverage factory",
+      "quantity": 1,
+      "minutes": 0.8204748360615265,
+      "inputs": [
+        {
+          "product": "Vegetables",
+          "quantity": 3.0,
+          "resourceId": "120"
+        },
+        {
+          "product": "Sugar",
+          "quantity": 2.0,
+          "resourceId": "135"
+        },
+        {
+          "product": "Water",
+          "quantity": 1.0,
+          "resourceId": "2"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 73.12838537256573,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-45",
+      "output": "Glass",
+      "building": "Factory",
+      "quantity": 1,
+      "minutes": 0.38318182269560047,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 2.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Silicon",
+          "quantity": 1.0,
+          "resourceId": "16"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 156.58362804872397,
+      "speedModifier": 22
+    },
+    {
+      "id": "recipe-61",
+      "output": "Gloves",
+      "building": "Fashion factory",
+      "quantity": 1,
+      "minutes": 0.41909186170920026,
+      "inputs": [
+        {
+          "product": "Fabric",
+          "quantity": 0.5,
+          "resourceId": "41"
+        },
+        {
+          "product": "Leather",
+          "quantity": 0.5,
+          "resourceId": "46"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 143.16670277322837,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-68",
+      "output": "Gold ore",
+      "building": "Mine",
+      "quantity": 1,
+      "minutes": 1.056755231114482,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 80.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Water",
+          "quantity": 2.0,
+          "resourceId": "2"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 56.7775755760607,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-69",
+      "output": "Golden bars",
+      "building": "Factory",
+      "quantity": 1,
+      "minutes": 2.0034935300941394,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 40.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Gold ore",
+          "quantity": 200.0,
+          "resourceId": "68"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 29.94768842461934,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-6",
+      "output": "Grain",
+      "building": "Farm",
+      "quantity": 1,
+      "minutes": 0.0741882170446319,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 0.5,
+          "resourceId": "2"
+        },
+        {
+          "product": "Seeds",
+          "quantity": 1.0,
+          "resourceId": "66"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 808.7537669749333,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-5",
+      "output": "Grapes",
+      "building": "Farm",
+      "quantity": 1,
+      "minutes": 0.3709410852231595,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 4.0,
+          "resourceId": "2"
+        },
+        {
+          "product": "Seeds",
+          "quantity": 1.0,
+          "resourceId": "66"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 161.75075339498665,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-129",
+      "output": "Hamburger",
+      "building": "Catering",
+      "quantity": 1,
+      "minutes": 115.06712179580227,
+      "inputs": [
+        {
+          "product": "Vegetables",
+          "quantity": 3.0,
+          "resourceId": "120"
+        },
+        {
+          "product": "Bread",
+          "quantity": 0.5,
+          "resourceId": "121"
+        },
+        {
+          "product": "Butter",
+          "quantity": 1.0,
+          "resourceId": "134"
+        },
+        {
+          "product": "Vegetable oil",
+          "quantity": 0.5,
+          "resourceId": "141"
+        },
+        {
+          "product": "Steak",
+          "quantity": 4.0,
+          "resourceId": "7"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.5214347857459736,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-64",
+      "output": "Handbags",
+      "building": "Fashion factory",
+      "quantity": 1,
+      "minutes": 0.8847494858305339,
+      "inputs": [
+        {
+          "product": "Leather",
+          "quantity": 1.5,
+          "resourceId": "46"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 67.81580657679238,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-87",
+      "output": "Heat shield",
+      "building": "Aerospace factory",
+      "quantity": 1,
+      "minutes": 4.9941946542875515,
+      "inputs": [
+        {
+          "product": "Silicon",
+          "quantity": 30.0,
+          "resourceId": "16"
+        },
+        {
+          "product": "Steel",
+          "quantity": 20.0,
+          "resourceId": "43"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 12.013949025492943,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-79",
+      "output": "High grade e-comps",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 32.66616102040472,
+      "inputs": [
+        {
+          "product": "Silicon",
+          "quantity": 4.0,
+          "resourceId": "16"
+        },
+        {
+          "product": "Chemicals",
+          "quantity": 3.0,
+          "resourceId": "17"
+        },
+        {
+          "product": "Golden bars",
+          "quantity": 0.0625,
+          "resourceId": "69"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 1.8367631250737224,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-88",
+      "output": "Ion drive",
+      "building": "Propulsion factory",
+      "quantity": 1,
+      "minutes": 107.20705243190399,
+      "inputs": [
+        {
+          "product": "Chemicals",
+          "quantity": 15.0,
+          "resourceId": "17"
+        },
+        {
+          "product": "Batteries",
+          "quantity": 30.0,
+          "resourceId": "22"
+        },
+        {
+          "product": "High grade e-comps",
+          "quantity": 8.0,
+          "resourceId": "79"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.5596646735354555,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-42",
+      "output": "Iron ore",
+      "building": "Mine",
+      "quantity": 1,
+      "minutes": 0.33023600972327566,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 7.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Water",
+          "quantity": 0.5,
+          "resourceId": "2"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 181.68824184339425,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-147",
+      "output": "Jack o'lantern",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 0.210749425938095,
+      "inputs": [
+        {
+          "product": "Pumpkin",
+          "quantity": 1.0,
+          "resourceId": "146"
+        },
+        {
+          "product": "Electronic components",
+          "quantity": 0.5,
+          "resourceId": "21"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 284.69828438642696,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-89",
+      "output": "Jet engine",
+      "building": "Propulsion factory",
+      "quantity": 1,
+      "minutes": 71.47136828793599,
+      "inputs": [
+        {
+          "product": "Aluminium",
+          "quantity": 5.0,
+          "resourceId": "18"
+        },
+        {
+          "product": "High grade e-comps",
+          "quantity": 4.0,
+          "resourceId": "79"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.8394970103031831,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-95",
+      "output": "Jumbo jet",
+      "building": "Hangar",
+      "quantity": 1,
+      "minutes": 948.5138451653415,
+      "inputs": [
+        {
+          "product": "Basic interior",
+          "quantity": 140.0,
+          "resourceId": "50"
+        },
+        {
+          "product": "Fuselage",
+          "quantity": 40.0,
+          "resourceId": "77"
+        },
+        {
+          "product": "Wing",
+          "quantity": 10.0,
+          "resourceId": "78"
+        },
+        {
+          "product": "Cockpit",
+          "quantity": 2.0,
+          "resourceId": "81"
+        },
+        {
+          "product": "Jet engine",
+          "quantity": 4.0,
+          "resourceId": "89"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.0632568520805735,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-26",
+      "output": "Laptops",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 6.533232204080944,
+      "inputs": [
+        {
+          "product": "Plastic",
+          "quantity": 3.0,
+          "resourceId": "19"
+        },
+        {
+          "product": "Processors",
+          "quantity": 4.0,
+          "resourceId": "20"
+        },
+        {
+          "product": "Electronic components",
+          "quantity": 3.0,
+          "resourceId": "21"
+        },
+        {
+          "product": "Batteries",
+          "quantity": 2.0,
+          "resourceId": "22"
+        },
+        {
+          "product": "Displays",
+          "quantity": 2.0,
+          "resourceId": "23"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 9.183815625368613,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-130",
+      "output": "Lasagna",
+      "building": "Catering",
+      "quantity": 1,
+      "minutes": 38.35570726526742,
+      "inputs": [
+        {
+          "product": "Cheese",
+          "quantity": 0.5,
+          "resourceId": "122"
+        },
+        {
+          "product": "Pasta",
+          "quantity": 1.0,
+          "resourceId": "128"
+        },
+        {
+          "product": "Sauce",
+          "quantity": 1.0,
+          "resourceId": "138"
+        },
+        {
+          "product": "Steak",
+          "quantity": 1.0,
+          "resourceId": "7"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 1.5643043572379207,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-46",
+      "output": "Leather",
+      "building": "Ranch",
+      "quantity": 1,
+      "minutes": 1.9906863431187014,
+      "inputs": [
+        {
+          "product": "Cows",
+          "quantity": 0.125,
+          "resourceId": "115"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 30.14035847857439,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-105",
+      "output": "Limestone",
+      "building": "Quarry",
+      "quantity": 1,
+      "minutes": 0.07548251650817729,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 2.0,
+          "resourceId": "1"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 794.8860580648499,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-56",
+      "output": "Luxury car",
+      "building": "Car factory",
+      "quantity": 1,
+      "minutes": 30.105363438401348,
+      "inputs": [
+        {
+          "product": "On-board computer",
+          "quantity": 2.0,
+          "resourceId": "47"
+        },
+        {
+          "product": "Luxury car interior",
+          "quantity": 1.0,
+          "resourceId": "49"
+        },
+        {
+          "product": "Car body",
+          "quantity": 1.0,
+          "resourceId": "51"
+        },
+        {
+          "product": "Combustion engine",
+          "quantity": 2.0,
+          "resourceId": "52"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 1.9930003543310857,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-49",
+      "output": "Luxury car interior",
+      "building": "Car factory",
+      "quantity": 1,
+      "minutes": 3.0105363438401347,
+      "inputs": [
+        {
+          "product": "Aluminium",
+          "quantity": 2.0,
+          "resourceId": "18"
+        },
+        {
+          "product": "Displays",
+          "quantity": 6.0,
+          "resourceId": "23"
+        },
+        {
+          "product": "Leather",
+          "quantity": 5.0,
+          "resourceId": "46"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 19.930003543310857,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-54",
+      "output": "Luxury e-car",
+      "building": "Car factory",
+      "quantity": 1,
+      "minutes": 15.052681719200674,
+      "inputs": [
+        {
+          "product": "Batteries",
+          "quantity": 30.0,
+          "resourceId": "22"
+        },
+        {
+          "product": "On-board computer",
+          "quantity": 2.0,
+          "resourceId": "47"
+        },
+        {
+          "product": "Electric motor",
+          "quantity": 4.0,
+          "resourceId": "48"
+        },
+        {
+          "product": "Luxury car interior",
+          "quantity": 1.0,
+          "resourceId": "49"
+        },
+        {
+          "product": "Car body",
+          "quantity": 1.0,
+          "resourceId": "51"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3.9860007086621714,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-96",
+      "output": "Luxury jet",
+      "building": "Hangar",
+      "quantity": 1,
+      "minutes": 480.665799914869,
+      "inputs": [
+        {
+          "product": "Golden bars",
+          "quantity": 2.0,
+          "resourceId": "69"
+        },
+        {
+          "product": "Fuselage",
+          "quantity": 14.0,
+          "resourceId": "77"
+        },
+        {
+          "product": "Wing",
+          "quantity": 2.0,
+          "resourceId": "78"
+        },
+        {
+          "product": "Cockpit",
+          "quantity": 1.0,
+          "resourceId": "81"
+        },
+        {
+          "product": "Jet engine",
+          "quantity": 2.0,
+          "resourceId": "89"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.1248268547723317,
+      "speedModifier": -26
+    },
+    {
+      "id": "recipe-70",
+      "output": "Luxury watch",
+      "building": "Fashion factory",
+      "quantity": 1,
+      "minutes": 3.185098148989922,
+      "inputs": [
+        {
+          "product": "Electronic components",
+          "quantity": 2.0,
+          "resourceId": "21"
+        },
+        {
+          "product": "Glass",
+          "quantity": 0.5,
+          "resourceId": "45"
+        },
+        {
+          "product": "Golden bars",
+          "quantity": 0.1,
+          "resourceId": "69"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 18.837724049108996,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-113",
+      "output": "Materials research",
+      "building": "Chemistry laboratory",
+      "quantity": 1,
+      "minutes": 17.53056838832372,
+      "inputs": [],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3.422592962813639,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-131",
+      "output": "Meat balls",
+      "building": "Catering",
+      "quantity": 1,
+      "minutes": 57.53356089790113,
+      "inputs": [
+        {
+          "product": "Bread",
+          "quantity": 1.0,
+          "resourceId": "121"
+        },
+        {
+          "product": "Sauce",
+          "quantity": 1.0,
+          "resourceId": "138"
+        },
+        {
+          "product": "Vegetable oil",
+          "quantity": 0.5,
+          "resourceId": "141"
+        },
+        {
+          "product": "Sausages",
+          "quantity": 2.0,
+          "resourceId": "8"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 1.0428695714919471,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-74",
+      "output": "Methane",
+      "building": "Oil rig",
+      "quantity": 1,
+      "minutes": 1.083801343757269,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 20.0,
+          "resourceId": "1"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 55.36069902994857,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-117",
+      "output": "Milk",
+      "building": "Ranch",
+      "quantity": 1,
+      "minutes": 0.49767158577967535,
+      "inputs": [
+        {
+          "product": "Fodder",
+          "quantity": 0.5,
+          "resourceId": "139"
+        },
+        {
+          "product": "Water",
+          "quantity": 2.0,
+          "resourceId": "2"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 120.56143391429757,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-14",
+      "output": "Minerals",
+      "building": "Mine",
+      "quantity": 1,
+      "minutes": 0.5032167767211819,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 20.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Water",
+          "quantity": 1.0,
+          "resourceId": "2"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 119.23290870972747,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-31",
+      "output": "Mining research",
+      "building": "Physics laboratory",
+      "quantity": 1,
+      "minutes": 19.976778617150206,
+      "inputs": [],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3.0034872563732358,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-27",
+      "output": "Monitors",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 3.266616102040472,
+      "inputs": [
+        {
+          "product": "Plastic",
+          "quantity": 3.0,
+          "resourceId": "19"
+        },
+        {
+          "product": "Electronic components",
+          "quantity": 2.0,
+          "resourceId": "21"
+        },
+        {
+          "product": "Displays",
+          "quantity": 3.0,
+          "resourceId": "23"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 18.367631250737226,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-71",
+      "output": "Necklace",
+      "building": "Fashion factory",
+      "quantity": 1,
+      "minutes": 1.44777188590451,
+      "inputs": [
+        {
+          "product": "Golden bars",
+          "quantity": 0.25,
+          "resourceId": "69"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 41.44299290803979,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-47",
+      "output": "On-board computer",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 4.355488136053964,
+      "inputs": [
+        {
+          "product": "Processors",
+          "quantity": 2.0,
+          "resourceId": "20"
+        },
+        {
+          "product": "Electronic components",
+          "quantity": 3.0,
+          "resourceId": "21"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 13.775723438052918,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-124",
+      "output": "Orange juice",
+      "building": "Beverage factory",
+      "quantity": 1,
+      "minutes": 0.6563798688492212,
+      "inputs": [
+        {
+          "product": "Sugar",
+          "quantity": 1.0,
+          "resourceId": "135"
+        },
+        {
+          "product": "Oranges",
+          "quantity": 5.0,
+          "resourceId": "4"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 91.41048171570716,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-4",
+      "output": "Oranges",
+      "building": "Farm",
+      "quantity": 1,
+      "minutes": 0.32255746541144303,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 3.0,
+          "resourceId": "2"
+        },
+        {
+          "product": "Seeds",
+          "quantity": 1.0,
+          "resourceId": "66"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 186.01336640423466,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-92",
+      "output": "Orbital booster",
+      "building": "Aerospace factory",
+      "quantity": 1,
+      "minutes": 39.95355723430041,
+      "inputs": [
+        {
+          "product": "Fuselage",
+          "quantity": 40.0,
+          "resourceId": "77"
+        },
+        {
+          "product": "Propellant tank",
+          "quantity": 16.0,
+          "resourceId": "84"
+        },
+        {
+          "product": "Rocket engine",
+          "quantity": 34.0,
+          "resourceId": "86"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 1.5017436281866179,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-128",
+      "output": "Pasta",
+      "building": "Food processing plant",
+      "quantity": 1,
+      "minutes": 2.572138663023994,
+      "inputs": [
+        {
+          "product": "Flour",
+          "quantity": 2.0,
+          "resourceId": "133"
+        },
+        {
+          "product": "Eggs",
+          "quantity": 2.0,
+          "resourceId": "9"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 23.326891688436273,
+      "speedModifier": 27
+    },
+    {
+      "id": "recipe-11",
+      "output": "Petrol",
+      "building": "Refinery",
+      "quantity": 1,
+      "minutes": 0.538543165288151,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 15.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Crude oil",
+          "quantity": 0.75,
+          "resourceId": "10"
+        },
+        {
+          "product": "Ethanol",
+          "quantity": 0.25,
+          "resourceId": "73"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 111.41168223330178,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-116",
+      "output": "Pigs",
+      "building": "Ranch",
+      "quantity": 1,
+      "minutes": 0.723885942952255,
+      "inputs": [
+        {
+          "product": "Fodder",
+          "quantity": 4.0,
+          "resourceId": "139"
+        },
+        {
+          "product": "Water",
+          "quantity": 4.0,
+          "resourceId": "2"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 82.88598581607958,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-108",
+      "output": "Planks",
+      "building": "Construction factory",
+      "quantity": 1,
+      "minutes": 0.5211708051175655,
+      "inputs": [
+        {
+          "product": "Wood",
+          "quantity": 0.5,
+          "resourceId": "106"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 115.12540497441184,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-29",
+      "output": "Plant research",
+      "building": "Plant research center",
+      "quantity": 1,
+      "minutes": 12.54390143266723,
+      "inputs": [],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 4.783200850394605,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-19",
+      "output": "Plastic",
+      "building": "Refinery",
+      "quantity": 1,
+      "minutes": 0.29375081742990056,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 5.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Crude oil",
+          "quantity": 0.2,
+          "resourceId": "10"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 204.25475076105326,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-1",
+      "output": "Power",
+      "building": "Power plant",
+      "quantity": 1,
+      "minutes": 0.023374091184431626,
+      "inputs": [],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 2566.944722110229,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-20",
+      "output": "Processors",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 6.533232204080944,
+      "inputs": [
+        {
+          "product": "Silicon",
+          "quantity": 4.0,
+          "resourceId": "16"
+        },
+        {
+          "product": "Chemicals",
+          "quantity": 1.0,
+          "resourceId": "17"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 9.183815625368613,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-84",
+      "output": "Propellant tank",
+      "building": "Aerospace factory",
+      "quantity": 1,
+      "minutes": 18.243633440319826,
+      "inputs": [
+        {
+          "product": "Aluminium",
+          "quantity": 50.0,
+          "resourceId": "18"
+        },
+        {
+          "product": "Rocket fuel",
+          "quantity": 250.0,
+          "resourceId": "83"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3.288818545728693,
+      "speedModifier": -27
+    },
+    {
+      "id": "recipe-146",
+      "output": "Pumpkin",
+      "building": "Farm",
+      "quantity": 1,
+      "minutes": 0.4364012767331288,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 8.0,
+          "resourceId": "2"
+        },
+        {
+          "product": "Seeds",
+          "quantity": 2.0,
+          "resourceId": "66"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 137.48814038573866,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-149",
+      "output": "Pumpkin soup",
+      "building": "Catering",
+      "quantity": 1,
+      "minutes": 28.766780448950566,
+      "inputs": [
+        {
+          "product": "Bread",
+          "quantity": 0.5,
+          "resourceId": "121"
+        },
+        {
+          "product": "Butter",
+          "quantity": 2.0,
+          "resourceId": "134"
+        },
+        {
+          "product": "Pumpkin",
+          "quantity": 10.0,
+          "resourceId": "146"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 2.0857391429838943,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-98",
+      "output": "Quadcopter",
+      "building": "Aerospace electronics",
+      "quantity": 1,
+      "minutes": 4.820303075474742,
+      "inputs": [
+        {
+          "product": "Plastic",
+          "quantity": 2.0,
+          "resourceId": "19"
+        },
+        {
+          "product": "Electronic components",
+          "quantity": 3.0,
+          "resourceId": "21"
+        },
+        {
+          "product": "Batteries",
+          "quantity": 1.0,
+          "resourceId": "22"
+        },
+        {
+          "product": "On-board computer",
+          "quantity": 1.0,
+          "resourceId": "47"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 12.447350106526388,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-152",
+      "output": "Ramadan sweets",
+      "building": "Food processing plant",
+      "quantity": 1,
+      "minutes": 11.8786040074199,
+      "inputs": [
+        {
+          "product": "Milk",
+          "quantity": 0.5,
+          "resourceId": "117"
+        },
+        {
+          "product": "Flour",
+          "quantity": 2.0,
+          "resourceId": "133"
+        },
+        {
+          "product": "Butter",
+          "quantity": 1.0,
+          "resourceId": "134"
+        },
+        {
+          "product": "Sugar",
+          "quantity": 0.25,
+          "resourceId": "135"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 5.051098593952736,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-145",
+      "output": "Recipes",
+      "building": "Kitchen",
+      "quantity": 1,
+      "minutes": 15.764383181923913,
+      "inputs": [],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3.8060480583089644,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-101",
+      "output": "Reinforced concrete",
+      "building": "Concrete plant",
+      "quantity": 1,
+      "minutes": 0.3186942538576071,
+      "inputs": [
+        {
+          "product": "Cement",
+          "quantity": 15.0,
+          "resourceId": "103"
+        },
+        {
+          "product": "Water",
+          "quantity": 20.0,
+          "resourceId": "2"
+        },
+        {
+          "product": "Steel",
+          "quantity": 5.0,
+          "resourceId": "43"
+        },
+        {
+          "product": "Sand",
+          "quantity": 20.0,
+          "resourceId": "44"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 188.26822032005654,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-114",
+      "output": "Robots",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 26.132928816323776,
+      "inputs": [
+        {
+          "product": "Plastic",
+          "quantity": 10.0,
+          "resourceId": "19"
+        },
+        {
+          "product": "Processors",
+          "quantity": 2.0,
+          "resourceId": "20"
+        },
+        {
+          "product": "Electric motor",
+          "quantity": 1.0,
+          "resourceId": "48"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 2.2959539063421532,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-86",
+      "output": "Rocket engine",
+      "building": "Propulsion factory",
+      "quantity": 1,
+      "minutes": 214.41410486380798,
+      "inputs": [
+        {
+          "product": "Aluminium",
+          "quantity": 10.0,
+          "resourceId": "18"
+        },
+        {
+          "product": "Steel",
+          "quantity": 20.0,
+          "resourceId": "43"
+        },
+        {
+          "product": "High grade e-comps",
+          "quantity": 8.0,
+          "resourceId": "79"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.27983233676772773,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-83",
+      "output": "Rocket fuel",
+      "building": "Refinery",
+      "quantity": 1,
+      "minutes": 0.7693473789830729,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 5.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Methane",
+          "quantity": 1.0,
+          "resourceId": "74"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 77.98817756331124,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-142",
+      "output": "Salad",
+      "building": "Catering",
+      "quantity": 1,
+      "minutes": 28.766780448950566,
+      "inputs": [
+        {
+          "product": "Vegetables",
+          "quantity": 5.0,
+          "resourceId": "120"
+        },
+        {
+          "product": "Cheese",
+          "quantity": 2.0,
+          "resourceId": "122"
+        },
+        {
+          "product": "Vegetable oil",
+          "quantity": 0.5,
+          "resourceId": "141"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 2.0857391429838943,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-143",
+      "output": "Samosa",
+      "building": "Catering",
+      "quantity": 1,
+      "minutes": 32.87632051308636,
+      "inputs": [
+        {
+          "product": "Vegetables",
+          "quantity": 5.0,
+          "resourceId": "120"
+        },
+        {
+          "product": "Flour",
+          "quantity": 4.0,
+          "resourceId": "133"
+        },
+        {
+          "product": "Vegetable oil",
+          "quantity": 1.0,
+          "resourceId": "141"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 1.8250217501109076,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-44",
+      "output": "Sand",
+      "building": "Quarry",
+      "quantity": 1,
+      "minutes": 0.042270209244579283,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 2.0,
+          "resourceId": "1"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 1419.4393894015175,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-99",
+      "output": "Satellite",
+      "building": "Aerospace electronics",
+      "quantity": 1,
+      "minutes": 530.2333383022216,
+      "inputs": [
+        {
+          "product": "High grade e-comps",
+          "quantity": 8.0,
+          "resourceId": "79"
+        },
+        {
+          "product": "Flight computer",
+          "quantity": 4.0,
+          "resourceId": "80"
+        },
+        {
+          "product": "Attitude control",
+          "quantity": 2.0,
+          "resourceId": "82"
+        },
+        {
+          "product": "Ion drive",
+          "quantity": 1.0,
+          "resourceId": "88"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.11315772824114897,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-138",
+      "output": "Sauce",
+      "building": "Catering",
+      "quantity": 1,
+      "minutes": 76.71141453053484,
+      "inputs": [
+        {
+          "product": "Vegetables",
+          "quantity": 2.0,
+          "resourceId": "120"
+        },
+        {
+          "product": "Butter",
+          "quantity": 0.5,
+          "resourceId": "134"
+        },
+        {
+          "product": "Water",
+          "quantity": 0.5,
+          "resourceId": "2"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.7821521786189604,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-8",
+      "output": "Sausages",
+      "building": "Slaughterhouse",
+      "quantity": 1,
+      "minutes": 0.7791363728143875,
+      "inputs": [
+        {
+          "product": "Pigs",
+          "quantity": 0.0625,
+          "resourceId": "116"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 77.00834166330688,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-66",
+      "output": "Seeds",
+      "building": "Farm",
+      "quantity": 1,
+      "minutes": 0.06744383367693808,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 0.1,
+          "resourceId": "2"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 889.6291436724266,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-16",
+      "output": "Silicon",
+      "building": "Factory",
+      "quantity": 1,
+      "minutes": 0.38956818640719376,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 3.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Sand",
+          "quantity": 2.0,
+          "resourceId": "44"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 154.01668332661376,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-97",
+      "output": "Single engine plane",
+      "building": "Hangar",
+      "quantity": 1,
+      "minutes": 40.65059336422892,
+      "inputs": [
+        {
+          "product": "Combustion engine",
+          "quantity": 1.0,
+          "resourceId": "52"
+        },
+        {
+          "product": "Fuselage",
+          "quantity": 8.0,
+          "resourceId": "77"
+        },
+        {
+          "product": "Wing",
+          "quantity": 2.0,
+          "resourceId": "78"
+        },
+        {
+          "product": "Cockpit",
+          "quantity": 1.0,
+          "resourceId": "81"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 1.4759932152133817,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-24",
+      "output": "Smart phones",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 5.226585763264756,
+      "inputs": [
+        {
+          "product": "Aluminium",
+          "quantity": 2.0,
+          "resourceId": "18"
+        },
+        {
+          "product": "Processors",
+          "quantity": 2.0,
+          "resourceId": "20"
+        },
+        {
+          "product": "Electronic components",
+          "quantity": 1.0,
+          "resourceId": "21"
+        },
+        {
+          "product": "Batteries",
+          "quantity": 1.0,
+          "resourceId": "22"
+        },
+        {
+          "product": "Displays",
+          "quantity": 1.0,
+          "resourceId": "23"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 11.479769531710765,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-65",
+      "output": "Sneakers",
+      "building": "Fashion factory",
+      "quantity": 1,
+      "minutes": 0.3462063205423828,
+      "inputs": [
+        {
+          "product": "Plastic",
+          "quantity": 1.0,
+          "resourceId": "19"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 173.30706125180276,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-35",
+      "output": "Software",
+      "building": "Software R&D",
+      "quantity": 1,
+      "minutes": 10.514094009026426,
+      "inputs": [],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 5.7066257871091475,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-85",
+      "output": "Solid fuel booster",
+      "building": "Propulsion factory",
+      "quantity": 1,
+      "minutes": 214.41410486380798,
+      "inputs": [
+        {
+          "product": "Chemicals",
+          "quantity": 50.0,
+          "resourceId": "17"
+        },
+        {
+          "product": "Aluminium",
+          "quantity": 30.0,
+          "resourceId": "18"
+        },
+        {
+          "product": "Rocket fuel",
+          "quantity": 100.0,
+          "resourceId": "83"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.27983233676772773,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-93",
+      "output": "Starship",
+      "building": "Aerospace factory",
+      "quantity": 1,
+      "minutes": 199.76778617150208,
+      "inputs": [
+        {
+          "product": "Cockpit",
+          "quantity": 2.0,
+          "resourceId": "81"
+        },
+        {
+          "product": "Attitude control",
+          "quantity": 4.0,
+          "resourceId": "82"
+        },
+        {
+          "product": "Propellant tank",
+          "quantity": 6.0,
+          "resourceId": "84"
+        },
+        {
+          "product": "Rocket engine",
+          "quantity": 7.0,
+          "resourceId": "86"
+        },
+        {
+          "product": "Heat shield",
+          "quantity": 10.0,
+          "resourceId": "87"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.30034872563732357,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-7",
+      "output": "Steak",
+      "building": "Slaughterhouse",
+      "quantity": 1,
+      "minutes": 2.3374091184431625,
+      "inputs": [
+        {
+          "product": "Cows",
+          "quantity": 0.125,
+          "resourceId": "115"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 25.669447221102292,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-43",
+      "output": "Steel",
+      "building": "Factory",
+      "quantity": 1,
+      "minutes": 0.311654549125755,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 5.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Chemicals",
+          "quantity": 0.1,
+          "resourceId": "17"
+        },
+        {
+          "product": "Iron ore",
+          "quantity": 1.0,
+          "resourceId": "42"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 192.52085415826718,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-63",
+      "output": "Stiletto Heel",
+      "building": "Fashion factory",
+      "quantity": 1,
+      "minutes": 0.6125188748057543,
+      "inputs": [
+        {
+          "product": "Plastic",
+          "quantity": 0.2,
+          "resourceId": "19"
+        },
+        {
+          "product": "Leather",
+          "quantity": 1.0,
+          "resourceId": "46"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 97.95616505536677,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-90",
+      "output": "Sub-orbital 2nd stage",
+      "building": "Aerospace factory",
+      "quantity": 1,
+      "minutes": 19.976778617150206,
+      "inputs": [
+        {
+          "product": "Fuselage",
+          "quantity": 8.0,
+          "resourceId": "77"
+        },
+        {
+          "product": "Flight computer",
+          "quantity": 2.0,
+          "resourceId": "80"
+        },
+        {
+          "product": "Attitude control",
+          "quantity": 2.0,
+          "resourceId": "82"
+        },
+        {
+          "product": "Propellant tank",
+          "quantity": 2.0,
+          "resourceId": "84"
+        },
+        {
+          "product": "Ion drive",
+          "quantity": 4.0,
+          "resourceId": "88"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3.0034872563732358,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-91",
+      "output": "Sub-orbital rocket",
+      "building": "Vertical integration facility",
+      "quantity": 1,
+      "minutes": 94.85138451653414,
+      "inputs": [
+        {
+          "product": "Solid fuel booster",
+          "quantity": 1.0,
+          "resourceId": "85"
+        },
+        {
+          "product": "Sub-orbital 2nd stage",
+          "quantity": 1.0,
+          "resourceId": "90"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 0.632568520805735,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-135",
+      "output": "Sugar",
+      "building": "Food processing plant",
+      "quantity": 1,
+      "minutes": 1.199858990648475,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 0.5,
+          "resourceId": "1"
+        },
+        {
+          "product": "Sugarcane",
+          "quantity": 1.0,
+          "resourceId": "72"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 50.00587608013209,
+      "speedModifier": 21
+    },
+    {
+      "id": "recipe-72",
+      "output": "Sugarcane",
+      "building": "Farm",
+      "quantity": 1,
+      "minutes": 0.09273527130578987,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 3.0,
+          "resourceId": "2"
+        },
+        {
+          "product": "Seeds",
+          "quantity": 1.0,
+          "resourceId": "66"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 647.0030135799466,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-25",
+      "output": "Tablets",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 5.226585763264756,
+      "inputs": [
+        {
+          "product": "Aluminium",
+          "quantity": 3.0,
+          "resourceId": "18"
+        },
+        {
+          "product": "Processors",
+          "quantity": 2.0,
+          "resourceId": "20"
+        },
+        {
+          "product": "Electronic components",
+          "quantity": 1.0,
+          "resourceId": "21"
+        },
+        {
+          "product": "Batteries",
+          "quantity": 1.0,
+          "resourceId": "22"
+        },
+        {
+          "product": "Displays",
+          "quantity": 2.0,
+          "resourceId": "23"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 11.479769531710765,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-28",
+      "output": "Televisions",
+      "building": "Electronics factory",
+      "quantity": 1,
+      "minutes": 3.7332755451891115,
+      "inputs": [
+        {
+          "product": "Plastic",
+          "quantity": 5.0,
+          "resourceId": "19"
+        },
+        {
+          "product": "Processors",
+          "quantity": 1.0,
+          "resourceId": "20"
+        },
+        {
+          "product": "Electronic components",
+          "quantity": 4.0,
+          "resourceId": "21"
+        },
+        {
+          "product": "Displays",
+          "quantity": 4.0,
+          "resourceId": "23"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 16.07167734439507,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-110",
+      "output": "Tools",
+      "building": "Construction factory",
+      "quantity": 1,
+      "minutes": 2.308042136949219,
+      "inputs": [
+        {
+          "product": "Planks",
+          "quantity": 0.5,
+          "resourceId": "108"
+        },
+        {
+          "product": "Electronic components",
+          "quantity": 1.0,
+          "resourceId": "21"
+        },
+        {
+          "product": "Batteries",
+          "quantity": 1.0,
+          "resourceId": "22"
+        },
+        {
+          "product": "Steel",
+          "quantity": 0.5,
+          "resourceId": "43"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 25.996059187770413,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-13",
+      "output": "Transport",
+      "building": "Shipping depot",
+      "quantity": 1,
+      "minutes": 0.018903884295024657,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 0.01,
+          "resourceId": "1"
+        },
+        {
+          "product": "Diesel",
+          "quantity": 0.005,
+          "resourceId": "12"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 3173.9508697581,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-150",
+      "output": "Tree",
+      "building": "Xmas market",
+      "quantity": 1,
+      "minutes": 6.000000000693833,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 12.0,
+          "resourceId": "2"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 9.999999998843611,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-57",
+      "output": "Truck",
+      "building": "Car factory",
+      "quantity": 1,
+      "minutes": 12.54390143266723,
+      "inputs": [
+        {
+          "product": "Steel",
+          "quantity": 10.0,
+          "resourceId": "43"
+        },
+        {
+          "product": "On-board computer",
+          "quantity": 1.0,
+          "resourceId": "47"
+        },
+        {
+          "product": "Basic interior",
+          "quantity": 1.0,
+          "resourceId": "50"
+        },
+        {
+          "product": "Car body",
+          "quantity": 1.0,
+          "resourceId": "51"
+        },
+        {
+          "product": "Combustion engine",
+          "quantity": 6.0,
+          "resourceId": "52"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 4.783200850394605,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-60",
+      "output": "Underwear",
+      "building": "Fashion factory",
+      "quantity": 1,
+      "minutes": 0.3619429714761275,
+      "inputs": [
+        {
+          "product": "Fabric",
+          "quantity": 1.0,
+          "resourceId": "41"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 165.77197163215916,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-141",
+      "output": "Vegetable oil",
+      "building": "Food processing plant",
+      "quantity": 1,
+      "minutes": 1.633308051020236,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 1.0,
+          "resourceId": "1"
+        },
+        {
+          "product": "Vegetables",
+          "quantity": 10.0,
+          "resourceId": "120"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 36.73526250147445,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-120",
+      "output": "Vegetables",
+      "building": "Farm",
+      "quantity": 1,
+      "minutes": 0.21196633441323398,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 2.0,
+          "resourceId": "2"
+        },
+        {
+          "product": "Seeds",
+          "quantity": 5.0,
+          "resourceId": "66"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 283.06381844122666,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-2",
+      "output": "Water",
+      "building": "Water reservoir",
+      "quantity": 1,
+      "minutes": 0.03689064558629776,
+      "inputs": [
+        {
+          "product": "Power",
+          "quantity": 0.2,
+          "resourceId": "1"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 1626.4285714285716,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-109",
+      "output": "Windows",
+      "building": "Construction factory",
+      "quantity": 1,
+      "minutes": 3.5902877685876735,
+      "inputs": [
+        {
+          "product": "Aluminium",
+          "quantity": 2.0,
+          "resourceId": "18"
+        },
+        {
+          "product": "Glass",
+          "quantity": 1.0,
+          "resourceId": "45"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 16.711752334995268,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-78",
+      "output": "Wing",
+      "building": "Aerospace factory",
+      "quantity": 1,
+      "minutes": 7.398806895240819,
+      "inputs": [
+        {
+          "product": "Aluminium",
+          "quantity": 5.0,
+          "resourceId": "18"
+        },
+        {
+          "product": "Carbon composite",
+          "quantity": 30.0,
+          "resourceId": "76"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 8.109415592207736,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-148",
+      "output": "Witch costume",
+      "building": "Fashion factory",
+      "quantity": 1,
+      "minutes": 0.49767158577967535,
+      "inputs": [
+        {
+          "product": "Plastic",
+          "quantity": 1.0,
+          "resourceId": "19"
+        },
+        {
+          "product": "Fabric",
+          "quantity": 4.0,
+          "resourceId": "41"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 120.56143391429757,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-106",
+      "output": "Wood",
+      "building": "Farm",
+      "quantity": 1,
+      "minutes": 0.7809286004698094,
+      "inputs": [
+        {
+          "product": "Water",
+          "quantity": 4.0,
+          "resourceId": "2"
+        },
+        {
+          "product": "Seeds",
+          "quantity": 1.0,
+          "resourceId": "66"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 76.83160786261867,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-67",
+      "output": "Xmas crackers",
+      "building": "Factory",
+      "quantity": 1,
+      "minutes": 0.26970105212805723,
+      "inputs": [
+        {
+          "product": "Chemicals",
+          "quantity": 0.5,
+          "resourceId": "17"
+        },
+        {
+          "product": "Plastic",
+          "quantity": 0.1,
+          "resourceId": "19"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 222.46854258288653,
+      "speedModifier": 0
+    },
+    {
+      "id": "recipe-144",
+      "output": "Xmas ornament",
+      "building": "Factory",
+      "quantity": 1,
+      "minutes": 0.33391558834902324,
+      "inputs": [
+        {
+          "product": "Minerals",
+          "quantity": 0.25,
+          "resourceId": "14"
+        },
+        {
+          "product": "Aluminium",
+          "quantity": 0.125,
+          "resourceId": "18"
+        },
+        {
+          "product": "Glass",
+          "quantity": 0.5,
+          "resourceId": "45"
+        }
+      ],
+      "source": "Simcotools public resource API",
+      "verifiedRatePerHour": 179.68613054771603,
+      "speedModifier": 0
+    }
+  ],
+  "buildings": [
+    {
+      "id": "building-P",
+      "gameId": "P",
+      "name": "Farm",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Reinforced concrete": 8,
+        "Planks": 32,
+        "Bricks": 110,
+        "Construction units": 2
+      },
+      "produces": [
+        "Apples",
+        "Oranges",
+        "Grapes",
+        "Grain",
+        "Cotton",
+        "Seeds",
+        "Sugarcane",
+        "Wood",
+        "Coffee beans",
+        "Vegetables",
+        "Cocoa",
+        "Pumpkin"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/P/"
+    },
+    {
+      "id": "building-F",
+      "gameId": "F",
+      "name": "Ranch",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 165,
+        "Reinforced concrete": 12,
+        "Construction units": 3,
+        "Planks": 48
+      },
+      "produces": [
+        "Eggs",
+        "Leather",
+        "Cows",
+        "Pigs",
+        "Milk"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/F/"
+    },
+    {
+      "id": "building-e",
+      "gameId": "e",
+      "name": "Slaughterhouse",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 330,
+        "Reinforced concrete": 24,
+        "Construction units": 6,
+        "Planks": 96
+      },
+      "produces": [
+        "Steak",
+        "Sausages"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/e/"
+    },
+    {
+      "id": "building-i",
+      "gameId": "i",
+      "name": "Mill",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 440,
+        "Reinforced concrete": 32,
+        "Construction units": 8,
+        "Planks": 128
+      },
+      "produces": [
+        "Coffee Powder",
+        "Flour",
+        "Fodder"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/i/"
+    },
+    {
+      "id": "building-6",
+      "gameId": "6",
+      "name": "Beverage factory",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 220,
+        "Reinforced concrete": 16,
+        "Construction units": 4,
+        "Planks": 64
+      },
+      "produces": [
+        "Ethanol",
+        "Orange Juice",
+        "Apple Cider",
+        "Ginger Beer"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/6/"
+    },
+    {
+      "id": "building-k",
+      "gameId": "k",
+      "name": "Food processing plant",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1375,
+        "Reinforced concrete": 100,
+        "Construction units": 25,
+        "Planks": 400
+      },
+      "produces": [
+        "Cheese",
+        "Frozen Pizza",
+        "Pasta",
+        "Butter",
+        "Sugar",
+        "Chocolate",
+        "Vegetable Oil",
+        "Easter Bunny",
+        "Ramadan Sweets",
+        "Chocolate Icecream",
+        "Apple Icecream"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/k/"
+    },
+    {
+      "id": "building-j",
+      "gameId": "j",
+      "name": "Bakery",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 605,
+        "Reinforced concrete": 44,
+        "Construction units": 11,
+        "Planks": 176
+      },
+      "produces": [
+        "Bread",
+        "Apple Pie",
+        "Dough"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/j/"
+    },
+    {
+      "id": "building-m",
+      "gameId": "m",
+      "name": "Catering",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1650,
+        "Reinforced concrete": 120,
+        "Construction units": 30,
+        "Planks": 480
+      },
+      "produces": [
+        "Hamburger",
+        "Lasagna",
+        "Meat balls",
+        "Cocktails",
+        "Sauce",
+        "Salad",
+        "Samosa",
+        "Pumpkin Soup"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/m/"
+    },
+    {
+      "id": "building-o",
+      "gameId": "o",
+      "name": "Concrete plant",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 935,
+        "Reinforced concrete": 68,
+        "Construction units": 17,
+        "Planks": 272
+      },
+      "produces": [
+        "Reinforced concrete",
+        "Bricks",
+        "Cement"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/o/"
+    },
+    {
+      "id": "building-x",
+      "gameId": "x",
+      "name": "Construction factory",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1155,
+        "Reinforced concrete": 84,
+        "Construction units": 21,
+        "Planks": 336
+      },
+      "produces": [
+        "Steel Beams",
+        "Planks",
+        "Windows",
+        "Tools"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/x/"
+    },
+    {
+      "id": "building-Q",
+      "gameId": "Q",
+      "name": "Quarry",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 385,
+        "Reinforced concrete": 28,
+        "Construction units": 7,
+        "Planks": 112
+      },
+      "produces": [
+        "Sand",
+        "Clay",
+        "Limestone"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/Q/"
+    },
+    {
+      "id": "building-T",
+      "gameId": "T",
+      "name": "Fashion factory",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 220,
+        "Reinforced concrete": 16,
+        "Construction units": 4,
+        "Planks": 64
+      },
+      "produces": [
+        "Fabric",
+        "Underwear",
+        "Gloves",
+        "Dress",
+        "Stiletto Heel",
+        "Handbags",
+        "Sneakers",
+        "Luxury Watch",
+        "Necklace",
+        "Witch Costume"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/T/"
+    },
+    {
+      "id": "building-E",
+      "gameId": "E",
+      "name": "Power plant",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 825,
+        "Reinforced concrete": 60,
+        "Construction units": 15,
+        "Planks": 240
+      },
+      "produces": [
+        "Power"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/E/"
+    },
+    {
+      "id": "building-O",
+      "gameId": "O",
+      "name": "Oil rig",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1100,
+        "Reinforced concrete": 80,
+        "Construction units": 20,
+        "Planks": 320
+      },
+      "produces": [
+        "Crude oil",
+        "Methane"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/O/"
+    },
+    {
+      "id": "building-R",
+      "gameId": "R",
+      "name": "Refinery",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1100,
+        "Reinforced concrete": 80,
+        "Construction units": 20,
+        "Planks": 320
+      },
+      "produces": [
+        "Petrol",
+        "Diesel",
+        "Plastic",
+        "Carbon fibers",
+        "Rocket fuel"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/R/"
+    },
+    {
+      "id": "building-L",
+      "gameId": "L",
+      "name": "Electronics factory",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1320,
+        "Reinforced concrete": 96,
+        "Construction units": 24,
+        "Planks": 384
+      },
+      "produces": [
+        "Processors",
+        "Electronic Components",
+        "Batteries",
+        "Displays",
+        "Smart Phones",
+        "Tablets",
+        "Laptops",
+        "Monitors",
+        "Televisions",
+        "On-board Computer",
+        "High Grade E-Comps",
+        "Robots",
+        "Jack O'Lantern"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/L/"
+    },
+    {
+      "id": "building-1",
+      "gameId": "1",
+      "name": "Car factory",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1485,
+        "Reinforced concrete": 108,
+        "Construction units": 27,
+        "Planks": 432
+      },
+      "produces": [
+        "Luxury Car Interior",
+        "Basic Interior",
+        "Car Body",
+        "Economy E-Car",
+        "Luxury E-Car",
+        "Economy Car",
+        "Luxury Car",
+        "Truck",
+        "Bulldozer"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/1/"
+    },
+    {
+      "id": "building-7",
+      "gameId": "7",
+      "name": "Aerospace factory",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1705,
+        "Reinforced concrete": 124,
+        "Construction units": 31,
+        "Planks": 496
+      },
+      "produces": [
+        "Fuselage",
+        "Wing",
+        "Propellant Tank",
+        "Heat Shield",
+        "Sub-orbital 2nd Stage",
+        "Orbital Booster",
+        "Starship"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/7/"
+    },
+    {
+      "id": "building-D",
+      "gameId": "D",
+      "name": "Propulsion factory",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1650,
+        "Reinforced concrete": 120,
+        "Construction units": 30,
+        "Planks": 480
+      },
+      "produces": [
+        "Electric Motor",
+        "Combustion Engine",
+        "Solid Fuel Booster",
+        "Rocket Engine",
+        "Ion Drive",
+        "Jet Engine"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/D/"
+    },
+    {
+      "id": "building-0",
+      "gameId": "0",
+      "name": "Hangar",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1595,
+        "Reinforced concrete": 116,
+        "Construction units": 29,
+        "Planks": 464
+      },
+      "produces": [
+        "Jumbo Jet",
+        "Luxury Jet",
+        "Single Engine Plane"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/0/"
+    },
+    {
+      "id": "building-8",
+      "gameId": "8",
+      "name": "Aerospace electronics",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 2255,
+        "Reinforced concrete": 164,
+        "Construction units": 41,
+        "Planks": 656
+      },
+      "produces": [
+        "Flight computer",
+        "Cockpit",
+        "Attitude control",
+        "Quadcopter",
+        "Satellite"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/8/"
+    },
+    {
+      "id": "building-W",
+      "gameId": "W",
+      "name": "Water reservoir",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 330,
+        "Reinforced concrete": 24,
+        "Construction units": 6,
+        "Planks": 96
+      },
+      "produces": [
+        "Water"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/W/"
+    },
+    {
+      "id": "building-S",
+      "gameId": "S",
+      "name": "Shipping depot",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 825,
+        "Reinforced concrete": 60,
+        "Construction units": 15,
+        "Planks": 240
+      },
+      "produces": [
+        "Transport"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/S/"
+    },
+    {
+      "id": "building-R",
+      "gameId": "R",
+      "name": "Refinery",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1100,
+        "Reinforced concrete": 80,
+        "Construction units": 20,
+        "Planks": 320
+      },
+      "produces": [
+        "Petrol",
+        "Diesel",
+        "Plastic",
+        "Carbon fibers",
+        "Rocket fuel"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/R/"
+    },
+    {
+      "id": "building-M",
+      "gameId": "M",
+      "name": "Mine",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 385,
+        "Reinforced concrete": 28,
+        "Construction units": 7,
+        "Planks": 112
+      },
+      "produces": [
+        "Minerals",
+        "Bauxite",
+        "Iron Ore",
+        "Gold Ore"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/M/"
+    },
+    {
+      "id": "building-Y",
+      "gameId": "Y",
+      "name": "Factory",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 770,
+        "Reinforced concrete": 56,
+        "Construction units": 14,
+        "Planks": 224
+      },
+      "produces": [
+        "Silicon",
+        "Chemicals",
+        "Aluminium",
+        "Steel",
+        "Glass",
+        "Xmas Crackers",
+        "Golden Bars",
+        "Carbon Composite",
+        "Xmas Ornament"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/Y/"
+    },
+    {
+      "id": "building-g",
+      "gameId": "g",
+      "name": "General contractor",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 770,
+        "Reinforced concrete": 56,
+        "Construction units": 14,
+        "Planks": 224
+      },
+      "produces": [
+        "Construction units"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/g/"
+    },
+    {
+      "id": "building-9",
+      "gameId": "9",
+      "name": "Vertical integration facility",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1815,
+        "Reinforced concrete": 132,
+        "Construction units": 33,
+        "Planks": 528
+      },
+      "produces": [
+        "Sub-orbital rocket",
+        "BFR"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/9/"
+    },
+    {
+      "id": "building-s",
+      "gameId": "s",
+      "name": "Software R&D",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1045,
+        "Reinforced concrete": 76,
+        "Construction units": 19,
+        "Planks": 304
+      },
+      "produces": [
+        "Software"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/s/"
+    },
+    {
+      "id": "building-f",
+      "gameId": "f",
+      "name": "Fashion & Design",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1155,
+        "Reinforced concrete": 84,
+        "Construction units": 21,
+        "Planks": 336
+      },
+      "produces": [
+        "Fashion research"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/f/"
+    },
+    {
+      "id": "building-q",
+      "gameId": "q",
+      "name": "Kitchen",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1320,
+        "Reinforced concrete": 96,
+        "Construction units": 24,
+        "Planks": 384
+      },
+      "produces": [
+        "Recipes"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/q/"
+    },
+    {
+      "id": "building-b",
+      "gameId": "b",
+      "name": "Breeding laboratory",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1540,
+        "Reinforced concrete": 112,
+        "Construction units": 28,
+        "Planks": 448
+      },
+      "produces": [
+        "Breeding research"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/b/"
+    },
+    {
+      "id": "building-c",
+      "gameId": "c",
+      "name": "Chemistry laboratory",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1540,
+        "Reinforced concrete": 112,
+        "Construction units": 28,
+        "Planks": 448
+      },
+      "produces": [
+        "Chemistry research",
+        "Materials research"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/c/"
+    },
+    {
+      "id": "building-p",
+      "gameId": "p",
+      "name": "Plant research center",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1650,
+        "Reinforced concrete": 120,
+        "Construction units": 30,
+        "Planks": 480
+      },
+      "produces": [
+        "Plant research"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/p/"
+    },
+    {
+      "id": "building-l",
+      "gameId": "l",
+      "name": "Launch pad",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 1980,
+        "Reinforced concrete": 144,
+        "Construction units": 36,
+        "Planks": 576
+      },
+      "produces": [
+        "Aerospace research"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/l/"
+    },
+    {
+      "id": "building-a",
+      "gameId": "a",
+      "name": "Automotive R&D",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 2200,
+        "Reinforced concrete": 160,
+        "Construction units": 40,
+        "Planks": 640
+      },
+      "produces": [
+        "Automotive research"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/a/"
+    },
+    {
+      "id": "building-h",
+      "gameId": "h",
+      "name": "Physics laboratory",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 2640,
+        "Reinforced concrete": 192,
+        "Construction units": 48,
+        "Planks": 768
+      },
+      "produces": [
+        "Energy research",
+        "Mining research",
+        "Electronics research"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/h/"
+    },
+    {
+      "id": "building-G",
+      "gameId": "G",
+      "name": "Grocery store",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 165,
+        "Steel": 12,
+        "Construction units": 2,
+        "Planks": 48
+      },
+      "produces": [
+        "Apples",
+        "Oranges",
+        "Grapes",
+        "Steak",
+        "Sausages",
+        "Eggs",
+        "Coffee powder",
+        "Apple pie",
+        "Orange juice",
+        "Apple cider",
+        "Ginger beer",
+        "Cheese",
+        "Frozen pizza",
+        "Chocolate",
+        "Easter bunny",
+        "Ramadan sweets"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/G/"
+    },
+    {
+      "id": "building-d",
+      "gameId": "d",
+      "name": "Hardware store",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 220,
+        "Steel": 16,
+        "Construction units": 4,
+        "Planks": 64
+      },
+      "produces": [
+        "Bricks",
+        "Cement",
+        "Planks",
+        "Windows",
+        "Tools"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/d/"
+    },
+    {
+      "id": "building-H",
+      "gameId": "H",
+      "name": "Fashion store",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 275,
+        "Steel": 20,
+        "Construction units": 5,
+        "Planks": 80
+      },
+      "produces": [
+        "Underwear",
+        "Gloves",
+        "Dress",
+        "Stiletto heel",
+        "Handbags",
+        "Sneakers",
+        "Luxury watch",
+        "Necklace"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/H/"
+    },
+    {
+      "id": "building-A",
+      "gameId": "A",
+      "name": "Gas station",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 385,
+        "Steel": 28,
+        "Construction units": 7,
+        "Planks": 112
+      },
+      "produces": [
+        "Petrol",
+        "Diesel"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/A/"
+    },
+    {
+      "id": "building-C",
+      "gameId": "C",
+      "name": "Electronics store",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 275,
+        "Steel": 20,
+        "Construction units": 5,
+        "Planks": 80
+      },
+      "produces": [
+        "Smart phones",
+        "Tablets",
+        "Laptops",
+        "Monitors",
+        "Televisions",
+        "Quadcopter"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/C/"
+    },
+    {
+      "id": "building-2",
+      "gameId": "2",
+      "name": "Car dealership",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 330,
+        "Steel": 24,
+        "Construction units": 6,
+        "Planks": 96
+      },
+      "produces": [
+        "Economy e-car",
+        "Luxury e-car",
+        "Economy car",
+        "Luxury car",
+        "Truck"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/2/"
+    },
+    {
+      "id": "building-B",
+      "gameId": "B",
+      "name": "Sales offices",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 990,
+        "Steel": 72,
+        "Construction units": 18,
+        "Planks": 288
+      },
+      "produces": [
+        "Sub-orbital rocket",
+        "BFR",
+        "Jumbo jet",
+        "Luxury jet",
+        "Single engine plane",
+        "Satellite"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/B/"
+    },
+    {
+      "id": "building-t",
+      "gameId": "t",
+      "name": "Halloween market",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 220,
+        "Steel": 16,
+        "Construction units": 4,
+        "Planks": 64
+      },
+      "produces": [
+        "Pumpkin",
+        "Jack o'lantern",
+        "Witch costume"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/t/"
+    },
+    {
+      "id": "building-u",
+      "gameId": "u",
+      "name": "Xmas market",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 275,
+        "Steel": 20,
+        "Construction units": 5,
+        "Planks": 80
+      },
+      "produces": [
+        "Xmas crackers",
+        "Xmas ornament",
+        "Tree"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/u/"
+    },
+    {
+      "id": "building-z",
+      "gameId": "z",
+      "name": "Beach market",
+      "level": 0,
+      "slots": 0,
+      "notes": "Game catalogue record; configure owned level and slots separately.",
+      "constructionTimeMinutes": null,
+      "constructionMaterials": {
+        "Bricks": 165,
+        "Steel": 12,
+        "Construction units": 3,
+        "Planks": 48
+      },
+      "produces": [
+        "Chocolate icecream",
+        "Apple icecream"
+      ],
+      "source": "Community building catalogue",
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/z/"
+    }
+  ]
+}
