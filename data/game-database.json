@@ -5800,7 +5800,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 300,
       "constructionMaterials": {
         "Bricks": 1650,
         "Reinforced concrete": 120,
@@ -5811,7 +5811,8 @@
         "Plant research"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/p/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/p/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/p/"
     },
     {
       "id": "building-l",
@@ -5840,7 +5841,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 360,
       "constructionMaterials": {
         "Bricks": 2200,
         "Reinforced concrete": 160,
@@ -5851,7 +5852,8 @@
         "Automotive research"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/a/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/a/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/a/"
     },
     {
       "id": "building-h",
@@ -5860,7 +5862,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 420,
       "constructionMaterials": {
         "Bricks": 2640,
         "Reinforced concrete": 192,
@@ -5873,7 +5875,8 @@
         "Electronics research"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/h/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/h/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/h/"
     },
     {
       "id": "building-G",
@@ -6065,7 +6068,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 120,
       "constructionMaterials": {
         "Bricks": 220,
         "Steel": 16,
@@ -6078,7 +6081,8 @@
         "Witch costume"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/t/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/t/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/t/"
     },
     {
       "id": "building-u",
