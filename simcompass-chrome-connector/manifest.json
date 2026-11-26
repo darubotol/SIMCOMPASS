@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "SIMCOMPASS Read-only Game Connector",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Captures the building response already loaded by Sim Companies and imports it into the Challenge Realm workspace.",
   "permissions": ["activeTab", "storage"],
   "action": {
@@ -16,7 +16,12 @@
       "world": "MAIN"
     },
     {
-      "matches": ["https://www.simcompanies.com/*", "https://darubotol.github.io/SIMCOMPASS/*"],
+      "matches": ["https://www.simcompanies.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://darubotol.github.io/SIMCOMPASS/*"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }
