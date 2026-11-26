@@ -130,6 +130,7 @@ async function loadGameCatalog(){
     db.catalogMeta={realm:catalog.realm,fetchedAt:catalog.fetchedAt,source:catalog.source,counts:catalog.counts};
     localStorage.setItem(KEY,JSON.stringify(db));
     render();
+    renderOwnedBuildings();
     toast("Game catalogue loaded: "+catalog.products.length+" products");
   }catch(error){console.warn("SIMCOMPASS catalogue load:",error.message);}
 }
