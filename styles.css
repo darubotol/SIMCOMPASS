@@ -168,3 +168,5 @@ th{background:#eff5f0;color:#65796e}td{color:#294139;border-bottom-color:#e9efeb
 
 /* Realm selector and isolated workspace indicators */
 .realm{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.realm b{margin-left:auto;color:var(--mint);font:8px var(--mono);letter-spacing:.08em}.realm-switcher{display:grid;gap:5px;margin-bottom:18px}.realm-choice{display:flex;align-items:center;gap:9px;text-align:left;min-height:38px}.realm-choice span{font:8px var(--mono);color:#7f929d}.realm-choice small{margin-left:auto;font:7px var(--mono);color:var(--mint);letter-spacing:.08em}.realm-choice.active{border-color:#579879;background:#193027;color:#d8f5e5}.realm-choice:not(.active){opacity:.78}.realm-choice:not(.active):hover{opacity:1}
+
+.realm-notice{margin:0 0 16px;padding:13px 15px;border:1px solid #416b59;border-radius:7px;background:#13251f;color:#c5d9cd;font-size:10px;line-height:1.7}.realm-notice strong{display:block;color:#a9e2c2;font:9px var(--mono);letter-spacing:.06em;margin-bottom:4px}.realm-notice.realm-secondary{border-color:#5b5140;background:#211e17;color:#d7cbb6}.realm-notice.realm-secondary strong{color:#e5c58b}
