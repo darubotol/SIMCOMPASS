@@ -46,3 +46,22 @@ SIMCOMPASS does not need the user's password, one-time codes, browser cookies or
 Each realm workspace is stored separately in browser local storage. Use Data & Settings to export or import a backup for the selected realm. The site is deployed through GitHub Pages and requires no local Python or Node installation.
 
 SIMCOMPASS is an independent community project and is not affiliated with or endorsed by Sim Companies.
+
+## Optional Chrome connector (read-only)
+
+A Manifest V3 extension is provided in `simcompass-chrome-connector/` for a user-triggered test of the Sim Companies buildings endpoint. It makes one GET request, uses the browser's existing signed-in session for that request, and transfers the returned JSON to the open SIMCOMPASS tab as an **unassigned** local snapshot. The extension does not read, display, export, or store cookie values, passwords, or authorization tokens. It does not send game-changing requests.
+
+The extension asks for access to `www.simcompanies.com` so its service worker can make the permitted cross-origin GET request, and runs its receiver only on the SIMCOMPASS GitHub Pages site. Chrome attaches the existing site session to the request; the extension code never reads the session cookie itself. The user must initiate every fetch. A five-minute cooldown is enforced locally, in line with the game's published API guidance. API behavior may change and is not officially supported.
+
+### Install the unpacked extension on Windows / Chrome
+
+1. Download the SIMCOMPASS repository as a ZIP from GitHub and extract it.
+2. In Chrome, open `chrome://extensions`.
+3. Turn on **Developer mode**.
+4. Choose **Load unpacked**.
+5. Select the extracted `simcompass-chrome-connector` folder (the folder containing `manifest.json`).
+6. Keep both Sim Companies (signed in) and SIMCOMPASS open in Chrome.
+7. Select the SIMCOMPASS tab, click the extension icon, and choose **FETCH BUILDINGS & SEND TO SIMCOMPASS**.
+8. Check the extension popup for the result. The snapshot remains unassigned until its realm is verified.
+
+This is an experimental, manually triggered bridge for the buildings endpoint only. It does not yet fetch inventory, challenge objectives, boosts, cash, recipes, or other company data, and it does not map the snapshot into the optimiser. Do not install extensions from unknown sources; inspect the source in this repository first. If Chrome warns about permissions, review them before approving.
