@@ -72,8 +72,11 @@ async function loadGameCatalog(){
     catalog.products.forEach(p=>{if(!productNames.has(p.name.toLowerCase()))db.products.push({...p});});
     const recipeKeys=new Set(db.recipes.map(x=>(x.output+"|"+x.building).toLowerCase()));
     catalog.recipes.forEach(x=>{if(!recipeKeys.has((x.output+"|"+x.building).toLowerCase()))db.recipes.push({...x});});
-    const buildingNames=new Set(db.buildings.map(x=>x.name.toLowerCase()));
-    catalog.buildings.forEach(x=>{if(!buildingNames.has(x.name.toLowerCase()))db.buildings.push({...x});});
+    catalog.buildings.forEach(x=>{
+      const existing=db.buildings.find(b=>b.name.toLowerCase()===x.name.toLowerCase());
+      if(existing)Object.assign(existing,{gameId:x.gameId,constructionTimeMinutes:x.constructionTimeMinutes,constructionTimeSource:x.constructionTimeSource,constructionMaterials:x.constructionMaterials,produces:x.produces,encyclopediaUrl:x.encyclopediaUrl,source:x.source});
+      else db.buildings.push({...x});
+    });
     db.catalogMeta={realm:catalog.realm,fetchedAt:catalog.fetchedAt,source:catalog.source,counts:catalog.counts};
     localStorage.setItem(KEY,JSON.stringify(db));
     render();
