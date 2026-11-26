@@ -43,5 +43,25 @@ host.querySelectorAll("[data-toggle]").forEach(b=>b.onclick=()=>{const a=state.a
 host.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{state.actions=state.actions.filter(x=>x.id!==b.dataset.remove);persist();renderActions()});
 }
 renderActions();
+
+const boostForm=$("boostRulesForm");
+if(boostForm)boostForm.addEventListener("submit",e=>{
+e.preventDefault();
+const start=$("boostRuleStart").value,end=$("boostRuleEnd").value,mult=Number($("boostRuleMultiplier").value);
+if(!(mult>0)|| (start&&end&&new Date(end)<=new Date(start))){alert("Enter a positive multiplier and an end time after the start time.");return}
+const effects={production:$("boostProduction").checked,retail:$("boostRetail").checked,construction:$("boostConstruction").checked,upgrades:$("boostUpgrades").checked,market:$("boostMarket").checked};
+if(!Object.values(effects).some(Boolean)){alert("Select at least one affected system.");return}
+state.boostRules=state.boostRules||[];
+state.boostRules.push({id:crypto.randomUUID(),name:$("boostRuleName").value.trim(),multiplier:mult,stacking:$("boostRuleStack").value,start,end,effects});
+persist();renderBoostRules();boostForm.reset();$("boostRuleMultiplier").value="2";$("boostProduction").checked=true;$("boostRetail").checked=true;
+});
+function renderBoostRules(){
+const host=$("boostRulesList");if(!host)return;
+const rules=state.boostRules||[];
+host.innerHTML=rules.length?rules.map(b=>'<div class="boost-rule"><div><b>'+esc(b.name)+'</b><span>'+b.multiplier+'× · '+esc(b.stacking)+' · '+Object.keys(b.effects).filter(k=>b.effects[k]).join(", ")+'</span><small>'+(b.start?new Date(b.start).toLocaleString():"Start not set")+' → '+(b.end?new Date(b.end).toLocaleString():"End not set")+'</small></div><button class="delete" data-boost-remove="'+b.id+'">DELETE</button></div>').join(""):'<p class="empty">No effect-specific boost rules saved.</p>';
+host.querySelectorAll("[data-boost-remove]").forEach(b=>b.onclick=()=>{state.boostRules=rules.filter(x=>x.id!==b.dataset.boostRemove);persist();renderBoostRules()});
+}
+renderBoostRules();
+
 if(state.retailTests?.length)renderRetail(state.retailTests[0]);
 })();
