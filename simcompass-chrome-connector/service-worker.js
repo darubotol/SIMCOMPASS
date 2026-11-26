@@ -1,36 +1,31 @@
-const ENDPOINT = "https://www.simcompanies.com/api/v2/companies/me/buildings/";
-const COOLDOWN_MS = 5 * 60 * 1000;
-
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message?.type !== "SIMCOMPASS_FETCH_BUILDINGS") return;
-  (async () => {
-    const { lastRequestAt = 0 } = await chrome.storage.local.get("lastRequestAt");
-    const remaining = COOLDOWN_MS - (Date.now() - lastRequestAt);
-    if (remaining > 0) {
-      sendResponse({ ok: false, reason: "cooldown", waitMs: remaining });
+  if (message?.type === "SIMCOMPASS_STORE_CAPTURE") {
+    if (!sender.url?.startsWith("https://www.simcompanies.com/") ||
+        !Array.isArray(message.data)) {
+      sendResponse({ ok: false, reason: "untrusted-source-or-invalid-data" });
       return;
     }
-    await chrome.storage.local.set({ lastRequestAt: Date.now() });
-    try {
-      const response = await fetch(ENDPOINT, {
-        method: "GET",
-        credentials: "include",
-        cache: "no-store",
-        headers: { "Accept": "application/json" }
-      });
-      if (!response.ok) {
-        sendResponse({ ok: false, reason: "http", status: response.status });
-        return;
+    chrome.storage.local.set({
+      pendingBuildingsSnapshot: {
+        data: message.data,
+        capturedAt: message.capturedAt || new Date().toISOString(),
+        source: "Sim Companies in-page successful GET response"
       }
-      const data = await response.json();
-      if (!Array.isArray(data)) {
-        sendResponse({ ok: false, reason: "shape" });
-        return;
-      }
-      sendResponse({ ok: true, data, fetchedAt: new Date().toISOString() });
-    } catch (error) {
-      sendResponse({ ok: false, reason: "network", detail: String(error?.message || error) });
-    }
-  })();
-  return true;
+    }).then(() => sendResponse({ ok: true, count: message.data.length }));
+    return true;
+  }
+
+  if (message?.type === "SIMCOMPASS_GET_PENDING_CAPTURE") {
+    chrome.storage.local.get("pendingBuildingsSnapshot").then(({ pendingBuildingsSnapshot }) => {
+      sendResponse(pendingBuildingsSnapshot
+        ? { ok: true, snapshot: pendingBuildingsSnapshot }
+        : { ok: false, reason: "no-capture" });
+    });
+    return true;
+  }
+
+  if (message?.type === "SIMCOMPASS_CLEAR_PENDING_CAPTURE") {
+    chrome.storage.local.remove("pendingBuildingsSnapshot").then(() => sendResponse({ ok: true }));
+    return true;
+  }
 });
