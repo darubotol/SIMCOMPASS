@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SIMCOMPASS Connector</title>
 <style>
-body{font:14px Arial,sans-serif;width:300px;padding:16px;color:#eaf2ee;background:#142321}
+body{font:14px Arial,sans-serif;width:310px;padding:16px;color:#eaf2ee;background:#142321}
 h2{font-size:17px;margin:0 0 8px}p{line-height:1.45;color:#c3d1ca}
 button{width:100%;padding:12px;border:0;border-radius:8px;background:#70d6ad;color:#10231c;font-weight:700;cursor:pointer}
 button:disabled{opacity:.55;cursor:wait}#status{margin-top:12px;white-space:pre-wrap;line-height:1.45}
@@ -14,10 +14,10 @@ small{display:block;margin-top:12px;color:#aebfb6}
 </head>
 <body>
 <h2>SIMCOMPASS Connector</h2>
-<p>With Sim Companies already open and signed in, open your SIMCOMPASS tab too, then click below. This makes one user-triggered, read-only buildings request.</p>
-<button id="connect">FETCH BUILDINGS & SEND TO SIMCOMPASS</button>
-<div id="status" role="status">Ready. API requests are limited to one every five minutes.</div>
-<small>This extension never reads or displays passwords, cookies, or tokens. It does not place orders or change game data.</small>
+<p>The extension watches for the buildings response that Sim Companies already loads in its own page. It does not make another game API request.</p>
+<button id="connect">IMPORT CAPTURED BUILDINGS</button>
+<div id="status" role="status">Ready. First reload the signed-in Sim Companies page with this extension enabled.</div>
+<small>Read-only capture. No passwords, cookie values, or tokens are read or exported. Imported data is assigned to the Challenge Realm workspace based on your confirmation.</small>
 <script src="popup.js"></script>
 </body>
 </html>
