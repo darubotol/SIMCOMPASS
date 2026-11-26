@@ -2,6 +2,25 @@
   if (window.__simcompassCaptureInstalled) return;
   window.__simcompassCaptureInstalled = true;
   const API_PREFIX = "/api/";
+  const safePaths = [
+    /^\/api\/v1\/challenges\/current\/$/,
+    /^\/api\/v2\/players\/me\/companies\/$/,
+    /^\/api\/v3\/resources\/\d+\/$/,
+    /^\/api\/v3\/market-ticker\/\d+\/$/,
+    /^\/api\/v3\/market\/recent-resources\/\d+\/$/
+  ];
+  const isSafeDataPath = path => safePaths.some(pattern => pattern.test(path));
+  const redact = (value, depth=0) => {
+    if (depth > 12) return null;
+    if (Array.isArray(value)) return value.slice(0,5000).map(v=>redact(v,depth+1));
+    if (!value || typeof value !== "object") return value;
+    const out = {};
+    for (const [key,v] of Object.entries(value)) {
+      if (/(csrf|token|cookie|enc.?key|password|authorization|session|secret|email)/i.test(key)) continue;
+      out[key] = redact(v,depth+1);
+    }
+    return out;
+  };
   const shape = (value, depth=0) => {
     if (value === null) return "null";
     if (Array.isArray(value)) return "array[" + value.length + "]" + (value.length && depth < 2 ? "<" + shape(value[0], depth+1) + ">" : "");
@@ -15,17 +34,17 @@
       if (parsed.origin !== location.origin || !parsed.pathname.startsWith(API_PREFIX)) return;
       const keys = data && typeof data === "object" ? Object.keys(data).slice(0,80) : [];
       window.postMessage({
-        source: "SIMCOMPASS_READONLY_CAPTURE",
-        type: "API_SCHEMA_DISCOVERY",
-        endpoint: parsed.pathname,
-        status,
-        capturedAt: new Date().toISOString(),
+        source: "SIMCOMPASS_READONLY_CAPTURE", type: "API_SCHEMA_DISCOVERY",
+        endpoint: parsed.pathname, status, capturedAt: new Date().toISOString(),
         topLevelType: Array.isArray(data) ? "array" : data === null ? "null" : typeof data,
-        topLevelKeys: keys,
-        shape: shape(data)
+        topLevelKeys: keys, shape: shape(data)
       }, location.origin);
       if (parsed.pathname === "/api/v2/companies/me/buildings/" && Array.isArray(data)) {
         window.postMessage({source:"SIMCOMPASS_READONLY_CAPTURE",type:"BUILDINGS_RESPONSE",capturedAt:new Date().toISOString(),data},location.origin);
+      }
+      if (isSafeDataPath(parsed.pathname)) {
+        const safeData = redact(data);
+        window.postMessage({source:"SIMCOMPASS_READONLY_CAPTURE",type:"GAME_DATA_RESPONSE",endpoint:parsed.pathname,capturedAt:new Date().toISOString(),data:safeData},location.origin);
       }
     } catch (_) {}
   };
