@@ -40,22 +40,35 @@ table("inventoryTable",db.inventory,r=>'<td><b>'+esc(r.product)+'</b></td><td>'+
 $("productCount").textContent=db.products.length+" records";
 }
 $("searchProducts").oninput=e=>{const q=e.target.value.toLowerCase(),rows=db.products.filter(p=>p.name.toLowerCase().includes(q)||String(p.category).toLowerCase().includes(q));table("productsTable",rows,r=>'<td><b>'+esc(r.name)+'</b></td><td>'+esc(r.category||"—")+'</td><td>'+esc(r.unit||"—")+'</td><td>USER ENTERED</td><td>'+action("products",r.id)+"</td>","No matching products.")};
-function plan(target,qty,objective){
-const stock={};db.inventory.forEach(x=>stock[x.product.toLowerCase()]={stock:+x.stock||0,marketQty:+x.marketQty||0,price:x.price,lead:+x.lead||0});
-const missing=new Set(),issues=[],steps=[],visiting=new Set();
-function source(product,amount,depth){if(amount<=1e-8)return{minutes:0,cost:0};const key=product.toLowerCase();if(depth>25||visiting.has(key)){missing.add(product);return null}
-const inv=stock[key]||{stock:0,marketQty:0,price:null,lead:0};let need=amount,stockUsed=Math.min(need,inv.stock);inv.stock-=stockUsed;need-=stockUsed;if(need<=1e-8){steps.push({kind:"stock",product,qty:stockUsed,minutes:0,cost:0});return{minutes:0,cost:0}}
-const recipes=db.recipes.filter(r=>r.output.toLowerCase()===key).sort((a,b)=>a.minutes/a.quantity-b.minutes/b.quantity);let best=null;
-if(recipes.length){const r=recipes[0];visiting.add(key);let chainTime=0,chainCost=0,valid=true;for(const i of r.inputs){const x=source(i.product,i.quantity*need/r.quantity,depth+1);if(!x){valid=false;break}chainTime=Math.max(chainTime,x.minutes);chainCost+=x.cost}visiting.delete(key);if(valid){const runs=Math.ceil(need/r.quantity);best={kind:"make",minutes:chainTime+runs*r.minutes,cost:chainCost,recipe:r,qty:need}}}
-const market=inv.price!==null&&Number.isFinite(+inv.price)&&inv.marketQty>=need?{kind:"market",minutes:inv.lead,cost:need*inv.price,qty:need}:null;
-if(market&&(!best||(objective==="cost"?market.cost<best.cost:market.minutes<best.minutes)))best=market;
-if(!best){missing.add(product);if(!recipes.length&&!market)issues.push("No recipe or complete market listing for "+product);else if(recipes.length)issues.push("Missing ingredient data for "+product);return null}
-if(best.kind==="market"){inv.marketQty-=need;steps.push({kind:"market",product,qty:need,minutes:best.minutes,cost:best.cost})}else{const b=db.buildings.find(x=>x.name.toLowerCase()===best.recipe.building.toLowerCase());if(!b)issues.push("No owned building configured for "+best.recipe.building);steps.push({kind:"make",product,qty:need,minutes:best.minutes,cost:best.cost,building:best.recipe.building})}
-return{minutes:best.minutes,cost:best.cost}}
-const result=source(target,qty,0);return{result,missing:[...missing],issues:[...new Set(issues)],steps}}
-$("challengeForm").onsubmit=e=>{e.preventDefault();const target=$("target").value.trim(),qty=+$("quantity").value,budget=$("budget").value===""?null:+$("budget").value,obj=$("objective").value;if(!target||qty<=0)return;const p=plan(target,qty,obj);$("resultTitle").textContent=p.result?"Plan generated":"Data incomplete";let html="";
-if(p.result){html='<div class="stats"><article><label>ESTIMATED ELAPSED TIME</label><strong>'+(p.result.minutes/60).toFixed(2)+'h</strong></article><article><label>ESTIMATED COST</label><strong>'+p.result.cost.toFixed(2)+'</strong></article></div>';if(budget!==null&&p.result.cost>budget)html+='<p class="amber">Estimated cost exceeds the budget entered.</p>';html+='<p class="muted">Sequential dependency estimate only. It does not yet model parallel factory scheduling, construction queues, boosts, taxes or selling time.</p>'}
-if(p.steps.length)html+='<h4>Plan breakdown</h4><div class="tablewrap"><table><thead><tr><th>ACTION</th><th>PRODUCT</th><th>QUANTITY</th><th>TIME (MIN)</th><th>EST. COST</th></tr></thead><tbody>'+p.steps.map(s=>'<tr><td>'+s.kind.toUpperCase()+'</td><td>'+esc(s.product)+'</td><td>'+s.qty+'</td><td>'+s.minutes+'</td><td>'+s.cost.toFixed(2)+'</td></tr>').join("")+'</tbody></table></div>';
+function plan(target,qty,objective,budget=null){
+const initial={};db.inventory.forEach(x=>initial[x.product.toLowerCase()]={product:x.product,stock:Math.max(0,+x.stock||0),marketQty:Math.max(0,+x.marketQty||0),price:x.price===null?null:+x.price,lead:Math.max(0,+x.lead||0)});
+const clone=s=>Object.fromEntries(Object.entries(s).map(([k,v])=>[k,{...v}]));
+function solve(product,amount,state,stack,depth){
+if(amount<=1e-8)return{time:0,cash:0,state,steps:[],issues:[]};
+const key=product.toLowerCase();if(depth>30||stack.includes(key))return null;
+const inv=state[key]||{product,stock:0,marketQty:0,price:null,lead:0},used=Math.min(amount,inv.stock),need=amount-used;
+const base=clone(state);base[key]={...inv,stock:inv.stock-used};
+if(need<=1e-8)return{time:0,cash:0,state:base,steps:used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[],issues:[]};
+const choices=[];
+if(inv.price!==null&&Number.isFinite(inv.price)&&inv.price>=0&&inv.marketQty>=need){const st=clone(base);st[key]={...st[key],marketQty:inv.marketQty-need};choices.push({time:inv.lead,cash:need*inv.price,state:st,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),{kind:"market",product,qty:need,time:inv.lead,cash:need*inv.price}],issues:[]})}
+for(const recipe of db.recipes.filter(x=>String(x.output).toLowerCase()===key).slice(0,8)){
+const building=db.buildings.find(x=>String(x.name).toLowerCase()===String(recipe.building).toLowerCase()),slots=Number(building?.slots)||0;
+if(!building||slots<1)continue;
+const out=Math.max(1e-8,Number(recipe.quantity)||1),runs=Math.ceil(need/out),boost=window.SIMCOMPASS_BOOSTS?.productionMultiplier||1,ownTime=Math.ceil(runs/slots)*Number(recipe.minutes||0)/boost;
+let branch=clone(base),depTime=0,depCash=0,steps=[],issues=[],valid=true;
+for(const input of recipe.inputs||[]){const child=solve(input.product,Number(input.quantity)*runs,branch,[...stack,key],depth+1);if(!child){valid=false;break}branch=child.state;depTime=Math.max(depTime,child.time);depCash+=child.cash;steps.push(...child.steps);issues.push(...child.issues)}
+if(valid)choices.push({time:depTime+ownTime,cash:depCash,state:branch,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),...steps,{kind:"make",product,qty:runs*out,time:ownTime,cash:0,building:recipe.building,level:building.level,slots,runs}],issues})
+}
+if(!choices.length)return null;
+choices.sort((x,y)=>objective==="cost"?(x.cash-y.cash||x.time-y.time):(x.time-y.time||x.cash-y.cash));return choices[0]
+}
+const r=solve(target,qty,initial,[],0);if(!r)return{result:null,missing:[target],issues:["No feasible route. Check recipes, ingredients, market supply and owned building slots."],steps:[]};
+const issues=[...new Set(r.issues)];if(budget!==null&&r.cash>budget)issues.push("Required market cash exceeds starting cash by "+(r.cash-budget).toFixed(2)+".");
+return{result:{minutes:r.time,cost:r.cash,endingCash:budget===null?null:budget-r.cash},missing:[],issues,steps:r.steps}
+}
+$("challengeForm").onsubmit=e=>{e.preventDefault();const target=$("target").value.trim(),qty=+$("quantity").value,budget=$("budget").value===""?null:+$("budget").value,obj=$("objective").value;if(!target||qty<=0)return;const p=plan(target,qty,obj,budget);$("resultTitle").textContent=p.result?"Plan generated":"Data incomplete";let html="";
+if(p.result){html='<div class="stats"><article><label>ESTIMATED ELAPSED TIME</label><strong>'+(p.result.minutes/60).toFixed(2)+'h</strong></article><article><label>ESTIMATED COST</label><strong>'+p.result.cost.toFixed(2)+'</strong></article></div>';if(budget!==null&&p.result.cost>budget)html+='<p class="amber">Estimated cost exceeds the budget entered.</p>';html+='<p class="muted">Multi-route estimate: compares market sourcing with up to eight recipe routes per product and uses configured building slots. Timed boost windows, construction of missing buildings, level-specific production rates and retail receipts are not yet included.</p>'}
+if(p.steps.length)html+='<h4>Plan breakdown</h4><div class="tablewrap"><table><thead><tr><th>ACTION</th><th>PRODUCT</th><th>QUANTITY</th><th>TIME (MIN)</th><th>EST. CASH</th><th>BUILDING / CAPACITY</th></tr></thead><tbody>'+p.steps.map(s=>'<tr><td>'+s.kind.toUpperCase()+'</td><td>'+esc(s.product)+'</td><td>'+s.qty+'</td><td>'+s.minutes+'</td><td>'+s.cost.toFixed(2)+'</td></tr>').join("")+'</tbody></table></div>';
 if(p.missing.length)html+='<p class="amber">Missing / unresolved: '+p.missing.map(esc).join(", ")+'</p>';if(p.issues.length)html+='<ul class="muted">'+p.issues.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul>";if(!p.result)html+='<p class="muted">Add complete recipes and market rows for missing products. Ensure the required building is configured.</p>';$("result").innerHTML=html||"No plan could be generated.";db.challenge={target:target,qty:qty,objective:obj,budget:budget};localStorage.setItem(KEY,JSON.stringify(db))};
 $("export").onclick=()=>{const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="simcompass-backup.json";a.click();URL.revokeObjectURL(a.href);toast("Backup exported")};
 $("import").onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());["products","recipes","buildings","boosts","inventory"].forEach(k=>{if(!Array.isArray(data[k]))throw Error("Backup missing "+k)});db=Object.assign(blank(),data);save();toast("Backup imported")}catch(err){alert("Import failed: "+err.message)}e.target.value=""};
