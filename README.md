@@ -18,7 +18,7 @@ The optimiser loads the bundled game database in the background and uses its pro
 - Realm 0 baseline catalogue; this is not a guarantee that every item is enabled in every Challenge Realm scenario.
 - Construction times are verified only where the source data explicitly records verification; unverified values must not be treated as confirmed.
 
-## Current user workflow
+## Three-realm architecture\n\nSIMCOMPASS has three separate realm workspaces: Challenge Realm (primary), Magnates Realm and Entrepreneurs Realm. Switching realms changes the active company workspace; inventory, cash, buildings, boosts and challenge records are stored separately and are never carried between realms. The shared catalogue is copied into each workspace as reference data. Challenge Realm is a distinct time-limited challenge environment; Magnates and Entrepreneurs are separate persistent universes. See the [official Realms guide](https://www.simcompanies.com/pages/realms-guide/) and [Challenge Realm overview](https://www.simcompanies.com/pages/future-development/).\n\n**Account connection status:** live account linking is not implemented. Sim Companies' API guide says API use is unsupported, endpoints may change, only GET requests are allowed and requests must not exceed one every five minutes. It does not provide a documented OAuth flow for third-party applications. SIMCOMPASS therefore provides isolated workspaces and JSON data import rather than asking for passwords, cookies or session tokens. A live connector must be developed only after a supported, safe authentication and realm-specific read endpoint are verified.\n\n## Current user workflow
 
 1. Describe the challenge and select its objective family.
 2. Add exact success conditions, secondary milestones, restrictions and time limit.
@@ -43,6 +43,6 @@ SIMCOMPASS does not need the user's password, one-time codes, browser cookies or
 
 ## Storage and deployment
 
-Challenge data is stored in browser local storage. Use Data & Settings to export a JSON backup. The site is deployed through GitHub Pages and requires no local Python or Node installation.
+Each realm workspace is stored separately in browser local storage. Use Data & Settings to export or import a backup for the selected realm. The site is deployed through GitHub Pages and requires no local Python or Node installation.
 
 SIMCOMPASS is an independent community project and is not affiliated with or endorsed by Sim Companies.
