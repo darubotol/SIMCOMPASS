@@ -14,10 +14,10 @@ small{display:block;margin-top:12px;color:#aebfb6}
 </head>
 <body>
 <h2>SIMCOMPASS Connector</h2>
-<p>The extension observes successful read-only API responses that the game itself loads. It captures building data and endpoint field structures; it does not make extra game API requests or store private values during discovery.</p>
+<p>The extension passively captures selected successful GET responses already loaded by the game: buildings, challenge status/boosts, resources, market data and company summaries. Authentication endpoints and security fields are excluded. No extra API requests are made.</p>
 <button id="connect">IMPORT CAPTURED GAME DATA</button>
 <div id="status" role="status">Ready. Reload the signed-in Sim Companies page, wait for it to finish loading, then import here.</div>
-<small>Read-only capture. No passwords, cookie values, or tokens are read or exported. Imported data is assigned to the Challenge Realm workspace based on your confirmation.</small>
+<small>Read-only capture. Authentication endpoints and security fields are excluded. Imported data is assigned to the Challenge Realm workspace based on your confirmation.</small>
 <script src="popup.js"></script>
 </body>
 </html>
