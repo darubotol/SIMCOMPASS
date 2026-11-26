@@ -1531,12 +1531,12 @@
       "inputs": [
         {
           "product": "Sub-orbital rocket",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "91"
         },
         {
           "product": "BFR",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "94"
         }
       ],
@@ -1553,12 +1553,12 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 15.0,
+          "quantity": 15,
           "resourceId": "1"
         },
         {
           "product": "Bauxite",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "15"
         }
       ],
@@ -1575,7 +1575,7 @@
       "inputs": [
         {
           "product": "Apples",
-          "quantity": 8.0,
+          "quantity": 8,
           "resourceId": "3"
         }
       ],
@@ -1592,7 +1592,7 @@
       "inputs": [
         {
           "product": "Milk",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "117"
         },
         {
@@ -1602,7 +1602,7 @@
         },
         {
           "product": "Apples",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "3"
         }
       ],
@@ -1619,17 +1619,17 @@
       "inputs": [
         {
           "product": "Sugar",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "135"
         },
         {
           "product": "Dough",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "137"
         },
         {
           "product": "Apples",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "3"
         }
       ],
@@ -1646,12 +1646,12 @@
       "inputs": [
         {
           "product": "Water",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "2"
         },
         {
           "product": "Seeds",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "66"
         }
       ],
@@ -1668,17 +1668,17 @@
       "inputs": [
         {
           "product": "Batteries",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "22"
         },
         {
           "product": "Steel",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "43"
         },
         {
           "product": "Electric motor",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "48"
         }
       ],
@@ -1706,12 +1706,12 @@
       "inputs": [
         {
           "product": "Orbital booster",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "92"
         },
         {
           "product": "Starship",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "93"
         }
       ],
@@ -1728,17 +1728,17 @@
       "inputs": [
         {
           "product": "Plastic",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "19"
         },
         {
           "product": "Displays",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "23"
         },
         {
           "product": "Fabric",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "41"
         }
       ],
@@ -1755,7 +1755,7 @@
       "inputs": [
         {
           "product": "Chemicals",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "17"
         }
       ],
@@ -1772,7 +1772,7 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 14.0,
+          "quantity": 14,
           "resourceId": "1"
         },
         {
@@ -1794,7 +1794,7 @@
       "inputs": [
         {
           "product": "Dough",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "137"
         }
       ],
@@ -1839,17 +1839,17 @@
       "inputs": [
         {
           "product": "Steel",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "43"
         },
         {
           "product": "Car body",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "51"
         },
         {
           "product": "Combustion engine",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "52"
         }
       ],
@@ -1883,17 +1883,17 @@
       "inputs": [
         {
           "product": "Aluminium",
-          "quantity": 30.0,
+          "quantity": 30,
           "resourceId": "18"
         },
         {
           "product": "Steel",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "43"
         },
         {
           "product": "Glass",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "45"
         }
       ],
@@ -1910,7 +1910,7 @@
       "inputs": [
         {
           "product": "Carbon fibers",
-          "quantity": 8.0,
+          "quantity": 8,
           "resourceId": "75"
         }
       ],
@@ -1949,7 +1949,7 @@
       "inputs": [
         {
           "product": "Limestone",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "105"
         }
       ],
@@ -1966,7 +1966,7 @@
       "inputs": [
         {
           "product": "Milk",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "117"
         }
       ],
@@ -1988,7 +1988,7 @@
         },
         {
           "product": "Minerals",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "14"
         }
       ],
@@ -2021,12 +2021,12 @@
         },
         {
           "product": "Sugar",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "135"
         },
         {
           "product": "Cocoa",
-          "quantity": 10.0,
+          "quantity": 10,
           "resourceId": "136"
         }
       ],
@@ -2043,7 +2043,7 @@
       "inputs": [
         {
           "product": "Milk",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "117"
         },
         {
@@ -2070,7 +2070,7 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "1"
         }
       ],
@@ -2087,17 +2087,17 @@
       "inputs": [
         {
           "product": "Displays",
-          "quantity": 8.0,
+          "quantity": 8,
           "resourceId": "23"
         },
         {
           "product": "Basic interior",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "50"
         },
         {
           "product": "High grade e-comps",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "79"
         }
       ],
@@ -2114,22 +2114,22 @@
       "inputs": [
         {
           "product": "Coffee powder",
-          "quantity": 8.0,
+          "quantity": 8,
           "resourceId": "119"
         },
         {
           "product": "Orange juice",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "124"
         },
         {
           "product": "Apple cider",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "125"
         },
         {
           "product": "Ginger beer",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "126"
         }
       ],
@@ -2146,12 +2146,12 @@
       "inputs": [
         {
           "product": "Water",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "2"
         },
         {
           "product": "Seeds",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "66"
         }
       ],
@@ -2173,7 +2173,7 @@
         },
         {
           "product": "Seeds",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "66"
         }
       ],
@@ -2190,7 +2190,7 @@
       "inputs": [
         {
           "product": "Coffee beans",
-          "quantity": 10.0,
+          "quantity": 10,
           "resourceId": "118"
         }
       ],
@@ -2207,17 +2207,17 @@
       "inputs": [
         {
           "product": "Chemicals",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "17"
         },
         {
           "product": "Electronic components",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "21"
         },
         {
           "product": "Steel",
-          "quantity": 6.0,
+          "quantity": 6,
           "resourceId": "43"
         }
       ],
@@ -2234,17 +2234,17 @@
       "inputs": [
         {
           "product": "Beams",
-          "quantity": 8.0,
+          "quantity": 8,
           "resourceId": "107"
         },
         {
           "product": "Windows",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "109"
         },
         {
           "product": "Tools",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "110"
         },
         {
@@ -2254,7 +2254,7 @@
         },
         {
           "product": "Diesel",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "12"
         }
       ],
@@ -2271,12 +2271,12 @@
       "inputs": [
         {
           "product": "Water",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "2"
         },
         {
           "product": "Seeds",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "66"
         }
       ],
@@ -2293,12 +2293,12 @@
       "inputs": [
         {
           "product": "Fodder",
-          "quantity": 12.0,
+          "quantity": 12,
           "resourceId": "139"
         },
         {
           "product": "Water",
-          "quantity": 16.0,
+          "quantity": 16,
           "resourceId": "2"
         }
       ],
@@ -2315,7 +2315,7 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 25.0,
+          "quantity": 25,
           "resourceId": "1"
         }
       ],
@@ -2332,7 +2332,7 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 15.0,
+          "quantity": 15,
           "resourceId": "1"
         },
         {
@@ -2359,12 +2359,12 @@
       "inputs": [
         {
           "product": "Silicon",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "16"
         },
         {
           "product": "Chemicals",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "17"
         }
       ],
@@ -2381,7 +2381,7 @@
       "inputs": [
         {
           "product": "Flour",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "133"
         },
         {
@@ -2391,7 +2391,7 @@
         },
         {
           "product": "Eggs",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "9"
         }
       ],
@@ -2413,7 +2413,7 @@
         },
         {
           "product": "Fabric",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "41"
         }
       ],
@@ -2440,7 +2440,7 @@
         },
         {
           "product": "Cocoa",
-          "quantity": 8.0,
+          "quantity": 8,
           "resourceId": "136"
         },
         {
@@ -2462,22 +2462,22 @@
       "inputs": [
         {
           "product": "On-board computer",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "47"
         },
         {
           "product": "Basic interior",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "50"
         },
         {
           "product": "Car body",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "51"
         },
         {
           "product": "Combustion engine",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "52"
         }
       ],
@@ -2494,27 +2494,27 @@
       "inputs": [
         {
           "product": "Batteries",
-          "quantity": 15.0,
+          "quantity": 15,
           "resourceId": "22"
         },
         {
           "product": "On-board computer",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "47"
         },
         {
           "product": "Electric motor",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "48"
         },
         {
           "product": "Basic interior",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "50"
         },
         {
           "product": "Car body",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "51"
         }
       ],
@@ -2553,12 +2553,12 @@
       "inputs": [
         {
           "product": "Electronic components",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "21"
         },
         {
           "product": "Steel",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "43"
         }
       ],
@@ -2575,12 +2575,12 @@
       "inputs": [
         {
           "product": "Silicon",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "16"
         },
         {
           "product": "Chemicals",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "17"
         }
       ],
@@ -2619,12 +2619,12 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 20.0,
+          "quantity": 20,
           "resourceId": "1"
         },
         {
           "product": "Sugarcane",
-          "quantity": 10.0,
+          "quantity": 10,
           "resourceId": "72"
         }
       ],
@@ -2641,12 +2641,12 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "1"
         },
         {
           "product": "Cotton",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "40"
         }
       ],
@@ -2674,12 +2674,12 @@
       "inputs": [
         {
           "product": "On-board computer",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "47"
         },
         {
           "product": "High grade e-comps",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "79"
         }
       ],
@@ -2696,7 +2696,7 @@
       "inputs": [
         {
           "product": "Grain",
-          "quantity": 15.0,
+          "quantity": 15,
           "resourceId": "6"
         }
       ],
@@ -2718,7 +2718,7 @@
         },
         {
           "product": "Grain",
-          "quantity": 10.0,
+          "quantity": 10,
           "resourceId": "6"
         }
       ],
@@ -2735,22 +2735,22 @@
       "inputs": [
         {
           "product": "Vegetables",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "120"
         },
         {
           "product": "Cheese",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "122"
         },
         {
           "product": "Dough",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "137"
         },
         {
           "product": "Sausages",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "8"
         }
       ],
@@ -2767,7 +2767,7 @@
       "inputs": [
         {
           "product": "Carbon composite",
-          "quantity": 40.0,
+          "quantity": 40,
           "resourceId": "76"
         }
       ],
@@ -2784,17 +2784,17 @@
       "inputs": [
         {
           "product": "Vegetables",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "120"
         },
         {
           "product": "Sugar",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "135"
         },
         {
           "product": "Water",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "2"
         }
       ],
@@ -2811,12 +2811,12 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "1"
         },
         {
           "product": "Silicon",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "16"
         }
       ],
@@ -2855,12 +2855,12 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 80.0,
+          "quantity": 80,
           "resourceId": "1"
         },
         {
           "product": "Water",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "2"
         }
       ],
@@ -2877,12 +2877,12 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 40.0,
+          "quantity": 40,
           "resourceId": "1"
         },
         {
           "product": "Gold ore",
-          "quantity": 200.0,
+          "quantity": 200,
           "resourceId": "68"
         }
       ],
@@ -2904,7 +2904,7 @@
         },
         {
           "product": "Seeds",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "66"
         }
       ],
@@ -2921,12 +2921,12 @@
       "inputs": [
         {
           "product": "Water",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "2"
         },
         {
           "product": "Seeds",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "66"
         }
       ],
@@ -2943,7 +2943,7 @@
       "inputs": [
         {
           "product": "Vegetables",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "120"
         },
         {
@@ -2953,7 +2953,7 @@
         },
         {
           "product": "Butter",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "134"
         },
         {
@@ -2963,7 +2963,7 @@
         },
         {
           "product": "Steak",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "7"
         }
       ],
@@ -2997,12 +2997,12 @@
       "inputs": [
         {
           "product": "Silicon",
-          "quantity": 30.0,
+          "quantity": 30,
           "resourceId": "16"
         },
         {
           "product": "Steel",
-          "quantity": 20.0,
+          "quantity": 20,
           "resourceId": "43"
         }
       ],
@@ -3019,12 +3019,12 @@
       "inputs": [
         {
           "product": "Silicon",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "16"
         },
         {
           "product": "Chemicals",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "17"
         },
         {
@@ -3046,17 +3046,17 @@
       "inputs": [
         {
           "product": "Chemicals",
-          "quantity": 15.0,
+          "quantity": 15,
           "resourceId": "17"
         },
         {
           "product": "Batteries",
-          "quantity": 30.0,
+          "quantity": 30,
           "resourceId": "22"
         },
         {
           "product": "High grade e-comps",
-          "quantity": 8.0,
+          "quantity": 8,
           "resourceId": "79"
         }
       ],
@@ -3073,7 +3073,7 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 7.0,
+          "quantity": 7,
           "resourceId": "1"
         },
         {
@@ -3095,7 +3095,7 @@
       "inputs": [
         {
           "product": "Pumpkin",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "146"
         },
         {
@@ -3117,12 +3117,12 @@
       "inputs": [
         {
           "product": "Aluminium",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "18"
         },
         {
           "product": "High grade e-comps",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "79"
         }
       ],
@@ -3139,27 +3139,27 @@
       "inputs": [
         {
           "product": "Basic interior",
-          "quantity": 140.0,
+          "quantity": 140,
           "resourceId": "50"
         },
         {
           "product": "Fuselage",
-          "quantity": 40.0,
+          "quantity": 40,
           "resourceId": "77"
         },
         {
           "product": "Wing",
-          "quantity": 10.0,
+          "quantity": 10,
           "resourceId": "78"
         },
         {
           "product": "Cockpit",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "81"
         },
         {
           "product": "Jet engine",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "89"
         }
       ],
@@ -3176,27 +3176,27 @@
       "inputs": [
         {
           "product": "Plastic",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "19"
         },
         {
           "product": "Processors",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "20"
         },
         {
           "product": "Electronic components",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "21"
         },
         {
           "product": "Batteries",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "22"
         },
         {
           "product": "Displays",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "23"
         }
       ],
@@ -3218,17 +3218,17 @@
         },
         {
           "product": "Pasta",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "128"
         },
         {
           "product": "Sauce",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "138"
         },
         {
           "product": "Steak",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "7"
         }
       ],
@@ -3262,7 +3262,7 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "1"
         }
       ],
@@ -3279,22 +3279,22 @@
       "inputs": [
         {
           "product": "On-board computer",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "47"
         },
         {
           "product": "Luxury car interior",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "49"
         },
         {
           "product": "Car body",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "51"
         },
         {
           "product": "Combustion engine",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "52"
         }
       ],
@@ -3311,17 +3311,17 @@
       "inputs": [
         {
           "product": "Aluminium",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "18"
         },
         {
           "product": "Displays",
-          "quantity": 6.0,
+          "quantity": 6,
           "resourceId": "23"
         },
         {
           "product": "Leather",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "46"
         }
       ],
@@ -3338,27 +3338,27 @@
       "inputs": [
         {
           "product": "Batteries",
-          "quantity": 30.0,
+          "quantity": 30,
           "resourceId": "22"
         },
         {
           "product": "On-board computer",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "47"
         },
         {
           "product": "Electric motor",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "48"
         },
         {
           "product": "Luxury car interior",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "49"
         },
         {
           "product": "Car body",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "51"
         }
       ],
@@ -3375,27 +3375,27 @@
       "inputs": [
         {
           "product": "Golden bars",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "69"
         },
         {
           "product": "Fuselage",
-          "quantity": 14.0,
+          "quantity": 14,
           "resourceId": "77"
         },
         {
           "product": "Wing",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "78"
         },
         {
           "product": "Cockpit",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "81"
         },
         {
           "product": "Jet engine",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "89"
         }
       ],
@@ -3412,7 +3412,7 @@
       "inputs": [
         {
           "product": "Electronic components",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "21"
         },
         {
@@ -3450,12 +3450,12 @@
       "inputs": [
         {
           "product": "Bread",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "121"
         },
         {
           "product": "Sauce",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "138"
         },
         {
@@ -3465,7 +3465,7 @@
         },
         {
           "product": "Sausages",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "8"
         }
       ],
@@ -3482,7 +3482,7 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 20.0,
+          "quantity": 20,
           "resourceId": "1"
         }
       ],
@@ -3504,7 +3504,7 @@
         },
         {
           "product": "Water",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "2"
         }
       ],
@@ -3521,12 +3521,12 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 20.0,
+          "quantity": 20,
           "resourceId": "1"
         },
         {
           "product": "Water",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "2"
         }
       ],
@@ -3554,17 +3554,17 @@
       "inputs": [
         {
           "product": "Plastic",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "19"
         },
         {
           "product": "Electronic components",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "21"
         },
         {
           "product": "Displays",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "23"
         }
       ],
@@ -3598,12 +3598,12 @@
       "inputs": [
         {
           "product": "Processors",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "20"
         },
         {
           "product": "Electronic components",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "21"
         }
       ],
@@ -3620,12 +3620,12 @@
       "inputs": [
         {
           "product": "Sugar",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "135"
         },
         {
           "product": "Oranges",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "4"
         }
       ],
@@ -3642,12 +3642,12 @@
       "inputs": [
         {
           "product": "Water",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "2"
         },
         {
           "product": "Seeds",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "66"
         }
       ],
@@ -3664,17 +3664,17 @@
       "inputs": [
         {
           "product": "Fuselage",
-          "quantity": 40.0,
+          "quantity": 40,
           "resourceId": "77"
         },
         {
           "product": "Propellant tank",
-          "quantity": 16.0,
+          "quantity": 16,
           "resourceId": "84"
         },
         {
           "product": "Rocket engine",
-          "quantity": 34.0,
+          "quantity": 34,
           "resourceId": "86"
         }
       ],
@@ -3691,12 +3691,12 @@
       "inputs": [
         {
           "product": "Flour",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "133"
         },
         {
           "product": "Eggs",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "9"
         }
       ],
@@ -3713,7 +3713,7 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 15.0,
+          "quantity": 15,
           "resourceId": "1"
         },
         {
@@ -3740,12 +3740,12 @@
       "inputs": [
         {
           "product": "Fodder",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "139"
         },
         {
           "product": "Water",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "2"
         }
       ],
@@ -3790,7 +3790,7 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "1"
         },
         {
@@ -3823,12 +3823,12 @@
       "inputs": [
         {
           "product": "Silicon",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "16"
         },
         {
           "product": "Chemicals",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "17"
         }
       ],
@@ -3845,12 +3845,12 @@
       "inputs": [
         {
           "product": "Aluminium",
-          "quantity": 50.0,
+          "quantity": 50,
           "resourceId": "18"
         },
         {
           "product": "Rocket fuel",
-          "quantity": 250.0,
+          "quantity": 250,
           "resourceId": "83"
         }
       ],
@@ -3867,12 +3867,12 @@
       "inputs": [
         {
           "product": "Water",
-          "quantity": 8.0,
+          "quantity": 8,
           "resourceId": "2"
         },
         {
           "product": "Seeds",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "66"
         }
       ],
@@ -3894,12 +3894,12 @@
         },
         {
           "product": "Butter",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "134"
         },
         {
           "product": "Pumpkin",
-          "quantity": 10.0,
+          "quantity": 10,
           "resourceId": "146"
         }
       ],
@@ -3916,22 +3916,22 @@
       "inputs": [
         {
           "product": "Plastic",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "19"
         },
         {
           "product": "Electronic components",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "21"
         },
         {
           "product": "Batteries",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "22"
         },
         {
           "product": "On-board computer",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "47"
         }
       ],
@@ -3953,12 +3953,12 @@
         },
         {
           "product": "Flour",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "133"
         },
         {
           "product": "Butter",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "134"
         },
         {
@@ -3991,22 +3991,22 @@
       "inputs": [
         {
           "product": "Cement",
-          "quantity": 15.0,
+          "quantity": 15,
           "resourceId": "103"
         },
         {
           "product": "Water",
-          "quantity": 20.0,
+          "quantity": 20,
           "resourceId": "2"
         },
         {
           "product": "Steel",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "43"
         },
         {
           "product": "Sand",
-          "quantity": 20.0,
+          "quantity": 20,
           "resourceId": "44"
         }
       ],
@@ -4023,17 +4023,17 @@
       "inputs": [
         {
           "product": "Plastic",
-          "quantity": 10.0,
+          "quantity": 10,
           "resourceId": "19"
         },
         {
           "product": "Processors",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "20"
         },
         {
           "product": "Electric motor",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "48"
         }
       ],
@@ -4050,17 +4050,17 @@
       "inputs": [
         {
           "product": "Aluminium",
-          "quantity": 10.0,
+          "quantity": 10,
           "resourceId": "18"
         },
         {
           "product": "Steel",
-          "quantity": 20.0,
+          "quantity": 20,
           "resourceId": "43"
         },
         {
           "product": "High grade e-comps",
-          "quantity": 8.0,
+          "quantity": 8,
           "resourceId": "79"
         }
       ],
@@ -4077,12 +4077,12 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "1"
         },
         {
           "product": "Methane",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "74"
         }
       ],
@@ -4099,12 +4099,12 @@
       "inputs": [
         {
           "product": "Vegetables",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "120"
         },
         {
           "product": "Cheese",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "122"
         },
         {
@@ -4126,17 +4126,17 @@
       "inputs": [
         {
           "product": "Vegetables",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "120"
         },
         {
           "product": "Flour",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "133"
         },
         {
           "product": "Vegetable oil",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "141"
         }
       ],
@@ -4153,7 +4153,7 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "1"
         }
       ],
@@ -4170,22 +4170,22 @@
       "inputs": [
         {
           "product": "High grade e-comps",
-          "quantity": 8.0,
+          "quantity": 8,
           "resourceId": "79"
         },
         {
           "product": "Flight computer",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "80"
         },
         {
           "product": "Attitude control",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "82"
         },
         {
           "product": "Ion drive",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "88"
         }
       ],
@@ -4202,7 +4202,7 @@
       "inputs": [
         {
           "product": "Vegetables",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "120"
         },
         {
@@ -4263,12 +4263,12 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "1"
         },
         {
           "product": "Sand",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "44"
         }
       ],
@@ -4285,22 +4285,22 @@
       "inputs": [
         {
           "product": "Combustion engine",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "52"
         },
         {
           "product": "Fuselage",
-          "quantity": 8.0,
+          "quantity": 8,
           "resourceId": "77"
         },
         {
           "product": "Wing",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "78"
         },
         {
           "product": "Cockpit",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "81"
         }
       ],
@@ -4317,27 +4317,27 @@
       "inputs": [
         {
           "product": "Aluminium",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "18"
         },
         {
           "product": "Processors",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "20"
         },
         {
           "product": "Electronic components",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "21"
         },
         {
           "product": "Batteries",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "22"
         },
         {
           "product": "Displays",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "23"
         }
       ],
@@ -4354,7 +4354,7 @@
       "inputs": [
         {
           "product": "Plastic",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "19"
         }
       ],
@@ -4382,17 +4382,17 @@
       "inputs": [
         {
           "product": "Chemicals",
-          "quantity": 50.0,
+          "quantity": 50,
           "resourceId": "17"
         },
         {
           "product": "Aluminium",
-          "quantity": 30.0,
+          "quantity": 30,
           "resourceId": "18"
         },
         {
           "product": "Rocket fuel",
-          "quantity": 100.0,
+          "quantity": 100,
           "resourceId": "83"
         }
       ],
@@ -4409,27 +4409,27 @@
       "inputs": [
         {
           "product": "Cockpit",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "81"
         },
         {
           "product": "Attitude control",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "82"
         },
         {
           "product": "Propellant tank",
-          "quantity": 6.0,
+          "quantity": 6,
           "resourceId": "84"
         },
         {
           "product": "Rocket engine",
-          "quantity": 7.0,
+          "quantity": 7,
           "resourceId": "86"
         },
         {
           "product": "Heat shield",
-          "quantity": 10.0,
+          "quantity": 10,
           "resourceId": "87"
         }
       ],
@@ -4463,7 +4463,7 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "1"
         },
         {
@@ -4473,7 +4473,7 @@
         },
         {
           "product": "Iron ore",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "42"
         }
       ],
@@ -4495,7 +4495,7 @@
         },
         {
           "product": "Leather",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "46"
         }
       ],
@@ -4512,27 +4512,27 @@
       "inputs": [
         {
           "product": "Fuselage",
-          "quantity": 8.0,
+          "quantity": 8,
           "resourceId": "77"
         },
         {
           "product": "Flight computer",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "80"
         },
         {
           "product": "Attitude control",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "82"
         },
         {
           "product": "Propellant tank",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "84"
         },
         {
           "product": "Ion drive",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "88"
         }
       ],
@@ -4549,12 +4549,12 @@
       "inputs": [
         {
           "product": "Solid fuel booster",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "85"
         },
         {
           "product": "Sub-orbital 2nd stage",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "90"
         }
       ],
@@ -4576,7 +4576,7 @@
         },
         {
           "product": "Sugarcane",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "72"
         }
       ],
@@ -4593,12 +4593,12 @@
       "inputs": [
         {
           "product": "Water",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "2"
         },
         {
           "product": "Seeds",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "66"
         }
       ],
@@ -4615,27 +4615,27 @@
       "inputs": [
         {
           "product": "Aluminium",
-          "quantity": 3.0,
+          "quantity": 3,
           "resourceId": "18"
         },
         {
           "product": "Processors",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "20"
         },
         {
           "product": "Electronic components",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "21"
         },
         {
           "product": "Batteries",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "22"
         },
         {
           "product": "Displays",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "23"
         }
       ],
@@ -4652,22 +4652,22 @@
       "inputs": [
         {
           "product": "Plastic",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "19"
         },
         {
           "product": "Processors",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "20"
         },
         {
           "product": "Electronic components",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "21"
         },
         {
           "product": "Displays",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "23"
         }
       ],
@@ -4689,12 +4689,12 @@
         },
         {
           "product": "Electronic components",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "21"
         },
         {
           "product": "Batteries",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "22"
         },
         {
@@ -4738,7 +4738,7 @@
       "inputs": [
         {
           "product": "Water",
-          "quantity": 12.0,
+          "quantity": 12,
           "resourceId": "2"
         }
       ],
@@ -4755,27 +4755,27 @@
       "inputs": [
         {
           "product": "Steel",
-          "quantity": 10.0,
+          "quantity": 10,
           "resourceId": "43"
         },
         {
           "product": "On-board computer",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "47"
         },
         {
           "product": "Basic interior",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "50"
         },
         {
           "product": "Car body",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "51"
         },
         {
           "product": "Combustion engine",
-          "quantity": 6.0,
+          "quantity": 6,
           "resourceId": "52"
         }
       ],
@@ -4792,7 +4792,7 @@
       "inputs": [
         {
           "product": "Fabric",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "41"
         }
       ],
@@ -4809,12 +4809,12 @@
       "inputs": [
         {
           "product": "Power",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "1"
         },
         {
           "product": "Vegetables",
-          "quantity": 10.0,
+          "quantity": 10,
           "resourceId": "120"
         }
       ],
@@ -4831,12 +4831,12 @@
       "inputs": [
         {
           "product": "Water",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "2"
         },
         {
           "product": "Seeds",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "66"
         }
       ],
@@ -4870,12 +4870,12 @@
       "inputs": [
         {
           "product": "Aluminium",
-          "quantity": 2.0,
+          "quantity": 2,
           "resourceId": "18"
         },
         {
           "product": "Glass",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "45"
         }
       ],
@@ -4892,12 +4892,12 @@
       "inputs": [
         {
           "product": "Aluminium",
-          "quantity": 5.0,
+          "quantity": 5,
           "resourceId": "18"
         },
         {
           "product": "Carbon composite",
-          "quantity": 30.0,
+          "quantity": 30,
           "resourceId": "76"
         }
       ],
@@ -4914,12 +4914,12 @@
       "inputs": [
         {
           "product": "Plastic",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "19"
         },
         {
           "product": "Fabric",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "41"
         }
       ],
@@ -4936,12 +4936,12 @@
       "inputs": [
         {
           "product": "Water",
-          "quantity": 4.0,
+          "quantity": 4,
           "resourceId": "2"
         },
         {
           "product": "Seeds",
-          "quantity": 1.0,
+          "quantity": 1,
           "resourceId": "66"
         }
       ],
@@ -5007,7 +5007,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 60,
       "constructionMaterials": {
         "Reinforced concrete": 8,
         "Planks": 32,
@@ -5029,7 +5029,8 @@
         "Pumpkin"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/P/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/P/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/1/building/P/"
     },
     {
       "id": "building-F",
@@ -5038,7 +5039,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 120,
       "constructionMaterials": {
         "Bricks": 165,
         "Reinforced concrete": 12,
@@ -5053,7 +5054,8 @@
         "Milk"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/F/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/F/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/F/"
     },
     {
       "id": "building-e",
@@ -5128,7 +5130,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 360,
       "constructionMaterials": {
         "Bricks": 1375,
         "Reinforced concrete": 100,
@@ -5149,7 +5151,8 @@
         "Apple Icecream"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/k/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/k/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/1/building/k/"
     },
     {
       "id": "building-j",
@@ -5207,7 +5210,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 300,
       "constructionMaterials": {
         "Bricks": 935,
         "Reinforced concrete": 68,
@@ -5220,7 +5223,8 @@
         "Cement"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/o/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/o/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/o/"
     },
     {
       "id": "building-x",
@@ -5229,7 +5233,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 360,
       "constructionMaterials": {
         "Bricks": 1155,
         "Reinforced concrete": 84,
@@ -5243,7 +5247,8 @@
         "Tools"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/x/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/x/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/x/"
     },
     {
       "id": "building-Q",
@@ -5252,7 +5257,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 180,
       "constructionMaterials": {
         "Bricks": 385,
         "Reinforced concrete": 28,
@@ -5265,7 +5270,8 @@
         "Limestone"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/Q/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/Q/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/Q/"
     },
     {
       "id": "building-T",
@@ -5274,7 +5280,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 120,
       "constructionMaterials": {
         "Bricks": 220,
         "Reinforced concrete": 16,
@@ -5294,7 +5300,8 @@
         "Witch Costume"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/T/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/T/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/T/"
     },
     {
       "id": "building-E",
@@ -5303,7 +5310,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 180,
       "constructionMaterials": {
         "Bricks": 825,
         "Reinforced concrete": 60,
@@ -5314,7 +5321,8 @@
         "Power"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/E/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/E/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/E/"
     },
     {
       "id": "building-O",
@@ -5323,7 +5331,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 240,
       "constructionMaterials": {
         "Bricks": 1100,
         "Reinforced concrete": 80,
@@ -5335,7 +5343,8 @@
         "Methane"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/O/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/O/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/O/"
     },
     {
       "id": "building-R",
@@ -5368,7 +5377,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 300,
       "constructionMaterials": {
         "Bricks": 1320,
         "Reinforced concrete": 96,
@@ -5391,7 +5400,8 @@
         "Jack O'Lantern"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/L/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/L/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/L/"
     },
     {
       "id": "building-1",
@@ -5400,7 +5410,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 360,
       "constructionMaterials": {
         "Bricks": 1485,
         "Reinforced concrete": 108,
@@ -5419,7 +5429,8 @@
         "Bulldozer"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/1/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/1/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/1/"
     },
     {
       "id": "building-7",
@@ -5454,7 +5465,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 420,
       "constructionMaterials": {
         "Bricks": 1650,
         "Reinforced concrete": 120,
@@ -5470,7 +5481,8 @@
         "Jet Engine"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/D/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/D/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/D/"
     },
     {
       "id": "building-0",
@@ -5479,7 +5491,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 180,
       "constructionMaterials": {
         "Bricks": 1595,
         "Reinforced concrete": 116,
@@ -5492,7 +5504,8 @@
         "Single Engine Plane"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/0/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/0/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/0/"
     },
     {
       "id": "building-8",
@@ -5525,7 +5538,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 120,
       "constructionMaterials": {
         "Bricks": 330,
         "Reinforced concrete": 24,
@@ -5536,7 +5549,8 @@
         "Water"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/W/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/W/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/W/"
     },
     {
       "id": "building-S",
@@ -5545,7 +5559,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 180,
       "constructionMaterials": {
         "Bricks": 825,
         "Reinforced concrete": 60,
@@ -5556,7 +5570,8 @@
         "Transport"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/S/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/S/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/S/"
     },
     {
       "id": "building-R",
@@ -5640,7 +5655,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 120,
       "constructionMaterials": {
         "Bricks": 770,
         "Reinforced concrete": 56,
@@ -5651,7 +5666,8 @@
         "Construction units"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/g/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/g/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/g/"
     },
     {
       "id": "building-9",
@@ -5681,7 +5697,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 180,
       "constructionMaterials": {
         "Bricks": 1045,
         "Reinforced concrete": 76,
@@ -5692,7 +5708,8 @@
         "Software"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/s/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/s/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/s/"
     },
     {
       "id": "building-f",
@@ -5721,7 +5738,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 240,
       "constructionMaterials": {
         "Bricks": 1320,
         "Reinforced concrete": 96,
@@ -5732,7 +5749,8 @@
         "Recipes"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/q/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/q/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/q/"
     },
     {
       "id": "building-b",
@@ -5923,7 +5941,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 180,
       "constructionMaterials": {
         "Bricks": 275,
         "Steel": 20,
@@ -5941,7 +5959,8 @@
         "Necklace"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/H/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/H/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/H/"
     },
     {
       "id": "building-A",
@@ -5971,7 +5990,7 @@
       "level": 0,
       "slots": 0,
       "notes": "Game catalogue record; configure owned level and slots separately.",
-      "constructionTimeMinutes": null,
+      "constructionTimeMinutes": 60,
       "constructionMaterials": {
         "Bricks": 275,
         "Steel": 20,
@@ -5987,7 +6006,8 @@
         "Quadcopter"
       ],
       "source": "Community building catalogue",
-      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/C/"
+      "encyclopediaUrl": "https://www.simcompanies.com/encyclopedia/0/building/C/",
+      "constructionTimeSource": "https://www.simcompanies.com/encyclopedia/0/building/C/"
     },
     {
       "id": "building-2",
