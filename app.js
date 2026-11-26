@@ -69,17 +69,18 @@ if(need<=1e-8)return{time:0,cash:0,state:base,steps:used?[{kind:"stock",product,
 const choices=[];
 if(inv.price!==null&&Number.isFinite(inv.price)&&inv.price>=0&&inv.marketQty>=need){const st=clone(base);st[key]={...st[key],marketQty:inv.marketQty-need};choices.push({time:inv.lead,cash:need*inv.price,state:st,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),{kind:"market",product,qty:need,time:inv.lead,cash:need*inv.price}],issues:[]})}
 for(const recipe of db.recipes.filter(x=>String(x.output).toLowerCase()===key).slice(0,8)){
-const building=db.buildings.find(x=>String(x.name).toLowerCase()===String(recipe.building).toLowerCase()),buildingCount=Number(building?.ownedCount)||Number(building?.slots)||0;
-if(!building||buildingCount<1)continue;
-const out=Math.max(1e-8,Number(recipe.quantity)||1),runs=Math.ceil(need/out),boost=window.SIMCOMPASS_BOOSTS?.productionMultiplier||1,ownTime=Math.ceil(runs/buildingCount)*Number(recipe.minutes||0)/boost;
+const building=db.buildings.find(x=>String(x.name).toLowerCase()===String(recipe.building).toLowerCase());
+const levelCapacity=Number(building?.ownedCapacity)||((Number(building?.ownedCount)||0)*(Number(building?.level)||1))||(activeRealm!=="challenge"?Number(building?.slots)||0:0);
+if(!building||levelCapacity<1)continue;
+const out=Math.max(1e-8,Number(recipe.quantity)||1),runs=Math.ceil(need/(out*levelCapacity)),boost=window.SIMCOMPASS_BOOSTS?.productionMultiplier||1,ownTime=runs*Number(recipe.minutes||0)/boost;
 let branch=clone(base),depTime=0,depCash=0,steps=[],issues=[],valid=true;
 for(const input of recipe.inputs||[]){const child=solve(input.product,Number(input.quantity)*runs,branch,[...stack,key],depth+1);if(!child){valid=false;break}branch=child.state;depTime=Math.max(depTime,child.time);depCash+=child.cash;steps.push(...child.steps);issues.push(...child.issues)}
-if(valid)choices.push({time:depTime+ownTime,cash:depCash,state:branch,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),...steps,{kind:"make",product,qty:runs*out,time:ownTime,cash:0,building:recipe.building,level:building.level,slots,runs}],issues})
+if(valid)choices.push({time:depTime+ownTime,cash:depCash,state:branch,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),...steps,{kind:"make",product,qty:runs*out,time:ownTime,cash:0,building:recipe.building,level:building.level,buildingCapacity:levelCapacity,runs}],issues})
 }
 if(!choices.length)return null;
 choices.sort((x,y)=>objective==="cost"?(x.cash-y.cash||x.time-y.time):(x.time-y.time||x.cash-y.cash));return choices[0]
 }
-const r=solve(target,qty,initial,[],0);if(!r)return{result:null,missing:[target],issues:["No feasible route. Check recipes, ingredients, market supply and owned building slots."],steps:[]};
+const r=solve(target,qty,initial,[],0);if(!r)return{result:null,missing:[target],issues:["No feasible route. Check recipes, ingredients, market supply and owned building levels/counts."],steps:[]};
 const issues=[...new Set(r.issues)];if(budget!==null&&r.cash>budget)issues.push("Required market cash exceeds starting cash by "+(r.cash-budget).toFixed(2)+".");
 return{result:{minutes:r.time,cost:r.cash,endingCash:budget===null?null:budget-r.cash},missing:[],issues,steps:r.steps}
 }
@@ -118,6 +119,7 @@ function syncChallengeBuildingsSnapshot(){
   building.owned=true;
   building.ownedCount=items.length;
   building.level=Math.max(...items.map(x=>x.level));
+  building.ownedCapacity=items.reduce((sum,x)=>sum+Math.max(1,Number(x.level)||1),0);
   building.apiSnapshotId=snapshot.id;
  }
  db.challengeBuildingSnapshot={id:snapshot.id,capturedAt:snapshot.capturedAt,recordCount:owned.length,buildingTypes:groups.size,mappedRecords:owned.length};
@@ -162,7 +164,7 @@ function renderOwnedBuildings(){
    const sameName=all.filter(x=>x.name===group.name);
    let b=db.buildings.find(v=>v.name===group.name);
    if(!b){b={id:"challenge-api-"+group.name.toLowerCase().replace(/[^a-z0-9]+/g,"-"),name:group.name,owned:true};db.buildings.push(b)}
-   b.owned=true;b.ownedCount=sameName.length;b.level=Math.max(1,...sameName.map(x=>Number(x.level)||1));
+   b.owned=true;b.ownedCount=sameName.length;b.level=Math.max(1,...sameName.map(x=>Number(x.level)||1));b.ownedCapacity=sameName.reduce((sum,x)=>sum+Math.max(1,Number(x.level)||1),0);
    db.challengeBuildingSnapshot={...(db.challengeBuildingSnapshot||{}),recordCount:all.length};
    persist();renderOwnedBuildings();$("saved").textContent="● SAVED";toast("Building group updated");
   };
