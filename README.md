@@ -11,7 +11,7 @@
 - Multiple boost records with duration and stacking mode.
 - Inventory and market assumptions: stock, unit price, available market quantity and purchase lead time.
 - Challenge planner that recursively expands ingredient requirements, consumes entered stock, compares the fastest configured market source against a configured production route, and produces an itemized estimate.
-- JSON backup export and restore; local workspace reset.
+- Retail pricing lab: enter the Challenge Realm average price, two or three below-average prices, observed sales rates, available stock, challenge-reserved stock, unit cost and retail multiplier; compare gross cash, contribution, hourly cash generation and sell-through time.\n- Effect-specific boost scheduler with independent production, retail, construction, upgrade and market coverage, boost multipliers, windows and stacking rules.\n- Saved action timeline for purchases, production, retail sales, construction, boosts and deliveries, with completion tracking.\n- JSON backup export and restore; local workspace reset.
 - Responsive desktop/mobile interface. No Python or local development setup required.
 
 ## Open the app
