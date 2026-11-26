@@ -78,5 +78,21 @@
   "k": {
     "minutes": 360,
     "source": "https://www.simcompanies.com/encyclopedia/1/building/k/"
+  },
+  "a": {
+    "minutes": 360,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/a/"
+  },
+  "h": {
+    "minutes": 420,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/h/"
+  },
+  "p": {
+    "minutes": 300,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/p/"
+  },
+  "t": {
+    "minutes": 120,
+    "source": "https://www.simcompanies.com/encyclopedia/0/building/t/"
   }
 }
