@@ -193,7 +193,7 @@ function syncCapturedChallengeFeeds(){
   const copy=v=>v==null?null:JSON.parse(JSON.stringify(v));
   db.challengeInitialSnapshot={
    version:1,attemptKey,challengeId:challenge.id||null,attemptStarted:attempt.started||null,
-   capturedAt:new Date().toISOString(),captureType:"first-observed-after-connector-import",
+   capturedAt:(()=>{const stamps=feeds.map(x=>Date.parse(x.capturedAt||"")).filter(Number.isFinite);return stamps.length?new Date(Math.min(...stamps)).toISOString():new Date().toISOString()})(),captureType:"first-observed-after-connector-import",
    challenge:copy(challengeFeed),products:copy(catalogCache?.products||db.products),
    recipes:copy(catalogCache?.recipes||db.recipes),buildingCatalogue:copy(catalogCache?.buildings||db.buildings),
    startingInventory:copy(resources),marketPrices:copy(ticker),
