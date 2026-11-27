@@ -163,6 +163,14 @@ function plan(target,qty,objective,budget=null,freePlots=0){
  if(db.liveChallengeData?.fastForwardAvailable)issues.push("Challenge fast-forward is available, but its SimBoost cost and time-skipping behaviour are not yet included in the route duration.");
  return{result:{minutes:best.time,cost:best.cash,endingCash:budget===null?null:budget-best.cash},missing:[],issues,steps:best.steps};
 }
+function renderLiveBoostStatus(){
+ const host=$("liveBoostStatus");if(!host)return;
+ const live=db.liveChallengeData||{};
+ const pool=live.simBoostsStarting!==undefined?'<p><b>Challenge SimBoost pool:</b> '+Number(live.simBoostsStarting||0)+' starting · '+Number(live.simBoostsPurchased||0)+' purchased. Fast-forward '+(live.fastForwardAvailable?"available at "+Number(live.fastForwardSimboostsPerHour||0)+" SimBoosts/hour":"not available")+'. This is a time-skip balance, not a production-speed multiplier; it is not applied to production duration.</p>':'<p>Challenge SimBoost pool has not been captured.</p>';
+ const effects=db.liveTemporaryEffects;
+ const detail=effects===undefined?'<p>Active temporary-effect details have not been captured yet.</p>':'<details><summary>Captured temporary-effect data · inspect only</summary><pre>'+esc(JSON.stringify(effects,null,2))+'</pre></details><p class="hint">These records are not converted into speed multipliers until their exact effect and timing are verified.</p>';
+ host.innerHTML='<p class="eyebrow">CAPTURED CHALLENGE BOOST DATA</p>'+pool+detail;
+}
 function syncCapturedChallengeFeeds(){
  if(activeRealm!=="challenge")return;
  let feeds=[];try{feeds=JSON.parse(localStorage.getItem("simcompass.api.challenge.data.v1")||"[]")}catch{return}
@@ -224,9 +232,11 @@ function syncCapturedChallengeFeeds(){
  if(notice&&db.liveChallengeData){
   let status=notice.querySelector(".live-feed-status");if(!status){status=document.createElement("div");status.className="snapshot-status live-feed-status";notice.appendChild(status)}
   const live=db.liveChallengeData;
-  status.innerHTML="<strong>Live Challenge Realm data mapped:</strong> "+esc(live.title)+" · progress "+live.progress+" / "+live.target+" "+esc(live.goalProduct||"units")+". Inventory: "+resources.length+" resource records; market: "+ticker.length+" captured price records. Challenge modifiers: production "+live.productionModifier+"×, time acceleration "+live.timeAcceleration+"×; fast-forward "+(live.fastForwardAvailable?"available ("+live.fastForwardSimboostsPerHour+" SimBoosts/hour)":"not available")+". First-observed snapshot: "+(db.challengeInitialSnapshot?esc(db.challengeInitialSnapshot.capturedAt):"pending")+". Cash balance must be entered manually.";
+  status.innerHTML="<strong>Live Challenge Realm data mapped:</strong> "+esc(live.title)+" · progress "+live.progress+" / "+live.target+" "+esc(live.goalProduct||"units")+". Inventory: "+resources.length+" current resource records; market: "+ticker.length+" captured price records. Challenge modifiers: production "+live.productionModifier+"×, time acceleration "+live.timeAcceleration+"×. Fast-forward: "+(live.fastForwardAvailable?"available at "+live.fastForwardSimboostsPerHour+" SimBoosts/hour":"not available")+". SimBoost pool: "+live.simBoostsStarting+" starting, "+live.simBoostsPurchased+" purchased. SimBoost balance is not treated as an active production-speed boost. Cash: "+(db.liveCashBalance!==undefined?Number(db.liveCashBalance).toLocaleString("en-IN",{maximumFractionDigits:2}):"not captured")+". First-observed snapshot: "+(db.challengeInitialSnapshot?esc(db.challengeInitialSnapshot.capturedAt):"pending")+".";
+  renderLiveBoostStatus();
  }
  loadChallengeForm();
+ renderLiveBoostStatus();
  render();
 }
 function challengeBuildingsSnapshot(){try{const s=JSON.parse(localStorage.getItem("simcompass.api.challenge.buildings.v1")||"null");return s&&Array.isArray(s.payload)?s:null}catch{return null}}
