@@ -186,6 +186,7 @@ function syncCapturedChallengeFeeds(){
  // Preserve a first-observed snapshot per challenge attempt. Never overwrite it when later captures arrive.
  const attempt=challengeFeed?.attempt||{};
  const challenge=challengeFeed?.challenge||{};
+ if(db.challengeInitialSnapshot?.challenge?.challenge){delete db.challengeInitialSnapshot.challenge.challenge.end;delete db.challengeInitialSnapshot.challenge.challenge.deadline;delete db.challengeInitialSnapshot.challenge.challenge.expiresAt;delete db.challengeInitialSnapshot.challenge.challenge.endsAt;}
  const attemptKey=String(challenge.id||"unknown")+":"+String(attempt.started||"unknown");
  if(!db.challengeInitialSnapshot||db.challengeInitialSnapshot.attemptKey!==attemptKey){
   const copy=v=>v==null?null:JSON.parse(JSON.stringify(v));
@@ -206,7 +207,7 @@ function syncCapturedChallengeFeeds(){
  if(notice&&db.liveChallengeData){
   let status=notice.querySelector(".live-feed-status");if(!status){status=document.createElement("div");status.className="snapshot-status live-feed-status";notice.appendChild(status)}
   const live=db.liveChallengeData;
-  status.innerHTML="<strong>Live Challenge Realm data mapped:</strong> "+esc(live.title)+" · progress "+live.progress+" / "+live.target+" "+esc(live.goalProduct||"units")+". Inventory: "+resources.length+" resource records; market: "+ticker.length+" captured price records. First-observed snapshot: "+(db.challengeInitialSnapshot?esc(db.challengeInitialSnapshot.capturedAt):"pending")+". Cash balance is not present in the safely captured feeds.";
+  status.innerHTML="<strong>Live Challenge Realm data mapped:</strong> "+esc(live.title)+" · progress "+live.progress+" / "+live.target+" "+esc(live.goalProduct||"units")+". Inventory: "+resources.length+" resource records; market: "+ticker.length+" captured price records. Challenge modifiers: production "+live.productionModifier+"×, time acceleration "+live.timeAcceleration+"×; fast-forward "+(live.fastForwardAvailable?"available ("+live.fastForwardSimboostsPerHour+" SimBoosts/hour)":"not available")+". First-observed snapshot: "+(db.challengeInitialSnapshot?esc(db.challengeInitialSnapshot.capturedAt):"pending")+". Cash balance must be entered manually.";
  }
  loadChallengeForm();
  render();
