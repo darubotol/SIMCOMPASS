@@ -70,7 +70,7 @@ const choices=[];
 if(inv.price!==null&&Number.isFinite(inv.price)&&inv.price>=0){const st=clone(base);choices.push({time:0,cash:need*inv.price,state:st,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),{kind:"market",product,qty:need,time:0,cash:need*inv.price}],issues:[]})}
 for(const recipe of db.recipes.filter(x=>String(x.output).toLowerCase()===key).slice(0,8)){
 const building=db.buildings.find(x=>String(x.name).toLowerCase()===String(recipe.building).toLowerCase());
-const levelCapacity=(Number(building?.ownedCount)||0)||(activeRealm!=="challenge"?Number(building?.slots)||0:0);
+const levelCapacity=Number(building?.ownedCapacity)||((Number(building?.ownedCount)||0)*(Number(building?.level)||1))||(activeRealm!=="challenge"?Number(building?.slots)||0:0);
 if(!building||levelCapacity<1)continue;
 const out=Math.max(1e-8,Number(recipe.quantity)||1),runs=Math.ceil(need/(out*levelCapacity)),boost=window.SIMCOMPASS_BOOSTS?.productionMultiplier||1,ownTime=runs*Number(recipe.minutes||0)/boost;
 let branch=clone(base),depTime=0,depCash=0,steps=[],issues=[],valid=true;
@@ -90,13 +90,14 @@ function syncCapturedChallengeFeeds(){
  if(!Array.isArray(feeds)||!feeds.length)return;
  const byPath=new Map(feeds.map(x=>[x.endpoint,x.data]));
  const challengeFeed=byPath.get("/api/v1/challenges/current/");
- const resourceFeed=byPath.get("/api/v3/resources/6016653/")||feeds.find(x=>/^\/api\/v3\/resources\/\d+\/$/.test(x.endpoint))?.data;
+ const resourceCapture=feeds.filter(x=>/^\/api\/v3\/resources\/\d+\/$/.test(x.endpoint)).sort((a,b)=>String(b.capturedAt).localeCompare(String(a.capturedAt)))[0];
+ const resourceFeed=resourceCapture?.data;
  const tickerFeed=feeds.filter(x=>/^\/api\/v3\/market-ticker\/\d+\/$/.test(x.endpoint)).sort((a,b)=>String(b.capturedAt).localeCompare(String(a.capturedAt)))[0]?.data;
  const resources=Array.isArray(resourceFeed)?resourceFeed:[];
  const ticker=Array.isArray(tickerFeed)?tickerFeed:[];
  const productsById=new Map((catalogCache?.products||db.products).map(p=>[Number(p.gameId??String(p.id||"").replace("game-","")),p]));
  const upsert=(name,patch)=>{if(!name)return;let row=db.inventory.find(x=>String(x.product).toLowerCase()===String(name).toLowerCase());if(!row){row={id:"live-"+String(name).toLowerCase().replace(/[^a-z0-9]+/g,"-"),product:name,stock:0,price:null,marketQty:0,lead:0};db.inventory.push(row)}Object.assign(row,patch,{source:"Challenge Realm live capture"})};
- for(const item of resources){const p=productsById.get(Number(item.kind));if(!p)continue;upsert(p.name,{stock:Math.max(0,Number(item.amount)||0),gameId:Number(item.kind),inventoryCapturedAt:feeds.find(x=>x.data===resourceFeed)?.capturedAt||null})}
+ for(const item of resources){const p=productsById.get(Number(item.kind));if(!p)continue;upsert(p.name,{stock:Math.max(0,Number(item.amount)||0),gameId:Number(item.kind),inventoryCapturedAt:resourceCapture?.capturedAt||null})}
  for(const item of ticker){const p=productsById.get(Number(item.kind));if(!p||!Number.isFinite(Number(item.price)))continue;upsert(p.name,{price:Number(item.price),gameId:Number(item.kind),marketCapturedAt:feeds.filter(x=>Array.isArray(x.data)&&x.data===tickerFeed)[0]?.capturedAt||null})}
  if(challengeFeed?.challenge){
   const c=challengeFeed.challenge,g=c.goal||{},p=productsById.get(Number(g.resourceKind));
@@ -220,12 +221,12 @@ function renderOwnedBuildings(){
   host.querySelectorAll("[data-group-count]").forEach(input=>input.onchange=()=>saveGroup(input,"count"));
   return;
  }
- const rows=db.buildings.filter(x=>Number(x.slots)>0||x.owned===true);
- host.innerHTML=rows.length?rows.map(x=>'<div class="owned-building-row"><b>'+esc(x.name)+'</b><label>Level<input type="number" min="1" step="1" value="'+(Number(x.level)||1)+'" data-owned-id="'+esc(x.id)+'" data-owned-field="level"></label><label>Slots<input type="number" min="0" step="1" value="'+(Number(x.slots)||0)+'" data-owned-id="'+esc(x.id)+'" data-owned-field="slots"></label><button class="secondary" type="button" data-owned-remove="'+esc(x.id)+'">REMOVE</button></div>').join(""):'<p class="empty">No starting buildings configured yet.</p>';
- host.querySelectorAll("[data-owned-field]").forEach(input=>input.onchange=()=>{const x=db.buildings.find(v=>String(v.id)===input.dataset.ownedId),n=Number(input.value);if(!x||!Number.isInteger(n)||n<(input.dataset.ownedField==="level"?1:0)){toast("Enter a valid level or slot count");renderOwnedBuildings();return}x[input.dataset.ownedField]=n;x.owned=Number(x.slots)>0;persist();renderOwnedBuildings();$("saved").textContent="● SAVED"});
- host.querySelectorAll("[data-owned-remove]").forEach(btn=>btn.onclick=()=>{const x=db.buildings.find(v=>String(v.id)===btn.dataset.ownedRemove);if(x){x.slots=0;x.owned=false;persist();renderOwnedBuildings();$("saved").textContent="● SAVED"}});
+ const rows=db.buildings.filter(x=>Number(x.ownedCount)>0||Number(x.slots)>0||x.owned===true);
+ host.innerHTML=rows.length?rows.map(x=>'<div class="owned-building-row"><b>'+esc(x.name)+'</b><label>Level<input type="number" min="1" step="1" value="'+(Number(x.level)||1)+'" data-owned-id="'+esc(x.id)+'" data-owned-field="level"></label><label>Count<input type="number" min="0" step="1" value="'+(Number(x.ownedCount)||Number(x.slots)||0)+'" data-owned-id="'+esc(x.id)+'" data-owned-field="ownedCount"></label><button class="secondary" type="button" data-owned-remove="'+esc(x.id)+'">REMOVE</button></div>').join(""):'<p class="empty">No starting buildings configured yet.</p>';
+ host.querySelectorAll("[data-owned-field]").forEach(input=>input.onchange=()=>{const x=db.buildings.find(v=>String(v.id)===input.dataset.ownedId),n=Number(input.value);if(!x||!Number.isInteger(n)||n<(input.dataset.ownedField==="level"?1:0)){toast("Enter a valid level or slot count");renderOwnedBuildings();return}x[input.dataset.ownedField]=n;x.ownedCount=Number(x.ownedCount)||0;x.ownedCapacity=x.ownedCount*(Number(x.level)||1);x.owned=x.ownedCount>0;persist();renderOwnedBuildings();$("saved").textContent="● SAVED"});
+ host.querySelectorAll("[data-owned-remove]").forEach(btn=>btn.onclick=()=>{const x=db.buildings.find(v=>String(v.id)===btn.dataset.ownedRemove);if(x){x.ownedCount=0;x.ownedCapacity=0;x.slots=0;x.owned=false;persist();renderOwnedBuildings();$("saved").textContent="● SAVED"}});
 }
-$("addOwnedBuilding").onclick=()=>{const name=$("ownedBuildingName").value.trim(),level=Number($("ownedBuildingLevel").value),slots=Number($("ownedBuildingSlots").value),x=db.buildings.find(v=>v.name.toLowerCase()===name.toLowerCase());if(!x){toast("Choose a building from the game catalogue");return}if(!Number.isInteger(level)||level<1||!Number.isInteger(slots)||slots<0){toast("Check building level and slot count");return}x.level=level;x.slots=slots;x.owned=true;persist();$("ownedBuildingName").value="";renderOwnedBuildings();$("saved").textContent="● SAVED";toast("Starting building saved")};
+$("addOwnedBuilding").onclick=()=>{const name=$("ownedBuildingName").value.trim(),level=Number($("ownedBuildingLevel").value),count=Number($("ownedBuildingCount").value),x=db.buildings.find(v=>v.name.toLowerCase()===name.toLowerCase());if(!x){toast("Choose a building from the game catalogue");return}if(!Number.isInteger(level)||level<1||!Number.isInteger(count)||count<0){toast("Check building level and building count");return}x.level=level;x.ownedCount=count;x.ownedCapacity=level*count;x.owned=true;persist();$("ownedBuildingName").value="";renderOwnedBuildings();$("saved").textContent="● SAVED";toast("Starting building saved")};
 $("objectiveType").onchange=()=>{const deliver=$("objectiveType").value==="deliver";$("deliverFields").hidden=!deliver;$("genericFields").hidden=deliver};
 $("challengeForm").onsubmit=e=>{
  e.preventDefault();
