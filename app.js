@@ -126,7 +126,7 @@ function syncCapturedChallengeFeeds(){
  if(notice&&db.liveChallengeData){
   let status=notice.querySelector(".live-feed-status");if(!status){status=document.createElement("div");status.className="snapshot-status live-feed-status";notice.appendChild(status)}
   const live=db.liveChallengeData;
-  status.innerHTML="<strong>Live Challenge Realm data mapped:</strong> "+esc(live.title)+" · progress "+live.progress+" / "+live.target+" "+esc(live.goalProduct||"units")+". Inventory: "+resources.length+" resource records; market: "+ticker.length+" price records. Cash balance is not present in the safely captured feeds.";
+  status.innerHTML="<strong>Live Challenge Realm data mapped:</strong> "+esc(live.title)+" · progress "+live.progress+" / "+live.target+" "+esc(live.goalProduct||"units")+". Inventory: "+resources.length+" resource records; market: "+ticker.length+" captured price records. First-observed snapshot: "+(db.challengeInitialSnapshot?esc(db.challengeInitialSnapshot.capturedAt):"pending")+". Cash balance is not present in the safely captured feeds.";
  }
  loadChallengeForm();
  render();
@@ -158,6 +158,7 @@ function syncChallengeBuildingsSnapshot(){
   owned.push({gameId,name:catalogue?.name||rawName,level,image,position:record.position??null});
  }
  db.challengeOwnedBuildings=owned;
+ if(db.challengeInitialSnapshot&&db.challengeInitialSnapshot.firstObservedBuildings===null){db.challengeInitialSnapshot.firstObservedBuildings=JSON.parse(JSON.stringify(owned));db.challengeInitialSnapshot.completeness.buildingsObserved=true;db.challengeInitialSnapshot.firstObservedBuildingsCapturedAt=snapshot.capturedAt||new Date().toISOString()}
  const groups=new Map();
  for(const item of owned){const key=slug(item.name);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(item)}
  for(const [key,items] of groups){
