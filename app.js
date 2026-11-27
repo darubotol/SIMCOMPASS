@@ -82,7 +82,7 @@ function plan(target,qty,objective,budget=null,freePlots=0){
  const initial={__freePlots:{value:Math.max(0,Math.floor(Number(freePlots)||0))},__scrapped:{},__scrappedIds:[],__setupSteps:[]};
  db.inventory.forEach(x=>initial[String(x.product).toLowerCase()]={product:x.product,stock:Math.max(0,Number(x.stock)||0),price:x.price===null||x.price===undefined?null:Number(x.price)});
  const clone=state=>Object.fromEntries(Object.entries(state).map(([k,v])=>[k,Array.isArray(v)?[...v]:v&&typeof v==="object"?{...v}:v]));
- const rankRoutes=list=>{if(objective==="cost")return list.sort((a,b)=>a.cash-b.cash||a.time-b.time);if(objective==="balanced"){const maxTime=Math.max(1,...list.map(x=>Number(x.time)||0)),maxCash=Math.max(1,...list.map(x=>Number(x.cash)||0));return list.sort((a,b)=>(a.time/maxTime+a.cash/maxCash)-(b.time/maxTime+b.cash/maxCash))}return list.sort((a,b)=>a.time-b.time||a.cash-b.cash)};
+ const rankRoutes=list=>{if(objective==="cost")return list.sort((a,b)=>a.cash-b.cash||a.time-b.time);if(objective==="balanced"){const cashPerMinute=budget!==null&&budget>0?budget/60:1000;return list.sort((a,b)=>(a.time+a.cash/cashPerMinute)-(b.time+b.cash/cashPerMinute))}return list.sort((a,b)=>a.time-b.time||a.cash-b.cash)};
  const choicesFor=(product,amount,state,stack,depth)=>{
   if(amount<=1e-8)return[{time:0,cash:0,state,steps:[],issues:[]}];
   const key=String(product).toLowerCase();
