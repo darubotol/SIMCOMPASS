@@ -57,12 +57,26 @@ table("inventoryTable",db.inventory,r=>'<td><b>'+esc(r.product)+'</b></td><td>'+
 $("buildingsTable").querySelectorAll("[data-building-field]").forEach(input=>input.onchange=()=>{const b=db.buildings.find(x=>x.id===input.dataset.buildingId),v=Number(input.value);if(!b||!Number.isInteger(v)||v<(input.dataset.buildingField==="level"?1:0)){toast("Enter a valid whole-number building level or slot count.");render();return}b[input.dataset.buildingField]=v;if(input.dataset.buildingField==="slots"&&v>0&&Number(b.level)<1)b.level=1;persist();$("saved").textContent="● SAVED";render();toast("Owned building capacity updated")});$("productCount").textContent=db.products.length+" records";
 }
 $("searchProducts").oninput=e=>{const q=e.target.value.toLowerCase(),rows=db.products.filter(p=>p.name.toLowerCase().includes(q)||String(p.category).toLowerCase().includes(q));table("productsTable",rows,r=>'<td><b>'+esc(r.name)+'</b></td><td>'+esc(r.category||"—")+'</td><td>'+esc(r.unit||"—")+'</td><td>USER ENTERED</td><td>'+action("products",r.id)+"</td>","No matching products.")};
-function getProductionMultiplier(){
+function getBoostedDuration(workMinutes,startOffset=0,effect="production"){
  let rules=[];try{rules=JSON.parse(localStorage.getItem("simcompass.advanced.v1")||"{}").boostRules||[]}catch{}
- const now=Date.now(),active=rules.filter(r=>r?.effects?.production&&(!r.start||new Date(r.start).getTime()<=now)&&(!r.end||new Date(r.end).getTime()>now)&&Number(r.multiplier)>0);
- const groups={multiply:1,independent:1,add:0,highest:1};
- for(const r of active){const m=Number(r.multiplier)||1;const mode=r.stacking||"multiply";if(mode==="multiply")groups.multiply*=m;else if(mode==="independent")groups.independent*=m;else if(mode==="add")groups.add+=Math.max(0,m-1);else if(mode==="highest")groups.highest=Math.max(groups.highest,m)}
- return groups.multiply*groups.independent*(1+groups.add)*groups.highest;
+ rules=rules.filter(r=>r?.effects?.[effect]&&Number(r.multiplier)>0);
+ let remaining=Math.max(0,Number(workMinutes)||0),elapsed=0,clock=Date.now()+Math.max(0,startOffset)*60000;
+ if(!remaining)return 0;
+ const multiplierAt=t=>{
+  const active=rules.filter(r=>(!r.start||new Date(r.start).getTime()<=t)&&(!r.end||new Date(r.end).getTime()>t));
+  const groups={multiply:1,independent:1,add:0,highest:1};
+  for(const r of active){const m=Number(r.multiplier)||1,mode=r.stacking||"multiply";if(mode==="multiply")groups.multiply*=m;else if(mode==="independent")groups.independent*=m;else if(mode==="add")groups.add+=Math.max(0,m-1);else if(mode==="highest")groups.highest=Math.max(groups.highest,m)}
+  return Math.max(.01,groups.multiply*groups.independent*(1+groups.add)*groups.highest);
+ };
+ for(let guard=0;guard<100&&remaining>1e-7;guard++){
+  const speed=multiplierAt(clock);
+  const boundaries=rules.flatMap(r=>[r.start,r.end]).filter(Boolean).map(v=>new Date(v).getTime()).filter(t=>Number.isFinite(t)&&t>clock).sort((x,y)=>x-y);
+  if(!boundaries.length)return elapsed+remaining/speed;
+  const interval=(boundaries[0]-clock)/60000;
+  if(interval*speed>=remaining)return elapsed+remaining/speed;
+  remaining-=interval*speed;elapsed+=interval;clock=boundaries[0];
+ }
+ return elapsed+remaining/multiplierAt(clock);
 }
 function plan(target,qty,objective,budget=null){
  const initial={__freePlots:{value:Math.max(0,Math.floor(Number(db.challenge?.freePlots)||0))}};
@@ -96,8 +110,7 @@ function plan(target,qty,objective,budget=null){
    for(const option of options){
     const outputPerRun=Math.max(1e-8,Number(recipe.quantity)||1);
     const runs=Math.ceil(need/(outputPerRun*option.capacity));
-    const productionBoost=getProductionMultiplier();
-    const ownTime=runs*Number(recipe.minutes||0)/productionBoost;
+    let ownTime=0;
     let branch=clone(base),targetInputTime=0,buildMaterialTime=0,depCash=0,steps=[...stockStep],issues=[],valid=true;
     if(option.build){
      branch.__freePlots={value:Math.max(0,(Number(branch.__freePlots?.value)||0)-1)};
@@ -116,11 +129,13 @@ function plan(target,qty,objective,budget=null){
     if(!valid)continue;
     let buildTime=0,buildCash=0;
     if(option.build){
-     buildTime=option.build.constructionTime;
+     buildTime=getBoostedDuration(option.build.constructionTime,buildMaterialTime,"construction");
      buildCash=0;
      steps.push({kind:"build",product:option.build.building.name,qty:1,time:buildTime,cash:0,building:option.build.building.name});
     }
-    const totalTime=Math.max(targetInputTime,buildMaterialTime+buildTime)+ownTime;
+    const ownStart=Math.max(targetInputTime,buildMaterialTime+buildTime);
+    ownTime=getBoostedDuration(runs*Number(recipe.minutes||0),ownStart,"production");
+    const totalTime=ownStart+ownTime;
     choices.push({time:totalTime,cash:depCash+buildCash,state:branch,steps:[...steps,{kind:"make",product,qty:runs*outputPerRun*option.capacity,time:ownTime,cash:0,building:recipe.building,level:building.level,buildingCapacity:option.capacity,runs}],issues});
    }
   }
