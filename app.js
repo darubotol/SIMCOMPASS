@@ -79,9 +79,9 @@ function getBoostedDuration(workMinutes,startOffset=0,effect="production"){
  return elapsed+remaining/multiplierAt(clock);
 }
 function plan(target,qty,objective,budget=null,freePlots=0){
- const initial={__freePlots:{value:Math.max(0,Math.floor(Number(freePlots)||0))}};
+ const initial={__freePlots:{value:Math.max(0,Math.floor(Number(freePlots)||0))},__scrapped:{},__scrappedIds:[],__setupSteps:[]};
  db.inventory.forEach(x=>initial[String(x.product).toLowerCase()]={product:x.product,stock:Math.max(0,Number(x.stock)||0),price:x.price===null||x.price===undefined?null:Number(x.price)});
- const clone=state=>Object.fromEntries(Object.entries(state).map(([k,v])=>[k,v&&typeof v==="object"?{...v}:v]));
+ const clone=state=>Object.fromEntries(Object.entries(state).map(([k,v])=>[k,Array.isArray(v)?[...v]:v&&typeof v==="object"?{...v}:v]));
  const choicesFor=(product,amount,state,stack,depth)=>{
   if(amount<=1e-8)return[{time:0,cash:0,state,steps:[],issues:[]}];
   const key=String(product).toLowerCase();
@@ -98,14 +98,15 @@ function plan(target,qty,objective,budget=null,freePlots=0){
   for(const recipe of recipes){
    const building=db.buildings.find(x=>String(x.name).toLowerCase()===String(recipe.building).toLowerCase());
    if(!building)continue;
-   const ownedCapacity=Number(building.ownedCapacity)||((Number(building.ownedCount)||0)*(Number(building.level)||1))||(activeRealm!=="challenge"?Number(building.slots)||0:0);
+   const rawCapacity=Number(building.ownedCapacity)||((Number(building.ownedCount)||0)*(Number(building.level)||1))||(activeRealm!=="challenge"?Number(building.slots)||0:0);
+   const ownedCapacity=Math.max(0,rawCapacity-(Number(state.__scrapped?.[String(building.name).toLowerCase()])||0));
    const options=[];
    if(ownedCapacity>0)options.push({capacity:ownedCapacity,build:null});
    const plots=Number(state.__freePlots?.value)||0;
    const constructionTime=Number(building.constructionTimeMinutes);
    const materials=building.constructionMaterials&&typeof building.constructionMaterials==="object"?building.constructionMaterials:null;
    if(Number.isFinite(constructionTime)&&constructionTime>0&&materials&&Object.keys(materials).length){
-    if(ownedCapacity>0){const level=Math.max(1,Number(building.level)||1);const upgradeMaterials=Object.fromEntries(Object.entries(materials).map(([k,v])=>[k,Number(v)*level]));options.push({capacity:ownedCapacity+1,build:{kind:"upgrade",building,constructionTime:constructionTime*level,materials:upgradeMaterials}})}
+    if(ownedCapacity>0){const excluded=new Set(state.__scrappedIds||[]);const remaining=(db.challengeOwnedBuildings||[]).filter(x=>String(x.name).toLowerCase()===String(building.name).toLowerCase()&&!excluded.has(String(x.gameId))).map(x=>Number(x.level)||1);const level=remaining.length?Math.max(...remaining):Math.max(1,Number(building.level)||1);const upgradeMaterials=Object.fromEntries(Object.entries(materials).map(([k,v])=>[k,Number(v)*level]));options.push({capacity:ownedCapacity+1,build:{kind:"upgrade",building,constructionTime:constructionTime*level,materials:upgradeMaterials}})}
     if(plots>0)options.push({capacity:ownedCapacity+1,build:{kind:"build",building,constructionTime,materials}});
    }
    for(const option of options){
@@ -142,12 +143,18 @@ function plan(target,qty,objective,budget=null,freePlots=0){
   }
   return choices;
  };
- const candidates=choicesFor(target,qty,initial,[],0);
+ const scrapable=(activeRealm==="challenge"?(db.challengeOwnedBuildings||[]):[]).filter(x=>x.scrapAllowed);
+ const variants=[initial];
+ if(scrapable.length&&scrapable.length<=6){for(let mask=1;mask<(1<<scrapable.length);mask++){const v=clone(initial);for(let i=0;i<scrapable.length;i++){if(!(mask&(1<<i)))continue;const item=scrapable[i],building=db.buildings.find(b=>String(b.name).toLowerCase()===String(item.name).toLowerCase());if(!building?.constructionMaterials)continue;const level=Math.max(1,Number(item.level)||1),name=String(item.name).toLowerCase();v.__scrapped[name]=(Number(v.__scrapped[name])||0)+level;v.__scrappedIds.push(String(item.gameId));v.__freePlots.value++;v.__setupSteps.push({kind:"scrap",product:item.name,qty:1,time:0,cash:0,building:item.name});for(const [material,baseQty] of Object.entries(building.constructionMaterials)){const key=material.toLowerCase(),row=v[key]||{product:material,stock:0,price:null};row.stock=(Number(row.stock)||0)+Number(baseQty)*level;v[key]=row}}if(v.__scrappedIds.length)variants.push(v)}}
+ else if(scrapable.length>6){for(const item of scrapable){const v=clone(initial),building=db.buildings.find(b=>String(b.name).toLowerCase()===String(item.name).toLowerCase());if(!building?.constructionMaterials)continue;const level=Math.max(1,Number(item.level)||1),name=String(item.name).toLowerCase();v.__scrapped[name]=level;v.__scrappedIds=[String(item.gameId)];v.__freePlots.value++;v.__setupSteps=[{kind:"scrap",product:item.name,qty:1,time:0,cash:0,building:item.name}];for(const [material,baseQty] of Object.entries(building.constructionMaterials)){const key=material.toLowerCase(),row=v[key]||{product:material,stock:0,price:null};row.stock=(Number(row.stock)||0)+Number(baseQty)*level;v[key]=row}variants.push(v)}}
+ const candidates=variants.flatMap(v=>choicesFor(target,qty,v,[],0).map(c=>({...c,steps:[...(v.__setupSteps||[]),...c.steps]})));
  if(!candidates.length)return{result:null,missing:[target],issues:["No complete route found. Check recipes, ingredient prices, owned building counts/levels and available empty plots. New construction is considered only when its construction time and material list are verified in the bundled data."],steps:[]};
  candidates.sort((x,y)=>objective==="cost"?(x.cash-y.cash||x.time-y.time):(x.time-y.time||x.cash-y.cash));
  const best=candidates[0],issues=[...new Set(best.issues)];
  if(budget!==null&&best.cash>budget)issues.push("Required procurement cash exceeds starting cash by "+(best.cash-budget).toFixed(2)+".");
  if(best.steps.some(x=>x.kind==="build"||x.kind==="upgrade"))issues.push("Building construction/upgrades are included using verified base time and material records. Shared construction-queue contention and challenge-specific construction modifiers still need in-game validation.");
+ if(best.steps.some(x=>x.kind==="scrap"))issues.push("Scrapping is modelled from the published FAQ salvage rule (base construction materials × building level). Confirm that the game permits scrapping each selected building and verify the in-game refund before acting.");
+ if(scrapable.length>6)issues.push("More than six buildings were marked scrap-eligible; the planner tested each individual scrap and the no-scrap route, not every combination.");
  if(!db.challenge?.freePlots)issues.push("No free building plots were entered; construction alternatives were not considered.");
  return{result:{minutes:best.time,cost:best.cash,endingCash:budget===null?null:budget-best.cash},missing:[],issues,steps:best.steps};
 }
