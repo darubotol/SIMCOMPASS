@@ -329,11 +329,32 @@ $("challengeForm").onsubmit=e=>{
   challenge.target=target;challenge.qty=qty;challenge.objective=priority;
   const remainingQty=(db.liveChallengeData&&String(db.liveChallengeData.goalProduct||"").toLowerCase()===target.toLowerCase()&&Number(db.liveChallengeData.target)===qty)?Math.max(0,qty-(Number(db.liveChallengeData.progress)||0)):qty;
   p=plan(target,remainingQty,priority==="profit"?"cost":priority,budget,challenge.freePlots);
+  let retailFunding=null;
+  if(p.result&&budget!==null&&p.result.cost>budget){
+   try{
+    const adv=JSON.parse(localStorage.getItem("simcompass.advanced.realms.v1")||"{}"),realm=JSON.parse(localStorage.getItem("simcompass.realms.v2")||"{}").activeRealm||"challenge";
+    const tests=adv.realms?.[realm]?.retailTests||[];
+    const streams=tests.map(test=>{const best=[...(test.rows||[])].sort((a,b)=>(Number(b.cashPerHour)||0)-(Number(a.cashPerHour)||0))[0];return best?{product:test.product,stock:Math.max(0,Number(test.available)||0),price:Math.max(0,Number(best.price)||0),rate:Math.max(0,Number(best.boostedRate)||0)}:null}).filter(x=>x&&x.stock>0&&x.price>0&&x.rate>0);
+    const deficit=p.result.cost-budget;
+    const proceeds=hours=>streams.reduce((sum,x)=>sum+x.price*Math.min(x.stock,x.rate*hours),0);
+    const maximum=streams.reduce((sum,x)=>sum+x.stock*x.price,0);
+    if(maximum+1e-6>=deficit&&streams.length){
+     let lo=0,hi=Math.max(...streams.map(x=>x.stock/x.rate));
+     for(let i=0;i<48;i++){const mid=(lo+hi)/2;if(proceeds(mid)>=deficit)hi=mid;else lo=mid}
+     const hours=hi,delayMinutes=hours*60,raised=proceeds(hours);
+     const retailSteps=streams.map(x=>{const units=Math.min(x.stock,x.rate*hours);return{kind:"retail",product:x.product,qty:units,time:delayMinutes,cash:units*x.price,building:"Retail store",startOffset:0,endOffset:delayMinutes}});
+     p.steps.forEach(x=>{x.startOffset=(Number(x.startOffset)||0)+delayMinutes;x.endOffset=(Number(x.endOffset??((Number(x.startOffset)||0)+Number(x.time)||0))||0)+delayMinutes});
+     p.steps=[...retailSteps,...p.steps];p.result.minutes+=delayMinutes;p.result.endingCash=budget+raised-p.result.cost;p.issues=p.issues.filter(x=>!String(x).startsWith("Required procurement cash exceeds starting cash"));p.issues.push("A sell-first funding phase is included using your saved observed retail rates. Actual store demand and sale timing can vary.");
+     retailFunding={hours,delayMinutes,raised,streams:retailSteps};
+    }else p.issues.push("Your starting cash is below procurement cost, and the saved retail tests do not contain enough sellable stock to fund the shortfall.");
+   }catch{p.issues.push("Starting cash is below procurement cost. Retail funding could not be calculated from the saved retail tests.")}
+  }
   $("resultTitle").textContent=p.result?"Production route found":"More starting data required";
   if(p.result){
    html='<div class="stats"><article><label>ESTIMATED COMPLETION TIME</label><strong>'+(p.result.minutes/60).toFixed(2)+'h</strong></article><article><label>ESTIMATED PROCUREMENT COST</label><strong>'+p.result.cost.toFixed(2)+'</strong></article></div>';
    html+='<p class="muted">Remaining objective quantity: <b>'+Number(remainingQty).toLocaleString("en-IN")+"</b> "+esc(target)+". This estimate covers the remaining target from the imported progress.</p>";
    if(budget!==null)html+='<p class="muted">Estimated cash after planned purchases: <b>'+Number(p.result.endingCash).toLocaleString("en-IN",{maximumFractionDigits:2})+"</b>.</p>";
+   if(retailFunding)html+='<p class="muted">Sell-first funding phase: <b>'+retailFunding.hours.toFixed(2)+" hours</b> of observed store sales to raise approximately <b>"+retailFunding.raised.toFixed(2)+"</b> before procurement begins.</p>";
    html+='<p class="muted">This is the production/procurement component of the challenge, not a complete profit or retail-sale forecast.</p>';
    if(challenge.timeLimitHours!==null){const fits=p.result.minutes/60<=challenge.timeLimitHours;html+='<p class="' +(fits?"muted":"amber") +'"><b>'+(fits?"Within your time limit: ":"Exceeds your time limit: ")+ (p.result.minutes/60).toFixed(2)+"h required / "+challenge.timeLimitHours+"h allowed</b></p>";}else html+='<p class="muted">Fastest-mode estimate: no user time limit was set.</p>';
    html+='<h4>Execution timeline · relative to start</h4><div class="tablewrap"><table><thead><tr><th>STEP</th><th>ACTION / RESOURCE</th><th>QUANTITY</th><th>START</th><th>FINISH</th><th>DURATION</th><th>CASH</th><th>BUILDING</th></tr></thead><tbody>'+[...p.steps].sort((a,b)=>(Number(a.startOffset)||0)-(Number(b.startOffset)||0)).map((x,i)=>'<tr><td>'+(i+1)+' · '+x.kind.toUpperCase()+'</td><td>'+esc(x.product)+'</td><td>'+Number(x.qty.toFixed(3))+'</td><td>T+'+((Number(x.startOffset)||0)/60).toFixed(2)+'h</td><td>T+'+((Number(x.endOffset??((Number(x.startOffset)||0)+Number(x.time||0)))||0)/60).toFixed(2)+'h</td><td>'+(Number(x.time)||0).toFixed(2)+' min</td><td>'+(Number(x.cash)||0).toFixed(2)+'</td><td>'+esc(x.building||"—")+'</td></tr>').join("")+'</tbody></table></div>';
