@@ -223,3 +223,5 @@ main{height:auto!important;min-height:100vh;overflow:visible!important}
 .owned-building-row .scrap-option{display:flex;align-items:center;gap:6px;white-space:nowrap;font-size:11px;color:#718379}
 .owned-building-row .scrap-option input{width:15px;min-height:15px;height:15px;margin:0;padding:0!important;accent-color:#56b99a}
 @media(max-width:700px){.owned-building-row{grid-template-columns:1fr 1fr}.owned-building-row>b{grid-column:1/-1}.owned-building-row .scrap-option{grid-column:1/-1}}
+
+.owned-building-title{display:flex;align-items:center;gap:9px;min-width:0}.building-thumb{width:34px;height:34px;object-fit:contain;border-radius:7px;background:#f0f5f1;padding:3px}.owned-building-title b{overflow:hidden;text-overflow:ellipsis}
