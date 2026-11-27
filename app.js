@@ -70,7 +70,7 @@ const choices=[];
 if(inv.price!==null&&Number.isFinite(inv.price)&&inv.price>=0){const st=clone(base);choices.push({time:0,cash:need*inv.price,state:st,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),{kind:"market",product,qty:need,time:0,cash:need*inv.price}],issues:[]})}
 for(const recipe of db.recipes.filter(x=>String(x.output).toLowerCase()===key).slice(0,8)){
 const building=db.buildings.find(x=>String(x.name).toLowerCase()===String(recipe.building).toLowerCase());
-const levelCapacity=Number(building?.ownedCapacity)||((Number(building?.ownedCount)||0)*(Number(building?.level)||1))||(activeRealm!=="challenge"?Number(building?.slots)||0:0);
+const levelCapacity=(Number(building?.ownedCount)||0)||(activeRealm!=="challenge"?Number(building?.slots)||0:0);
 if(!building||levelCapacity<1)continue;
 const out=Math.max(1e-8,Number(recipe.quantity)||1),runs=Math.ceil(need/(out*levelCapacity)),boost=window.SIMCOMPASS_BOOSTS?.productionMultiplier||1,ownTime=runs*Number(recipe.minutes||0)/boost;
 let branch=clone(base),depTime=0,depCash=0,steps=[],issues=[],valid=true;
@@ -104,7 +104,23 @@ function syncCapturedChallengeFeeds(){
   const live=db.liveChallengeData;
   db.challenge={...(db.challenge||{}),title:live.title,target:live.goalProduct||db.challenge?.target||"",qty:live.target||db.challenge?.qty||750,type:"deliver",objective:"time",deadline:live.end||db.challenge?.deadline||"",liveProgress:live.progress,liveTarget:live.target,liveChallengeId:live.challengeId};
  }
- db.liveFeedStatus={feedCount:feeds.length,inventoryCount:resources.length,marketCount:ticker.length,updatedAt:new Date().toISOString(),cashAvailable:false};
+ // Preserve a first-observed snapshot per challenge attempt. Never overwrite it when later captures arrive.
+ const attempt=challengeFeed?.attempt||{};
+ const challenge=challengeFeed?.challenge||{};
+ const attemptKey=String(challenge.id||"unknown")+":"+String(attempt.started||"unknown");
+ if(!db.challengeInitialSnapshot||db.challengeInitialSnapshot.attemptKey!==attemptKey){
+  const copy=v=>v==null?null:JSON.parse(JSON.stringify(v));
+  db.challengeInitialSnapshot={
+   version:1,attemptKey,challengeId:challenge.id||null,attemptStarted:attempt.started||null,
+   capturedAt:new Date().toISOString(),captureType:"first-observed-after-connector-import",
+   challenge:copy(challengeFeed),products:copy(catalogCache?.products||db.products),
+   recipes:copy(catalogCache?.recipes||db.recipes),buildingCatalogue:copy(catalogCache?.buildings||db.buildings),
+   startingInventory:copy(resources),marketPrices:copy(ticker),
+   firstObservedBuildings:Array.isArray(db.challengeOwnedBuildings)?copy(db.challengeOwnedBuildings):null,
+   completeness:{catalogueProducts:(catalogCache?.products||db.products).length,recipes:(catalogCache?.recipes||db.recipes).length,buildingTypes:(catalogCache?.buildings||db.buildings).length,inventoryRecords:resources.length,marketPriceRecords:ticker.length,buildingsObserved:Array.isArray(db.challengeOwnedBuildings)}
+  };
+ }
+ db.liveFeedStatus={feedCount:feeds.length,inventoryCount:resources.length,marketCount:ticker.length,updatedAt:new Date().toISOString(),cashAvailable:false,snapshotAttemptKey:attemptKey};
  persist();
  const notice=$("realmModeNotice");
  if(notice&&db.liveChallengeData){
@@ -228,7 +244,7 @@ $("challengeForm").onsubmit=e=>{
   }else html='<p class="muted">SIMCOMPASS could not find a complete route using the current inventory, market and owned-building setup.</p>';
   if(p?.issues?.length)html+='<ul class="muted">'+p.issues.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>';
   if(p?.missing?.length)html+='<p class="amber">Unresolved: '+p.missing.map(esc).join(", ")+'</p>';
-  html+='<p class="engine-disclaimer">The current delivery solver is a first-stage estimate. It does not yet solve global shared-building schedules, construction decisions, all boost windows, cashflow from retail sales or realm-specific rule variations.</p>';
+  html+='<p class="engine-disclaimer">LIMITATION: this estimate counts each owned building as one parallel production line. It does not yet model tier-specific production speed, shared-building queue schedules, construction or demolition decisions, demolition refunds, upgrade costs, retail cashflow, or all boost windows. Do not treat it as a verified fastest strategy.</p>';
  }else{
   $("resultTitle").textContent="Challenge captured · specialised solver required";
   html='<div class="objective-summary"><span class="eyebrow">OBJECTIVE TYPE</span><h2>'+esc(type.replace("_"," ").toUpperCase())+'</h2><p>'+esc(challenge.description||"No detailed success condition entered.")+'</p></div>';
