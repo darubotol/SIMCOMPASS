@@ -157,6 +157,8 @@ function plan(target,qty,objective,budget=null,freePlots=0){
  if(best.steps.some(x=>x.kind==="scrap"))issues.push("Scrapping is modelled from the published FAQ salvage rule (base construction materials × building level). Confirm that the game permits scrapping each selected building and verify the in-game refund before acting.");
  if(scrapable.length>6)issues.push("More than six buildings were marked scrap-eligible; the planner tested each individual scrap and the no-scrap route, not every combination.");
  if(!Number(freePlots))issues.push("No free building plots were entered; new-building construction alternatives were not considered (upgrades remain eligible).");
+ if(db.liveChallengeData&&(Number(db.liveChallengeData.productionModifier)!==1||Number(db.liveChallengeData.timeAcceleration)!==1))issues.push("The captured Challenge Realm production/time modifiers are displayed in the imported data but are not applied until their exact interaction with recipe duration is validated.");
+ if(db.liveChallengeData?.fastForwardAvailable)issues.push("Challenge fast-forward is available, but its SimBoost cost and time-skipping behaviour are not yet included in the route duration.");
  return{result:{minutes:best.time,cost:best.cash,endingCash:budget===null?null:budget-best.cash},missing:[],issues,steps:best.steps};
 }
 function syncCapturedChallengeFeeds(){
@@ -165,6 +167,7 @@ function syncCapturedChallengeFeeds(){
  if(!Array.isArray(feeds)||!feeds.length)return;
  const byPath=new Map(feeds.map(x=>[x.endpoint,x.data]));
  const challengeFeed=byPath.get("/api/v1/challenges/current/");
+ if(challengeFeed?.challenge){delete challengeFeed.challenge.end;delete challengeFeed.challenge.deadline;delete challengeFeed.challenge.expiresAt;delete challengeFeed.challenge.endsAt;}
  const resourceCapture=feeds.filter(x=>/^\/api\/v3\/resources\/\d+\/$/.test(x.endpoint)).sort((a,b)=>String(b.capturedAt).localeCompare(String(a.capturedAt)))[0];
  const resourceFeed=resourceCapture?.data;
  const tickerFeed=feeds.filter(x=>/^\/api\/v3\/market-ticker\/\d+\/$/.test(x.endpoint)).sort((a,b)=>String(b.capturedAt).localeCompare(String(a.capturedAt)))[0]?.data;
@@ -176,7 +179,7 @@ function syncCapturedChallengeFeeds(){
  for(const item of ticker){const p=productsById.get(Number(item.kind));if(!p)continue;const localProduct=db.products.find(x=>Number(x.gameId??String(x.id||"").replace("game-",""))===Number(item.kind));if(localProduct&&item.image){try{localProduct.image=new URL(item.image,"https://www.simcompanies.com/").href}catch{}}if(!Number.isFinite(Number(item.price)))continue;upsert(p.name,{price:Number(item.price),gameId:Number(item.kind),marketCapturedAt:feeds.filter(x=>Array.isArray(x.data)&&x.data===tickerFeed)[0]?.capturedAt||null})}
  if(challengeFeed?.challenge){
   const c=challengeFeed.challenge,g=c.goal||{},p=productsById.get(Number(g.resourceKind));
-  db.liveChallengeData={challengeId:c.id,title:c.narrativeTitle||c.id,goalKind:g.kind,goalProduct:p?.name||null,resourceKind:g.resourceKind,target:Number(g.target)||null,progress:Number(challengeFeed.attempt?.goalProgress)||0,start:c.start||null,end:c.end||null,rules:c.rules||[],details:c.details||[],productionModifier:Number(c.productionModifier)||1,salesModifier:Number(c.salesModifier)||1,timeAcceleration:Number(c.timeAcceleration)||1,simBoostsStarting:Number(challengeFeed.simBoostsPool?.starting)||0,simBoostsPurchased:Number(challengeFeed.simBoostsPool?.purchased)||0,capturedAt:feeds.find(x=>x.endpoint==="/api/v1/challenges/current/")?.capturedAt||null};
+  db.liveChallengeData={challengeId:c.id,title:c.narrativeTitle||c.id,goalKind:g.kind,goalProduct:p?.name||null,resourceKind:g.resourceKind,target:Number(g.target)||null,progress:Number(challengeFeed.attempt?.goalProgress)||0,start:c.start||null,rules:c.rules||[],details:c.details||[],productionModifier:Number(c.productionModifier)||1,salesModifier:Number(c.salesModifier)||1,timeAcceleration:Number(c.timeAcceleration)||1,simBoostsStarting:Number(challengeFeed.simBoostsPool?.starting)||0,simBoostsPurchased:Number(challengeFeed.simBoostsPool?.purchased)||0,fastForwardAvailable:!!challengeFeed.fastForward,fastForwardSimboostsPerHour:Number(challengeFeed.fastForwardSimboostsPerHour)||0,capturedAt:feeds.find(x=>x.endpoint==="/api/v1/challenges/current/")?.capturedAt||null};
   const live=db.liveChallengeData;
   db.challenge={...(db.challenge||{}),title:live.title,target:live.goalProduct||db.challenge?.target||"",qty:live.target||db.challenge?.qty||750,type:g.kind==="p"?"deliver":"custom",description:g.kind==="p"?"Deliver "+(live.target||"")+" "+(live.goalProduct||"units")+".":("Game objective type: "+String(g.kind||"unknown")+". Enter the exact success condition from the challenge screen."),objective:"time",timeLimitHours:db.challenge?.timeLimitHours??null,liveProgress:live.progress,liveTarget:live.target,liveChallengeId:live.challengeId};
  }
@@ -196,6 +199,7 @@ function syncCapturedChallengeFeeds(){
    completeness:{catalogueProducts:(catalogCache?.products||db.products).length,recipes:(catalogCache?.recipes||db.recipes).length,buildingTypes:(catalogCache?.buildings||db.buildings).length,inventoryRecords:resources.length,marketPriceRecords:ticker.length,buildingsObserved:Array.isArray(db.challengeOwnedBuildings)}
   };
  }
+ try{localStorage.setItem("simcompass.api.challenge.data.v1",JSON.stringify(feeds))}catch{}
  db.liveFeedStatus={feedCount:feeds.length,inventoryCount:resources.length,marketCount:ticker.length,updatedAt:new Date().toISOString(),cashAvailable:false,snapshotAttemptKey:attemptKey};
  persist();
  const notice=$("realmModeNotice");
