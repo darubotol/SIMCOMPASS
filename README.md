@@ -8,7 +8,7 @@ Live application: https://darubotol.github.io/SIMCOMPASS/
 
 SIMCOMPASS is designed around the Challenge Optimizer. The game catalogue is an internal knowledge base; users should not need to browse or manually maintain product and recipe tables to describe a challenge.
 
-The optimiser loads the bundled game database in the background and uses its product, recipe, building, construction-time and ingredient data. The user supplies challenge-specific facts that cannot be safely assumed: starting cash, inventory, owned building levels and slots, market availability/prices, boosts, time limits and realm-specific restrictions.
+The optimiser loads the bundled game database in the background and uses its product, recipe, building, construction-time and ingredient data. The user supplies challenge-specific facts that cannot be safely assumed: starting cash, inventory, owned building counts and levels, plus empty building plots, market availability/prices, boosts, time limits and realm-specific restrictions.
 
 ## Current bundled data
 
@@ -22,7 +22,7 @@ The optimiser loads the bundled game database in the background and uses its pro
 
 1. Describe the challenge and select its objective family.
 2. Add exact success conditions, secondary milestones, restrictions and time limit.
-3. Enter owned buildings, levels and parallel slots.
+3. Enter owned building counts and levels, plus available empty plots.
 4. Enter starting inventory and any market assumptions.
 5. Add available boosts with their actual effect and timing.
 6. Generate a strategy report where a supported solver exists.
@@ -43,7 +43,7 @@ The challenge model can record product delivery, revenue, profit, company value,
 
 **Current solver scope:** product-delivery route estimation using bundled recipes, starting stock, entered/captured prices, building counts and levels, available plots, one-step construction/upgrade options, optional user-marked scrapping, and configured production/construction boost windows. It compares direct market sourcing with production routes and evaluates the remaining quantity when the captured challenge progress matches the entered target.
 
-**Still incomplete:** global shared-building scheduling across simultaneous product chains; complete demolition/refund eligibility validation; multiple sequential upgrades or multiple new buildings per route; retail sales and cash-flow integration; non-product objective solvers (revenue, profit, company value, research, contracts and custom challenge mechanics); taxes/fees; full market order-book depth; and Challenge Realm-specific modifier validation. The planner is an estimate, not a mathematically proven global optimum.
+**Still incomplete:** global shared-building scheduling across simultaneous product chains; complete demolition/refund eligibility validation; multiple sequential upgrades or multiple new buildings per route; retail sales and cash-flow integration; non-product objective solvers (revenue, profit, company value, research, contracts and custom challenge mechanics); taxes/fees; full market order-book depth; and Challenge Realm-specific modifier validation. The planner supports fastest-time, minimum-cash and balanced scoring; balanced scoring uses a budget-relative time/cash heuristic. The planner is an estimate, not a mathematically proven global optimum.
 
 ## Safety and account access
 
