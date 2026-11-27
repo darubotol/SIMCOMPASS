@@ -169,9 +169,14 @@ function syncCapturedChallengeFeeds(){
  const byPath=new Map(feeds.map(x=>[x.endpoint,x.data]));
  const challengeFeed=byPath.get("/api/v1/challenges/current/");
  if(challengeFeed?.challenge){delete challengeFeed.challenge.end;delete challengeFeed.challenge.deadline;delete challengeFeed.challenge.expiresAt;delete challengeFeed.challenge.endsAt;}
- const resourceCapture=feeds.filter(x=>/^\/api\/v3\/resources\/\d+\/$/.test(x.endpoint)).sort((a,b)=>String(b.capturedAt).localeCompare(String(a.capturedAt)))[0];
+ const companiesFeed=byPath.get("/api/v2/players/me/companies/");
+ const challengeCompany=Array.isArray(companiesFeed)?companiesFeed.find(x=>Number(x.realmId)===2):null;
+ const preferredResourceEndpoint=challengeCompany?"/api/v3/resources/"+challengeCompany.id+"/":null;
+ const resourceCapture=(preferredResourceEndpoint?feeds.find(x=>x.endpoint===preferredResourceEndpoint):null)||feeds.filter(x=>/^\/api\/v3\/resources\/\d+\/$/.test(x.endpoint)).sort((a,b)=>String(b.capturedAt).localeCompare(String(a.capturedAt)))[0];
  const resourceFeed=resourceCapture?.data;
- const tickerFeed=feeds.filter(x=>/^\/api\/v3\/market-ticker\/\d+\/$/.test(x.endpoint)).sort((a,b)=>String(b.capturedAt).localeCompare(String(a.capturedAt)))[0]?.data;
+ const tickerRealmId=challengeCompany?Number(challengeCompany.realmId):2;
+ const tickerCapture=feeds.filter(x=>x.endpoint==="/api/v3/market-ticker/"+tickerRealmId+"/").sort((a,b)=>String(b.capturedAt).localeCompare(String(a.capturedAt)))[0];
+ const tickerFeed=tickerCapture?.data;
  const resources=Array.isArray(resourceFeed)?resourceFeed:[];
  const ticker=Array.isArray(tickerFeed)?tickerFeed:[];
  const productsById=new Map((catalogCache?.products||db.products).map(p=>[Number(p.gameId??String(p.id||"").replace("game-","")),p]));
