@@ -32,7 +32,7 @@
     try {
       const parsed = new URL(url, location.href);
       if (parsed.origin !== location.origin || !parsed.pathname.startsWith(API_PREFIX)) return;
-      const schemaData = redact(data);
+      const schemaData = parsed.pathname==="/api/v1/challenges/current/"?redact(data):data;
       if(parsed.pathname==="/api/v1/challenges/current/"&&schemaData?.challenge){delete schemaData.challenge.end;delete schemaData.challenge.deadline;delete schemaData.challenge.expiresAt;delete schemaData.challenge.endsAt;}
       const keys = schemaData && typeof schemaData === "object" ? Object.keys(schemaData).slice(0,80) : [];
       window.postMessage({
