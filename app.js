@@ -62,11 +62,12 @@ function getBoostedDuration(workMinutes,startOffset=0,effect="production"){
  rules=rules.filter(r=>r?.effects?.[effect]&&Number(r.multiplier)>0);
  let remaining=Math.max(0,Number(workMinutes)||0),elapsed=0,clock=Date.now()+Math.max(0,startOffset)*60000;
  if(!remaining)return 0;
+ const challengeTimeSpeed=Math.max(0.01,Number(db.liveChallengeData?.timeAcceleration)||1);
  const multiplierAt=t=>{
   const active=rules.filter(r=>(!r.start||new Date(r.start).getTime()<=t)&&(!r.end||new Date(r.end).getTime()>t));
   const groups={multiply:1,independent:1,add:0,highest:1};
   for(const r of active){const m=Number(r.multiplier)||1,mode=r.stacking||"multiply";if(mode==="multiply")groups.multiply*=m;else if(mode==="independent")groups.independent*=m;else if(mode==="add")groups.add+=Math.max(0,m-1);else if(mode==="highest")groups.highest=Math.max(groups.highest,m)}
-  return Math.max(.01,groups.multiply*groups.independent*(1+groups.add)*groups.highest);
+  return challengeTimeSpeed*Math.max(.01,groups.multiply*groups.independent*(1+groups.add)*groups.highest);
  };
  for(let guard=0;guard<100&&remaining>1e-7;guard++){
   const speed=multiplierAt(clock);
@@ -158,7 +159,7 @@ function plan(target,qty,objective,budget=null,freePlots=0){
  if(best.steps.some(x=>x.kind==="scrap"))issues.push("Scrapping is modelled from the published FAQ salvage rule (base construction materials × building level). Confirm that the game permits scrapping each selected building and verify the in-game refund before acting.");
  if(scrapable.length>6)issues.push("More than six buildings were marked scrap-eligible; the planner tested each individual scrap and the no-scrap route, not every combination.");
  if(!Number(freePlots))issues.push("No free building plots were entered; new-building construction alternatives were not considered (upgrades remain eligible).");
- if(db.liveChallengeData&&(Number(db.liveChallengeData.productionModifier)!==1||Number(db.liveChallengeData.timeAcceleration)!==1))issues.push("The captured Challenge Realm production/time modifiers are displayed in the imported data but are not applied until their exact interaction with recipe duration is validated.");
+ if(db.liveChallengeData&&Number(db.liveChallengeData.productionModifier)!==1)issues.push("The captured Challenge Realm productionModifier is not applied because its effect on output quantity versus recipe duration still needs in-game validation. The captured timeAcceleration factor is applied to production and construction timers.");
  if(db.liveChallengeData?.fastForwardAvailable)issues.push("Challenge fast-forward is available, but its SimBoost cost and time-skipping behaviour are not yet included in the route duration.");
  return{result:{minutes:best.time,cost:best.cash,endingCash:budget===null?null:budget-best.cash},missing:[],issues,steps:best.steps};
 }
