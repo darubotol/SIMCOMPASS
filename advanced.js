@@ -1,9 +1,11 @@
 (()=>{
 "use strict";
-const $=id=>document.getElementById(id),KEY="simcompass.advanced.v1";
-let state={retailTests:[],actions:[]};
-try{state=Object.assign(state,JSON.parse(localStorage.getItem(KEY)||"{}"))}catch{}
-const persist=()=>localStorage.setItem(KEY,JSON.stringify(state));
+const $=id=>document.getElementById(id),KEY="simcompass.advanced.realms.v1";
+let activeRealm="challenge",allState={schemaVersion:1,realms:{}},state={retailTests:[],actions:[],boostRules:[]};
+try{activeRealm=JSON.parse(localStorage.getItem("simcompass.realms.v2")||"{}").activeRealm||"challenge"}catch{}
+try{const stored=JSON.parse(localStorage.getItem(KEY)||"null");if(stored?.realms)allState=stored;else{const legacy=JSON.parse(localStorage.getItem("simcompass.advanced.v1")||"{}");allState.realms.challenge=legacy}}catch{}
+state=Object.assign(state,allState.realms[activeRealm]||{});
+const persist=()=>{allState.realms[activeRealm]=state;localStorage.setItem(KEY,JSON.stringify(allState))};
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const money=n=>Number(n).toLocaleString(undefined,{maximumFractionDigits:2});
 const form=$("retailForm");
@@ -64,4 +66,5 @@ host.querySelectorAll("[data-boost-remove]").forEach(b=>b.onclick=()=>{state.boo
 renderBoostRules();
 
 if(state.retailTests?.length)renderRetail(state.retailTests[0]);
+window.addEventListener("simcompass:realmchange",event=>{persist();activeRealm=event.detail||"challenge";state=Object.assign({retailTests:[],actions:[],boostRules:[]},allState.realms[activeRealm]||{});renderActions();renderBoostRules();if(state.retailTests.length)renderRetail(state.retailTests[0]);else{if($("retailResults"))$("retailResults").innerHTML='<div class="empty">No retail tests saved for this realm yet.</div>';if($("retailResultTitle"))$("retailResultTitle").textContent="Awaiting price tests"}});
 })();
