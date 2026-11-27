@@ -267,7 +267,7 @@ function renderOwnedBuildings(){
    groups.get(key).items.push(x);
   });
   const rows=[...groups.values()].sort((a,b)=>a.name.localeCompare(b.name)||a.level-b.level);
-  host.innerHTML=rows.length?'<div class="owned-building-groups">'+rows.map(g=>'<div class="owned-building-row"><b>'+esc(g.name)+'</b><label>Level<input type="number" min="1" step="1" value="'+g.level+'" data-group-key="'+esc(g.name.toLowerCase()+"|"+g.level)+'" data-group-level></label><label>Count<input type="number" min="0" step="1" value="'+g.items.length+'" data-group-key="'+esc(g.name.toLowerCase()+"|"+g.level)+'" data-group-count></label></div>').join("")+'</div>':'<p class="empty">No Challenge Realm building records imported yet.</p>';
+  host.innerHTML=rows.length?'<div class="owned-building-groups">'+rows.map(g=>'<div class="owned-building-row"><b>'+esc(g.name)+'</b><label>Level<input type="number" min="1" step="1" value="'+g.level+'" data-group-key="'+esc(g.name.toLowerCase()+"|"+g.level)+'" data-group-level></label><label>Count<input type="number" min="0" step="1" value="'+g.items.length+'" data-group-key="'+esc(g.name.toLowerCase()+"|"+g.level)+'" data-group-count></label><label class="scrap-option"><input type="checkbox" data-group-key="'+esc(g.name.toLowerCase()+"|"+g.level)+'" data-group-scrap '+(g.items.every(x=>x.scrapAllowed)?"checked":"")+' > Allow scrap</label></div>').join("")+'</div>':'<p class="empty">No Challenge Realm building records imported yet.</p>';
   const saveGroup=(input,field)=>{
    const group=groups.get(input.dataset.groupKey),n=Number(input.value);
    if(!group||!Number.isInteger(n)||n<(field==="level"?1:0)){toast(field==="level"?"Level must be a positive whole number":"Count cannot be negative");renderOwnedBuildings();return}
@@ -293,6 +293,7 @@ function renderOwnedBuildings(){
   };
   host.querySelectorAll("[data-group-level]").forEach(input=>input.onchange=()=>saveGroup(input,"level"));
   host.querySelectorAll("[data-group-count]").forEach(input=>input.onchange=()=>saveGroup(input,"count"));
+  host.querySelectorAll("[data-group-scrap]").forEach(input=>input.onchange=()=>{const group=groups.get(input.dataset.groupKey);if(!group)return;group.items.forEach(x=>x.scrapAllowed=input.checked);persist();$("saved").textContent="● SAVED";toast(input.checked?"Marked as optional scrap candidates":"Scrap option disabled")});
   return;
  }
  const rows=db.buildings.filter(x=>Number(x.ownedCount)>0||Number(x.slots)>0||x.owned===true);
