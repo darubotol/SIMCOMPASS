@@ -78,8 +78,8 @@ function getBoostedDuration(workMinutes,startOffset=0,effect="production"){
  }
  return elapsed+remaining/multiplierAt(clock);
 }
-function plan(target,qty,objective,budget=null){
- const initial={__freePlots:{value:Math.max(0,Math.floor(Number(db.challenge?.freePlots)||0))}};
+function plan(target,qty,objective,budget=null,freePlots=0){
+ const initial={__freePlots:{value:Math.max(0,Math.floor(Number(freePlots)||0))}};
  db.inventory.forEach(x=>initial[String(x.product).toLowerCase()]={product:x.product,stock:Math.max(0,Number(x.stock)||0),price:x.price===null||x.price===undefined?null:Number(x.price)});
  const clone=state=>Object.fromEntries(Object.entries(state).map(([k,v])=>[k,v&&typeof v==="object"?{...v}:v]));
  const choicesFor=(product,amount,state,stack,depth)=>{
@@ -104,8 +104,9 @@ function plan(target,qty,objective,budget=null){
    const plots=Number(state.__freePlots?.value)||0;
    const constructionTime=Number(building.constructionTimeMinutes);
    const materials=building.constructionMaterials&&typeof building.constructionMaterials==="object"?building.constructionMaterials:null;
-   if(plots>0&&Number.isFinite(constructionTime)&&constructionTime>0&&materials&&Object.keys(materials).length){
-    options.push({capacity:ownedCapacity+1,build:{building,constructionTime,materials}});
+   if(Number.isFinite(constructionTime)&&constructionTime>0&&materials&&Object.keys(materials).length){
+    if(ownedCapacity>0){const level=Math.max(1,Number(building.level)||1);const upgradeMaterials=Object.fromEntries(Object.entries(materials).map(([k,v])=>[k,Number(v)*level]));options.push({capacity:ownedCapacity+1,build:{kind:"upgrade",building,constructionTime:constructionTime*level,materials:upgradeMaterials}})}
+    if(plots>0)options.push({capacity:ownedCapacity+1,build:{kind:"build",building,constructionTime,materials}});
    }
    for(const option of options){
     const outputPerRun=Math.max(1e-8,Number(recipe.quantity)||1);
@@ -113,7 +114,7 @@ function plan(target,qty,objective,budget=null){
     let ownTime=0;
     let branch=clone(base),targetInputTime=0,buildMaterialTime=0,depCash=0,steps=[...stockStep],issues=[],valid=true;
     if(option.build){
-     branch.__freePlots={value:Math.max(0,(Number(branch.__freePlots?.value)||0)-1)};
+     if(option.build.kind==="build")branch.__freePlots={value:Math.max(0,(Number(branch.__freePlots?.value)||0)-1)};
      for(const [material,materialQty] of Object.entries(option.build.materials)){
       const child=choicesFor(material,Number(materialQty),branch,[...stack,key],depth+1).sort((a,b)=>objective==="cost"?(a.cash-b.cash||a.time-b.time):(a.time-b.time||a.cash-b.cash))[0];
       if(!child){valid=false;break}
@@ -131,7 +132,7 @@ function plan(target,qty,objective,budget=null){
     if(option.build){
      buildTime=getBoostedDuration(option.build.constructionTime,buildMaterialTime,"construction");
      buildCash=0;
-     steps.push({kind:"build",product:option.build.building.name,qty:1,time:buildTime,cash:0,building:option.build.building.name});
+     steps.push({kind:option.build.kind,product:option.build.building.name,qty:1,time:buildTime,cash:0,building:option.build.building.name});
     }
     const ownStart=Math.max(targetInputTime,buildMaterialTime+buildTime);
     ownTime=getBoostedDuration(runs*Number(recipe.minutes||0),ownStart,"production");
@@ -146,7 +147,7 @@ function plan(target,qty,objective,budget=null){
  candidates.sort((x,y)=>objective==="cost"?(x.cash-y.cash||x.time-y.time):(x.time-y.time||x.cash-y.cash));
  const best=candidates[0],issues=[...new Set(best.issues)];
  if(budget!==null&&best.cash>budget)issues.push("Required procurement cash exceeds starting cash by "+(best.cash-budget).toFixed(2)+".");
- if(best.steps.some(x=>x.kind==="build"))issues.push("Construction is included using verified base construction time/material records. Construction boosts, plot queue restrictions and challenge-specific construction modifiers are not yet applied.");
+ if(best.steps.some(x=>x.kind==="build"||x.kind==="upgrade"))issues.push("Building construction/upgrades are included using verified base time and material records. Shared construction-queue contention and challenge-specific construction modifiers still need in-game validation.");
  if(!db.challenge?.freePlots)issues.push("No free building plots were entered; construction alternatives were not considered.");
  return{result:{minutes:best.time,cost:best.cash,endingCash:budget===null?null:budget-best.cash},missing:[],issues,steps:best.steps};
 }
@@ -304,7 +305,8 @@ $("challengeForm").onsubmit=e=>{
   const target=$("target").value.trim(),qty=Number($("quantity").value);
   if(!target||!(qty>0)){toast("Enter a valid product and target quantity");return}
   challenge.target=target;challenge.qty=qty;challenge.objective=priority;
-  p=plan(target,qty,priority==="profit"?"cost":priority,budget);
+  const remainingQty=(db.liveChallengeData&&String(db.liveChallengeData.goalProduct||"").toLowerCase()===target.toLowerCase()&&Number(db.liveChallengeData.target)===qty)?Math.max(0,qty-(Number(db.liveChallengeData.progress)||0)):qty;
+  p=plan(target,remainingQty,priority==="profit"?"cost":priority,budget,challenge.freePlots);
   $("resultTitle").textContent=p.result?"Production route found":"More starting data required";
   if(p.result){
    html='<div class="stats"><article><label>ESTIMATED PRODUCTION TIME</label><strong>'+(p.result.minutes/60).toFixed(2)+'h</strong></article><article><label>ESTIMATED PROCUREMENT COST</label><strong>'+p.result.cost.toFixed(2)+'</strong></article></div>';
@@ -314,7 +316,7 @@ $("challengeForm").onsubmit=e=>{
   }else html='<p class="muted">SIMCOMPASS could not find a complete route using the current inventory, market and owned-building setup.</p>';
   if(p?.issues?.length)html+='<ul class="muted">'+p.issues.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>';
   if(p?.missing?.length)html+='<p class="amber">Unresolved: '+p.missing.map(esc).join(", ")+'</p>';
-  html+='<p class="engine-disclaimer">LIMITATION: this estimate counts each owned building as one parallel production line. It does not yet model tier-specific production speed, shared-building queue schedules, construction or demolition decisions, demolition refunds, upgrade costs, retail cashflow, or all boost windows. Do not treat it as a verified fastest strategy.</p>';
+  html+='<p class="engine-disclaimer">LIMITATION: this estimate models building-level output capacity, one additional construction or upgrade per production route, and entered production/construction boost windows. It does not yet globally schedule shared buildings across simultaneous product chains, model scrapping/demolition refunds, simulate retail cashflow or verify every Challenge Realm-specific modifier. Treat it as a planning estimate, not a proven global optimum.</p>';
  }else{
   $("resultTitle").textContent="Challenge captured · specialised solver required";
   html='<div class="objective-summary"><span class="eyebrow">OBJECTIVE TYPE</span><h2>'+esc(type.replace("_"," ").toUpperCase())+'</h2><p>'+esc(challenge.description||"No detailed success condition entered.")+'</p></div>';
