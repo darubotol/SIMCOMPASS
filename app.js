@@ -118,14 +118,14 @@ function plan(target,qty,objective,budget=null,freePlots=0){
     if(option.build){
      if(option.build.kind==="build")branch.__freePlots={value:Math.max(0,(Number(branch.__freePlots?.value)||0)-1)};
      for(const [material,materialQty] of Object.entries(option.build.materials)){
-      const child=choicesFor(material,Number(materialQty),branch,[...stack,key],depth+1) ;
+      const child=rankRoutes(choicesFor(material,Number(materialQty),branch,[...stack,key],depth+1))[0];
       if(!child){valid=false;break}
       branch=child.state;buildMaterialTime=Math.max(buildMaterialTime,child.time);depCash+=child.cash;steps.push(...child.steps);issues.push(...child.issues);
      }
     }
     if(!valid)continue;
     for(const input of recipe.inputs||[]){
-     const child=choicesFor(input.product,Number(input.quantity)*runs*option.capacity,branch,[...stack,key],depth+1).sort((a,b)=>objective==="cost"?(a.cash-b.cash||a.time-b.time):(a.time-b.time||a.cash-b.cash))[0];
+     const child=rankRoutes(choicesFor(input.product,Number(input.quantity)*runs*option.capacity,branch,[...stack,key],depth+1))[0];
      if(!child){valid=false;break}
      branch=child.state;targetInputTime=Math.max(targetInputTime,child.time);depCash+=child.cash;steps.push(...child.steps);issues.push(...child.issues);
     }
