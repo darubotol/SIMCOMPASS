@@ -82,6 +82,7 @@ function plan(target,qty,objective,budget=null,freePlots=0){
  const initial={__freePlots:{value:Math.max(0,Math.floor(Number(freePlots)||0))},__scrapped:{},__scrappedIds:[],__setupSteps:[]};
  db.inventory.forEach(x=>initial[String(x.product).toLowerCase()]={product:x.product,stock:Math.max(0,Number(x.stock)||0),price:x.price===null||x.price===undefined?null:Number(x.price)});
  const clone=state=>Object.fromEntries(Object.entries(state).map(([k,v])=>[k,Array.isArray(v)?[...v]:v&&typeof v==="object"?{...v}:v]));
+ const rankRoutes=list=>{if(objective==="cost")return list.sort((a,b)=>a.cash-b.cash||a.time-b.time);if(objective==="balanced"){const maxTime=Math.max(1,...list.map(x=>Number(x.time)||0)),maxCash=Math.max(1,...list.map(x=>Number(x.cash)||0));return list.sort((a,b)=>(a.time/maxTime+a.cash/maxCash)-(b.time/maxTime+b.cash/maxCash))}return list.sort((a,b)=>a.time-b.time||a.cash-b.cash)};
  const choicesFor=(product,amount,state,stack,depth)=>{
   if(amount<=1e-8)return[{time:0,cash:0,state,steps:[],issues:[]}];
   const key=String(product).toLowerCase();
@@ -117,7 +118,7 @@ function plan(target,qty,objective,budget=null,freePlots=0){
     if(option.build){
      if(option.build.kind==="build")branch.__freePlots={value:Math.max(0,(Number(branch.__freePlots?.value)||0)-1)};
      for(const [material,materialQty] of Object.entries(option.build.materials)){
-      const child=choicesFor(material,Number(materialQty),branch,[...stack,key],depth+1).sort((a,b)=>objective==="cost"?(a.cash-b.cash||a.time-b.time):(a.time-b.time||a.cash-b.cash))[0];
+      const child=choicesFor(material,Number(materialQty),branch,[...stack,key],depth+1) ;
       if(!child){valid=false;break}
       branch=child.state;buildMaterialTime=Math.max(buildMaterialTime,child.time);depCash+=child.cash;steps.push(...child.steps);issues.push(...child.issues);
      }
@@ -149,7 +150,7 @@ function plan(target,qty,objective,budget=null,freePlots=0){
  else if(scrapable.length>6){for(const item of scrapable){const v=clone(initial),building=db.buildings.find(b=>String(b.name).toLowerCase()===String(item.name).toLowerCase());if(!building?.constructionMaterials)continue;const level=Math.max(1,Number(item.level)||1),name=String(item.name).toLowerCase();v.__scrapped[name]=level;v.__scrappedIds=[String(item.gameId)];v.__freePlots.value++;v.__setupSteps=[{kind:"scrap",product:item.name,qty:1,time:0,cash:0,building:item.name}];for(const [material,baseQty] of Object.entries(building.constructionMaterials)){const key=material.toLowerCase(),row=v[key]||{product:material,stock:0,price:null};row.stock=(Number(row.stock)||0)+Number(baseQty)*level;v[key]=row}variants.push(v)}}
  const candidates=variants.flatMap(v=>choicesFor(target,qty,v,[],0).map(c=>({...c,steps:[...(v.__setupSteps||[]),...c.steps]})));
  if(!candidates.length)return{result:null,missing:[target],issues:["No complete route found. Check recipes, ingredient prices, owned building counts/levels and available empty plots. New construction is considered only when its construction time and material list are verified in the bundled data."],steps:[]};
- candidates.sort((x,y)=>objective==="cost"?(x.cash-y.cash||x.time-y.time):(x.time-y.time||x.cash-y.cash));
+ rankRoutes(candidates);
  const best=candidates[0],issues=[...new Set(best.issues)];
  const machineTasks=best.steps.filter(x=>x.kind==="make"&&x.building);const byBuilding=new Map();for(const task of machineTasks){const key=String(task.building).toLowerCase();if(!byBuilding.has(key))byBuilding.set(key,[]);byBuilding.get(key).push(task)}for(const [key,tasks] of byBuilding){const catalogue=db.buildings.find(x=>String(x.name).toLowerCase()===key),newMachines=best.steps.filter(x=>x.kind==="build"&&String(x.building).toLowerCase()===key).length,machines=Math.max(1,(Number(catalogue?.ownedCount)||0)+newMachines);const events=tasks.flatMap(x=>[{t:Number(x.startOffset)||0,d:1},{t:Number(x.endOffset)||((Number(x.startOffset)||0)+Number(x.time)||0),d:-1}]).sort((x,y)=>x.t-y.t||x.d-y.d);let active=0,peak=0;for(const event of events){active+=event.d;peak=Math.max(peak,active)}if(peak>machines)issues.push("Shared-building conflict: "+tasks.map(x=>x.product).join(", ")+" need "+tasks.length+" overlapping production tasks at "+tasks[0].building+", but only "+machines+" parallel buildings are modelled. The displayed finish time may be optimistic.");}
  if(budget!==null&&best.cash>budget)issues.push("Required procurement cash exceeds starting cash by "+(best.cash-budget).toFixed(2)+".");
