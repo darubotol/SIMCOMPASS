@@ -343,7 +343,7 @@ $("challengeForm").onsubmit=e=>{
      for(let i=0;i<48;i++){const mid=(lo+hi)/2;if(proceeds(mid)>=deficit)hi=mid;else lo=mid}
      const hours=hi,delayMinutes=hours*60,raised=proceeds(hours);
      const retailSteps=streams.map(x=>{const units=Math.min(x.stock,x.rate*hours);return{kind:"retail",product:x.product,qty:units,time:delayMinutes,cash:units*x.price,building:"Retail store",startOffset:0,endOffset:delayMinutes}});
-     p.steps.forEach(x=>{x.startOffset=(Number(x.startOffset)||0)+delayMinutes;x.endOffset=(Number(x.endOffset??((Number(x.startOffset)||0)+Number(x.time)||0))||0)+delayMinutes});
+     p.steps.forEach(x=>{const start=Number(x.startOffset)||0,end=Number(x.endOffset??(start+(Number(x.time)||0)))||0;x.startOffset=start+delayMinutes;x.endOffset=end+delayMinutes});
      p.steps=[...retailSteps,...p.steps];p.result.minutes+=delayMinutes;p.result.endingCash=budget+raised-p.result.cost;p.issues=p.issues.filter(x=>!String(x).startsWith("Required procurement cash exceeds starting cash"));p.issues.push("A sell-first funding phase is included using your saved observed retail rates. Actual store demand and sale timing can vary.");
      retailFunding={hours,delayMinutes,raised,streams:retailSteps};
     }else p.issues.push("Your starting cash is below procurement cost, and the saved retail tests do not contain enough sellable stock to fund the shortfall.");
