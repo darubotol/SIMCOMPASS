@@ -49,6 +49,14 @@
         if(parsed.pathname==="/api/v1/challenges/current/"&&safeData?.challenge){delete safeData.challenge.end;delete safeData.challenge.deadline;delete safeData.challenge.expiresAt;delete safeData.challenge.endsAt;}
         window.postMessage({source:"SIMCOMPASS_READONLY_CAPTURE",type:"GAME_DATA_RESPONSE",endpoint:parsed.pathname,capturedAt:new Date().toISOString(),data:safeData},location.origin);
       }
+      if (parsed.pathname === "/api/v3/companies/auth-data/") {
+        const company = data?.authCompany || {};
+        const safeData = {
+          authCompany: { id: company.id ?? null, money: Number.isFinite(Number(company.money)) ? Number(company.money) : null },
+          temporals: redact(data?.temporals ?? null)
+        };
+        window.postMessage({source:"SIMCOMPASS_READONLY_CAPTURE",type:"GAME_DATA_RESPONSE",endpoint:parsed.pathname,capturedAt:new Date().toISOString(),data:safeData},location.origin);
+      }
     } catch (_) {}
   };
   const originalFetch = window.fetch;
