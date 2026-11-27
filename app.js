@@ -230,7 +230,7 @@ function syncChallengeBuildingsSnapshot(){
   const candidates=[tierMatch?.[1],record.buildingLevel,record.building_level,record.level,record.tier,prior?.level];
   const level=candidates.map(v=>Number(v)).find(v=>Number.isFinite(v)&&Number.isInteger(v)&&v>0)||1;
   const catalogue=db.buildings.find(x=>slug(x.name)===slug(rawName));
-  owned.push({gameId,name:catalogue?.name||rawName,level,image,position:record.position??null});
+  owned.push({gameId,name:catalogue?.name||rawName,level,image,position:record.position??null,scrapAllowed:prior?.scrapAllowed===true});
  }
  db.challengeOwnedBuildings=owned;
  if(db.challengeInitialSnapshot&&db.challengeInitialSnapshot.firstObservedBuildings===null){db.challengeInitialSnapshot.firstObservedBuildings=JSON.parse(JSON.stringify(owned));db.challengeInitialSnapshot.completeness.buildingsObserved=true;db.challengeInitialSnapshot.firstObservedBuildingsCapturedAt=snapshot.capturedAt||new Date().toISOString()}
@@ -280,7 +280,7 @@ function renderOwnedBuildings(){
      db.challengeOwnedBuildings=db.challengeOwnedBuildings.filter(x=>!removeIds.has(String(x.gameId)));
     }else if(n>current){
      const template=group.items[0];
-     for(let i=current;i<n;i++)db.challengeOwnedBuildings.push({gameId:"manual-"+crypto.randomUUID(),name:group.name,level:group.level,image:template?.image||"",position:null,manual:true});
+     for(let i=current;i<n;i++)db.challengeOwnedBuildings.push({gameId:"manual-"+crypto.randomUUID(),name:group.name,level:group.level,image:template?.image||"",position:null,manual:true,scrapAllowed:template?.scrapAllowed===true});
     }
    }
    const all=db.challengeOwnedBuildings;
