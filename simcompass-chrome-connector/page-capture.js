@@ -32,20 +32,20 @@
     try {
       const parsed = new URL(url, location.href);
       if (parsed.origin !== location.origin || !parsed.pathname.startsWith(API_PREFIX)) return;
-      const keys = data && typeof data === "object" ? Object.keys(data).slice(0,80) : [];
+      const schemaData = redact(data);
+      if(parsed.pathname==="/api/v1/challenges/current/"&&schemaData?.challenge){delete schemaData.challenge.end;delete schemaData.challenge.deadline;delete schemaData.challenge.expiresAt;delete schemaData.challenge.endsAt;}
+      const keys = schemaData && typeof schemaData === "object" ? Object.keys(schemaData).slice(0,80) : [];
       window.postMessage({
         source: "SIMCOMPASS_READONLY_CAPTURE", type: "API_SCHEMA_DISCOVERY",
         endpoint: parsed.pathname, status, capturedAt: new Date().toISOString(),
-        topLevelType: Array.isArray(data) ? "array" : data === null ? "null" : typeof data,
-        topLevelKeys: keys, shape: shape(data)
+        topLevelType: Array.isArray(schemaData) ? "array" : schemaData === null ? "null" : typeof schemaData,
+        topLevelKeys: keys, shape: shape(schemaData)
       }, location.origin);
       if (parsed.pathname === "/api/v2/companies/me/buildings/" && Array.isArray(data)) {
         window.postMessage({source:"SIMCOMPASS_READONLY_CAPTURE",type:"BUILDINGS_RESPONSE",capturedAt:new Date().toISOString(),data},location.origin);
       }
       if (isSafeDataPath(parsed.pathname)) {
-        const safeData = redact(data);
-        if(parsed.pathname==="/api/v1/challenges/current/"&&safeData?.challenge){delete safeData.challenge.end;delete safeData.challenge.deadline;delete safeData.challenge.expiresAt;delete safeData.challenge.endsAt;}
-        window.postMessage({source:"SIMCOMPASS_READONLY_CAPTURE",type:"GAME_DATA_RESPONSE",endpoint:parsed.pathname,capturedAt:new Date().toISOString(),data:safeData},location.origin);
+        window.postMessage({source:"SIMCOMPASS_READONLY_CAPTURE",type:"GAME_DATA_RESPONSE",endpoint:parsed.pathname,capturedAt:new Date().toISOString(),data:schemaData},location.origin);
       }
     } catch (_) {}
   };
