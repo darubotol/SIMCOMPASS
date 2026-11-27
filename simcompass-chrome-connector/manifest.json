@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "SIMCOMPASS Read-only Game Connector",
-  "version": "1.3.3",
-  "description": "Passively captures selected Challenge Realm data responses already requested by Sim Companies, excluding authentication and security fields.",
+  "version": "1.3.4",
+  "description": "Passively captures selected Challenge Realm data responses already requested by Sim Companies, extracting only active-company cash and temporary effects from auth-data while discarding account and security fields.",
   "permissions": [
     "activeTab",
     "storage"
