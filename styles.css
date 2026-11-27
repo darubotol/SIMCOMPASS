@@ -217,3 +217,9 @@ main{height:auto!important;min-height:100vh;overflow:visible!important}
 .sidebar .sidebottom .local{margin-bottom:4px;padding:9px 8px;}
 .sidebar .sidebottom .version{padding-top:8px;}
 @media(max-height:650px){.sidebar{padding-top:9px!important;padding-bottom:9px!important}.sidebar-scroll .brand{margin-bottom:10px}.sidebar-scroll .realm{padding:7px;margin-bottom:8px}.sidebar-scroll nav{margin-bottom:8px}.sidebar-scroll .nav{padding-top:8px;padding-bottom:8px}.sidebar .sidebottom{padding-top:5px}.sidebar .sidebottom .local{padding:6px 8px}}
+
+/* Grouped Challenge Realm building controls */
+.owned-building-row{grid-template-columns:minmax(130px,1fr) 90px 90px 112px}
+.owned-building-row .scrap-option{display:flex;align-items:center;gap:6px;white-space:nowrap;font-size:11px;color:#718379}
+.owned-building-row .scrap-option input{width:15px;min-height:15px;height:15px;margin:0;padding:0!important;accent-color:#56b99a}
+@media(max-width:700px){.owned-building-row{grid-template-columns:1fr 1fr}.owned-building-row>b{grid-column:1/-1}.owned-building-row .scrap-option{grid-column:1/-1}}
