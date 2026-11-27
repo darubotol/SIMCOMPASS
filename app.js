@@ -58,31 +58,75 @@ $("buildingsTable").querySelectorAll("[data-building-field]").forEach(input=>inp
 }
 $("searchProducts").oninput=e=>{const q=e.target.value.toLowerCase(),rows=db.products.filter(p=>p.name.toLowerCase().includes(q)||String(p.category).toLowerCase().includes(q));table("productsTable",rows,r=>'<td><b>'+esc(r.name)+'</b></td><td>'+esc(r.category||"—")+'</td><td>'+esc(r.unit||"—")+'</td><td>USER ENTERED</td><td>'+action("products",r.id)+"</td>","No matching products.")};
 function plan(target,qty,objective,budget=null){
-const initial={};db.inventory.forEach(x=>initial[x.product.toLowerCase()]={product:x.product,stock:Math.max(0,+x.stock||0),price:x.price===null?null:+x.price});
-const clone=s=>Object.fromEntries(Object.entries(s).map(([k,v])=>[k,{...v}]));
-function solve(product,amount,state,stack,depth){
-if(amount<=1e-8)return{time:0,cash:0,state,steps:[],issues:[]};
-const key=product.toLowerCase();if(depth>30||stack.includes(key))return null;
-const inv=state[key]||{product,stock:0,price:null},used=Math.min(amount,inv.stock),need=amount-used;
-const base=clone(state);base[key]={...inv,stock:inv.stock-used};
-if(need<=1e-8)return{time:0,cash:0,state:base,steps:used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[],issues:[]};
-const choices=[];
-if(inv.price!==null&&Number.isFinite(inv.price)&&inv.price>=0){const st=clone(base);choices.push({time:0,cash:need*inv.price,state:st,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),{kind:"market",product,qty:need,time:0,cash:need*inv.price}],issues:[]})}
-for(const recipe of db.recipes.filter(x=>String(x.output).toLowerCase()===key).slice(0,8)){
-const building=db.buildings.find(x=>String(x.name).toLowerCase()===String(recipe.building).toLowerCase());
-const levelCapacity=Number(building?.ownedCapacity)||((Number(building?.ownedCount)||0)*(Number(building?.level)||1))||(activeRealm!=="challenge"?Number(building?.slots)||0:0);
-if(!building||levelCapacity<1)continue;
-const out=Math.max(1e-8,Number(recipe.quantity)||1),runs=Math.ceil(need/(out*levelCapacity)),boost=window.SIMCOMPASS_BOOSTS?.productionMultiplier||1,ownTime=runs*Number(recipe.minutes||0)/boost;
-let branch=clone(base),depTime=0,depCash=0,steps=[],issues=[],valid=true;
-for(const input of recipe.inputs||[]){const child=solve(input.product,Number(input.quantity)*runs*levelCapacity,branch,[...stack,key],depth+1);if(!child){valid=false;break}branch=child.state;depTime=Math.max(depTime,child.time);depCash+=child.cash;steps.push(...child.steps);issues.push(...child.issues)}
-if(valid)choices.push({time:depTime+ownTime,cash:depCash,state:branch,steps:[...(used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[]),...steps,{kind:"make",product,qty:runs*out*levelCapacity,time:ownTime,cash:0,building:recipe.building,level:building.level,buildingCapacity:levelCapacity,runs}],issues})
-}
-if(!choices.length)return null;
-choices.sort((x,y)=>objective==="cost"?(x.cash-y.cash||x.time-y.time):(x.time-y.time||x.cash-y.cash));return choices[0]
-}
-const r=solve(target,qty,initial,[],0);if(!r)return{result:null,missing:[target],issues:["No feasible route. Check recipes, ingredients, market supply and owned building levels/counts."],steps:[]};
-const issues=[...new Set(r.issues)];if(budget!==null&&r.cash>budget)issues.push("Required market cash exceeds starting cash by "+(r.cash-budget).toFixed(2)+".");
-return{result:{minutes:r.time,cost:r.cash,endingCash:budget===null?null:budget-r.cash},missing:[],issues,steps:r.steps}
+ const initial={__freePlots:{value:Math.max(0,Math.floor(Number(db.challenge?.freePlots)||0))}};
+ db.inventory.forEach(x=>initial[String(x.product).toLowerCase()]={product:x.product,stock:Math.max(0,Number(x.stock)||0),price:x.price===null||x.price===undefined?null:Number(x.price)});
+ const clone=state=>Object.fromEntries(Object.entries(state).map(([k,v])=>[k,v&&typeof v==="object"?{...v}:v]));
+ const choicesFor=(product,amount,state,stack,depth)=>{
+  if(amount<=1e-8)return[{time:0,cash:0,state,steps:[],issues:[]}];
+  const key=String(product).toLowerCase();
+  if(depth>30||stack.includes(key))return[];
+  const inv=state[key]||{product,stock:0,price:null},used=Math.min(amount,inv.stock||0),need=amount-used;
+  const base=clone(state);base[key]={...inv,stock:(inv.stock||0)-used};
+  const stockStep=used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[];
+  if(need<=1e-8)return[{time:0,cash:0,state:base,steps:stockStep,issues:[]}];
+  const choices=[];
+  if(inv.price!==null&&Number.isFinite(inv.price)&&inv.price>=0){
+   choices.push({time:0,cash:need*inv.price,state:clone(base),steps:[...stockStep,{kind:"market",product,qty:need,time:0,cash:need*inv.price}],issues:["Market purchases are treated as immediately available at the entered price; unobserved order-book depth is not guaranteed."]});
+  }
+  const recipes=db.recipes.filter(x=>String(x.output).toLowerCase()===key).slice(0,12);
+  for(const recipe of recipes){
+   const building=db.buildings.find(x=>String(x.name).toLowerCase()===String(recipe.building).toLowerCase());
+   if(!building)continue;
+   const ownedCapacity=Number(building.ownedCapacity)||((Number(building.ownedCount)||0)*(Number(building.level)||1))||(activeRealm!=="challenge"?Number(building.slots)||0:0);
+   const options=[];
+   if(ownedCapacity>0)options.push({capacity:ownedCapacity,build:null});
+   const plots=Number(state.__freePlots?.value)||0;
+   const constructionTime=Number(building.constructionTimeMinutes);
+   const materials=building.constructionMaterials&&typeof building.constructionMaterials==="object"?building.constructionMaterials:null;
+   if(plots>0&&Number.isFinite(constructionTime)&&constructionTime>0&&materials&&Object.keys(materials).length){
+    options.push({capacity:ownedCapacity+1,build:{building,constructionTime,materials}});
+   }
+   for(const option of options){
+    const outputPerRun=Math.max(1e-8,Number(recipe.quantity)||1);
+    const runs=Math.ceil(need/(outputPerRun*option.capacity));
+    const productionBoost=window.SIMCOMPASS_BOOSTS?.productionMultiplier||1;
+    const ownTime=runs*Number(recipe.minutes||0)/productionBoost;
+    let branch=clone(base),targetInputTime=0,buildMaterialTime=0,depCash=0,steps=[...stockStep],issues=[],valid=true;
+    if(option.build){
+     branch.__freePlots={value:Math.max(0,(Number(branch.__freePlots?.value)||0)-1)};
+     for(const [material,materialQty] of Object.entries(option.build.materials)){
+      const child=choicesFor(material,Number(materialQty),branch,[...stack,key],depth+1).sort((a,b)=>objective==="cost"?(a.cash-b.cash||a.time-b.time):(a.time-b.time||a.cash-b.cash))[0];
+      if(!child){valid=false;break}
+      branch=child.state;buildMaterialTime=Math.max(buildMaterialTime,child.time);depCash+=child.cash;steps.push(...child.steps);issues.push(...child.issues);
+     }
+    }
+    if(!valid)continue;
+    for(const input of recipe.inputs||[]){
+     const child=choicesFor(input.product,Number(input.quantity)*runs*option.capacity,branch,[...stack,key],depth+1).sort((a,b)=>objective==="cost"?(a.cash-b.cash||a.time-b.time):(a.time-b.time||a.cash-b.cash))[0];
+     if(!child){valid=false;break}
+     branch=child.state;targetInputTime=Math.max(targetInputTime,child.time);depCash+=child.cash;steps.push(...child.steps);issues.push(...child.issues);
+    }
+    if(!valid)continue;
+    let buildTime=0,buildCash=0;
+    if(option.build){
+     buildTime=option.build.constructionTime;
+     buildCash=0;
+     steps.push({kind:"build",product:option.build.building.name,qty:1,time:buildTime,cash:0,building:option.build.building.name});
+    }
+    const totalTime=Math.max(targetInputTime,buildMaterialTime+buildTime)+ownTime;
+    choices.push({time:totalTime,cash:depCash+buildCash,state:branch,steps:[...steps,{kind:"make",product,qty:runs*outputPerRun*option.capacity,time:ownTime,cash:0,building:recipe.building,level:building.level,buildingCapacity:option.capacity,runs}],issues});
+   }
+  }
+  return choices;
+ };
+ const candidates=choicesFor(target,qty,initial,[],0);
+ if(!candidates.length)return{result:null,missing:[target],issues:["No complete route found. Check recipes, ingredient prices, owned building counts/levels and available empty plots. New construction is considered only when its construction time and material list are verified in the bundled data."],steps:[]};
+ candidates.sort((x,y)=>objective==="cost"?(x.cash-y.cash||x.time-y.time):(x.time-y.time||x.cash-y.cash));
+ const best=candidates[0],issues=[...new Set(best.issues)];
+ if(budget!==null&&best.cash>budget)issues.push("Required procurement cash exceeds starting cash by "+(best.cash-budget).toFixed(2)+".");
+ if(best.steps.some(x=>x.kind==="build"))issues.push("Construction is included using verified base construction time/material records. Construction boosts, plot queue restrictions and challenge-specific construction modifiers are not yet applied.");
+ if(!db.challenge?.freePlots)issues.push("No free building plots were entered; construction alternatives were not considered.");
+ return{result:{minutes:best.time,cost:best.cash,endingCash:budget===null?null:budget-best.cash},missing:[],issues,steps:best.steps};
 }
 function syncCapturedChallengeFeeds(){
  if(activeRealm!=="challenge")return;
