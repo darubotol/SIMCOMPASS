@@ -29,6 +29,14 @@ The optimiser loads the bundled game database in the background and uses its pro
 
 The product/recipe/building catalogue pages are removed from primary navigation. Their data remains available internally. Inventory and boost setup remain visible because they contain scenario-specific values.
 
+## Challenge optimiser status
+
+The Challenge Realm optimiser uses the bundled recipe graph, captured starting stock and prices, imported building counts/levels, user-entered free building plots, and user-defined time limits. It compares direct market sourcing with production routes, accounts for building level capacity, can consider one additional level-1 construction or one-level upgrade at a production site, and can compare user-marked optional scrapping candidates. It also integrates multiple configured production and construction boost windows. Construction and upgrade material costs are sourced from the bundled building data and the same inventory/market price table.
+
+The planner does not use the game challenge expiry timestamp as a planning deadline. Leave the user time-limit field blank for fastest-mode planning, or enter a number of hours to check feasibility against that limit.
+
+**Important modelling boundaries:** the solver is a route estimator, not a proven global optimiser. It does not yet globally schedule competing product chains that need the same building at the same time, model every construction queue/plot rule, verify Challenge Realm-specific production/time modifiers, forecast retail demand/cashflow, or solve every non-product objective type. Scrapping uses the published FAQ's material recovery rule only for buildings the user explicitly marks as scrap candidates; the player must confirm that scrapping is available and verify the in-game refund. The market model treats entered prices as immediately purchasable and cannot guarantee order-book depth.
+
 ## Objective architecture
 
 The challenge model can record product delivery, revenue, profit, company value, research, construction/upgrades, assets, contracts, multi-objective challenges and custom conditions. This is an extensible objective schema, not a claim that every objective solver is already complete.
