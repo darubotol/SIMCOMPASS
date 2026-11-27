@@ -57,9 +57,9 @@ SIMCOMPASS is an independent community project and is not affiliated with or end
 
 ## Optional Chrome connector (read-only)
 
-A Manifest V3 extension is provided in `simcompass-chrome-connector/`. Version 1.3.0 passively observes successful same-origin GET responses that the signed-in game page itself has already requested. It imports the Challenge Realm buildings payload and selected allowlisted Challenge Realm values (challenge, resources, market ticker and company summary), plus API endpoint structures. Authentication and security endpoints are excluded; sensitive keys are recursively redacted. It does not issue API requests, read cookie values, access passwords/tokens, or send game-changing requests.
+A Manifest V3 extension is provided in `simcompass-chrome-connector/`. Version 1.3.1 passively observes successful same-origin GET responses that the signed-in game page itself has already requested. It imports the Challenge Realm buildings payload and selected allowlisted Challenge Realm values (challenge, resources, market ticker and company summary), plus API endpoint structures. Authentication and security endpoints are excluded; sensitive keys are recursively redacted. It does not issue API requests, read cookie values, access passwords/tokens, or send game-changing requests.
 
-The current adapter maps the captured challenge objective/progress, warehouse inventory quantities, market-ticker prices and building records into the Challenge Realm workspace. Cash is not imported and must be entered manually. The ticker is not guaranteed to contain every tradable product or the available order-book depth. The game API is undocumented and unsupported, and may change without notice. All observed responses are captured locally in the browser.
+The current adapter maps the captured challenge objective/progress (excluding the game expiry date), warehouse inventory quantities, market-ticker prices and building records into the Challenge Realm workspace. Cash is not imported and must be entered manually. The ticker is not guaranteed to contain every tradable product or the available order-book depth. The game API is undocumented and unsupported, and may change without notice. All observed responses are captured locally in the browser.
 
 ### Update the Chrome extension on Windows
 
@@ -67,7 +67,7 @@ The current adapter maps the captured challenge objective/progress, warehouse in
 2. Open `chrome://extensions` in Chrome and turn on **Developer mode**.
 3. Remove the older SIMCOMPASS connector extension.
 4. Choose **Load unpacked** and select the new `simcompass-chrome-connector` folder containing `manifest.json`.
-5. Confirm that the extension shows version **1.3.0**.
+5. Confirm that the extension shows version **1.3.1**.
 6. Keep the signed-in Sim Companies tab open. Reload that game tab and wait for its dashboard to finish loading.
 7. Open the SIMCOMPASS tab, click the connector icon, and choose **IMPORT CAPTURED GAME DATA**.
 8. In SIMCOMPASS, open **Data & settings** and review the **Automatic API Map** panel.
