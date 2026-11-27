@@ -133,12 +133,12 @@ function plan(target,qty,objective,budget=null,freePlots=0){
     if(option.build){
      buildTime=getBoostedDuration(option.build.constructionTime,buildMaterialTime,"construction");
      buildCash=0;
-     steps.push({kind:option.build.kind,product:option.build.building.name,qty:1,time:buildTime,cash:0,building:option.build.building.name});
+     steps.push({kind:option.build.kind,product:option.build.building.name,qty:1,time:buildTime,cash:0,building:option.build.building.name,startOffset:buildMaterialTime,endOffset:buildMaterialTime+buildTime});
     }
     const ownStart=Math.max(targetInputTime,buildMaterialTime+buildTime);
     ownTime=getBoostedDuration(runs*Number(recipe.minutes||0),ownStart,"production");
     const totalTime=ownStart+ownTime;
-    choices.push({time:totalTime,cash:depCash+buildCash,state:branch,steps:[...steps,{kind:"make",product,qty:runs*outputPerRun*option.capacity,time:ownTime,cash:0,building:recipe.building,level:option.build?(option.build.kind==="upgrade"?(Number(building.level)||1)+1:1):building.level,buildingCapacity:option.capacity,runs}],issues});
+    choices.push({time:totalTime,cash:depCash+buildCash,state:branch,steps:[...steps,{kind:"make",product,qty:runs*outputPerRun*option.capacity,time:ownTime,cash:0,building:recipe.building,level:option.build?(option.build.kind==="upgrade"?(Number(building.level)||1)+1:1):building.level,buildingCapacity:option.capacity,runs,startOffset:ownStart,endOffset:ownStart+ownTime}],issues});
    }
   }
   return choices;
@@ -320,7 +320,7 @@ $("challengeForm").onsubmit=e=>{
    html='<div class="stats"><article><label>ESTIMATED COMPLETION TIME</label><strong>'+(p.result.minutes/60).toFixed(2)+'h</strong></article><article><label>ESTIMATED PROCUREMENT COST</label><strong>'+p.result.cost.toFixed(2)+'</strong></article></div>';
    html+='<p class="muted">This is the production/procurement component of the challenge, not a complete profit or retail-sale forecast.</p>';
    if(challenge.timeLimitHours!==null){const fits=p.result.minutes/60<=challenge.timeLimitHours;html+='<p class="' +(fits?"muted":"amber") +'"><b>'+(fits?"Within your time limit: ":"Exceeds your time limit: ")+ (p.result.minutes/60).toFixed(2)+"h required / "+challenge.timeLimitHours+"h allowed</b></p>";}else html+='<p class="muted">Fastest-mode estimate: no user time limit was set.</p>';
-   html+='<h4>Required actions</h4><div class="tablewrap"><table><thead><tr><th>STEP</th><th>RESOURCE</th><th>QUANTITY</th><th>TIME (MIN)</th><th>CASH</th><th>PRODUCTION SITE</th></tr></thead><tbody>'+p.steps.map((x,i)=>'<tr><td>'+(i+1)+' · '+x.kind.toUpperCase()+'</td><td>'+esc(x.product)+'</td><td>'+Number(x.qty.toFixed(3))+'</td><td>'+x.time.toFixed(2)+'</td><td>'+x.cash.toFixed(2)+'</td><td>'+esc(x.building||"—")+'</td></tr>').join("")+'</tbody></table></div>';
+   html+='<h4>Execution timeline · relative to start</h4><div class="tablewrap"><table><thead><tr><th>STEP</th><th>ACTION / RESOURCE</th><th>QUANTITY</th><th>START</th><th>FINISH</th><th>DURATION</th><th>CASH</th><th>BUILDING</th></tr></thead><tbody>'+[...p.steps].sort((a,b)=>(Number(a.startOffset)||0)-(Number(b.startOffset)||0)).map((x,i)=>'<tr><td>'+(i+1)+' · '+x.kind.toUpperCase()+'</td><td>'+esc(x.product)+'</td><td>'+Number(x.qty.toFixed(3))+'</td><td>T+'+((Number(x.startOffset)||0)/60).toFixed(2)+'h</td><td>T+'+((Number(x.endOffset??((Number(x.startOffset)||0)+Number(x.time||0)))||0)/60).toFixed(2)+'h</td><td>'+(Number(x.time)||0).toFixed(2)+' min</td><td>'+(Number(x.cash)||0).toFixed(2)+'</td><td>'+esc(x.building||"—")+'</td></tr>').join("")+'</tbody></table></div>';
   }else html='<p class="muted">SIMCOMPASS could not find a complete route using the current inventory, market and owned-building setup.</p>';
   if(p?.issues?.length)html+='<ul class="muted">'+p.issues.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>';
   if(p?.missing?.length)html+='<p class="amber">Unresolved: '+p.missing.map(esc).join(", ")+'</p>';
