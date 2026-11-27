@@ -28,7 +28,7 @@ products:{title:"Add product",fields:[["name","Product name","text",1],["categor
 recipes:{title:"Add recipe",fields:[["output","Output product","text",1],["building","Required building","text",1],["quantity","Output quantity per run","number",1],["minutes","Production time (minutes)","number",1],["inputs","Inputs as Product:quantity, comma separated","text"]]},
 buildings:{title:"Add building",fields:[["name","Building name","text",1],["level","Building level","number",1],["slots","Available parallel slots","number",1],["notes","Notes","text"]]},
 boosts:{title:"Add boost",fields:[["name","Boost name","text",1],["bonus","Production speed bonus (%)","number",1],["duration","Duration (hours)","number",1],["stacking","Stacking mode","select",1]]},
-inventory:{title:"Add inventory / market row",fields:[["product","Product name","text",1],["stock","On-hand quantity","number",1],["price","Market price per unit","number"]]}
+inventory:{title:"Add starting stock",fields:[["product","Product name","text",1],["stock","On-hand quantity","number",1]]}
 };
 let currentType=null;
 function openModal(type){currentType=type;const d=defs[type];$("modalTitle").textContent=d.title;$("fields").innerHTML=d.fields.map(f=>{const id=f[0],label=f[1],kind=f[2],req=f[3];return "<label>"+esc(label)+(kind==="select"?"<select name='"+id+"' required><option value='add'>Additive</option><option value='max'>Highest bonus only</option><option value='independent'>Independent / multiply</option></select>":"<input name='"+id+"' type='"+kind+"' "+(kind==="number"?'min="0" step="any"':"")+(req?" required":"")+"></label>")}).join("")}
@@ -40,7 +40,7 @@ if(type==="products"){if(db.products.some(x=>x.name.toLowerCase()===o.name.trim(
 if(type==="recipes"){if(!(Number(o.quantity)>0&&Number(o.minutes)>0))throw Error("Output quantity and duration must be positive.");db.recipes.push({id:crypto.randomUUID(),output:o.output.trim(),building:o.building.trim(),quantity:+o.quantity,minutes:+o.minutes,inputs:parseInputs(o.inputs||"")})}
 if(type==="buildings"){if(!(Number(o.level)>0&&Number(o.slots)>=0))throw Error("Building level must be positive and slots cannot be negative.");const existing=db.buildings.find(x=>x.name.toLowerCase()===o.name.trim().toLowerCase());if(existing){existing.level=+o.level;existing.slots=+o.slots;existing.notes=o.notes||existing.notes}else db.buildings.push({id:crypto.randomUUID(),name:o.name.trim(),level:+o.level,slots:+o.slots,notes:o.notes})}
 if(type==="boosts")db.boosts.push({id:crypto.randomUUID(),name:o.name.trim(),bonus:+o.bonus,duration:+o.duration,stacking:o.stacking});
-if(type==="inventory"){const old=db.inventory.find(x=>x.product.toLowerCase()===o.product.trim().toLowerCase());const row={id:old?old.id:crypto.randomUUID(),product:o.product.trim(),stock:+o.stock||0,price:o.price===""?null:+o.price};if(old)Object.assign(old,row);else db.inventory.push(row)}
+if(type==="inventory"){const old=db.inventory.find(x=>x.product.toLowerCase()===o.product.trim().toLowerCase());const row={id:old?old.id:crypto.randomUUID(),product:o.product.trim(),stock:+o.stock||0};if(old)Object.assign(old,row);else db.inventory.push(row)}
 closeModal();save();toast("Record saved")}catch(err){toast(err.message)}};
 function remove(type,id){if(!confirm("Delete this record?"))return;db[type]=db[type].filter(x=>x.id!==id);save();toast("Record deleted")}
 function action(type,id){return '<button class="delete" data-del="'+type+'" data-id="'+id+'">DELETE</button>'}
@@ -88,7 +88,7 @@ function plan(target,qty,objective,budget=null,freePlots=0){
   if(amount<=1e-8)return[{time:0,cash:0,state,steps:[],issues:[]}];
   const key=String(product).toLowerCase();
   if(depth>30||stack.includes(key))return[];
-  const inv=state[key]||{product,stock:0,price:null},used=Math.min(amount,inv.stock||0),need=amount-used;
+  const inv=state[key]||{product,stock:0},market=db.marketPrices?.find(x=>String(x.product).toLowerCase()===key),unitPrice=market&&Number.isFinite(Number(market.price))?Number(market.price):null,used=Math.min(amount,inv.stock||0),need=amount-used;
   const base=clone(state);base[key]={...inv,stock:(inv.stock||0)-used};
   const stockStep=used?[{kind:"stock",product,qty:used,time:0,cash:0}]:[];
   if(need<=1e-8)return[{time:0,cash:0,state:base,steps:stockStep,issues:[]}];
