@@ -242,6 +242,7 @@ $("challengeForm").onsubmit=e=>{
   if(p.result){
    html='<div class="stats"><article><label>ESTIMATED PRODUCTION TIME</label><strong>'+(p.result.minutes/60).toFixed(2)+'h</strong></article><article><label>ESTIMATED PROCUREMENT COST</label><strong>'+p.result.cost.toFixed(2)+'</strong></article></div>';
    html+='<p class="muted">This is the production/procurement component of the challenge, not a complete profit or retail-sale forecast.</p>';
+   if(challenge.timeLimitHours!==null){const fits=p.result.minutes/60<=challenge.timeLimitHours;html+='<p class="' +(fits?"muted":"amber") +'"><b>'+(fits?"Within your time limit: ":"Exceeds your time limit: ")+ (p.result.minutes/60).toFixed(2)+"h required / "+challenge.timeLimitHours+"h allowed</b></p>";}else html+='<p class="muted">Fastest-mode estimate: no user time limit was set.</p>';
    html+='<h4>Required actions</h4><div class="tablewrap"><table><thead><tr><th>STEP</th><th>RESOURCE</th><th>QUANTITY</th><th>TIME (MIN)</th><th>CASH</th><th>PRODUCTION SITE</th></tr></thead><tbody>'+p.steps.map((x,i)=>'<tr><td>'+(i+1)+' · '+x.kind.toUpperCase()+'</td><td>'+esc(x.product)+'</td><td>'+Number(x.qty.toFixed(3))+'</td><td>'+x.time.toFixed(2)+'</td><td>'+x.cash.toFixed(2)+'</td><td>'+esc(x.building||"—")+'</td></tr>').join("")+'</tbody></table></div>';
   }else html='<p class="muted">SIMCOMPASS could not find a complete route using the current inventory, market and owned-building setup.</p>';
   if(p?.issues?.length)html+='<ul class="muted">'+p.issues.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>';
@@ -250,7 +251,7 @@ $("challengeForm").onsubmit=e=>{
  }else{
   $("resultTitle").textContent="Challenge captured · specialised solver required";
   html='<div class="objective-summary"><span class="eyebrow">OBJECTIVE TYPE</span><h2>'+esc(type.replace("_"," ").toUpperCase())+'</h2><p>'+esc(challenge.description||"No detailed success condition entered.")+'</p></div>';
-  html+='<div class="kv"><span>Challenge time limit</span><b>'+esc(challenge.deadline||"Not specified")+'</b></div><div class="kv"><span>Starting cash</span><b>'+(budget===null?"Not entered":budget.toLocaleString())+'</b></div>';
+  html+='<div class="kv"><span>Your planning time limit</span><b>'+esc(challenge.timeLimitHours??"Fastest possible")+'</b></div><div class="kv"><span>Starting cash</span><b>'+(budget===null?"Not entered":budget.toLocaleString())+'</b></div>';
   if(challenge.extraObjectives.length)html+='<h4>Additional objectives</h4><ol>'+challenge.extraObjectives.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ol>';
   html+='<p class="muted">This objective has been saved in a structured format. A valid optimiser needs the exact in-game rules, scoring formula, prerequisites and completion conditions for this objective type. SIMCOMPASS will not substitute a product-production plan or invent those mechanics.</p>';
   html+='<p class="engine-disclaimer">Next engine modules: objective-specific rule models, dependency graph, feasibility checks, action scheduler, cashflow simulation and multi-objective scoring.</p>';
