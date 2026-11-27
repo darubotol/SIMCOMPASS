@@ -138,7 +138,7 @@ function plan(target,qty,objective,budget=null,freePlots=0){
     const ownStart=Math.max(targetInputTime,buildMaterialTime+buildTime);
     ownTime=getBoostedDuration(runs*Number(recipe.minutes||0),ownStart,"production");
     const totalTime=ownStart+ownTime;
-    choices.push({time:totalTime,cash:depCash+buildCash,state:branch,steps:[...steps,{kind:"make",product,qty:runs*outputPerRun*option.capacity,time:ownTime,cash:0,building:recipe.building,level:building.level,buildingCapacity:option.capacity,runs}],issues});
+    choices.push({time:totalTime,cash:depCash+buildCash,state:branch,steps:[...steps,{kind:"make",product,qty:runs*outputPerRun*option.capacity,time:ownTime,cash:0,building:recipe.building,level:option.build?(option.build.kind==="upgrade"?(Number(building.level)||1)+1:1):building.level,buildingCapacity:option.capacity,runs}],issues});
    }
   }
   return choices;
@@ -155,7 +155,7 @@ function plan(target,qty,objective,budget=null,freePlots=0){
  if(best.steps.some(x=>x.kind==="build"||x.kind==="upgrade"))issues.push("Building construction/upgrades are included using verified base time and material records. Shared construction-queue contention and challenge-specific construction modifiers still need in-game validation.");
  if(best.steps.some(x=>x.kind==="scrap"))issues.push("Scrapping is modelled from the published FAQ salvage rule (base construction materials × building level). Confirm that the game permits scrapping each selected building and verify the in-game refund before acting.");
  if(scrapable.length>6)issues.push("More than six buildings were marked scrap-eligible; the planner tested each individual scrap and the no-scrap route, not every combination.");
- if(!db.challenge?.freePlots)issues.push("No free building plots were entered; construction alternatives were not considered.");
+ if(!Number(freePlots))issues.push("No free building plots were entered; new-building construction alternatives were not considered (upgrades remain eligible).");
  return{result:{minutes:best.time,cost:best.cash,endingCash:budget===null?null:budget-best.cash},missing:[],issues,steps:best.steps};
 }
 function syncCapturedChallengeFeeds(){
