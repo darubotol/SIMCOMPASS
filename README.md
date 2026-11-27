@@ -41,9 +41,9 @@ The planner does not use the game challenge expiry timestamp as a planning deadl
 
 The challenge model can record product delivery, revenue, profit, company value, research, construction/upgrades, assets, contracts, multi-objective challenges and custom conditions. This is an extensible objective schema, not a claim that every objective solver is already complete.
 
-**Implemented solver:** first-stage product-delivery route estimation using bundled recipes, user-owned building slots, starting stock, market quantities/prices and entered market lead times. It compares production routes and market sourcing.
+**Current solver scope:** product-delivery route estimation using bundled recipes, starting stock, entered/captured prices, building counts and levels, available plots, one-step construction/upgrade options, optional user-marked scrapping, and configured production/construction boost windows. It compares direct market sourcing with production routes and evaluates the remaining quantity when the captured challenge progress matches the entered target.
 
-**Not yet implemented:** complete solvers for revenue/profit/company value/research/contracts/custom challenge mechanics; global shared-building scheduling; construction decisions and construction boosts; exact boost-window scheduling/stacking; retail sales and cashflow simulation; taxes/fees; complete Challenge Realm rule variations; and a mathematically proven global optimum. These must be added and tested against observed game outcomes before strategy results are described as optimal.
+**Still incomplete:** global shared-building scheduling across simultaneous product chains; complete demolition/refund eligibility validation; multiple sequential upgrades or multiple new buildings per route; retail sales and cash-flow integration; non-product objective solvers (revenue, profit, company value, research, contracts and custom challenge mechanics); taxes/fees; full market order-book depth; and Challenge Realm-specific modifier validation. The planner is an estimate, not a mathematically proven global optimum.
 
 ## Safety and account access
 
@@ -57,7 +57,7 @@ SIMCOMPASS is an independent community project and is not affiliated with or end
 
 ## Optional Chrome connector (read-only)
 
-A Manifest V3 extension is provided in `simcompass-chrome-connector/`. Version 1.2.0 passively observes successful same-origin GET responses that the signed-in game page itself has already requested. It imports the Challenge Realm buildings payload and records API endpoint paths, top-level JSON keys and a limited structural outline. **Discovery metadata only** is collected for other endpoints; it does not copy their private response values. It does not issue API requests, read cookie values, access passwords/tokens, or send game-changing requests.
+A Manifest V3 extension is provided in `simcompass-chrome-connector/`. Version 1.2.0 passively observes successful same-origin GET responses that the signed-in game page itself has already requested. It imports the Challenge Realm buildings payload and selected allowlisted Challenge Realm values (challenge, resources, market ticker and company summary), plus API endpoint structures. Authentication and security endpoints are excluded; sensitive keys are recursively redacted. It does not issue API requests, read cookie values, access passwords/tokens, or send game-changing requests.
 
 The endpoint map is used to identify the real game responses for cash, warehouse inventory and market data before adding explicit, tested field mappings. This avoids guessing endpoint names or accidentally treating unrelated company data as Challenge Realm data. The game API is undocumented and unsupported, and its published guide warns that it can change without notice. All observed responses are captured locally in the browser.
 
